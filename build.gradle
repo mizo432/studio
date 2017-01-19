@@ -61,6 +61,7 @@ subprojects {
     }
 
     dependencies {
+        compile('org.springframework.boot:spring-boot-starter')
         compile('org.springframework.boot:spring-boot-starter-aop')
         compile('org.springframework.boot:spring-boot-starter-cache')
         compile('org.flywaydb:flyway-core')
