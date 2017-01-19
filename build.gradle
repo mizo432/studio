@@ -69,8 +69,8 @@ subprojects {
         compile('org.springframework.boot:spring-boot-starter-mail')
         compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.0')
         compile('org.springframework.boot:spring-boot-starter-security')
-        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
         compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
         runtime('org.springframework.boot:spring-boot-devtools')
         runtime('mysql:mysql-connector-java')
