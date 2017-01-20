@@ -15,10 +15,10 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'springbootmultiprojectdemo'
+    baseName = 'studio'
     version = '1.0.0-SNAPSHOT'
 }
 
