@@ -1,17 +1,10 @@
-jar {
-    baseName = 'core'
-    version = '0.0.1'
-}
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'spring-boot'
 
 dependencies {
+    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.0')
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("mysql:mysql-connector-java")
     compile project(":general")
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile('org.assertj:assertj-guava:3.1.0')

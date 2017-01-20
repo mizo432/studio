@@ -1,7 +1,5 @@
-rootProject.name='studio'
 include 'web'
 include 'core'
 include 'general'
 include 'ddd'
 include 'venus-utils'
-

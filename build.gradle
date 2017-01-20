@@ -14,33 +14,45 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'springbootmultiprojectdemo'
+    version = '1.0.0-SNAPSHOT'
+}
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
     jcenter()
 }
 
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile('org.springframework.boot:spring-boot-starter-cache')
+    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.0')
+    compile("org.springframework.boot:spring-boot-starter-batch")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile('org.flywaydb:flyway-core')
+    compile('org.springframework.boot:spring-boot-starter-integration')
+    compile('org.springframework.boot:spring-boot-starter-mail')
+    runtime('org.springframework.boot:spring-boot-devtools')
+    runtime('mysql:mysql-connector-java')
+    compile project(":venus-utils")
+    compile project(":ddd")
+    compile project(":general")
+    compile project(":core")
+    compile project(":web")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
 
-subprojects {
-    buildscript {
-        ext {
-            springBootVersion = '1.4.3.RELEASE'
-        }
-        repositories {
-            mavenCentral()
-            jcenter()
-        }
-        dependencies {
-            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        }
-    }
-
-
+allprojects {
     apply plugin: 'java'
-    apply plugin: 'spring-boot'
-    apply plugin: 'idea'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -50,33 +62,17 @@ subprojects {
         jcenter()
     }
 
-    configurations {
-        provided
+    tasks.withType(JavaCompile) {
+        options.incremental = true
     }
+}
+subprojects {
+    group = 'jp.or.venuspj'
+    version = '1.0.0'
+}
 
-    sourceSets {
-        main.compileClasspath += configurations.provided
-        test.compileClasspath += configurations.provided
-        test.runtimeClasspath += configurations.provided
-    }
-
-    dependencies {
-        compile('org.springframework.boot:spring-boot-starter')
-        compile('org.springframework.boot:spring-boot-starter-aop')
-        compile('org.springframework.boot:spring-boot-starter-cache')
-        compile('org.flywaydb:flyway-core')
-        compile('org.springframework.boot:spring-boot-starter-integration')
-        compile('org.springframework.boot:spring-boot-starter-mail')
-        compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.0')
-        compile('org.springframework.boot:spring-boot-starter-security')
-        compile('org.springframework.boot:spring-boot-starter-web')
-        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-
-        runtime('org.springframework.boot:spring-boot-devtools')
-        runtime('mysql:mysql-connector-java')
-        testCompile('org.springframework.boot:spring-boot-starter-test')
-    }
-
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
 }
 
 task incrementVersionCode << {
