@@ -1,6 +1,6 @@
 package jp.or.venuspj.ddd.model.repository;
 
-import jp.or.venuspj.ddd.model.entity.Identifier;
+import jp.or.venuspj.ddd.model.entity.EntityIdentifier;
 
-public interface Repository<T,ID extends Identifier<T>> {
+public interface Repository<T,ID extends EntityIdentifier<T>> {
 }

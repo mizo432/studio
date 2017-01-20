@@ -5,7 +5,7 @@ import jp.or.venuspj.util.objects2.Objects2;
 
 import java.time.YearMonth;
 
-public class RecordYearMonth implements Value<RecordYearMonth> {
+public class RecordYearMonth implements Value {
     private YearMonth value;
 
     RecordYearMonth(){
@@ -27,7 +27,6 @@ public class RecordYearMonth implements Value<RecordYearMonth> {
                 .toString();
     }
 
-    @Override
     public boolean sameValueAs(RecordYearMonth other) {
         if(Objects2.isNull(other)) return false;
         return value.equals(other.value);

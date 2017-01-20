@@ -1,11 +1,12 @@
 package jp.or.venuspj.studio.core.fundamentals.moment.recordmoment;
 
+import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;
 import jp.or.venuspj.studo.general.fundamentals.datetime.RecordDateTime;
 import jp.or.venuspj.studo.general.model.relationship.party.person.Person;
 import jp.or.venuspj.util.objects2.Objects2;
 
-public class RecordMoment implements Value<RecordMoment> {
+public class RecordMoment implements Value,DecidableSameValueAs<RecordMoment> {
     private RecordDateTime recordDateTime;
     private Person person;
 
@@ -34,4 +35,5 @@ public class RecordMoment implements Value<RecordMoment> {
                 .omitNullValues()
                 .toString();
     }
+
 }

@@ -1,5 +1,8 @@
 package jp.or.venuspj.studo.general.model.relationship.thingrole.chargegroup;
 
+import jp.or.venuspj.ddd.model.entity.EntityIdentifier;
+import jp.or.venuspj.ddd.model.value.DecidableSameIdentifierAs;
+import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;
 import jp.or.venuspj.studo.general.fundamentals.Caption;
 import jp.or.venuspj.studo.general.fundamentals.name.Name;
@@ -12,7 +15,7 @@ import jp.or.venuspj.util.objects2.Objects2;
 
 import java.util.Optional;
 
-public class ChargeGroupImpl implements ChargeGroup, Value<ChargeGroup> {
+public class ChargeGroupImpl implements ChargeGroup, Value, DecidableSameIdentifierAs<ChargeGroup>,DecidableSameValueAs<ChargeGroup> {
     ChargeGroupId chargeGroupId;
     Name name;
     Caption caption;
@@ -21,6 +24,7 @@ public class ChargeGroupImpl implements ChargeGroup, Value<ChargeGroup> {
     PostAddressee invoicePostAddressee;
     Optional<PartnerBankAccount> partnerBankAccountOptional;
     Optional<OurBankAccount> ourBankAccountOptional;
+
     ChargeGroupImpl() {
     }
 
@@ -38,12 +42,12 @@ public class ChargeGroupImpl implements ChargeGroup, Value<ChargeGroup> {
     public String toString() {
         return Objects2
                 .toStringHelper(this)
-                .add("chargeGroupId",chargeGroupId)
-                .add("name",name)
-                .add("caption",caption)
-                .add("invoicePostAddressee",invoicePostAddressee)
-                .add("partnerBankAccountOptional",partnerBankAccountOptional)
-                .add("ourBankAccountOptional",ourBankAccountOptional)
+                .add("chargeGroupId", chargeGroupId)
+                .add("name", name)
+                .add("caption", caption)
+                .add("invoicePostAddressee", invoicePostAddressee)
+                .add("partnerBankAccountOptional", partnerBankAccountOptional)
+                .add("ourBankAccountOptional", ourBankAccountOptional)
                 .omitNullValues()
                 .toString();
     }
@@ -62,5 +66,15 @@ public class ChargeGroupImpl implements ChargeGroup, Value<ChargeGroup> {
     @Override
     public ChargeGroupId chargeGroupId() {
         return chargeGroupId;
+    }
+
+    @Override
+    public EntityIdentifier<ChargeGroup> getIdentifier() {
+        return null;
+    }
+
+    @Override
+    public ChargeGroup clone() {
+        return null;
     }
 }

@@ -1,11 +1,12 @@
 package jp.or.venuspj.studo.general.fundamentals.datetime;
 
+import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;
 import jp.or.venuspj.util.objects2.Objects2;
 
 import java.time.LocalDateTime;
 
-public class RecordDateTime implements Value<RecordDateTime> {
+public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTime> {
     private LocalDateTime value;
 
     RecordDateTime() {

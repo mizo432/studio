@@ -1,11 +1,12 @@
 package jp.or.venuspj.studio.core.fundamentals.moment.momentbychargegroup;
 
+import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;
 import jp.or.venuspj.studo.general.fundamentals.datetime.RecordYearMonth;
 import jp.or.venuspj.studo.general.model.relationship.thingrole.chargegroup.ChargeGroup;
 import jp.or.venuspj.util.objects2.Objects2;
 
-public class MomentByChargeGroup implements Value<MomentByChargeGroup> {
+public class MomentByChargeGroup implements Value ,DecidableSameValueAs<MomentByChargeGroup> {
     private ChargeGroup chargeGroup;
     private RecordYearMonth recordYearMonth;
 
@@ -48,4 +49,5 @@ public class MomentByChargeGroup implements Value<MomentByChargeGroup> {
     public int hashCode() {
         return Objects2.hash(recordYearMonth, chargeGroup);
     }
+
 }

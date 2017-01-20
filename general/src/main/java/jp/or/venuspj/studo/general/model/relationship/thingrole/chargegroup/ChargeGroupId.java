@@ -1,9 +1,10 @@
 package jp.or.venuspj.studo.general.model.relationship.thingrole.chargegroup;
 
+import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;
 import jp.or.venuspj.util.objects2.Objects2;
 
-public class ChargeGroupId implements Value<ChargeGroupId> {
+public class ChargeGroupId implements Value,DecidableSameValueAs<ChargeGroupId> {
     private Integer value;
 
     ChargeGroupId() {
