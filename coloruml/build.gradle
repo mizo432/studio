@@ -5,9 +5,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("mysql:mysql-connector-java")
-    compile project(":coloruml")
     compile project(":ddd")
-    compile("com.google.guava:guava:20.0")
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile('org.assertj:assertj-guava:3.1.0')
 }

@@ -15,26 +15,29 @@ import jp.or.venuspj.util.objects2.Objects2;
 
 import java.util.Optional;
 
-public class ChargeGroupImpl implements ChargeGroup, Value, DecidableSameIdentifierAs<ChargeGroup>,DecidableSameValueAs<ChargeGroup> {
-    ChargeGroupId chargeGroupId;
-    Name name;
-    Caption caption;
-    PartnerBases partnerBases;
-    Partner partner;
-    PostAddressee invoicePostAddressee;
-    Optional<PartnerBankAccount> partnerBankAccountOptional;
-    Optional<OurBankAccount> ourBankAccountOptional;
+public class ChargeGroupImpl implements ChargeGroup, Value, DecidableSameIdentifierAs<ChargeGroup>, DecidableSameValueAs<ChargeGroup> {
+    protected ChargeGroupId chargeGroupId;
+    protected Name name;
+    protected Caption caption;
+    protected PartnerBases partnerBases;
+    protected Partner partner;
+    protected PostAddressee invoicePostAddressee;
+    protected Optional<PartnerBankAccount> partnerBankAccountOptional;
+    protected Optional<OurBankAccount> ourBankAccountOptional;
 
     ChargeGroupImpl() {
     }
 
-    public ChargeGroupImpl(ChargeGroupId aChargeGroupId, Name aName, PartnerBases aPartnerBases, Partner aPartner, PostAddressee anInvoicePostAddressee, Caption aCaption) {
+    public ChargeGroupImpl(ChargeGroupId aChargeGroupId, Name aName, PartnerBases aPartnerBases, Partner aPartner, PostAddressee anInvoicePostAddressee, Caption aCaption, Optional<PartnerBankAccount> aPartnerBankAccountOptional,
+                           Optional<OurBankAccount> anOurBankAccountOptional) {
         chargeGroupId = aChargeGroupId;
         name = aName;
         caption = aCaption;
         invoicePostAddressee = anInvoicePostAddressee;
         partnerBases = aPartnerBases;
         partner = aPartner;
+        partnerBankAccountOptional = aPartnerBankAccountOptional;
+        ourBankAccountOptional = anOurBankAccountOptional;
 
     }
 
@@ -75,6 +78,15 @@ public class ChargeGroupImpl implements ChargeGroup, Value, DecidableSameIdentif
 
     @Override
     public ChargeGroup clone() {
-        return null;
+        return new ChargeGroupImpl(chargeGroupId, name, partnerBases, partner, invoicePostAddressee, caption, partnerBankAccountOptional, ourBankAccountOptional);
     }
+
+    protected PartnerBases partnerBases() {
+        return partnerBases;
+    }
+
+    protected Partner partner() {
+        return partner;
+    }
+
 }

@@ -1,4 +1,4 @@
-package jp.or.venuspj.studio.core.model;
+package jp.or.venuspj.studio.core.model.player;
 
 import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;
