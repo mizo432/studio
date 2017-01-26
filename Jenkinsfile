@@ -5,4 +5,7 @@ node {
    stage 'clean build'
    sh './gradlew clean build'
 
+// JUnitテストレポートを保存
+   step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/*.xml'])
+
 }
