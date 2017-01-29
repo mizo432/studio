@@ -6,13 +6,14 @@ import jp.or.venuspj.util.objects2.Objects2;
 /**
  * 単純な名前
  */
-public class SimpleName implements Name,StringValue {
+public class SimpleName implements Name, StringValue {
 
     private String value;
 
-    SimpleName(){}
+    SimpleName() {
+    }
 
-    public SimpleName(String aValue){
+    public SimpleName(String aValue) {
         value = aValue;
 
     }
