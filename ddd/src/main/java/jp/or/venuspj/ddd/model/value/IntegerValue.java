@@ -1,4 +1,5 @@
 package jp.or.venuspj.ddd.model.value;
 
-public class IntegerValue {
+public interface IntegerValue extends ValueObject {
+    Integer asInteger();
 }

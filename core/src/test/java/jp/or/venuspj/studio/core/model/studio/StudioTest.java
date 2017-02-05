@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  */
 public class StudioTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(StudioTest.class);
-    public class ToStringTest {
+    public static class ToStringTest {
         @Test
         public void Test01() throws Exception {
             Studio target = new StudioBuilder().withName(new SimpleName("LionHouseStudio")).build();

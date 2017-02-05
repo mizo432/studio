@@ -2,7 +2,7 @@ import java.util.regex.Pattern
 
 buildscript {
     ext {
-        springBootVersion = '1.4.3.RELEASE'
+        springBootVersion = '1.5.1.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -13,7 +13,7 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
+apply plugin: 'base'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
@@ -34,8 +34,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile('org.springframework.boot:spring-boot-starter-cache')
-    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.0')
-    compile("org.springframework.boot:spring-boot-starter-batch")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile('org.flywaydb:flyway-core')
@@ -49,10 +47,22 @@ dependencies {
     compile project(":core")
     compile project(":web")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+
 }
 
 allprojects {
     apply plugin: 'java'
+
+    ext {
+        springBootVersion = '1.5.1.RELEASE+'
+        guavaVersion = '21.0+'
+        mybatisTypeHandlerVersion = '1.0.2+'
+        mybatisBootVersion = '1.2.0+'
+        junitVersion = '4.12+'
+        assertJVersion = '3.1.0+'
+        h2dbVersion = '1.4.193+'
+        springStateMachineCoreVersion = '1.2.1.RELEASE'
+    }
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
