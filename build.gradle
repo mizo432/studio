@@ -58,10 +58,12 @@ allprojects {
         guavaVersion = '21.0+'
         mybatisTypeHandlerVersion = '1.0.2+'
         mybatisBootVersion = '1.2.0+'
-        junitVersion = '4.12+'
-        assertJVersion = '3.1.0+'
+        assertJVersion = '3.6.2+'
         h2dbVersion = '1.4.193+'
         springStateMachineCoreVersion = '1.2.1.RELEASE'
+        logbackVersion='1.1.9+'
+        slf4jVersion='1.7.22+'
+        junitDevVersion="4.11+"
     }
 
     sourceCompatibility = 1.8

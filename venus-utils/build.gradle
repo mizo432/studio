@@ -1,14 +1,14 @@
 dependencies {
-    compile("com.google.guava:guava:${guavaVersion}")
-    testCompile("junit:junit:${junitVersion}")
-    testCompile("org.assertj:assertj-guava:${assertJVersion}")
+// https://mvnrepository.com/artifact/com.google.guava/guava
+   compile("com.google.guava:guava:${guavaVersion}")
+// https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testCompile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
 // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-    testCompile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.22'
+    testCompile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
 // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
-    testRuntime group: 'ch.qos.logback', name: 'logback-core', version: '1.1.9'
+    testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
 // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
-    testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.9'
-
-
-
+    testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+// https://mvnrepository.com/artifact/junit/junit-dep
+    testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
 }

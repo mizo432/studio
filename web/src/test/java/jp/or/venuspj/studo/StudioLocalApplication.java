@@ -1,14 +1,12 @@
-package jp.or.venuspj.studio;
+package jp.or.venuspj.studo;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.util.ClassUtils;
 
-@SpringBootApplication
-public class StudioApplication {
+public class StudioLocalApplication {
 
     public static void main(String[] args) {
-        final SpringApplication springApplication = new SpringApplication(StudioApplication.class);
+        final SpringApplication springApplication = new SpringApplication(StudioLocalApplication.class);
         if (isDeveloping()) { // ローカル開発環境では
             springApplication.setAdditionalProfiles("development"); // developing プロファイルを追加
         }

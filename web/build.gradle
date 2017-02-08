@@ -12,8 +12,10 @@ dependencies {
     compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"
     compile("com.google.guava:guava:${guavaVersion}")
     runtime("mysql:mysql-connector-java")
-    testCompile("junit:junit:${junitVersion}")
-    testCompile("org.assertj:assertj-guava:${assertJVersion}")
+// https://mvnrepository.com/artifact/org.assertj/assertj-core
+    compile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
 // https://mvnrepository.com/artifact/com.h2database/h2
     testRuntime group: 'com.h2database', name: 'h2', version: "${h2dbVersion}"
+// https://mvnrepository.com/artifact/junit/junit-dep
+    testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
 }
