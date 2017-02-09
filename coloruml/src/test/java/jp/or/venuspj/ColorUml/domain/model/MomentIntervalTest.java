@@ -1,10 +1,8 @@
-package jp.or.venuspj.ColorUml.domain.model.momentInterval;
+package jp.or.venuspj.ColorUml.domain.model;
 
 import com.google.common.collect.Lists;
 import jp.or.venuspj.ColorUml.domain.fundamentals.DateOrDatetimeOrInterval.DateOrDatetimeOrInterval;
-import jp.or.venuspj.ColorUml.domain.model.MomentInterval;
-import jp.or.venuspj.ColorUml.domain.model.MomentIntervalDetail;
-import jp.or.venuspj.ColorUml.domain.model.MomentIntervalDetails;
+import jp.or.venuspj.ColorUml.domain.model.momentInterval.MomentIntervalBuilder;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by mizoguchi on 2017/02/04.
  */
-public class MomentIntervalImplTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MomentIntervalImplTest.class);
+public class MomentIntervalTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MomentIntervalTest.class);
 
     public static class ToStringTest {
 
@@ -31,7 +29,7 @@ public class MomentIntervalImplTest {
 
         @Test
         public void test02() throws Exception {
-            MomentInterval target = MomentIntervalImplTest.createDummy();
+            MomentInterval target = MomentIntervalTest.createDummy();
             LOGGER.info("target" + target.toString());
             assertThat(target).isNotNull();
 

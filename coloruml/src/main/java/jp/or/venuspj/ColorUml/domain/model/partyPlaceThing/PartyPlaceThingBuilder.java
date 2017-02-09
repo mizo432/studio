@@ -4,7 +4,7 @@ import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
 import jp.or.venuspj.ColorUml.domain.model.Description;
 import jp.or.venuspj.ColorUml.domain.model.PartyPlaceThing;
 import jp.or.venuspj.ColorUml.domain.model.Roles;
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.Place.Address;
+import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.place.Address;
 import jp.or.venuspj.util.builder.ObjectBuilder;
 import jp.or.venuspj.util.objects2.Objects2;
 

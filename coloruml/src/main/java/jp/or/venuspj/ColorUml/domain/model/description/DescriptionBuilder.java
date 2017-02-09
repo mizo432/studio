@@ -58,6 +58,12 @@ public class DescriptionBuilder extends ObjectBuilder<Description, DescriptionBu
 
     @Override
     protected DescriptionBuilder newInstance() {
-        return newInstance();
+        return new DescriptionBuilder();
+    }
+
+    public DescriptionBuilder withNote(String aNote) {
+        if (Objects2.isNull(aNote)) return getThis();
+        addConfigurator(builder -> builder.note = new Note(aNote));
+        return getThis();
     }
 }

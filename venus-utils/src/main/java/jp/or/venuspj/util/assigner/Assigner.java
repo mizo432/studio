@@ -37,10 +37,10 @@ public class Assigner {
      * </pre>
      * <pre>
      * 利用方法
-     * Person person = personMapper.findById(personId);
-     * AdderssId AdderssId = person.getAddress().getAddressId()
+     * Person party = personMapper.findById(personId);
+     * AdderssId AdderssId = party.getAddress().getAddressId()
      * Address address = addressRepository.findById(personId);
-     * Assginer.assignTo(address, person.getAddress());
+     * Assginer.assignTo(address, party.getAddress());
      * </pre>
      * @param sender 送り元
      * @param destination 送り先
@@ -70,10 +70,10 @@ public class Assigner {
      * </pre>
      * <pre>
      * 利用方法
-     * Person person = personMapper.findById(personId);
-     * AdderssId AdderssId = person.getAddress().getAddressId()
+     * Person party = personMapper.findById(personId);
+     * AdderssId AdderssId = party.getAddress().getAddressId()
      * Optional<Address> addressOptional = addressRepository.findById(personId);
-     * Assginer.assignTo(addressOptional, person.getAddress());
+     * Assginer.assignTo(addressOptional, party.getAddress());
      * </pre>
      * @param senderOptional 送り元
      * @param destination 送り先

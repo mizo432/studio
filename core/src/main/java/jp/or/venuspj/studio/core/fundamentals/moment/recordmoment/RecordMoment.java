@@ -31,7 +31,7 @@ public class RecordMoment implements Value,DecidableSameValueAs<RecordMoment> {
         return Objects2
                 .toStringHelper(this)
                 .add("recordDateTime", recordDateTime)
-                .add("person", person)
+                .add("party", person)
                 .omitNullValues()
                 .toString();
     }

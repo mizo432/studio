@@ -5,17 +5,17 @@ import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
 import jp.or.venuspj.ColorUml.domain.model.Description;
 import jp.or.venuspj.ColorUml.domain.model.PartyPlaceThing;
 import jp.or.venuspj.ColorUml.domain.model.Roles;
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.Place.Address;
+import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.place.Address;
 import jp.or.venuspj.util.objects2.Objects2;
 
 /**
  */
 public class PartyPlaceThingImpl implements PartyPlaceThing {
-    SerialNumber serialNumber;
-    Name name;
-    Address address;
-    Description description;
-    Roles roles;
+    protected SerialNumber serialNumber;
+    protected Name name;
+    protected Address address;
+    protected Description description;
+    protected Roles roles;
 
     protected PartyPlaceThingImpl() {
 

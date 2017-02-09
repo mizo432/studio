@@ -56,6 +56,6 @@ public class StudioPageAggregateBuilder extends ObjectBuilder<StudioPageAggregat
 
     @Override
     protected StudioPageAggregateBuilder newInstance() {
-        return newInstance();
+        return new StudioPageAggregateBuilder();
     }
 }
