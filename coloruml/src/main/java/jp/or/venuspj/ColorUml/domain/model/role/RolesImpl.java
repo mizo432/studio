@@ -8,19 +8,18 @@ import java.util.List;
 
 /**
  */
-public class RolesImpl<R extends Role<R>> implements Roles<R> {
-    private List<R> list = Lists.newArrayList();
+public class RolesImpl implements Roles {
+    private List<Role> list = Lists.newArrayList();
 
     RolesImpl() {
     }
 
-    RolesImpl(List<R> aList) {
+    public RolesImpl(List<Role> aList) {
         list.addAll(aList);
     }
 
     @Override
-    public List<R> asList() {
-
+    public List<Role> asList() {
         return list;
     }
 }

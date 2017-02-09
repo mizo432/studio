@@ -1,5 +1,10 @@
 package jp.or.venuspj.ColorUml.domain.model;
 
-public interface Description<D extends Description<D>> {
+/**
+ * カタログ的なデータ
+ * <pre>商品の諸元など</pre>
+ *
+ */
+public interface Description {
 
 }

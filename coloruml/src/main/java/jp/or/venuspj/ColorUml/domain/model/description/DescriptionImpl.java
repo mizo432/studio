@@ -4,14 +4,13 @@ import com.google.common.base.MoreObjects;
 import jp.or.venuspj.ColorUml.domain.fundamentals.Note.Note;
 import jp.or.venuspj.ColorUml.domain.model.Assess;
 import jp.or.venuspj.ColorUml.domain.model.Description;
-import jp.or.venuspj.ColorUml.domain.model.Ppt;
-import jp.or.venuspj.ColorUml.domain.model.Ppts;
+import jp.or.venuspj.ColorUml.domain.model.PartyPlaceThings;
 import jp.or.venuspj.util.objects2.Objects2;
 
 import java.util.Optional;
 
-public class DescriptionImpl<PPT extends Ppt<PPT>,D extends DescriptionImpl<PPT,D>> implements Description<D> {
-    Ppts<PPT> partyPlaceThings;
+public class DescriptionImpl implements Description {
+    PartyPlaceThings partyPlaceThings;
 
     Note note;
 
@@ -20,9 +19,10 @@ public class DescriptionImpl<PPT extends Ppt<PPT>,D extends DescriptionImpl<PPT,
     DescriptionImpl() {
     }
 
-    DescriptionImpl(Note note, Ppts<PPT> aPartyPlaceThings, Optional<Assess> anAssessOptional) {
+    DescriptionImpl(Note aNote, PartyPlaceThings aPartyPlaceThings, Optional<Assess> anAssessOptional) {
         partyPlaceThings = aPartyPlaceThings;
         assessOptional = anAssessOptional;
+        note = aNote;
 
     }
 

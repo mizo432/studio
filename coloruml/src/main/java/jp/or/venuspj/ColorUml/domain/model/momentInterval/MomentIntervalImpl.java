@@ -3,18 +3,17 @@ package jp.or.venuspj.ColorUml.domain.model.momentInterval;
 import com.google.common.base.MoreObjects;
 import jp.or.venuspj.ColorUml.domain.fundamentals.DateOrDatetimeOrInterval.DateOrDatetimeOrInterval;
 import jp.or.venuspj.ColorUml.domain.model.MomentInterval;
-import jp.or.venuspj.ColorUml.domain.model.MomentIntervalDetail;
 import jp.or.venuspj.ColorUml.domain.model.MomentIntervalDetails;
 import jp.or.venuspj.util.objects2.Objects2;
 
-public class MomentIntervalImpl<MI extends MomentIntervalImpl<MI,MID>,MID extends MomentIntervalDetail<MID>> implements MomentInterval<MI> {
+public class MomentIntervalImpl implements MomentInterval {
     DateOrDatetimeOrInterval dateOrDatetimeOrInterval;
-    MomentIntervalDetails<MID> momentIntervalDetails;
+    MomentIntervalDetails momentIntervalDetails;
 
     MomentIntervalImpl() {
     }
 
-    public MomentIntervalImpl(DateOrDatetimeOrInterval aDateOrDatetimeOrInterval, MomentIntervalDetails<MID> aMomentIntervalDetails) {
+    public MomentIntervalImpl(DateOrDatetimeOrInterval aDateOrDatetimeOrInterval, MomentIntervalDetails aMomentIntervalDetails) {
         dateOrDatetimeOrInterval = aDateOrDatetimeOrInterval;
         momentIntervalDetails = aMomentIntervalDetails;
     }

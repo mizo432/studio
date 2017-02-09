@@ -2,7 +2,7 @@ package jp.or.venuspj.ColorUml.domain.model;
 
 import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
 import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.Place.Address;
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.PptBuilder;
+import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.PartyPlaceThingBuilder;
 import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.SerialNumber;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -16,8 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PptImplTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(PptImplTest.class);
 
-    public static <PPT extends Ppt<PPT>> PPT createDummy() {
-        return (PPT) new PptBuilder()
+    public static PartyPlaceThing createDummy() {
+        return new PartyPlaceThingBuilder()
                 .withSerialNumber(new SerialNumber(10))
                 .withName(new Name() {
                 })
@@ -30,7 +30,7 @@ public class PptImplTest {
     public static class ToStringTest {
         @Test
         public void test01() throws Exception {
-            Ppt target = new PptBuilder().build();
+            PartyPlaceThing target = new PartyPlaceThingBuilder().build();
             LOGGER.info("target:" + target);
             assertThat(target)
                     .isNotNull();
@@ -39,7 +39,7 @@ public class PptImplTest {
 
         @Test
         public void test02() throws Exception {
-            Ppt target = PptImplTest.createDummy();
+            PartyPlaceThing target = PptImplTest.createDummy();
             LOGGER.info("target:" + target);
             assertThat(target)
                     .isNotNull();

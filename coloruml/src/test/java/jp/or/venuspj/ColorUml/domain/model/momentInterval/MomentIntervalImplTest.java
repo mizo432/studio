@@ -23,7 +23,7 @@ public class MomentIntervalImplTest {
 
         @Test
         public void test01() throws Exception {
-            MomentInterval target = new MomentIntervalBuilder<>().build();
+            MomentInterval target = new MomentIntervalBuilder().build();
             LOGGER.info("target" + target.toString());
             assertThat(target).isNotNull();
 
@@ -40,13 +40,13 @@ public class MomentIntervalImplTest {
 
     }
 
-    public static <MI extends MomentInterval<MI>, MID extends MomentIntervalDetail<MID>> MI createDummy() {
-        return new MomentIntervalBuilder<MI, MID>()
+    public static MomentInterval createDummy() {
+        return new MomentIntervalBuilder()
                 .withDateOrDatetimeOrInterval(new DateOrDatetimeOrInterval() {
                 })
-                .withMomentIntervalDetails(new MomentIntervalDetails<MID>() {
+                .withMomentIntervalDetails(new MomentIntervalDetails() {
                     @Override
-                    public List<MID> asList() {
+                    public List<MomentIntervalDetail> asList() {
                         return Lists.newArrayList();
                     }
                 })

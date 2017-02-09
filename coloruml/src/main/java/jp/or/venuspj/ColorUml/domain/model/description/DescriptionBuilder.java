@@ -3,8 +3,7 @@ package jp.or.venuspj.ColorUml.domain.model.description;
 import jp.or.venuspj.ColorUml.domain.fundamentals.Note.Note;
 import jp.or.venuspj.ColorUml.domain.model.Assess;
 import jp.or.venuspj.ColorUml.domain.model.Description;
-import jp.or.venuspj.ColorUml.domain.model.Ppt;
-import jp.or.venuspj.ColorUml.domain.model.Ppts;
+import jp.or.venuspj.ColorUml.domain.model.PartyPlaceThings;
 import jp.or.venuspj.util.builder.ObjectBuilder;
 import jp.or.venuspj.util.objects2.Objects2;
 
@@ -12,21 +11,21 @@ import java.util.Optional;
 
 /**
  */
-public class DescriptionBuilder<D extends Description<D>, PPT extends Ppt<PPT>> extends ObjectBuilder<D, DescriptionBuilder<D,PPT>> {
+public class DescriptionBuilder extends ObjectBuilder<Description, DescriptionBuilder> {
 
-    Ppts<PPT> partyPlaceThings;
+    PartyPlaceThings partyPlaceThings;
     Note note;
     Optional<Assess> assessOptional = Optional.empty();
 
     @Override
-    protected void apply(D vo, DescriptionBuilder<D,PPT> builder) {
+    protected void apply(Description vo, DescriptionBuilder builder) {
         DescriptionImpl concreteVo = (DescriptionImpl) vo;
         builder.withNote(concreteVo.note);
         builder.withAssessOptional(concreteVo.assessOptional);
         builder.withPartyPlaceThings(concreteVo.partyPlaceThings);
     }
 
-    public DescriptionBuilder withPartyPlaceThings(Ppts<PPT> aPartyPlaceThings) {
+    public DescriptionBuilder withPartyPlaceThings(PartyPlaceThings aPartyPlaceThings) {
         if (Objects2.isNull(aPartyPlaceThings)) return getThis();
         addConfigurator(builder -> builder.partyPlaceThings = aPartyPlaceThings);
         return getThis();
@@ -39,15 +38,15 @@ public class DescriptionBuilder<D extends Description<D>, PPT extends Ppt<PPT>> 
         return getThis();
     }
 
-    private DescriptionBuilder withNote(Note aNote) {
+    public DescriptionBuilder withNote(Note aNote) {
         if (Objects2.isNull(aNote)) return getThis();
         addConfigurator(builder -> builder.note = aNote);
         return getThis();
     }
 
     @Override
-    protected D createValueObject() {
-        return (D) new DescriptionImpl(note,
+    protected Description createValueObject() {
+        return new DescriptionImpl(note,
                 partyPlaceThings,
                 assessOptional);
     }
