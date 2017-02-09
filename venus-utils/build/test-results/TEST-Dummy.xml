@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Dummy" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-02-04T06:43:36" hostname="mizokuchi-no-MacBook-Pro.local" time="0.071">
-  <properties/>
-  <testcase name="aaaa" classname="Dummy" time="0.071"/>
-  <system-out><![CDATA[15:43:36.742 [Test worker] INFO Dummy - JapaneseDate.now():Japanese Heisei 29-02-04
-15:43:36.761 [Test worker] INFO Dummy - JapaneseDate.now():平成17年02月04日
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

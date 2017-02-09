@@ -1,0 +1,4 @@
+app.ui.title: Application Name
+
+spring:
+  profiles.active: unit
