@@ -5,11 +5,19 @@ buildscript {
         springBootVersion = '1.5.1.RELEASE'
     }
     repositories {
+        maven{
+            url 'http://www.venus-pj.org/artifactory/plugins-release'
+        }
+        maven{
+            url 'https://plugins.gradle.org/m2/'
+        }
         mavenCentral()
         jcenter()
+
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.13"
     }
 }
 
@@ -52,6 +60,7 @@ dependencies {
 
 allprojects {
     apply plugin: 'java'
+    apply plugin: 'com.jfrog.artifactory'
 
     ext {
         springBootVersion = '1.5.1.RELEASE+'
@@ -70,6 +79,9 @@ allprojects {
     targetCompatibility = 1.8
 
     repositories {
+        maven {
+            url 'http://www.venus-pj.org/artifactory/plugins-release'
+        }
         mavenCentral()
         jcenter()
     }
@@ -102,3 +114,19 @@ task incrementVersionCode << {
     buildGradleFile.write(manifestContent)
 }
 
+artifactory {
+    publish {
+        repository {
+            repoKey = 'libs-release-local'
+            maven = true
+
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'libs-release'
+            maven = true
+
+        }
+    }
+}
