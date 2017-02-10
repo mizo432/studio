@@ -5,4 +5,6 @@ include 'ddd'
 include 'venus-utils'
 include 'coloruml'
 include 'fx-ui'
+include 'jnlp'
+include 'jnlp-servlet'
 

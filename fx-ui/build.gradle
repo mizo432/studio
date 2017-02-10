@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE'
@@ -8,7 +9,7 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -21,7 +22,10 @@ jar {
 
 dependencies {
     compile project(":venus-utils")
-    compile 'org.springframework.boot:spring-boot-starter'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
+    compile "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+// https://mvnrepository.com/artifact/javax.jnlp/jnlp
+    compile group: 'javax.jnlp', name: 'jnlp', version: "${jnlpVersion}"
 // https://mvnrepository.com/artifact/com.google.guava/guava
     compile("com.google.guava:guava:${guavaVersion}")
 // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
@@ -34,4 +38,9 @@ dependencies {
     testCompile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
 // https://mvnrepository.com/artifact/junit/junit-dep
     testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
+}
+
+afterEvaluate {
+    // prevent ClassCastException
+    project.version = project.version.toString()
 }

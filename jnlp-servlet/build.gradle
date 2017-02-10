@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'de.gliderpilot.gradle.jnlp:gradle-jnlp-plugin:+'
+    }
+}
+
+apply plugin: 'de.gliderpilot.jnlp'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+dependencies {
+    jnlp project(":fx-ui")
+// https://mvnrepository.com/artifact/org.codehaus.mojo.webstart/webstart-jnlp-servlet
+    runtime group: 'org.codehaus.mojo.webstart', name: 'webstart-jnlp-servlet', version: "${jnplServletVaersion}"
+    runtime 'org.codehaus.mojo.webstart:webstart-jnlp-servlet:1.0-6.0.02_ea_b02.2'
+}
+
+jnlp {
+    jnlpParams << [codebase: '$$codebase']
+    j2seParams = [version: '6.0+', 'max-heap-size': '256m']
+    useVersions = true
+    usePack200 = true
+    mainClassName = 'org.example.Launcher'
+    withXml {
+        information {
+            title project.name
+            vendor project.group ?: project.name
+        }
+        security {
+            'all-permissions'()
+        }
+    }
+    signJarParams = [alias: 'myalias', storepass: 'mystorepass']
+}
+
+generateJnlp << {
+    jnlpFile.with {
+        text = readLines('UTF-8').findAll { !it.contains('jnlp.versionEnabled') && !it.contains('jnlp.packEnabled') }.join('\n')
+    }
+}
+
+war {
+    from createWebstartDir
+}
