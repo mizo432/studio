@@ -1,0 +1,47 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.1.RELEASE'
+    }
+    repositories {
+        maven{
+            url 'http://www.venus-pj.org/artifactory/plugins-release'
+        }
+        maven{
+            url 'https://plugins.gradle.org/m2/'
+        }
+        mavenCentral()
+        jcenter()
+
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.13"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'sales-management'
+    version = '1.0.0-SNAPSHOT'
+    archiveName = 'sales-management.jar'
+}
+
+dependencies {
+    compile project(":sales-management-web")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile('org.springframework.boot:spring-boot-starter-cache')
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile('org.flywaydb:flyway-core')
+    compile('org.springframework.boot:spring-boot-starter-integration')
+    compile('org.springframework.boot:spring-boot-starter-mail')
+    runtime('mysql:mysql-connector-java')
+}
+
+bootRepackage {
+    mainClass = 'root.SalesManagementApplication'
+}

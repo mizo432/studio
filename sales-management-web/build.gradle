@@ -1,0 +1,21 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile project(":sales-management-core")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+// https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
+// https://mvnrepository.com/artifact/org.mybatis/mybatis-typehandlers-jsr310
+    compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"
+    compile("com.google.guava:guava:${guavaVersion}")
+    runtime("mysql:mysql-connector-java")
+// https://mvnrepository.com/artifact/org.assertj/assertj-core
+    compile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
+// https://mvnrepository.com/artifact/com.h2database/h2
+    testRuntime group: 'com.h2database', name: 'h2', version: "${h2dbVersion}"
+// https://mvnrepository.com/artifact/junit/junit-dep
+    testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
+}
