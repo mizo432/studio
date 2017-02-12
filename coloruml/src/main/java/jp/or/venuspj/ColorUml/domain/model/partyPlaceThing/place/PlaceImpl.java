@@ -22,4 +22,9 @@ public class PlaceImpl implements Place {
                 .add("partyPlaceThing",partyPlaceThing)
                 .toString();
     }
+
+    @Override
+    public void assess() {
+
+    }
 }

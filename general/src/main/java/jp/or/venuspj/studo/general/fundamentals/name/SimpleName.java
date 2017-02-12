@@ -1,5 +1,6 @@
 package jp.or.venuspj.studo.general.fundamentals.name;
 
+import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
 import jp.or.venuspj.ddd.model.value.StringValue;
 import jp.or.venuspj.util.objects2.Objects2;
 
@@ -21,6 +22,11 @@ public class SimpleName implements Name, StringValue {
     @Override
     public String asText() {
         return value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects2.hash(value);
     }
 
     @Override

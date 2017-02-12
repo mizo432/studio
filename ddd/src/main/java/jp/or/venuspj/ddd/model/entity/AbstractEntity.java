@@ -1,11 +1,18 @@
 package jp.or.venuspj.ddd.model.entity;
 
+import com.google.common.base.MoreObjects;
+import jp.or.venuspj.util.objects2.Objects2;
+
 /**
  *
  */
 public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
 
-    private final EntityIdentifier<T> identifier;
+    private EntityIdentifier<T> identifier;
+
+    protected AbstractEntity() {
+
+    }
 
     protected AbstractEntity(EntityIdentifier<T> identifier) {
         this.identifier = identifier;
@@ -39,5 +46,11 @@ public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
             return false;
         }
         return identifier.equals(((Entity) that).getIdentifier());
+    }
+
+    protected MoreObjects.ToStringHelper string() {
+        return Objects2
+                .toStringHelper(this)
+                .add("identifier", identifier);
     }
 }

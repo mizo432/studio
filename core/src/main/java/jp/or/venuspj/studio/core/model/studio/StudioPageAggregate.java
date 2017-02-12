@@ -1,5 +1,7 @@
 package jp.or.venuspj.studio.core.model.studio;
 
+import jp.or.venuspj.studio.core.model.link.Links;
+import jp.or.venuspj.studio.core.model.news.Newses;
 import jp.or.venuspj.studio.core.model.player.Players;
 import jp.or.venuspj.util.objects2.Objects2;
 

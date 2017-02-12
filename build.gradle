@@ -50,10 +50,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-mail')
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('mysql:mysql-connector-java')
-    compile project(":venus-utils")
-    compile project(":ddd")
-    compile project(":general")
-    compile project(":core")
     compile project(":web")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 
@@ -83,10 +79,10 @@ allprojects {
 
     repositories {
         maven {
-            url 'http://www.venus-pj.org/artifactory/plugins-release'
+            url 'http://www.venus-pj.org/artifactory/plugins-release/'
         }
         maven {
-            url 'http://repo.opennms.org/maven2'
+            url 'http://repo.opennms.org/maven2/'
         }
         //        mavenCentral()
         jcenter()
@@ -102,7 +98,7 @@ subprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
+    gradleVersion = '2.14'
 }
 
 task incrementVersionCode << {

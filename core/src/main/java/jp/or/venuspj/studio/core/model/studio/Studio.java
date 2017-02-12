@@ -1,28 +1,36 @@
 package jp.or.venuspj.studio.core.model.studio;
 
-import jp.or.venuspj.studo.general.fundamentals.name.Name;
-import jp.or.venuspj.util.objects2.Objects2;
+import com.google.common.base.MoreObjects;
+import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.Thing;
+import jp.or.venuspj.ddd.model.entity.AbstractEntity;
+import jp.or.venuspj.ddd.model.entity.EntityIdentifier;
 
 /**
- * Created by mizoguchi on 2017/01/28.
+ * スタジオ
  */
-public class Studio {
-    Name name;
+public class Studio extends AbstractEntity<Studio> {
+    Thing thing;
 
-    Studio(){
+    Studio() {
+        super();
 
     }
 
-    Studio(Name aName){
+    public Studio(EntityIdentifier<Studio> aStudioIdentifier, Thing aThing) {
+        super(aStudioIdentifier);
+        thing = aThing;
+
+    }
+
+    protected MoreObjects.ToStringHelper string() {
+        return super.string()
+                .add("thing", thing);
 
     }
 
     @Override
     public String toString() {
-
-        return Objects2
-                .toStringHelper(this)
-                .add("name",name)
+        return string()
                 .omitNullValues()
                 .toString();
     }

@@ -46,4 +46,9 @@ public class PartyPlaceThingImpl implements PartyPlaceThing {
                 .toString();
     }
 
+    @Override
+    public void assess() {
+        roles.assess();
+
+    }
 }

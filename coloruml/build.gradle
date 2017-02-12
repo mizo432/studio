@@ -16,3 +16,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
 
 }
+
+task action(dependsOn: ":ddd:action") << {
+    println("Consuming message: ${rootProject.producerMessage}")
+}

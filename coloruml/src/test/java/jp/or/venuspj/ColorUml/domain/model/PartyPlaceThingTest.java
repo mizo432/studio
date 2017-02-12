@@ -1,15 +1,15 @@
 package jp.or.venuspj.ColorUml.domain.model;
 
 import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.place.Address;
 import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.PartyPlaceThingBuilder;
 import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.SerialNumber;
+import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.place.Address;
 import jp.or.venuspj.util.objects2.Objects2;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 
 /**
@@ -51,6 +51,11 @@ public class PartyPlaceThingTest {
                     }
                 })
                 .withAddress(new Address() {
+                    @Override
+                    public void assess() {
+
+                    }
+
                     @Override
                     public String toString() {
                         return Objects2

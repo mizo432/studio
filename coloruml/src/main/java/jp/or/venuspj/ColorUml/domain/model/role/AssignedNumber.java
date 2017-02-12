@@ -25,4 +25,8 @@ public class AssignedNumber implements IntegerValue {
                 .addValue(value)
                 .toString();
     }
+    @Override
+    public String asText() {
+        return String.valueOf(value);
+    }
 }

@@ -5,12 +5,13 @@ buildscript {
 
     dependencies {
         classpath 'de.gliderpilot.gradle.jnlp:gradle-jnlp-plugin:+'
+        classpath 'org.akhikhl.gretty:gretty:+'
     }
 }
 
 apply plugin: 'de.gliderpilot.jnlp'
 apply plugin: 'war'
-apply plugin: 'jetty'
+apply plugin: 'org.akhikhl.gretty'
 
 dependencies {
     jnlp project(":fx-ui")
@@ -21,10 +22,10 @@ dependencies {
 
 jnlp {
     jnlpParams << [codebase: '$$codebase']
-    j2seParams = [version: '6.0+', 'max-heap-size': '256m']
+    j2seParams = [version: '8.0+', 'max-heap-size': '256m']
     useVersions = true
     usePack200 = true
-    mainClassName = 'org.example.Launcher'
+    mainClassName = 'org.venuspj.fx.Main'
     withXml {
         information {
             title project.name
@@ -34,7 +35,7 @@ jnlp {
             'all-permissions'()
         }
     }
-    signJarParams = [alias: 'myalias', storepass: 'mystorepass']
+    signJarParams = [keystore: '../keystore.ks', alias: 'venuspj', storepass: 'venuspass']
 }
 
 generateJnlp << {
@@ -45,4 +46,8 @@ generateJnlp << {
 
 war {
     from createWebstartDir
+}
+
+task genkey << {
+    ant.genkey(keystore: '../keystore.ks', alias: 'venuspj', storepass: 'venuspass', dname: 'CN=Venus Project, C=JP, ST=CHIBA')
 }

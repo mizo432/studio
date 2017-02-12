@@ -19,13 +19,4 @@ public class PlayerIdentifier implements EntityIdentifier<Player> {
         uuid = anUuid;
     }
 
-    @Override
-    public String getKind() {
-        return kind;
-    }
-
-    @Override
-    public UUID toUUID() {
-        return uuid;
-    }
 }

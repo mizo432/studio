@@ -1,11 +1,11 @@
 package jp.or.venuspj.studo.general.model.relationship.thingrole.chargegroup;
 
+import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
 import jp.or.venuspj.ddd.model.entity.EntityIdentifier;
 import jp.or.venuspj.ddd.model.value.DecidableSameIdentifierAs;
 import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;
 import jp.or.venuspj.studo.general.fundamentals.Caption;
-import jp.or.venuspj.studo.general.fundamentals.name.Name;
 import jp.or.venuspj.studo.general.model.place.address.PostAddressee;
 import jp.or.venuspj.studo.general.model.place.partnerbase.PartnerBases;
 import jp.or.venuspj.studo.general.model.relationship.party.organization.partner.Partner;

@@ -16,10 +16,10 @@ public class DescriptionImpl implements Description {
 
     Optional<Assess> assessOptional;
 
-    DescriptionImpl() {
+    protected DescriptionImpl() {
     }
 
-    DescriptionImpl(Note aNote, PartyPlaceThings aPartyPlaceThings, Optional<Assess> anAssessOptional) {
+    protected DescriptionImpl(Note aNote, PartyPlaceThings aPartyPlaceThings, Optional<Assess> anAssessOptional) {
         partyPlaceThings = aPartyPlaceThings;
         assessOptional = anAssessOptional;
         note = aNote;
@@ -38,5 +38,10 @@ public class DescriptionImpl implements Description {
         return string()
                 .omitNullValues()
                 .toString();
+    }
+
+    @Override
+    public PartyPlaceThings partyPlaceThings() {
+        return partyPlaceThings;
     }
 }

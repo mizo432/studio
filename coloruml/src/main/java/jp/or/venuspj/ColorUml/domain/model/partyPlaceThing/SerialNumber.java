@@ -30,4 +30,9 @@ public class SerialNumber implements IntegerValue {
     public Integer asInteger() {
         return value;
     }
+
+    @Override
+    public String asText() {
+        return String.valueOf(value);
+    }
 }

@@ -13,3 +13,7 @@ dependencies {
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
 
 }
+
+task action(dependsOn: ":venus-utils:action") << {
+    println("Consuming message: ${rootProject.producerMessage}")
+}

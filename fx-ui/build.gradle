@@ -38,6 +38,11 @@ dependencies {
     testCompile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
 // https://mvnrepository.com/artifact/junit/junit-dep
     testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
+// https://mvnrepository.com/artifact/com.jfoenix/jfoenix
+    compile 'com.jfoenix:jfoenix:1.1.0'
+// https://mvnrepository.com/artifact/de.jensd/fontawesomefx
+    compile group: 'de.jensd', name: 'fontawesomefx', version: '8.0.13'
+
 }
 
 afterEvaluate {

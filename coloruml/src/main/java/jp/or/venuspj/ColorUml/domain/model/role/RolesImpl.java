@@ -31,4 +31,12 @@ public class RolesImpl implements Roles {
                 .addValue(list)
                 .toString();
     }
+
+    @Override
+    public void assess() {
+        for (Role role : list) {
+            role.assessAcrossMomentIntervals();
+        }
+
+    }
 }

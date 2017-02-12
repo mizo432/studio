@@ -18,9 +18,9 @@ dependencies {
 // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
 // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
-    runtime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
+    testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
 // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
-    runtime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+    testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
 // https://mvnrepository.com/artifact/junit/junit-dep
     testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
 }

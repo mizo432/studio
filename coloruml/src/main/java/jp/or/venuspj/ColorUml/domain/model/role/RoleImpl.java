@@ -37,4 +37,9 @@ public class RoleImpl implements Role {
                 .omitNullValues()
                 .toString();
     }
+
+    @Override
+    public void assessAcrossMomentIntervals() {
+
+    }
 }

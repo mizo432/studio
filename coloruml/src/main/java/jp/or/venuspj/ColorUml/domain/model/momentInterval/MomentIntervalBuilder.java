@@ -1,6 +1,7 @@
 package jp.or.venuspj.ColorUml.domain.model.momentInterval;
 
 import jp.or.venuspj.ColorUml.domain.fundamentals.DateOrDatetimeOrInterval.DateOrDatetimeOrInterval;
+import jp.or.venuspj.ColorUml.domain.model.MakeMomentInterval;
 import jp.or.venuspj.ColorUml.domain.model.MomentInterval;
 import jp.or.venuspj.ColorUml.domain.model.MomentIntervalDetails;
 import jp.or.venuspj.util.builder.ObjectBuilder;
@@ -9,8 +10,9 @@ import jp.or.venuspj.util.objects2.Objects2;
 /**
  */
 public class MomentIntervalBuilder extends ObjectBuilder<MomentInterval, MomentIntervalBuilder> {
-    DateOrDatetimeOrInterval dateOrDatetimeOrInterval;
-    MomentIntervalDetails momentIntervalDetails;
+    private DateOrDatetimeOrInterval dateOrDatetimeOrInterval;
+    private MomentIntervalDetails momentIntervalDetails;
+    private MakeMomentInterval makeMomentInterval;
 
     public MomentIntervalBuilder withMomentIntervalDetails(MomentIntervalDetails aMomentIntervalDetails) {
         if (Objects2.isNull(aMomentIntervalDetails)) return getThis();
@@ -29,12 +31,19 @@ public class MomentIntervalBuilder extends ObjectBuilder<MomentInterval, MomentI
         MomentIntervalImpl concreteVo = (MomentIntervalImpl) vo;
         builder.withDateOrDatetimeOrInterval(concreteVo.dateOrDatetimeOrInterval);
         builder.withMomentIntervalDetails(concreteVo.momentIntervalDetails);
+        builder.withMakeMomentInterval(concreteVo.makeMomentInterval);
 
+    }
+
+    public MomentIntervalBuilder withMakeMomentInterval(MakeMomentInterval aMakeMomentInterval) {
+        if (Objects2.isNull(aMakeMomentInterval)) return getThis();
+        addConfigurator(builder -> builder.makeMomentInterval = aMakeMomentInterval);
+        return getThis();
     }
 
     @Override
     protected MomentInterval createValueObject() {
-        return new MomentIntervalImpl(dateOrDatetimeOrInterval, momentIntervalDetails);
+        return new MomentIntervalImpl(dateOrDatetimeOrInterval, momentIntervalDetails, makeMomentInterval);
     }
 
     @Override

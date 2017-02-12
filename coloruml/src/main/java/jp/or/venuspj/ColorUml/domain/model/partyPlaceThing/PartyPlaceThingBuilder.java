@@ -9,7 +9,6 @@ import jp.or.venuspj.util.builder.ObjectBuilder;
 import jp.or.venuspj.util.objects2.Objects2;
 
 /**
- * Created by mizoguchi on 2017/02/04.
  */
 public class PartyPlaceThingBuilder extends ObjectBuilder<PartyPlaceThing, PartyPlaceThingBuilder> {
     private SerialNumber serialNumber;
@@ -28,6 +27,7 @@ public class PartyPlaceThingBuilder extends ObjectBuilder<PartyPlaceThing, Party
         builder.withDescription(concreteVo.description);
 
     }
+
     public PartyPlaceThingBuilder withAddress(Address anAddress) {
         if (Objects2.isNull(anAddress)) return getThis();
         addConfigurator(builder -> builder.address = anAddress);
@@ -71,5 +71,11 @@ public class PartyPlaceThingBuilder extends ObjectBuilder<PartyPlaceThing, Party
     @Override
     protected PartyPlaceThingBuilder newInstance() {
         return new PartyPlaceThingBuilder();
+    }
+
+    public PartyPlaceThingBuilder withSerialNumber(Integer aSerialNumber) {
+        if (Objects2.isNull(aSerialNumber)) return getThis();
+        addConfigurator(builder -> builder.serialNumber = new SerialNumber(aSerialNumber));
+        return getThis();
     }
 }

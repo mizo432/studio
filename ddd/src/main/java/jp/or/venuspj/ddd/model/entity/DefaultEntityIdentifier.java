@@ -36,12 +36,10 @@ public final class DefaultEntityIdentifier<T extends Entity<T>> implements Entit
         uuid = anUuid;
     }
 
-    @Override
     public String getKind() {
         return kind;
     }
 
-    @Override
     public UUID toUUID() {
         return uuid;
     }
