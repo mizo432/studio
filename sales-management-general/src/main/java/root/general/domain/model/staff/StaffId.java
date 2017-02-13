@@ -31,6 +31,11 @@ public class StaffId implements Comparable<StaffId>, IntegerIdentifier {
     }
 
     @Override
+    public String asText() {
+        return String.valueOf(value);
+    }
+
+    @Override
     public String toString() {
         return Objects2
                 .toStringHelper(this)

@@ -17,13 +17,13 @@ public class StudioId implements Identifier<Studio>, IntegerIdValue {
     }
 
     @Override
-    public int compareTo(Identifier<Studio> o) {
-        return 0;
+    public Integer asInteger() {
+        return value;
     }
 
     @Override
-    public Integer asInteger() {
-        return value;
+    public String asText() {
+        return String.valueOf(value);
     }
 
     @Override
