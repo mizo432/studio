@@ -1,6 +1,6 @@
 package root.general.domain.model.chargeGroup;
 
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.place.Address;
+import jp.or.venuspj.colorUml.domain.model.partyPlaceThing.place.Address;
 import root.general.domain.fundamentals.name.SimpleName;
 
 /**

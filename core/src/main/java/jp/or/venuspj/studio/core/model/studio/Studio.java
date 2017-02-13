@@ -1,7 +1,7 @@
 package jp.or.venuspj.studio.core.model.studio;
 
 import com.google.common.base.MoreObjects;
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.Thing;
+import jp.or.venuspj.colorUml.domain.model.partyPlaceThing.Thing;
 import jp.or.venuspj.ddd.model.entity.AbstractEntity;
 import jp.or.venuspj.ddd.model.entity.EntityIdentifier;
 

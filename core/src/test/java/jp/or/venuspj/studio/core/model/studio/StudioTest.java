@@ -1,7 +1,7 @@
 package jp.or.venuspj.studio.core.model.studio;
 
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.PartyPlaceThingBuilder;
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.thing.ThingBuilder;
+import jp.or.venuspj.colorUml.domain.model.partyPlaceThing.PartyPlaceThingBuilder;
+import jp.or.venuspj.colorUml.domain.model.partyPlaceThing.thing.ThingBuilder;
 import jp.or.venuspj.studo.general.fundamentals.name.NamePair;
 import jp.or.venuspj.studo.general.fundamentals.name.SimpleName;
 import org.junit.Test;

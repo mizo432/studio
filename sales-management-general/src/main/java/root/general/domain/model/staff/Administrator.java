@@ -1,6 +1,6 @@
 package root.general.domain.model.staff;
 
-import jp.or.venuspj.ColorUml.annotations.PersonRoleType;
+import jp.or.venuspj.colorUml.annotations.PersonRoleType;
 
 /**
  * システム管理者

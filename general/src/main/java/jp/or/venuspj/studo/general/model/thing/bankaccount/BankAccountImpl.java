@@ -1,6 +1,6 @@
 package jp.or.venuspj.studo.general.model.thing.bankaccount;
 
-import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
+import jp.or.venuspj.colorUml.domain.fundamentals.name.Name;
 import jp.or.venuspj.studo.general.model.relationship.party.organization.bank.Bank;
 import jp.or.venuspj.studo.general.model.relationship.party.organization.bank.branch.BankBranch;
 import jp.or.venuspj.util.objects2.Objects2;

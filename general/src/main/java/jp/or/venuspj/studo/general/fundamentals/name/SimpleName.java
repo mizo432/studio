@@ -1,6 +1,6 @@
 package jp.or.venuspj.studo.general.fundamentals.name;
 
-import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
+import jp.or.venuspj.colorUml.domain.fundamentals.name.Name;
 import jp.or.venuspj.ddd.model.value.StringValue;
 import jp.or.venuspj.util.objects2.Objects2;
 

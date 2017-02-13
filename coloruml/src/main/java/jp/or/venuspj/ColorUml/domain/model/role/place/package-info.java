@@ -1,1 +1,0 @@
-package jp.or.venuspj.ColorUml.domain.model.role.place;

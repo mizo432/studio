@@ -1,6 +1,6 @@
 package root.general.domain.model.staff;
 
-import jp.or.venuspj.ColorUml.domain.model.Role;
+import jp.or.venuspj.colorUml.domain.model.Role;
 import jp.or.venuspj.ddd.model.value.ListValue;
 
 /**

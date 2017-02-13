@@ -1,6 +1,6 @@
 package root.general.domain.model.accountingMnagement.account;
 
-import jp.or.venuspj.ColorUml.annotations.ThingType;
+import jp.or.venuspj.colorUml.annotations.ThingType;
 
 /**
  */

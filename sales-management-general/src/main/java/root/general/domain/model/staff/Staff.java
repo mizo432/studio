@@ -1,6 +1,6 @@
 package root.general.domain.model.staff;
 
-import jp.or.venuspj.ColorUml.annotations.PersonType;
+import jp.or.venuspj.colorUml.annotations.PersonType;
 import jp.or.venuspj.ddd.model.entity.AbstractEntity;
 import jp.or.venuspj.ddd.model.entity.EntityIdentifier;
 import jp.or.venuspj.util.objects2.Objects2;

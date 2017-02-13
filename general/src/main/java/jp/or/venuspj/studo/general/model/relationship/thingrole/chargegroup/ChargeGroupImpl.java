@@ -1,6 +1,6 @@
 package jp.or.venuspj.studo.general.model.relationship.thingrole.chargegroup;
 
-import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
+import jp.or.venuspj.colorUml.domain.fundamentals.name.Name;
 import jp.or.venuspj.ddd.model.entity.EntityIdentifier;
 import jp.or.venuspj.ddd.model.value.DecidableSameIdentifierAs;
 import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;

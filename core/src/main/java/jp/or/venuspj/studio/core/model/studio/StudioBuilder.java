@@ -1,7 +1,7 @@
 package jp.or.venuspj.studio.core.model.studio;
 
-import jp.or.venuspj.ColorUml.domain.fundamentals.Name.Name;
-import jp.or.venuspj.ColorUml.domain.model.partyPlaceThing.Thing;
+import jp.or.venuspj.colorUml.domain.fundamentals.name.Name;
+import jp.or.venuspj.colorUml.domain.model.partyPlaceThing.Thing;
 import jp.or.venuspj.ddd.model.entity.EntityBuilder;
 import jp.or.venuspj.util.objects2.Objects2;
 
