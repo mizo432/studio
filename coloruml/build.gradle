@@ -3,8 +3,6 @@ apply plugin: 'org.springframework.boot'
 dependencies {
     compile project(":ddd")
 // https://mvnrepository.com/artifact/org.assertj/assertj-core
-    compile("com.google.guava:guava:${guavaVersion}")
-// https://mvnrepository.com/artifact/org.assertj/assertj-core
     testCompile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
 // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
@@ -15,4 +13,8 @@ dependencies {
 // https://mvnrepository.com/artifact/junit/junit-dep
     testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
 
+}
+
+bootRepackage {
+    executable = false
 }

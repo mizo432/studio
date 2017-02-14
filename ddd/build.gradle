@@ -1,8 +1,6 @@
 
 dependencies {
     compile project(":venus-utils")
-// https://mvnrepository.com/artifact/com.google.guava/guava
-    compile("com.google.guava:guava:${guavaVersion}")
 // https://mvnrepository.com/artifact/org.assertj/assertj-core
     testCompile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
 // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
@@ -12,8 +10,4 @@ dependencies {
 // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
 
-}
-
-task action(dependsOn: ":venus-utils:action") << {
-    println("Consuming message: ${rootProject.producerMessage}")
 }

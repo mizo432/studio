@@ -54,6 +54,9 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
 
 }
+bootRepackage {
+    excludeDevtools = true
+}
 
 allprojects {
     apply plugin: 'java'
