@@ -13,4 +13,6 @@ include 'sales-management-web'
 include 'sales-management-activity'
 include 'sales-management-ticket'
 include 'sales-management'
+include 'dictionaly-core'
+include 'dictionaly'
 
