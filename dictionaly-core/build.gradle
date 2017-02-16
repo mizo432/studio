@@ -1,7 +1,7 @@
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile project(":coloruml")
+    compile project(":ddd")
 // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     runtime("mysql:mysql-connector-java")
 // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter

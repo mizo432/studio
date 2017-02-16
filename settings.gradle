@@ -1,7 +1,6 @@
 rootProject.name = 'studio'
 include 'venus-utils'
 include 'ddd'
-include 'coloruml'
 include 'general'
 include 'core'
 include 'web'

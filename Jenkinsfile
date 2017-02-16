@@ -2,14 +2,26 @@ node {
    stage 'git clone'
    git 'https://github.com/mizo432/studio.git'
 
-   stage 'clean build'
-   sh './gradlew --daemon clean build'
+   stage 'clean'
+   sh './gradlew --daemon clean'
 
-   stage 'jnlp-servlet;genkey,build'
-   sh './gradlew :jnlp-servlet:genkey :jnlp-servlet:build'
+   stage 'build :venus-util:build'
+   sh './gradlew --daemon :venus-util:build'
 
-   stage 'sales-management build'
-   sh './gradlew :sales-management:build'
+   stage 'build :ddd:build'
+   sh './gradlew --daemon :ddd:build'
+
+   stage 'build :general:build'
+   sh './gradlew --daemon :general:build'
+
+   stage 'build :core:build'
+   sh './gradlew --daemon :core:build'
+
+   stage 'build :web:build'
+   sh './gradlew --daemon :web:build'
+
+   stage 'build build'
+   sh './gradlew --daemon build'
 
 // JUnitテストレポートを保存
    stage 'copy test report'
