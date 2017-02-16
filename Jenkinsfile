@@ -5,22 +5,22 @@ node {
    stage 'clean'
    sh './gradlew --daemon clean'
 
-   stage 'build :venus-util:build'
+   stage 'venus-util :build'
    sh './gradlew --daemon :venus-util:build'
 
-   stage 'build :ddd:build'
+   stage 'ddd :build'
    sh './gradlew --daemon :ddd:build'
 
-   stage 'build :general:build'
+   stage 'general :build'
    sh './gradlew --daemon :general:build'
 
-   stage 'build :core:build'
+   stage 'core :build'
    sh './gradlew --daemon :core:build'
 
-   stage 'build :web:build'
+   stage 'web :build'
    sh './gradlew --daemon :web:build'
 
-   stage 'build build'
+   stage 'build'
    sh './gradlew --daemon build'
 
 // JUnitテストレポートを保存
