@@ -46,7 +46,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile('org.flywaydb:flyway-core')
-    compile('org.springframework.boot:spring-boot-starter-integration')
+    testCompile('org.springframework.boot:spring-boot-starter-integration')
     compile('org.springframework.boot:spring-boot-starter-mail')
     compile("org.springframework.boot:spring-boot-starter-actuator")
     runtime('org.springframework.boot:spring-boot-devtools')

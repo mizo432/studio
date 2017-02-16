@@ -1,6 +1,7 @@
 apply plugin: 'org.springframework.boot'
 
 dependencies {
+    compile project(":venus-utils")
     compile project(":ddd")
 // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"

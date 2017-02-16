@@ -36,8 +36,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-cache')
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    compile('org.flywaydb:flyway-core')
-    compile('org.springframework.boot:spring-boot-starter-integration')
+    runtime('org.flywaydb:flyway-core')
+    testCompile('org.springframework.boot:spring-boot-starter-integration')
     compile('org.springframework.boot:spring-boot-starter-mail')
     runtime('mysql:mysql-connector-java')
 }
