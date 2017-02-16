@@ -3,7 +3,7 @@ node {
    git 'https://github.com/mizo432/studio.git'
 
    stage 'clean build'
-   sh './gradlew clean build'
+   sh './gradlew --daemon clean build'
 
    stage 'jnlp-servlet;genkey,build'
    sh './gradlew :jnlp-servlet:genkey :jnlp-servlet:build'
