@@ -1,7 +1,4 @@
 node {
-   stage 'git clone'
-   git 'https://github.com/mizo432/studio.git'
-
    stage 'clean'
    sh './gradlew --daemon clean'
 
