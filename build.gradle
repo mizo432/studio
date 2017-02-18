@@ -5,10 +5,10 @@ buildscript {
         springBootVersion = '1.5.1.RELEASE'
     }
     repositories {
-        maven{
+        maven {
             url 'http://www.venus-pj.org/artifactory/plugins-release'
         }
-        maven{
+        maven {
             url 'https://plugins.gradle.org/m2/'
         }
         mavenCentral()
@@ -71,11 +71,12 @@ allprojects {
         assertJVersion = '3.6.2'
         h2dbVersion = '1.4.193'
         springStateMachineCoreVersion = '1.2.1.RELEASE'
-        logbackVersion='1.1.9'
-        slf4jVersion='1.7.22'
-        junitDevVersion="4.11"
-        jnlpVersion="1.5.0"
-        jnplServletVaersion='1.0-6.0.02_ea_b02.2'
+        logbackVersion = '1.1.9'
+        slf4jVersion = '1.7.22'
+        junitDevVersion = "4.11"
+        junitVersion = "4.12"
+        jnlpVersion = "1.5.0"
+        jnplServletVaersion = '1.0-6.0.02_ea_b02.2'
     }
 
     sourceCompatibility = 1.8
@@ -95,6 +96,17 @@ allprojects {
     tasks.withType(JavaCompile) {
         options.incremental = true
     }
+    dependencies {
+// https://mvnrepository.com/artifact/org.assertj/assertj-core
+        testCompile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
+// https://mvnrepository.com/artifact/junit/junit-dep
+        testCompile(group: 'junit', name: 'junit', version: "${junitVersion}") {
+            // これで hamcrest-core の依存を除外する
+            exclude module: 'hamcrest-core'
+        }
+    }
+
+
 }
 subprojects {
     group = 'jp.or.venuspj'
