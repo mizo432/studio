@@ -16,6 +16,7 @@ public class Assigner {
      * シャローコピーとなる。
      * </pre>
      * @param sender 送り元
+     * @param <T> 対象のクラス
      * @return 送り元の型と同じ
      */
     @SuppressWarnings("unchecked")
@@ -44,6 +45,7 @@ public class Assigner {
      * </pre>
      * @param sender 送り元
      * @param destination 送り先
+     * @param <T> 対象のクラス
      */
     public static <T> void assignTo(T sender, T destination) {
         Class<? extends Object> inputClazz = sender.getClass();
@@ -77,6 +79,7 @@ public class Assigner {
      * </pre>
      * @param senderOptional 送り元
      * @param destination 送り先
+     * @param <T> 相性のクラス
      */
     public static <T> void assignTo(Optional<T> senderOptional, T destination) {
         if (senderOptional.isPresent()) {
@@ -84,10 +87,15 @@ public class Assigner {
         }
     }
 
-    private static List<Field> createFields(Class<? extends Object> entityClass) {
+    /**
+     * 対象クラスのフィールドの一覧を取得する.
+     * @param aClass 対象クラス
+     * @return フィールドの一覧
+     */
+    private static List<Field> createFields(Class<? extends Object> aClass) {
         List<Field> results = Lists.newArrayList();
 
-        for (Class<?> clazz = entityClass; clazz != Object.class; clazz = clazz.getSuperclass()) {
+        for (Class<?> clazz = aClass; clazz != Object.class; clazz = clazz.getSuperclass()) {
             try {
                 Field[] fields = clazz.getDeclaredFields();
                 results.addAll(Arrays.asList(fields));

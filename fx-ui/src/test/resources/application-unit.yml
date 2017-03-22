@@ -1,5 +1,0 @@
-app.ui.title: Application Name for unit
-
-spring:
-  profiles.active: unit
-  jmx.enabled: false
