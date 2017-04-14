@@ -12,7 +12,7 @@ node {
    sh './gradlew --daemon :ddd:build'
 
    stage 'general :build'
-   sh './gradlew --daemon :general:build'
+   sh './gradlew --daemon :generic:build'
 
    stage 'core :build'
    sh './gradlew --daemon :core:build'
