@@ -1,13 +1,7 @@
-
 dependencies {
     compile project(":venus-utils")
-// https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
-// https://mvnrepository.com/artifact/com.h2database/h2
     testRuntime group: 'com.h2database', name: 'h2', version: "${h2dbVersion}"
-// https://mvnrepository.com/artifact/ch.qos.logback/logback-core
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
-// https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
-
 }

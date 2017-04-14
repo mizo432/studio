@@ -89,32 +89,27 @@ allprojects {
         maven {
             url 'http://repo.opennms.org/maven2/'
         }
-        //        mavenCentral()
         jcenter()
     }
 
     tasks.withType(JavaCompile) {
         options.incremental = true
     }
+
     dependencies {
-// https://mvnrepository.com/artifact/org.assertj/assertj-core
         testCompile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
-// https://mvnrepository.com/artifact/junit/junit-dep
-        testCompile(group: 'junit', name: 'junit', version: "${junitVersion}") {
-            // これで hamcrest-core の依存を除外する
-            exclude module: 'hamcrest-core'
-        }
+        testCompile(group: 'junit', name: 'junit', version: "${junitVersion}")
     }
 
-
 }
+
 subprojects {
     group = 'jp.or.venuspj'
     version = '1.0.0'
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.14'
+    gradleVersion = '2.9'
 }
 
 task incrementVersionCode << {
