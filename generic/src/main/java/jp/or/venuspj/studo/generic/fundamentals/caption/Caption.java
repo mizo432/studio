@@ -1,4 +1,4 @@
-package jp.or.venuspj.studo.general.fundamentals;
+package jp.or.venuspj.studo.generic.fundamentals.caption;
 
 import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;

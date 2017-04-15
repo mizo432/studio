@@ -1,4 +1,4 @@
-package jp.or.venuspj.studo.general.fundamentals.datetime;
+package jp.or.venuspj.studo.generic.fundamentals.datetime;
 
 import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;

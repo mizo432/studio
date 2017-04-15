@@ -1,22 +1,24 @@
-package jp.or.venuspj.studo.general.fundamentals.datetime;
+package jp.or.venuspj.studo.generic.fundamentals.datetime;
 
+import jp.or.venuspj.ddd.model.value.DecidableSameValueAs;
 import jp.or.venuspj.ddd.model.value.Value;
 import jp.or.venuspj.util.objects2.Objects2;
 
 import java.time.YearMonth;
 
-public class RecordYearMonth implements Value {
+public class RecordYearMonth implements Value, DecidableSameValueAs<RecordYearMonth> {
     private YearMonth value;
 
-    RecordYearMonth(){
+    RecordYearMonth() {
 
     }
-    public RecordYearMonth(YearMonth aValue){
+
+    public RecordYearMonth(YearMonth aValue) {
         value = aValue;
 
     }
 
-    public YearMonth asYearMonth(){
+    public YearMonth asYearMonth() {
         return value;
     }
 
@@ -28,7 +30,7 @@ public class RecordYearMonth implements Value {
     }
 
     public boolean sameValueAs(RecordYearMonth other) {
-        if(Objects2.isNull(other)) return false;
-        return value.equals(other.value);
+        return Objects2.nonNull(other) && value.equals(other.value);
     }
+
 }
