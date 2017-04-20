@@ -1,5 +1,6 @@
-package jp.or.venuspj.studio.core.fundamentals;
+package jp.or.venuspj.studio.core.fundamentals.name;
 
+import jp.or.venuspj.studio.core.fundamentals.StringValue;
 import jp.or.venuspj.util.objects2.Objects2;
 
 public class Name implements StringValue {

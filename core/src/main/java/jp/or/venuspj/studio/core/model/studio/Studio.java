@@ -1,6 +1,6 @@
 package jp.or.venuspj.studio.core.model.studio;
 
-import jp.or.venuspj.studio.core.fundamentals.Name;
+import jp.or.venuspj.studio.core.fundamentals.name.Name;
 import jp.or.venuspj.util.objects2.Objects2;
 
 public class Studio {

@@ -4,3 +4,7 @@ include 'ddd'
 include 'generic'
 include 'core'
 include 'web'
+include 'lh-authentication'
+include 'studio-web'
+include 'studio-manage-web'
+
