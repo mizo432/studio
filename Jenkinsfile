@@ -7,6 +7,10 @@ node {
       sh './gradlew --daemon clean'
    }
 
+   stage ('reports'){
+      openTasks canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', high: 'FIXME', ignoreCase: true, low: '', normal: 'TODO', pattern: '**/*.java', unHealthy: ''
+   }
+
    stage ('venus-util :build'){
       sh './gradlew --daemon :venus-util:build'
    }
