@@ -15,16 +15,28 @@ node {
       sh './gradlew --daemon :ddd:build'
    }
 
-   stage ('general :build'){
-      sh './gradlew --daemon :generic:build'
+   stage ('studio-generic :build'){
+      sh './gradlew --daemon :studio-generic:build'
    }
 
-   stage ('core :build'){
-      sh './gradlew --daemon :core:build'
+   stage ('studio-core :build'){
+      sh './gradlew --daemon :studio-core:build'
    }
 
-   stage ('web :build'){
-      sh './gradlew --daemon :web:build'
+   stage ('studio-externals :build'){
+      sh './gradlew --daemon :studio-externals:build'
+   }
+
+   stage ('studio-adapter :build'){
+      sh './gradlew --daemon :studio-adapter:build'
+   }
+
+   stage ('studio-manage-web :build'){
+      sh './gradlew --daemon :studio-manage-web:build'
+   }
+
+   stage ('studio-web :build'){
+      sh './gradlew --daemon :studio-web:build'
    }
 
    stage ('build'){

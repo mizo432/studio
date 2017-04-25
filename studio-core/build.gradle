@@ -1,0 +1,8 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile project(":studio-generic")
+    compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
+    runtime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
+    runtime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+}
