@@ -10,3 +10,4 @@ spring:
         username: sa
         password:
     profiles.active: unit
+    session.store-type: hash_map
