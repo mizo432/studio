@@ -35,4 +35,8 @@ public class RecordTime implements Value, DecidableSameValueAs<RecordTime> {
         return Objects2.nonNull(other) &&
                 Objects2.equal(value, other.value);
     }
+
+    public boolean isPresent() {
+        return Objects2.nonNull(value);
+    }
 }

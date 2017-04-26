@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTime> {
     private LocalDateTime value;
 
-    RecordDateTime() {
+    public RecordDateTime() {
 
     }
 
@@ -34,5 +34,17 @@ public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTim
     public boolean sameValueAs(RecordDateTime other) {
         return Objects2.nonNull(other) &&
                 Objects2.equal(value, other.value);
+    }
+
+    public boolean isPresent() {
+        return Objects2.nonNull(value);
+    }
+
+    public RecordDate asDate() {
+        return new RecordDate(value.toLocalDate());
+    }
+
+    public RecordTime asTime() {
+        return new RecordTime(value.toLocalTime());
     }
 }
