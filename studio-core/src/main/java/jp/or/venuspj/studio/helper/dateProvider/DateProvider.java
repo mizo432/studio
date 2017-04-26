@@ -1,39 +1,39 @@
 package jp.or.venuspj.studio.helper.dateProvider;
 
 import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDate;
-import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDateTime;
+import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDatetime;
 import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordTime;
 import jp.or.venuspj.util.objects2.Objects2;
 
 import java.time.LocalDateTime;
 
 public class DateProvider {
-    private RecordDateTime recordDatetime = null;
+    private RecordDatetime recordDatetime = null;
 
     public DateProvider() {
 
     }
 
-    DateProvider(RecordDateTime aRecordDatetime) {
+    DateProvider(RecordDatetime aRecordDatetime) {
         recordDatetime = aRecordDatetime;
 
     }
 
 
-    public RecordDateTime currentDatetime() {
+    public RecordDatetime currentDatetime() {
         if (Objects2.nonNull(recordDatetime)) {
             return recordDatetime;
         }
-        return new RecordDateTime(LocalDateTime.now());
+        return new RecordDatetime(LocalDateTime.now());
     }
 
     public RecordDate currentDate() {
-        RecordDateTime dateTime = currentDatetime();
+        RecordDatetime dateTime = currentDatetime();
         return dateTime.asDate();
     }
 
     public RecordTime currentTime() {
-        RecordDateTime dateTime = currentDatetime();
+        RecordDatetime dateTime = currentDatetime();
         return dateTime.asTime();
     }
 }

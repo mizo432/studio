@@ -6,14 +6,14 @@ import jp.or.venuspj.util.objects2.Objects2;
 
 import java.time.LocalDateTime;
 
-public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTime> {
+public class RecordDatetime implements Value, DecidableSameValueAs<RecordDatetime> {
     private LocalDateTime value;
 
-    public RecordDateTime() {
+    public RecordDatetime() {
 
     }
 
-    public RecordDateTime(LocalDateTime aValue) {
+    public RecordDatetime(LocalDateTime aValue) {
         value = aValue;
 
     }
@@ -31,7 +31,7 @@ public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTim
     }
 
     @Override
-    public boolean sameValueAs(RecordDateTime other) {
+    public boolean sameValueAs(RecordDatetime other) {
         return Objects2.nonNull(other) &&
                 Objects2.equal(value, other.value);
     }

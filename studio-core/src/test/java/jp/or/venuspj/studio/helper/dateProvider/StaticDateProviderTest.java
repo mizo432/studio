@@ -1,7 +1,7 @@
 package jp.or.venuspj.studio.helper.dateProvider;
 
 import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDate;
-import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDateTime;
+import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDatetime;
 import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class StaticDateProviderTest {
 
     @Before
     public void setUp() {
-        dateProvider = new DateProvider(new RecordDateTime(LocalDateTime.of(2012, 3, 4, 5, 6, 7, 8)));
+        dateProvider = new DateProvider(new RecordDatetime(LocalDateTime.of(2012, 3, 4, 5, 6, 7, 8)));
     }
 
     @Test
@@ -35,11 +35,11 @@ public class StaticDateProviderTest {
     @Test
     public void currentDatetime() throws Exception {
         StaticDateProvider.setDateProvider(dateProvider);
-        RecordDateTime actual = StaticDateProvider.currentDatetime();
+        RecordDatetime actual = StaticDateProvider.currentDatetime();
         LOGGER.debug("actual:" + actual);
         assertThat(actual).isNotNull();
         assertThat(actual.isPresent()).isTrue();
-        assertThat(actual.toString()).isEqualTo("RecordDateTime{2012-03-04T05:06:07.000000008}");
+        assertThat(actual.toString()).isEqualTo("RecordDatetime{2012-03-04T05:06:07.000000008}");
     }
 
     @Test

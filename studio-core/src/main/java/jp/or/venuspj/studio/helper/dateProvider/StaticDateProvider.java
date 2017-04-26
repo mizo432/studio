@@ -1,7 +1,7 @@
 package jp.or.venuspj.studio.helper.dateProvider;
 
 import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDate;
-import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDateTime;
+import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordDatetime;
 import jp.or.venuspj.studo.generic.fundamentals.datetime.RecordTime;
 
 public class StaticDateProvider {
@@ -11,7 +11,7 @@ public class StaticDateProvider {
         return dateProvider.currentDate();
     }
 
-    public static RecordDateTime currentDatetime() {
+    public static RecordDatetime currentDatetime() {
         return dateProvider.currentDatetime();
     }
 
