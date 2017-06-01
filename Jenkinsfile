@@ -8,39 +8,19 @@ node {
    }
 
    stage ('reports'){
-      openTasks canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', high: 'FIXME', ignoreCase: true, low: '', normal: 'TODO', pattern: '**/*.java', unHealthy: ''
+      openTasks canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', high: 'FIXME', ignoreCase: true, low: 'XXX', normal: 'TODO', pattern: '**/*.java', unHealthy: ''
    }
 
-   stage ('venus-util :build'){
+   stage ('build'){
       sh './gradlew --daemon :venus-util:build'
-   }
-
-   stage ('ddd :build'){
       sh './gradlew --daemon :ddd:build'
-   }
-
-   stage ('studio-generic :build'){
       sh './gradlew --daemon :studio-generic:build'
-   }
-
-   stage ('studio-core :build'){
       sh './gradlew --daemon :studio-core:build'
-   }
-
-   stage ('studio-externals :build'){
       sh './gradlew --daemon :studio-externals:build'
-   }
-
-   stage ('studio-adapter :build'){
       sh './gradlew --daemon :studio-adapter:build'
-   }
-
-   stage ('studio-manage-web :build'){
       sh './gradlew --daemon :studio-manage-web:build'
-   }
-
-   stage ('studio-web :build'){
       sh './gradlew --daemon :studio-web:build'
+      sh './gradlew --daemon :image-web:build'
    }
 
    stage ('build'){

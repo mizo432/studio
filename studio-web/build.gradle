@@ -85,8 +85,3 @@ jar {
 //    version = '6.10.0'
 //    download = true
 //}
-
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.9'
-}

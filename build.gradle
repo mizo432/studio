@@ -75,10 +75,14 @@ subprojects {
         testCompile(group: 'junit', name: 'junit', version: "${junitVersion}")
     }
 
+    task wrapper(type: Wrapper) {
+        gradleVersion = '3.5'
+    }
+
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.9'
+    gradleVersion = '3.5'
 }
 
 task incrementVersionCode << {
