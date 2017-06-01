@@ -34,6 +34,11 @@ subprojects {
     group = 'jp.or.venuspj'
     version = '1.0.0'
     apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'jacoco'
+    apply plugin: 'jdepend'
+    apply plugin: "findbugs"
+    apply plugin: "maven"
 
     ext {
         springBootVersion = '1.5.3.RELEASE+'
@@ -66,6 +71,12 @@ subprojects {
         jcenter()
     }
 
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+
     tasks.withType(JavaCompile) {
         options.incremental = true
     }
@@ -77,6 +88,37 @@ subprojects {
 
     task wrapper(type: Wrapper) {
         gradleVersion = '3.5'
+    }
+    task(jdepend, type: JDepend) {
+        classesDir = file('build/intermediates/classes/debug/')
+        reports {
+            xml.enabled false
+            text.enabled true
+        }
+    }
+    jacoco {
+        toolVersion = "0.7.5.+"
+    }
+
+    jacocoTestReport.dependsOn test
+    jacocoTestReport {
+        group = "Reporting"
+        description = "Generate Jacoco coverage reports after running tests."
+        additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+        reports {
+            xml.enabled false
+            csv.enabled false
+            html.destination "${buildDir}/reports/jacoco/html"
+        }
+        executionData = files('build/jacoco/test.exec')
+    }
+
+    findbugs {
+        ignoreFailures = true
+        toolVersion = "3.0.1"
+        sourceSets = [sourceSets.main]
+        reportsDir = file("$project.buildDir/reports/findbugs")
+        effort = "max"
     }
 
 }
