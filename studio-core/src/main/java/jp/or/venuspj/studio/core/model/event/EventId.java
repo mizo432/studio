@@ -2,24 +2,25 @@ package jp.or.venuspj.studio.core.model.event;
 
 import jp.or.venuspj.util.objects2.Objects2;
 
-/**
- */
-public class Event {
-    EventId eventId;
-    Event(){
+public class EventId {
+    Integer value;
 
+    EventId() {
     }
-    public Event(EventId anEventId){
-        eventId = anEventId;
 
+    public EventId(Integer aValue) {
+        value = aValue;
     }
 
     @Override
     public String toString() {
         return Objects2
                 .toStringHelper(this)
-                .add("eventId",eventId)
-                .omitNullValues()
+                .addValue(value)
                 .toString();
+    }
+
+    public boolean isPresent() {
+        return Objects2.nonNull(value);
     }
 }
