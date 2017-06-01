@@ -24,15 +24,13 @@ node {
 
    sh './gradlew jdepend --daemon'
 
-   sh './gradlew findbugsMain --daemon'
-
    }
 
 
 // JUnitテストレポートを保存
-   stage ('copy test report'){
-      step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/*.xml'])
-   }
+//   stage ('copy test report'){
+//      step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/*.xml'])
+//   }
 
    stage('assembles reports'){
         jacoco exclusionPattern: '**/*Test*.class'
