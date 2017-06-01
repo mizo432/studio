@@ -1,6 +1,6 @@
 apply plugin: 'org.springframework.boot'
 
-description = "studio-adapterっす"
+description = "studio-adapter"
 
 repositories {
     mavenCentral()
