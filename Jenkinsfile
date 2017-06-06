@@ -16,7 +16,6 @@ node {
       sh './gradlew --daemon :studio-adapter:build'
       sh './gradlew --daemon :studio-manage-web:build'
       sh './gradlew --daemon :studio-web:build'
-      sh './gradlew --daemon :image-web:build'
    }
 
    stage ('create reports'){
