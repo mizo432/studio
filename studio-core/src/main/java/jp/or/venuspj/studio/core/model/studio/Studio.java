@@ -26,6 +26,9 @@ public class Studio extends AbstractEntity<Studio> {
     @Override
     public String toString() {
         return string()
+                .add("name", name)
+                .add("profile", profile)
+                .add("descriptor", descriptor)
                 .omitNullValues()
                 .toString();
     }
