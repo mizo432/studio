@@ -1,3 +1,10 @@
 .idea
 .gradle
 build
+/studio-use-cases/build/
+/studio-web/build/
+/studio-manage-web/build/
+/studio-generic/build/
+/studio-externals/build/
+/studio-core/build/
+/ddd/build/
