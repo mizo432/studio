@@ -7,5 +7,4 @@ include 'studio-web'
 include 'studio-manage-web'
 include 'studio-externals'
 include 'studio-adapter'
-include 'image-web'
 
