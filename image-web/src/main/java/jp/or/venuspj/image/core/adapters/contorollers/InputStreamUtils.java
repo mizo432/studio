@@ -1,4 +1,4 @@
-package jp.or.venuspj.image.adapters.contorollers;
+package jp.or.venuspj.image.core.adapters.contorollers;
 
 import java.io.InputStream;
 

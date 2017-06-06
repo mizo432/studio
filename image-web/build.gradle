@@ -43,6 +43,7 @@ bootRepackage {
 }
 
 dependencies {
+    compile project(':venus-utils')
     compile('org.flywaydb:flyway-core')
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile group: "org.springframework.boot", name: "spring-boot-starter-mobile", version: "${springBootVersion}"

@@ -1,4 +1,4 @@
-package jp.or.venuspj.image.core;
+package jp.or.venuspj.image.core.model;
 
 /**
  * Created by mizoguchi on 2017/06/02.

@@ -1,4 +1,6 @@
-package jp.or.venuspj.image.adapters.contorollers;
+package jp.or.venuspj.image.core.adapters.contorollers;
+
+import jp.or.venuspj.image.core.fundamentals.path.Path;
 
 import java.io.ByteArrayInputStream;
 
@@ -8,7 +10,7 @@ import java.io.ByteArrayInputStream;
 public interface ImageCacheHelper {
     boolean enableCache();
 
-    String getCacheKey(String path);
+    String getCacheKey(Path path);
 
     boolean existsCache(String key);
 

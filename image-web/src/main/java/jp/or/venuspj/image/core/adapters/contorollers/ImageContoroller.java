@@ -1,10 +1,12 @@
-package jp.or.venuspj.image.adapters.contorollers;
+package jp.or.venuspj.image.core.adapters.contorollers;
 
-import jp.or.venuspj.image.config.ImageConfig;
-import jp.or.venuspj.image.core.ConnectionStream;
-import jp.or.venuspj.image.core.ImageCodec;
-import jp.or.venuspj.image.core.ImageReader;
-import jp.or.venuspj.image.core.ImageScaler;
+import jp.or.venuspj.image.core.config.ImageConfig;
+import jp.or.venuspj.image.core.fundamentals.path.Path;
+import jp.or.venuspj.image.core.model.ConnectionStream;
+import jp.or.venuspj.image.core.model.ImageCodec;
+import jp.or.venuspj.image.core.model.ImageReader;
+import jp.or.venuspj.image.core.model.ImageScaleChanger;
+import jp.or.venuspj.util.strings2.Strings2;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletException;
@@ -13,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
 /**
- * Created by mizoguchi on 2017/06/02.
  */
 public class ImageContoroller {
     private static final long serialVersionUID = -8330083988206718597L;
@@ -24,23 +25,23 @@ public class ImageContoroller {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         //GetPath
-        String path = config.path();
+        Path path = config.path();
 
         //DoScale
         doScale(path, false, req, resp);
     }
 
-    protected void doScale(String path, boolean isReplace,
+    protected void doScale(Path path, boolean isReplace,
                            HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if (Strings2.isEmpty(path)) {
+        if (path.isEmpty()) {
             return;
         }
         //GetImageCodec
-        ImageCodec codec = null; // = ImageUtils.getImageCodec(path);
+        ImageCodec codec = ImageUtils.getImageCodec(path);
         //Helpers
         ImageReader imageReader = null; // = SingletonUtils.get(ImageReader.class);
-        ImageScaler imageScaler; // = SingletonUtils.get(ImageScaler.class);
+        ImageScaleChanger imageScaler; // = SingletonUtils.get(ImageScaler.class);
         ImageCacheHelper cacheHelper = null;// = SingletonUtils.get(ImageCacheHelper.class);
         boolean enableCache = cacheHelper.enableCache();
         //---------------------------------------------------------------------
