@@ -8,7 +8,7 @@ import jp.or.venuspj.studio.core.model.studio.profile.Profile;
 public class Studio extends AbstractEntity<Studio> {
     Descriptor descriptor;
     Name name = Name.defaultName();
-    Profile profile = Profile.defailtProfile();
+    Profile profile = Profile.defaultProfile();
 
     Studio() {
         super(StudioCode.defaultCode());
