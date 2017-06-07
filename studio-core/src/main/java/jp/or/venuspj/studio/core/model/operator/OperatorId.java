@@ -18,4 +18,12 @@ public class OperatorId {
     public boolean isPresent() {
         return Objects2.nonNull(value);
     }
+
+    @Override
+    public String toString() {
+        return Objects2
+                .toStringHelper(this)
+                .addValue(value)
+                .toString();
+    }
 }
