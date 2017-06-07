@@ -1,7 +1,5 @@
 apply plugin: 'org.springframework.boot'
 apply plugin: 'com.github.ben-manes.versions'
-//apply plugin: "com.moowork.gulp"
-//apply plugin: 'com.moowork.node'
 
 buildscript {
     ext {
@@ -20,18 +18,10 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-//        classpath("com.moowork.gradle:gradle-gulp-plugin:0.10")
-//        classpath("com.moowork.gradle:gradle-node-plugin:0.12")
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.1'
     }
 
 }
-
-//classes.dependsOn gulp_build
-//gulp_build.dependsOn 'npmInstall'
-
-//ext['thymeleaf.version'] = '3.0.2.RELEASE'
-//ext['thymeleaf-layout-dialect.version'] = '2.1.1'
 
 jar {
     baseName = 'studio-web'
@@ -81,8 +71,3 @@ jar {
     version = '1.0.0-SNAPSHOT'
     archiveName = 'studio.jar'
 }
-
-//node {
-//    version = '6.10.0'
-//    download = true
-//}
