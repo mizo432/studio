@@ -15,7 +15,6 @@ node {
       sh './gradlew --daemon :studio-externals:build'
       sh './gradlew --daemon :studio-presenters:build'
       sh './gradlew --daemon :studio-datasources:build'
-      sh './gradlew --daemon :studio-adapters:build'
       sh './gradlew --daemon :studio-use-cases:build'
       sh './gradlew --daemon :studio-manage-web:build'
       sh './gradlew --daemon :studio-web:build'
