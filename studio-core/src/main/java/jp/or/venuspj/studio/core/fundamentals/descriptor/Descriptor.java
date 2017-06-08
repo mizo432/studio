@@ -29,4 +29,8 @@ public class Descriptor {
                 .toString();
 
     }
+
+    public static Descriptor defaultDescriptor() {
+        return new Descriptor();
+    }
 }

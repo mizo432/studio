@@ -6,4 +6,8 @@ public class ProductId {
     public ProductId(Integer aValue) {
         value = aValue;
     }
+
+    public static ProductId defaultProductId() {
+        return new ProductId();
+    }
 }
