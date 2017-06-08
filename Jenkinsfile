@@ -13,6 +13,8 @@ node {
       sh './gradlew --daemon :studio-generic:build'
       sh './gradlew --daemon :studio-core:build'
       sh './gradlew --daemon :studio-externals:build'
+      sh './gradlew --daemon :studio-presenters:build'
+      sh './gradlew --daemon :studio-datasources:build'
       sh './gradlew --daemon :studio-adapter:build'
       sh './gradlew --daemon :studio-use-cases:build'
       sh './gradlew --daemon :studio-manage-web:build'

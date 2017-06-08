@@ -1,10 +1,11 @@
 apply plugin: 'org.springframework.boot'
 
-description = "studio-adapter"
+description = "studio-datasources"
 
 repositories {
     mavenCentral()
 }
+
 bootRepackage {
     enabled = false
 }

@@ -6,6 +6,8 @@ include 'studio-core'
 include 'studio-web'
 include 'studio-manage-web'
 include 'studio-externals'
-include 'studio-adapter'
 include 'studio-use-cases'
-
+include 'studio-presenters'
+project(':studio-presenters').projectDir = file('./studio-adapters/studio-presenters')
+include 'studio-datasources'
+project(':studio-datasources').projectDir = file('./studio-adapters/studio-datasources')

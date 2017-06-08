@@ -55,7 +55,8 @@ dependencies {
     compile group: "org.springframework.session", name: "spring-session", version: "${springSessionVersion}"
     compile project(":studio-core")
     compile project(":studio-externals")
-    compile project(":studio-adapter")
+    compile project(":studio-presenters")
+    compile project(":studio-datasources")
     compile project(":studio-use-cases")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"

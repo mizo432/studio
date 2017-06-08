@@ -56,7 +56,8 @@ dependencies {
     compile('org.flywaydb:flyway-core')
     compile project(":studio-core")
     compile project(":studio-externals")
-    compile project(":studio-adapter")
+    compile project(":studio-presenters")
+    compile project(":studio-datasources")
     compile project(":studio-use-cases")
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile group: "org.springframework.boot", name: "spring-boot-starter-mobile", version: "${springBootVersion}"

@@ -8,3 +8,5 @@ build
 /studio-externals/build/
 /studio-core/build/
 /ddd/build/
+/studio-adapters/studio-presenters/build/
+/studio-adapters/studio-datasources/build/
