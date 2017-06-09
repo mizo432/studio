@@ -13,9 +13,21 @@ node {
       sh './gradlew --daemon :studio-generic:build'
       sh './gradlew --daemon :studio-core:build'
       sh './gradlew --daemon :studio-externals:build'
-      sh './gradlew --daemon :studio-presenters:build'
-      sh './gradlew --daemon :studio-datasources:build'
-      sh './gradlew --daemon :studio-usecases:build'
+      parallel(
+         "stream1": {
+            echo 'start of stream1'
+            sh './gradlew --daemon :studio-presenters:build'
+         },
+         "stream2" : {
+            echo "start of stream2"
+            sh './gradlew --daemon :studio-datasources:build'
+         },
+         "stream3" : {
+            echo "start of stream2"
+            sh './gradlew --daemon :studio-usecases:build'
+         }
+      )
+      echo "3つのJOBが完了しました。。"
       sh './gradlew --daemon :studio-manage-web:build'
       sh './gradlew --daemon :studio-web:build'
    }
