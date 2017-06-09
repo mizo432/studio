@@ -8,14 +8,14 @@ node {
    }
 
    stage ('build'){
-      sh './gradlew --daemon :venus-util:build'
+      sh './gradlew --daemon :venus-utils:build'
       sh './gradlew --daemon :ddd:build'
       sh './gradlew --daemon :studio-generic:build'
       sh './gradlew --daemon :studio-core:build'
       sh './gradlew --daemon :studio-externals:build'
       sh './gradlew --daemon :studio-presenters:build'
       sh './gradlew --daemon :studio-datasources:build'
-      sh './gradlew --daemon :studio-use-cases:build'
+      sh './gradlew --daemon :studio-usecases:build'
       sh './gradlew --daemon :studio-manage-web:build'
       sh './gradlew --daemon :studio-web:build'
    }

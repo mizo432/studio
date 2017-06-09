@@ -2,12 +2,18 @@ rootProject.name = 'studio'
 include 'venus-utils'
 include 'ddd'
 include 'studio-generic'
-include 'studio-core'
+project(':studio-generic').projectDir = file('./studio-models/studio-generic')
 include 'studio-web'
+project(':studio-web').projectDir = file('./studio-bootstraps/studio-web')
 include 'studio-manage-web'
+project(':studio-manage-web').projectDir = file('./studio-bootstraps/studio-manage-web')
 include 'studio-externals'
-include 'studio-use-cases'
+project(':studio-externals').projectDir = file('./studio-adapters/studio-externals')
 include 'studio-presenters'
 project(':studio-presenters').projectDir = file('./studio-adapters/studio-presenters')
 include 'studio-datasources'
 project(':studio-datasources').projectDir = file('./studio-adapters/studio-datasources')
+include 'studio-usecases'
+project(':studio-usecases').projectDir = file('./studio-applications/studio-usecases')
+include 'studio-core-domain'
+project(':studio-core-domain').projectDir = file('./studio-models/studio-core-domain')

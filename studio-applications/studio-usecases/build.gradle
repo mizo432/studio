@@ -1,11 +1,10 @@
 apply plugin: 'org.springframework.boot'
 
-description = "studio-datasources"
+description = "studio-usecases"
 
 repositories {
     mavenCentral()
 }
-
 bootRepackage {
     enabled = false
 }
@@ -13,10 +12,7 @@ bootRepackage {
 dependencies {
     compile project(":studio-core-domain")
     compile("org.springframework.boot:spring-boot-starter")
-    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
-    compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    testRuntime group: 'com.h2database', name: 'h2', version: "${h2dbVersion}"
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"

@@ -10,3 +10,9 @@ build
 /ddd/build/
 /studio-adapters/studio-presenters/build/
 /studio-adapters/studio-datasources/build/
+/studio-bootstraps/studio-web/build/
+/studio-bootstraps/studio-manage-web/build/
+/studio-applications/studio-usecases/build/
+/studio-adapters/studio-externals/build/
+/studio-models/studio-core-domain/build/
+/studio-models/studio-generic/build/
