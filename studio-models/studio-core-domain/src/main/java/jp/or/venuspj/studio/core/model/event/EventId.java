@@ -23,4 +23,8 @@ public class EventId {
     public boolean isPresent() {
         return Objects2.nonNull(value);
     }
+
+    public static EventId defaultEventId() {
+        return new EventId();
+    }
 }

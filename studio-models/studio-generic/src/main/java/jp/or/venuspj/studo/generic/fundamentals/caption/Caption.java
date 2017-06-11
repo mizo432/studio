@@ -29,4 +29,9 @@ public class Caption implements Value, DecidableSameValueAs<Caption> {
                 .addValue(value)
                 .toString();
     }
+
+    public static Caption emptyCaption() {
+        return new Caption();
+    }
+
 }
