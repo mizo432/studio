@@ -95,7 +95,6 @@ subprojects {
         gradleVersion = '3.5'
     }
     task(jdepend, type: JDepend) {
-        ignoreFailures = true
         classesDir = file('build/intermediates/classes/debug/')
         reports {
             xml.enabled false
