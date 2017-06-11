@@ -107,7 +107,6 @@ subprojects {
 
     jacocoTestReport.dependsOn test
     jacocoTestReport {
-        ignoreFailures = true
         group = "Reporting"
         description = "Generate Jacoco coverage reports after running tests."
         additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
