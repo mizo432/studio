@@ -95,7 +95,6 @@ subprojects {
         gradleVersion = '3.5'
     }
     task(jdepend, type: JDepend) {
-        ignoreFailures = true
         classesDir = file('build/intermediates/classes/debug/')
         reports {
             xml.enabled false
@@ -108,7 +107,6 @@ subprojects {
 
     jacocoTestReport.dependsOn test
     jacocoTestReport {
-        ignoreFailures = true
         group = "Reporting"
         description = "Generate Jacoco coverage reports after running tests."
         additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
