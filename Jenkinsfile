@@ -39,10 +39,10 @@ node {
 
    }
 
- JUnitテストレポートを保存
-   stage ('copy test report'){
-      step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/*.xml'])
-   }
+// JUnitテストレポートを保存
+//   stage ('copy test report'){
+//      step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/*.xml'])
+//   }
 
    stage('assembles reports'){
         jacoco exclusionPattern: '**/*Test*.class'
