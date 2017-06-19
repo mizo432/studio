@@ -1,30 +1,30 @@
-package jp.or.venuspj.studio.core.model.product;
+package jp.or.venuspj.studio.core.model.player;
 
 import jp.or.venuspj.studio.core.model.studio.StudioCode;
 import jp.or.venuspj.util.objects2.Objects2;
 
-public class ProductId {
-    Integer value;
+public class PlayerId {
     StudioCode studioCode = StudioCode.defaultCode();
+    PlayerCode playerCode = PlayerCode.defaultCode();
 
-    ProductId() {
+    PlayerId() {
     }
 
-    public ProductId(StudioCode aStudioCode, Integer aValue) {
+    public PlayerId(StudioCode aStudioCode, PlayerCode aPlayerCode) {
         studioCode = aStudioCode;
-        value = aValue;
+        playerCode = aPlayerCode;
     }
 
-    public static ProductId defaultProductId() {
-        return new ProductId();
+    public static PlayerId defaultId() {
+        return new PlayerId();
     }
 
     @Override
     public String toString() {
         return Objects2
                 .toStringHelper(this)
-                .addValue(value)
                 .add("studioCode", studioCode)
+                .add("playerCode", playerCode)
                 .omitNullValues()
                 .toString();
     }
