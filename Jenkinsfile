@@ -3,10 +3,6 @@ node {
       git 'https://github.com/mizo432/studio.git'
    }
 
-   stage ('clean'){
-      sh './gradlew --daemon clean'
-   }
-
    stage ('build'){
       sh './gradlew --daemon :venus-utils:build'
       sh './gradlew --daemon :ddd:build'
