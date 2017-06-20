@@ -36,4 +36,8 @@ public class RecordDate implements Value, DecidableSameValueAs<RecordDate> {
     public boolean isPresent() {
         return Objects2.nonNull(value);
     }
+
+    public static RecordDate empty() {
+        return new RecordDate();
+    }
 }
