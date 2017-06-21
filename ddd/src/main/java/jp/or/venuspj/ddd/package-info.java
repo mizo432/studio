@@ -1,1 +1,0 @@
-package jp.or.venuspj.ddd;

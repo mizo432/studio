@@ -226,7 +226,7 @@ module.exports = function(grunt) {
         options: {
           enabled: true,
           message: 'Watching Files!',
-          title: "Materialize", // defaults to the name in package.json, or will use project directory's name
+          title: "Materialize", // defaults to the name in package.json, org will use project directory's name
           success: true, // whether successful grunt executions should be notified automatically
           duration: 1 // the duration of notification in seconds, for `notify-send only
         }

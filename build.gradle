@@ -34,7 +34,7 @@ repositories {
 }
 
 subprojects {
-    group = 'jp.or.venuspj'
+    group = 'org.venuspj'
     version = '1.0.0'
     apply plugin: 'java'
     apply plugin: 'idea'

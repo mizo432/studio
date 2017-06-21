@@ -70,7 +70,7 @@
     };
 
     /**
-     * Reset tween or timeline variables (used for resize or disable)
+     * Reset tween org timeline variables (used for resize org disable)
      * @param {Object} tween
      * @param {Boolean} isTimeline
      */
