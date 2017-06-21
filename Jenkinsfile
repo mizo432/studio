@@ -4,28 +4,7 @@ node {
    }
 
    stage ('build'){
-      sh './gradlew --daemon :venus-utils:build'
-      sh './gradlew --daemon :ddd:build'
-      sh './gradlew --daemon :studio-generic:build'
-      sh './gradlew --daemon :studio-core:build'
-      sh './gradlew --daemon :studio-externals:build'
-      parallel(
-         "stream1": {
-            echo 'start of stream1'
-            sh './gradlew --daemon :studio-presenters:build'
-         },
-         "stream2" : {
-            echo "start of stream2"
-            sh './gradlew --daemon :studio-datasources:build'
-         },
-         "stream3" : {
-            echo "start of stream2"
-            sh './gradlew --daemon :studio-usecases:build'
-         }
-      )
-      echo "3つのJOBが完了しました。。"
-      sh './gradlew --daemon :studio-manage-web:build'
-      sh './gradlew --daemon :studio-web:build'
+      sh './gradlew clean build  --daemon'
    }
 
    stage ('create reports'){
