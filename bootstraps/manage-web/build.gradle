@@ -1,5 +1,7 @@
 apply plugin: 'org.springframework.boot'
 apply plugin: 'com.github.ben-manes.versions'
+//apply plugin: "com.moowork.gulp"
+//apply plugin: 'com.moowork.node'
 
 buildscript {
     ext {
@@ -18,18 +20,26 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+//        classpath("com.moowork.gradle:gradle-gulp-plugin:0.10")
+//        classpath("com.moowork.gradle:gradle-node-plugin:0.12")
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.1'
     }
 
 }
 
+description = "studio-manage-web"
+
+//classes.dependsOn gulp_build
+//gulp_build.dependsOn 'npmInstall'
+
 jar {
-    baseName = 'studio-web'
+    baseName = 'studio-manage'
     version = '1.0.0-SNAPSHOT'
     manifest {
         attributes 'Main-Class': 'org.springframework.boot.loader.JarLauncher'
-        attributes "Start-Class": "org.venuspj.studio.WebApplication"
+        attributes "Start-Class": "org.venuspj.studio.ManageApplication"
     }
+    archiveName = 'studio-manage.jar'
 }
 
 bootRun {
@@ -45,6 +55,12 @@ bootRepackage {
 }
 
 dependencies {
+    compile('org.flywaydb:flyway-core')
+    compile project(":studio-core")
+    compile project(":studio-externals")
+    compile project(":studio-presenters")
+    compile project(":studio-datasources")
+    compile project(":studio-usecases")
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile group: "org.springframework.boot", name: "spring-boot-starter-mobile", version: "${springBootVersion}"
     compile("org.springframework.boot:spring-boot-starter-web")
@@ -53,22 +69,12 @@ dependencies {
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-springsecurity4", version: "${thymeleafExtrasVersion}"
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-java8time", version: "${thymeleafExtrasJava8timeVersion}"
     compile group: "org.springframework.session", name: "spring-session", version: "${springSessionVersion}"
-    compile project(":studio-core-domain")
-    compile project(":studio-externals")
-    compile project(":studio-presenters")
-    compile project(":studio-datasources")
-    compile project(":studio-usecases")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
     compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"
     compile("com.google.guava:guava:${guavaVersion}")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testRuntime('org.springframework.boot:spring-boot-devtools')
+    testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
     runtime group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
-}
-
-jar {
-    baseName = 'studio'
-    version = '1.0.0-SNAPSHOT'
-    archiveName = 'studio.jar'
 }

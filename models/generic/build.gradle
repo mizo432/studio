@@ -1,5 +1,7 @@
 apply plugin: 'java'
 
+description = "studio-generic"
+
 dependencies {
     compile project(":venus-utils")
     compile project(":ddd")

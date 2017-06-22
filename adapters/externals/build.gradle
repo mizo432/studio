@@ -1,9 +1,13 @@
-description = "ddd"
+apply plugin: 'java'
+
+description = "studio-externals"
+
+repositories {
+    mavenCentral()
+}
 
 dependencies {
-    compile("com.google.guava:guava:${guavaVersion}")
-    testCompile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
+    compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
 }
-

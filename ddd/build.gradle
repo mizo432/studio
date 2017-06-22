@@ -1,3 +1,5 @@
+description = "ddd"
+
 dependencies {
     compile project(":venus-utils")
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
