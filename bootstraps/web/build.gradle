@@ -59,7 +59,7 @@ dependencies {
     compile project(":studio-externals")
     compile project(":studio-presenters")
     compile project(":studio-datasources")
-    compile project(":studio-usecases")
+    compile project(":studio-usecase")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
     compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"

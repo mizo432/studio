@@ -1,6 +1,6 @@
 apply plugin: 'org.springframework.boot'
 
-description = "studio-usecases"
+description = "studio-usecase"
 
 repositories {
     mavenCentral()
