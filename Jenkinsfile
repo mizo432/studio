@@ -98,19 +98,6 @@ pipeline {
                                 archiveArtifacts "cpd/*.xml"
                             }
                         },
-                        'ステップカウント': {
-                            // レポート作成
-                            // outputFileとoutputFormatを指定するとエクセルファイルも作成してくれる
-                            stepcounter outputFile: 'stepcount.xls', outputFormat: 'excel', settings: [
-                                [key:'Java', filePattern: "${javaDir}/**/*.java"],
-                                [key:'SQL', filePattern: "${resourcesDir}/**/*.sql"],
-                                [key:'HTML', filePattern: "${resourcesDir}/**/*.html"],
-                                [key:'JS', filePattern: "${resourcesDir}/**/*.js"],
-                                [key:'CSS', filePattern: "${resourcesDir}/**/*.css"]
-                            ]
-                            // 一応エクセルファイルも成果物として保存する
-                            archiveArtifacts "stepcount.xls"
-                        },
                         'タスクスキャン': {
                             step([
                                 $class: 'TasksPublisher',
