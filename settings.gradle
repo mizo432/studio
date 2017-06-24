@@ -7,8 +7,6 @@ include ':studio-web'
 project(':studio-web').projectDir = file('./bootstraps/web')
 include ':studio-manage-web'
 project(':studio-manage-web').projectDir = file('./bootstraps/manage-web')
-include ':studio-externals'
-project(':studio-externals').projectDir = file('./adapters/externals')
 include ':studio-presenters'
 project(':studio-presenters').projectDir = file('./adapters/presenters')
 include ':studio-datasources'
