@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.fundamentals.address;
+package org.venuspj.studio.core.fundamentals.address.prefecture;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -6,17 +6,19 @@ import org.slf4j.LoggerFactory;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
-public class AddressTest {
+/**
+ */
+public class PrefectureTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AddressTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PrefectureTest.class);
 
-    public static Address createDummy() {
-        return Address.defaultAddress();
+    public static Prefecture createDummy() {
+        return Prefecture.defaultPrefecture();
     }
 
     @Test
     public void testToString1() throws Exception {
-        Address target = new Address();
+        Prefecture target = new Prefecture();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -25,7 +27,7 @@ public class AddressTest {
 
     @Test
     public void testToString2() throws Exception {
-        Address target = createDummy();
+        Prefecture target = createDummy();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
