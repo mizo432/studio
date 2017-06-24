@@ -115,11 +115,8 @@ pipeline {
             stage('テスト') {
                 steps {
                     gradlew 'test jacocoTestReport -x classes -x testClasses'
-
-                    junit "${testReportDir}/*.xml"　
-                    echo 'テスト結果アーカイブ 開始'
+                    junit "${testReportDir}/*.xml"
                     archiveArtifacts "${testReportDir}/*.xml"
-                    echo 'テスト結果アーカイブ 終了'
 
                     // カバレッジレポートを生成（テストクラスを除外）
                     echo 'JacocoReportアーカイブ 開始'
