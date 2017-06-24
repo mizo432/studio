@@ -207,3 +207,4 @@ def gradlew(command) {
         bat "./gradlew.bat ${command} --stacktrace  --daemon"
     }
 }
+}
