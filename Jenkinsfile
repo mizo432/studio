@@ -123,31 +123,8 @@ pipeline {
                                 normal: 'TODO',
                                 low: 'XXX',
                             ])
-                        },
-                        'JavaDoc': {
-                            gradlew 'javadoc -x classes'
-                            step([
-                                $class: 'JavadocArchiver',
-                                // Javadocのindex.htmlがあるフォルダのパスを指定する
-                                javadocDir: "${javadocDir}",
-                                keepAll: true
-                            ])
                         }
                     )
-                }
-                post {
-                    always {
-                       // JavaDocの警告を収集
-                        step([
-                            $class: 'WarningsPublisher',
-                            consoleParsers: [
-                                [parserName: 'JavaDoc Tool']
-                            ],
-                            canComputeNew: false,
-                            canResolveRelativesPaths: false,
-                            usePreviousBuildAsReference: true
-                        ])
-                    }
                 }
             }
 
