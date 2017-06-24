@@ -1,21 +1,20 @@
-node {
-    pipeline {
-        agent any
-        // 定数や変数を定義する
-        environment {
-            reportDir = 'build/reports'
-            javaDir = 'src/main/java'
-            resourcesDir = 'src/main/resources'
-            testReportDir = 'build/test-results/test'
-            jacocoReportDir = 'build/jacoco'
-            javadocDir = 'build/docs/javadoc'
-            libsDir = 'build/libs'
-            appName = 'studio-web'
-            appVersion = '1.0.0-SNAPSHOT'
-        }
+pipeline {
+    agent any
+    // 定数や変数を定義する
+    environment {
+        reportDir = 'build/reports'
+        javaDir = 'src/main/java'
+        resourcesDir = 'src/main/resources'
+        testReportDir = 'build/test-results/test'
+        jacocoReportDir = 'build/jacoco'
+        javadocDir = 'build/docs/javadoc'
+        libsDir = 'build/libs'
+        appName = 'studio-web'
+        appVersion = '1.0.0-SNAPSHOT'
+    }
 
-        // stagesブロック中に一つ以上のstageを定義する
-        stages {
+    // stagesブロック中に一つ以上のstageを定義する
+    stages {
             stage('事前準備') {
                 // 実際の処理はstepsブロック中に定義する
                 steps {
@@ -168,15 +167,14 @@ node {
                     ])
                 }
             }
-        }
+    }
 
-        // stagesブロックと同じレベルにpostブロックを定義すると
-        // 全てのstage処理が終わった後の処理の定義が可能
-        post {
-            always {
-                // 最後にワークスペースの中身を削除
-                deleteDir()
-            }
+    // stagesブロックと同じレベルにpostブロックを定義すると
+    // 全てのstage処理が終わった後の処理の定義が可能
+    post {
+        always {
+            // 最後にワークスペースの中身を削除
+            deleteDir()
         }
     }
 }
