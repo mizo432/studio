@@ -147,12 +147,6 @@ subprojects {
         }
     }
 
-    javadoc {
-        failOnError = false
-        // 好みのレベルで
-        options.memberLevel = JavadocMemberLevel.PRIVATE
-    }
-
     test {
         // 失敗しても後続の処理を継続させる
         ignoreFailures = true
@@ -181,30 +175,6 @@ subprojects {
     task wrapper(type: Wrapper) {
         gradleVersion = '4.0'
     }
-
-//    task(jdepend, type: JDepend) {
-//        classesDir = file('build/intermediates/classes/debug/')
-//        reports {
-//            xml.enabled false
-//            text.enabled true
-//        }
-//    }
-//    jacoco {
-//        toolVersion = "0.7.5.+"
-//    }
-
-//    jacocoTestReport.dependsOn test
-//    jacocoTestReport {
-//        group = "Reporting"
-//        description = "Generate Jacoco coverage reports after running tests."
-//        additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
-//        reports {
-//            xml.enabled false
-//            csv.enabled false
-//            html.destination "${buildDir}/reports/jacoco/html"
-//        }
-//       executionData = files('build/ jacoco / test.exec ')
-//   }
 
 }
 
