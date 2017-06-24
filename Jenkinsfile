@@ -72,7 +72,7 @@ pipeline {
                 steps {
                     // 並列処理の場合はparallelメソッドを使う
                     parallel(
-                        '静的コード解析' : {
+                        '静的コード解析sub' : {
                             gradlew 'check -x test'
                             // dirメソッドでカレントディレクトリを指定できる
                             dir(reportDir) {
