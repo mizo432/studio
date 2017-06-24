@@ -40,7 +40,6 @@ subprojects {
     apply plugin: 'jdepend'
     apply plugin: "findbugs"
     apply plugin: "maven"
-    apply plugin: 'checkstyle'
     apply plugin: 'pmd'
 
     ext {
@@ -96,14 +95,6 @@ subprojects {
         compile group: 'com.google.code.findbugs', name: 'annotations', version: "${findbugsAnnotationsVersion}"
         testCompile group: 'org.assertj', name: 'assertj-core', version: "${assertJVersion}"
         testCompile(group: 'junit', name: 'junit', version: "${junitVersion}")
-    }
-
-    checkstyle {
-        // 失敗しても後続の処理を継続させる
-        ignoreFailures = true
-        sourceSets = [sourceSets.main]
-        toolVersion = '7.8.2'
-        configFile rootProject.file('code_quality_tools/checkstyle.xml')
     }
 
     findbugs {

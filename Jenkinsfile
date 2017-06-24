@@ -77,10 +77,6 @@ pipeline {
                             // dirメソッドでカレントディレクトリを指定できる
                             dir(reportDir) {
                                 step([
-                                    $class: 'CheckStylePublisher',
-                                    pattern: "checkstyle/*.xml"
-                                ])
-                                step([
                                     $class: 'FindBugsPublisher',
                                     pattern: "findbugs/*.xml"
                                 ])
