@@ -5,7 +5,7 @@ pipeline {
         reportDir = 'build/reports'
         javaDir = 'src/main/java'
         resourcesDir = 'src/main/resources'
-        testReportDir = 'build/test-results/test'
+        // testReportDir = 'build/test-results/test'
         jacocoReportDir = 'build/jacoco'
         javadocDir = 'build/docs/javadoc'
         libsDir = 'build/libs'
@@ -115,14 +115,14 @@ pipeline {
             stage('テスト') {
                 steps {
                     gradlew 'test jacocoTestReport -x classes -x testClasses'
-                    junit "${testReportDir}/*.xml"
-                    archiveArtifacts "${testReportDir}/*.xml"
+                    junit "*/${testReportDir}/*.xml"
+                    archiveArtifacts "*/${testReportDir}/*.xml"
 
                     // カバレッジレポートを生成（テストクラスを除外）
                     echo 'JacocoReportアーカイブ 開始'
                     step([
                         $class: 'JacocoPublisher',
-                        execPattern: "${jacocoReportDir}/*.exec",
+                        execPattern: "*/${jacocoReportDir}/*.exec",
                         exclusionPattern: '**/*Test.class'
                     ])
                     echo 'JacocoReportアーカイブ 終了'
