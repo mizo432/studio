@@ -112,12 +112,12 @@ pipeline {
 
     // stagesブロックと同じレベルにpostブロックを定義すると
     // 全てのstage処理が終わった後の処理の定義が可能
-    post {
-        always {
-            // 最後にワークスペースの中身を削除
-            deleteDir()
-        }
-    }
+//    post {
+//        always {
+//            // 最後にワークスペースの中身を削除
+//            deleteDir()
+//        }
+//    }
 }
 
 // Gradlewコマンドを実行する
