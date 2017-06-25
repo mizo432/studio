@@ -112,14 +112,9 @@ pipeline {
                 gradlew 'test jacocoTestReport -x classes -x testClasses'
                 junit "${testReportDir}/*.xml"
                 archiveArtifacts allowEmptyArchive: true, artifacts: "${testReportDir}/*.xml"
-
                 // カバレッジレポートを生成（テストクラスを除外）
                 echo 'JacocoReportアーカイブ 開始'
-                step([
-                    $class: 'JacocoPublisher',
-                    execPattern: "${jacocoReportDir}/*.exec",
-                    exclusionPattern: '**/*Test.class'
-                ])
+                jacoco()
                 echo 'JacocoReportアーカイブ 終了'
             }
         }
