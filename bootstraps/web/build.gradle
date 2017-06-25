@@ -56,7 +56,6 @@ dependencies {
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-java8time", version: "${thymeleafExtrasJava8timeVersion}"
     compile group: "org.springframework.session", name: "spring-session", version: "${springSessionVersion}"
     compile project(":studio-core")
-    compile project(":studio-externals")
     compile project(":studio-presenters")
     compile project(":studio-datasources")
     compile project(":studio-usecases")
