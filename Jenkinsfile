@@ -73,18 +73,9 @@ pipeline {
                     gradlew 'check -x test'
                         // dirメソッドでカレントディレクトリを指定できる
                         dir(reportDir) {
-                            step([
-                                $class: 'FindBugsPublisher',
-                                pattern: "findbugs/*.xml"
-                            ])
-                            step([
-                                $class: 'PmdPublisher',
-                                pattern: "pmd/*.xml"
-                            ])
-                            step([
-                                $class: 'DryPublisher',
-                                pattern: "cpd/*.xml"
-                            ])
+                            findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: 'findbugs/*.xml', unHealthy: ''
+                            pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'pod/*.xml', unHealthy: ''
+                            dry canComputeNew: false, healthy: '', pattern: 'cpd/*.xml', unHealthy: ''
                             archiveArtifacts "checkstyle/*.xml"
                             archiveArtifacts "findbugs/*.xml"
                             archiveArtifacts "pmd/*.xml"
