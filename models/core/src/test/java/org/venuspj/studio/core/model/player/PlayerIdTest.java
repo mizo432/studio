@@ -3,24 +3,33 @@ package org.venuspj.studio.core.model.player;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.studio.core.fundamentals.name.Name;
 import org.venuspj.studio.core.model.studio.StudioCode;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
-public class PlayerTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PlayerTest.class);
+/**
+ */
+public class PlayerIdTest {
 
-    public static Player createDummy() {
-        PlayerId playerId = new PlayerId(new StudioCode("LHS"), new PlayerCode("ANSA"));
-        Name name = new Name("ANSA");
-        return new Player(playerId, name);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PlayerIdTest.class);
+
+    public static PlayerId createDummy() {
+        return new PlayerId(new StudioCode("LHS"), new PlayerCode("ANSA"));
 
     }
 
     @Test
+    public void defaultId() throws Exception {
+        PlayerId target = PlayerId.defaultId();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull();
+        LOGGER.debug("actual:" + target.toString());
+    }
+
+    @Test
     public void testToString1() throws Exception {
-        Player target = new Player();
+        PlayerId target = new PlayerId();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -29,11 +38,10 @@ public class PlayerTest {
 
     @Test
     public void testToString2() throws Exception {
-        Player target = createDummy();
+        PlayerId target = createDummy();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
         LOGGER.debug("actual:" + target.toString());
     }
-
 }

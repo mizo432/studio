@@ -1,22 +1,24 @@
-package org.venuspj.studio.core.model.player;
+package org.venuspj.studio.core.fundamentals.snsContact;
 
 import org.venuspj.util.list2.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
 import java.util.List;
 
-public class PlayerIds {
-    List<PlayerId> list = Lists2.newArrayList();
+/**
+ */
+public class SnsContacts {
+    List<SnsContact> list = Lists2.newArrayList();
 
-    PlayerIds() {
+    SnsContacts() {
     }
 
-    public PlayerIds(List<PlayerId> aList) {
+    SnsContacts(List<SnsContact> aList) {
         list.addAll(aList);
     }
 
-    public static PlayerIds empty() {
-        return new PlayerIds();
+    public static SnsContacts emptySnsContacts() {
+        return new SnsContacts();
     }
 
     @Override
@@ -24,7 +26,6 @@ public class PlayerIds {
         return Objects2
                 .toStringHelper(this)
                 .addValue(list)
-                .omitNullValues()
                 .toString();
     }
 }

@@ -1,26 +1,24 @@
-package org.venuspj.studio.core.model.player;
+package org.venuspj.studio.core.fundamentals.snsContact;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.studio.core.fundamentals.name.Name;
-import org.venuspj.studio.core.model.studio.StudioCode;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
-public class PlayerTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PlayerTest.class);
+/**
+ * Created by mizoguchi on 2017/06/25.
+ */
+public class SnsContactTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SnsContactTest.class);
 
-    public static Player createDummy() {
-        PlayerId playerId = new PlayerId(new StudioCode("LHS"), new PlayerCode("ANSA"));
-        Name name = new Name("ANSA");
-        return new Player(playerId, name);
-
+    public static SnsContact createDummy() {
+        return new SnsContact(SnsKind.TWITTER, SnsIdTest.createDummy());
     }
 
     @Test
     public void testToString1() throws Exception {
-        Player target = new Player();
+        SnsContact target = new SnsContact();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -29,7 +27,7 @@ public class PlayerTest {
 
     @Test
     public void testToString2() throws Exception {
-        Player target = createDummy();
+        SnsContact target = createDummy();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();

@@ -1,26 +1,24 @@
-package org.venuspj.studio.core.model.player;
+package org.venuspj.studio.core.fundamentals.contact;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.studio.core.fundamentals.name.Name;
-import org.venuspj.studio.core.model.studio.StudioCode;
+import org.venuspj.studio.core.fundamentals.telNo.TelNoTest;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
-public class PlayerTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PlayerTest.class);
+/**
+ */
+public class ContactTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContactTest.class);
 
-    public static Player createDummy() {
-        PlayerId playerId = new PlayerId(new StudioCode("LHS"), new PlayerCode("ANSA"));
-        Name name = new Name("ANSA");
-        return new Player(playerId, name);
-
+    public static Contact createDummy() {
+        return new Contact(TelNoTest.createDummy(), TelNoTest.createDummy(), HomepageUriTest.createDummy());
     }
 
     @Test
     public void testToString1() throws Exception {
-        Player target = new Player();
+        Contact target = new Contact();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -29,7 +27,7 @@ public class PlayerTest {
 
     @Test
     public void testToString2() throws Exception {
-        Player target = createDummy();
+        Contact target = createDummy();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();

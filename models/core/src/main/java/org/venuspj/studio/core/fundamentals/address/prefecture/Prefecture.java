@@ -6,17 +6,19 @@ import org.venuspj.util.objects2.Objects2;
 /**
  */
 public class Prefecture implements StringValue {
+    PrefectureCode prefectureCode;
     private String value;
 
     Prefecture() {
     }
 
-    public Prefecture(String aValue) {
+    public Prefecture(PrefectureCode aPrefectureCode, String aValue) {
         value = aValue;
+        prefectureCode = aPrefectureCode;
     }
 
     public static Prefecture defaultPrefecture() {
-        return new Prefecture("神奈川県");
+        return new Prefecture(new PrefectureCode(14), "神奈川県");
     }
 
     @Override
@@ -28,7 +30,8 @@ public class Prefecture implements StringValue {
     public String toString() {
         return Objects2
                 .toStringHelper(this)
-                .addValue(value)
+                .add("code", prefectureCode)
+                .add("name", value)
                 .toString();
     }
 
