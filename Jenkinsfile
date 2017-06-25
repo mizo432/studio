@@ -75,8 +75,7 @@ pipeline {
                         dir(reportDir) {
                             findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: 'findbugs/*.xml', unHealthy: ''
                             pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'pod/*.xml', unHealthy: ''
-                            dry canComputeNew: false, healthy: '', pattern: 'cpd/*.xml', unHealthy: ''
-                            archiveArtifacts "checkstyle/*.xml"
+                            dry canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'cpd/*.xml', unHealthy: ''
                             archiveArtifacts "findbugs/*.xml"
                             archiveArtifacts "pmd/*.xml"
                             archiveArtifacts "cpd/*.xml"
