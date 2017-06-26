@@ -2,6 +2,7 @@ package org.venuspj.studo.generic.fundamentals.datetime;
 
 import org.venuspj.ddd.model.value.DecidableSameValueAs;
 import org.venuspj.ddd.model.value.Value;
+import org.venuspj.util.dateProvider.DateProvider;
 import org.venuspj.util.objects2.Objects2;
 
 import java.time.LocalDateTime;
@@ -46,5 +47,9 @@ public class RecordDatetime implements Value, DecidableSameValueAs<RecordDatetim
 
     public RecordTime asTime() {
         return new RecordTime(value.toLocalTime());
+    }
+
+    public static RecordDatetime now() {
+        return new RecordDatetime(DateProvider.currentDateTime());
     }
 }
