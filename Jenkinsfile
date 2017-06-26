@@ -72,14 +72,12 @@ pipeline {
                     '静的コード解析sub' : {
                     gradlew 'check -x test'
                         // dirメソッドでカレントディレクトリを指定できる
-                        dir(reportDir) {
-                            findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '**/findbugs/*.xml', unHealthy: ''
-                            pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/pod/*.xml', unHealthy: ''
-                            dry canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/cpd/*.xml', unHealthy: ''
-                            archiveArtifacts "**/findbugs/*.xml"
-                            archiveArtifacts "**/pmd/*.xml"
-                            archiveArtifacts "**/cpd/*.xml"
-                        }
+                        findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '**/findbugs/*.xml', unHealthy: ''
+                        pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/pod/*.xml', unHealthy: ''
+                        dry canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/cpd/*.xml', unHealthy: ''
+                        archiveArtifacts "**/findbugs/*.xml"
+                        archiveArtifacts "**/pmd/*.xml"
+                        archiveArtifacts "**/cpd/*.xml"
                     },
                     'タスクスキャン': {
                         step([
