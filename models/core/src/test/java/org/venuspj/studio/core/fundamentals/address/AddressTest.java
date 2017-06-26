@@ -32,4 +32,13 @@ public class AddressTest {
         LOGGER.debug("actual:" + target.toString());
     }
 
+    @Test
+    public void testToString3() throws Exception {
+        Address target = Address.nullAddress();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull();
+        LOGGER.debug("actual:" + target.toString());
+    }
+
 }
