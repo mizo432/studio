@@ -33,6 +33,16 @@ public class EventsTest {
         LOGGER.debug("actual:" + target.toString());
     }
 
+    @Test
+    public void empty() throws Exception {
+        Events target =
+                Events.empty();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull();
+        LOGGER.debug("actual:" + target.toString());
+    }
+
     public static Events createDummy() {
         return new Events(Lists2.newArrayList(EventTest.createDummy()));
     }

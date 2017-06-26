@@ -16,4 +16,7 @@ public class NameTest {
         assertThat(target.asText()).isNull();
     }
 
+    public static Name createDummy() {
+        return new Name("Name");
+    }
 }

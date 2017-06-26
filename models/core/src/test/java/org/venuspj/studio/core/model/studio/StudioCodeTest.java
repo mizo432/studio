@@ -3,19 +3,15 @@ package org.venuspj.studio.core.model.studio;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
-import org.venuspj.studio.core.fundamentals.name.NameTest;
-import org.venuspj.studio.core.model.studio.profile.ProfileTest;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
-
-public class StudioTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(StudioTest.class);
+public class StudioCodeTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(StudioCodeTest.class);
 
     @Test
     public void testToString1() {
-        Studio target = new Studio();
+        StudioCode target = new StudioCode();
         assertThat(target)
                 .isNotNull();
 
@@ -25,7 +21,7 @@ public class StudioTest {
 
     @Test
     public void testToString2() {
-        Studio target = createDummy();
+        StudioCode target = createDummy();
         assertThat(target)
                 .isNotNull();
 
@@ -47,10 +43,7 @@ public class StudioTest {
 
     }
 
-    public static Studio createDummy() {
-        return new Studio(NameTest.createDummy(),
-                StudioCodeTest.createDummy(),
-                ProfileTest.createDummy(),
-                DescriptorTest.createDummy());
+    public static StudioCode createDummy() {
+        return new StudioCode("LHS");
     }
 }
