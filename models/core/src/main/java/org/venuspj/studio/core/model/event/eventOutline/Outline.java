@@ -21,6 +21,7 @@ public class Outline {
     }
 
     public Outline(EventId anEventId, RecordDate aRecordDate, Address anAddress, PlayerIds anPlayerIds, Place aPlace) {
+        eventId = anEventId;
         recordDate = aRecordDate;
         address = anAddress;
         playerIds = anPlayerIds;
