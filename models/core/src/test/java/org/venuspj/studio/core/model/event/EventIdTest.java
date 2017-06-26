@@ -40,4 +40,15 @@ public class EventIdTest {
                 .isNotNull()
                 .isEqualTo(false);
     }
+
+    @Test
+    public void defaultEventId() throws Exception {
+        EventId target = EventId.defaultEventId();
+        assertThat(target)
+                .isNotNull();
+        assertThat(target.isPresent())
+                .isNotNull()
+                .isEqualTo(false);
+
+    }
 }
