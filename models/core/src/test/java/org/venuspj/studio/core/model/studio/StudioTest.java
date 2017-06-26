@@ -34,4 +34,7 @@ public class StudioTest {
 
     }
 
+    public static Studio createDummy() {
+        return new Studio();
+    }
 }
