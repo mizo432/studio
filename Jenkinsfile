@@ -98,8 +98,8 @@ pipeline {
         stage('テスト') {
             steps {
                 gradlew 'test jacocoTestReport -x classes -x testClasses'
-                junit allowEmptyResults: true, testResults: "${testReportDir}/*.xml"
-                archiveArtifacts allowEmptyArchive: true, artifacts: "${testReportDir}/*.xml"
+                junit allowEmptyResults: true, testResults: "**/${testReportDir}/*.xml"
+                archiveArtifacts allowEmptyArchive: true, artifacts: "**/${testReportDir}/*.xml"
                 // カバレッジレポートを生成（テストクラスを除外）
                 echo 'JacocoReportアーカイブ 開始'
                 jacoco exclusionPattern: '**/*Test*.class'
@@ -110,12 +110,12 @@ pipeline {
 
     // stagesブロックと同じレベルにpostブロックを定義すると
     // 全てのstage処理が終わった後の処理の定義が可能
-//    post {
-//        always {
-//            // 最後にワークスペースの中身を削除
-//            deleteDir()
-//        }
-//    }
+    post {
+        always {
+            // 最後にワークスペースの中身を削除
+            deleteDir()
+        }
+    }
 }
 
 // Gradlewコマンドを実行する
