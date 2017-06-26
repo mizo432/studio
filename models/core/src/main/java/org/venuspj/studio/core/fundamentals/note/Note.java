@@ -1,6 +1,7 @@
 package org.venuspj.studio.core.fundamentals.note;
 
 import org.venuspj.studio.core.fundamentals.StringValue;
+import org.venuspj.util.objects2.Objects2;
 
 /**
  */
@@ -11,7 +12,7 @@ public class Note implements StringValue {
         value = "";
     }
 
-    Note(String aValue) {
+    public Note(String aValue) {
         value = aValue;
     }
 
@@ -22,5 +23,13 @@ public class Note implements StringValue {
 
     public static Note defailtNote() {
         return new Note();
+    }
+
+    @Override
+    public String toString() {
+        return Objects2
+                .toStringHelper(this)
+                .addValue(value)
+                .toString();
     }
 }
