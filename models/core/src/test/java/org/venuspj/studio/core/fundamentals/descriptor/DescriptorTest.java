@@ -1,10 +1,10 @@
 package org.venuspj.studio.core.fundamentals.descriptor;
 
-import org.venuspj.studio.core.fundamentals.name.Name;
-import org.venuspj.studo.generic.fundamentals.description.Description;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.venuspj.studio.core.fundamentals.name.Name;
+import org.venuspj.studo.generic.fundamentals.description.Description;
 
 public class DescriptorTest {
     private static Logger LOGGER = LoggerFactory.getLogger(DescriptorTest.class);
@@ -24,7 +24,6 @@ public class DescriptorTest {
     public static Descriptor createDummy() {
         Name name = new Name("DUMMY_NAME");
         Description desc = new Description("DUMMY_DESCRIPTION");
-        Descriptor target = new Descriptor(name, desc);
         return new Descriptor(name, desc);
     }
 

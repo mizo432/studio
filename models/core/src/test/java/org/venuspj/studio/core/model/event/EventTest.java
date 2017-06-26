@@ -3,20 +3,17 @@ package org.venuspj.studio.core.model.event;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
-import org.venuspj.studio.core.fundamentals.name.Name;
-import org.venuspj.studio.core.model.event.flyers.Flyer;
-import org.venuspj.studio.core.model.event.flyers.Flyers;
+import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
+import org.venuspj.studio.core.model.event.eventOutline.OutlineTest;
+import org.venuspj.studio.core.model.event.flyers.FlyersTest;
 import org.venuspj.studio.core.model.player.PlayerIds;
 import org.venuspj.studo.generic.fundamentals.datetime.RecordDate;
-import org.venuspj.studo.generic.fundamentals.description.Description;
 import org.venuspj.util.dateProvider.DateProvider;
 import org.venuspj.util.dateProvider.StaticDateProvider;
-import org.venuspj.util.list2.Lists2;
 
 import java.time.LocalDateTime;
 
-import static org.assertj.core.api.Java6Assertions.*;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
  */
@@ -35,12 +32,19 @@ public class EventTest {
     @Test
     public void testToString2() throws Exception {
         StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
-        Event target = new Event(new EventId(1), new Descriptor(new Name("イベント名"), new Description("")), new Flyers(Lists2.newArrayList(Flyer.emptyFlyer())), PlayerIds.empty(), new RecordDate(DateProvider
-                .currentDateTime().toLocalDate()));
+        Event target = createDummy();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
         LOGGER.debug("actual:" + target.toString());
+    }
+
+    public static Event createDummy() {
+        return new Event(OutlineTest.createDummy(),
+                DescriptorTest.createDummy(),
+                FlyersTest.createDummy(),
+                PlayerIds.empty(),
+                new RecordDate(DateProvider.currentDateTime().toLocalDate()));
     }
 
 }

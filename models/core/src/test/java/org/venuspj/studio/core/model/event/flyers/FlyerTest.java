@@ -20,13 +20,17 @@ public class FlyerTest {
         LOGGER.debug("actual:" + target.toString());
     }
 
-   @Test
+    @Test
     public void testToString2() throws Exception {
-        Flyer target = new Flyer(new Caption("Caption"),new ImagePath("ImagePath"));
+        Flyer target = new Flyer(new Caption("Caption"), new ImagePath("ImagePath"));
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull()
                 .isEqualTo("Flyer{caption=Caption{Caption}, imagePath=ImagePath{ImagePath}}");
         LOGGER.debug("actual:" + target.toString());
+    }
+
+    public static Flyer createDummy() {
+        return new Flyer(new Caption("Caption"), new ImagePath("ImagePath"));
     }
 }
