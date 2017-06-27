@@ -3,19 +3,27 @@ package org.venuspj.studio.usecase.event;
 import org.springframework.stereotype.Service;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventCredential;
+import org.venuspj.studio.core.model.player.PlayerIds;
+import org.venuspj.studio.core.model.player.PlayerRepository;
+import org.venuspj.studio.core.model.player.Players;
 import org.venuspj.studio.core.repositories.event.EventRepository;
 import org.venuspj.studio.core.usecases.event.EventQuery;
 import org.venuspj.studio.core.usecases.event.EventQueryInputPort;
 import org.venuspj.studio.core.usecases.event.EventQueryOutputPort;
 
+/**
+ * イベント詳細画面用表示用ユースケース
+ */
 @Service
 public class EventQueryImpl implements EventQuery {
 
     EventQueryInputPort useCaseInputPort;
     EventRepository eventRepository;
+    PlayerRepository playerRepository;
 
-    public EventQueryImpl(EventRepository anEventRepository) {
+    public EventQueryImpl(EventRepository anEventRepository, PlayerRepository aPlayerRepository) {
         eventRepository = anEventRepository;
+        playerRepository = aPlayerRepository;
     }
 
     @Override
@@ -29,7 +37,9 @@ public class EventQueryImpl implements EventQuery {
     public EventQueryOutputPort start() {
         EventCredential credential = useCaseInputPort.toCredential();
         Event event = eventRepository.findOne(credential);
-        EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPort(event);
+        PlayerIds playerIds = event.playerIds();
+        Players players = playerRepository.findByPlayersIds(playerIds);
+        EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPort(event, players);
         return eventQueryOutputPort;
     }
 

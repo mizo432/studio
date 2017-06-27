@@ -43,4 +43,8 @@ public class Event {
     public static Event brankEvent() {
         return new Event();
     }
+
+    public PlayerIds playerIds() {
+        return playerIds;
+    }
 }

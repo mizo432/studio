@@ -45,4 +45,16 @@ public class PlayersTest {
         LOGGER.debug("actual:" + target.toString());
     }
 
+    @Test
+    public void selectStudioPlayers() throws Exception {
+        Players target = createDummy();
+        Players actual = target.selectStudioPlayers();
+        assertThat(actual)
+                .isNotNull();
+        assertThat(actual.playerSize())
+                .isNotNull()
+                .isEqualTo(1);
+        LOGGER.debug("actual:" + target.toString());
+    }
+
 }

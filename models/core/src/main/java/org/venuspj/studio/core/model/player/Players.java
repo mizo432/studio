@@ -29,4 +29,17 @@ public class Players {
                 .toString();
     }
 
+    public Players selectStudioPlayers() {
+        List<Player> resultList = Lists2.newArrayList();
+        for (Player player : list) {
+            if (player.isStudioPlayer()) {
+                resultList.add(player);
+            }
+        }
+        return new Players(resultList);
+    }
+
+    public Integer playerSize() {
+        return list.size();
+    }
 }

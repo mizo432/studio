@@ -14,7 +14,7 @@ public class PlayerTest {
     public static Player createDummy() {
         PlayerId playerId = new PlayerId(new StudioCode("LHS"), new PlayerCode("ANSA"));
         Name name = new Name("ANSA");
-        return new Player(playerId, name);
+        return new Player(playerId, name, PlayerClassification.STUDIO_PLAYER);
 
     }
 
@@ -33,6 +33,16 @@ public class PlayerTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
+        LOGGER.debug("actual:" + target.toString());
+    }
+
+    @Test
+    public void isStudioPlayer() throws Exception {
+        Player target = createDummy();
+        boolean actual = target.isStudioPlayer();
+        assertThat(actual)
+                .isNotNull()
+                .isTrue();
         LOGGER.debug("actual:" + target.toString());
     }
 

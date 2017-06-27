@@ -36,7 +36,17 @@ public class EventTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        LOGGER.debug("actual:" + actual);
+    }
+
+    @Test
+    public void playerIds() throws Exception {
+        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        Event target = createDummy();
+        PlayerIds actual = target.playerIds();
+        assertThat(actual)
+                .isNotNull();
+        LOGGER.debug("actual:" + actual);
     }
 
     public static Event createDummy() {

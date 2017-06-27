@@ -7,14 +7,15 @@ public class Player {
 
     Name name = Name.defaultName();
     PlayerId playerId = PlayerId.defaultId();
-
+    PlayerClassification playerClassification = PlayerClassification.OUTER_PLAYER;
     Player() {
 
     }
 
-    public Player(PlayerId aPlayerId, Name aName) {
+    public Player(PlayerId aPlayerId, Name aName, PlayerClassification aPlayerClassification) {
         playerId = aPlayerId;
         name = aName;
+        playerClassification = aPlayerClassification;
     }
 
     @Override
@@ -23,8 +24,12 @@ public class Player {
                 .toStringHelper(this)
                 .add("playerId", playerId)
                 .add("name", name)
+                .add("playerClassification", playerClassification)
                 .omitNullValues()
                 .toString();
     }
 
+    public boolean isStudioPlayer() {
+        return playerClassification.isStudioPlayer();
+    }
 }
