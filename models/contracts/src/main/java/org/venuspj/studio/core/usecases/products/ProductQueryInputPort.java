@@ -3,14 +3,14 @@ package org.venuspj.studio.core.usecases.products;
 import org.venuspj.studio.core.model.product.ProductId;
 import org.venuspj.studio.core.usecases.UseCaseInputPort;
 
-public class ShowProductInputPort implements UseCaseInputPort {
+public class ProductQueryInputPort implements UseCaseInputPort {
     private ProductId productId;
 
-    public ShowProductInputPort(ProductId aProductId) {
+    public ProductQueryInputPort(ProductId aProductId) {
         productId = aProductId;
     }
 
-    public static ShowProductInputPort of(ProductId aProductId) {
-        return new ShowProductInputPort(aProductId);
+    public static ProductQueryInputPort of(ProductId aProductId) {
+        return new ProductQueryInputPort(aProductId);
     }
 }
