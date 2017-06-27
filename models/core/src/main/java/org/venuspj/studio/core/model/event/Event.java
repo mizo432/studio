@@ -40,4 +40,7 @@ public class Event {
                 .toString();
     }
 
+    public static Event brankEvent() {
+        return new Event();
+    }
 }

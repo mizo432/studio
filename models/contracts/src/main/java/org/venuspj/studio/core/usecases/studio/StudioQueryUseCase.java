@@ -1,4 +1,6 @@
 package org.venuspj.studio.core.usecases.studio;
 
-public interface StudioQueryUseCase {
+import org.venuspj.studio.core.usecases.UseCaseInteractor;
+
+public interface StudioQueryUseCase extends UseCaseInteractor<StudioQueryInputPort, StudioQueryOutputPort> {
 }
