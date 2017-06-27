@@ -73,7 +73,7 @@ pipeline {
                     gradlew 'check -x test'
                         // dirメソッドでカレントディレクトリを指定できる
                         findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '**/findbugs/*.xml', unHealthy: ''
-                        pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/pod/*.xml', unHealthy: ''
+                        pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/pmd/*.xml', unHealthy: ''
                         dry canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/cpd/*.xml', unHealthy: ''
                         archiveArtifacts "**/findbugs/*.xml"
                         archiveArtifacts "**/pmd/*.xml"
