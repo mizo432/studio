@@ -1,6 +1,6 @@
-package org.venuspj.studio.core.usecases.products;
+package org.venuspj.studio.adapter.presenters.product;
 
-import org.venuspj.studio.core.usecases.UseCaseOutputPort;
+import org.venuspj.cleanArchitecture.useCase.UseCaseOutputPort;
 
 public class ProductQueryOutputPort implements UseCaseOutputPort {
     public static ProductQueryOutputPort defaultOutputPort() {

@@ -1,8 +1,8 @@
-package org.venuspj.studio.core.usecases.event;
+package org.venuspj.studio.adapter.presenters.event;
 
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.player.Players;
-import org.venuspj.studio.core.usecases.UseCaseOutputPort;
+import org.venuspj.cleanArchitecture.useCase.UseCaseOutputPort;
 
 public class EventQueryOutputPort implements UseCaseOutputPort {
     private final Event event;

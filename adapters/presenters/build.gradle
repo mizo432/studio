@@ -11,10 +11,9 @@ bootRepackage {
 }
 
 dependencies {
+    compile project(":venus-utils")
     compile project(":studio-core")
-    compile project(":studio-contracts")
-    compile("org.springframework.boot:spring-boot-starter")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile project(":clean-architecture")
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"

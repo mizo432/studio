@@ -1,7 +1,7 @@
-package org.venuspj.studio.core.usecases.studio;
+package org.venuspj.studio.adapter.presenters.studio;
 
 import org.venuspj.studio.core.model.studio.Studio;
-import org.venuspj.studio.core.usecases.UseCaseOutputPort;
+import org.venuspj.cleanArchitecture.useCase.UseCaseOutputPort;
 
 public class StudioQueryOutputPort implements UseCaseOutputPort {
     private final Studio studio;

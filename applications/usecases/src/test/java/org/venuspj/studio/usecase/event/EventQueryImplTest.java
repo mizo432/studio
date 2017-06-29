@@ -8,10 +8,10 @@ import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventCredential;
 import org.venuspj.studio.core.model.player.PlayerIds;
-import org.venuspj.studio.core.model.player.PlayerRepository;
+import org.venuspj.studio.core.repositories.player.PlayerRepository;
 import org.venuspj.studio.core.model.player.Players;
 import org.venuspj.studio.core.repositories.event.EventRepository;
-import org.venuspj.studio.core.usecases.UseCaseOutputPort;
+import org.venuspj.cleanArchitecture.useCase.UseCaseOutputPort;
 import org.venuspj.studio.core.usecases.event.EventQuery;
 import org.venuspj.studio.core.usecases.event.EventQueryInputPort;
 

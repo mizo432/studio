@@ -1,19 +1,34 @@
 rootProject.name = 'studio'
-include 'venus-utils'
-include 'ddd'
+include ':venus-utils'
+project(':venus-utils').projectDir = file('./externals/venus-utils')
+
+include ':ddd'
+project(':ddd').projectDir = file('./externals/ddd')
+
+include ':clean-architecture'
+project(':clean-architecture').projectDir = file('./externals/clean-architecture')
+
 include ':studio-generic'
 project(':studio-generic').projectDir = file('./models/generic')
+
 include ':studio-web'
 project(':studio-web').projectDir = file('./bootstraps/web')
+
 include ':studio-manage-web'
 project(':studio-manage-web').projectDir = file('./bootstraps/manage-web')
+
 include ':studio-presenters'
 project(':studio-presenters').projectDir = file('./adapters/presenters')
+
 include ':studio-datasources'
 project(':studio-datasources').projectDir = file('./adapters/datasources')
+
 include ':studio-usecases'
 project(':studio-usecases').projectDir = file('./applications/usecases')
+
 include ':studio-core'
 project(':studio-core').projectDir = file('./models/core')
+
 include ':studio-contracts'
 project(':studio-contracts').projectDir = file('./models/contracts')
+
