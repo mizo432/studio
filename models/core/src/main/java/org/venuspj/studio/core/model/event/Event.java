@@ -4,7 +4,7 @@ import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
 import org.venuspj.studio.core.model.player.PlayerIds;
-import org.venuspj.studo.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.util.objects2.Objects2;
 
 /**

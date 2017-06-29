@@ -3,7 +3,7 @@ package org.venuspj.studio.core.model.product;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.fundamentals.name.Name;
 import org.venuspj.studio.core.model.studio.StudioCode;
-import org.venuspj.studo.generic.fundamentals.description.Description;
+import org.venuspj.studio.generic.fundamentals.description.Description;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

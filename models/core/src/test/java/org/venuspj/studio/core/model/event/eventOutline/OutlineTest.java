@@ -7,7 +7,7 @@ import org.venuspj.studio.core.fundamentals.address.AddressTest;
 import org.venuspj.studio.core.fundamentals.place.PlaceTest;
 import org.venuspj.studio.core.model.event.EventIdTest;
 import org.venuspj.studio.core.model.player.PlayerIds;
-import org.venuspj.studo.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.util.dateProvider.DateProvider;
 import org.venuspj.util.dateProvider.StaticDateProvider;
 

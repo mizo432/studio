@@ -1,6 +1,6 @@
 package org.venuspj.studio.core.model.event.flyers;
 
-import org.venuspj.studo.generic.fundamentals.caption.Caption;
+import org.venuspj.studio.generic.fundamentals.caption.Caption;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

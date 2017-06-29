@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.fundamentals.name.Name;
-import org.venuspj.studo.generic.fundamentals.description.Description;
+import org.venuspj.studio.generic.fundamentals.description.Description;
 
 public class DescriptorTest {
     private static Logger LOGGER = LoggerFactory.getLogger(DescriptorTest.class);

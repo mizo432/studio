@@ -7,7 +7,7 @@ import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
 import org.venuspj.studio.core.model.event.eventOutline.OutlineTest;
 import org.venuspj.studio.core.model.event.flyers.FlyersTest;
 import org.venuspj.studio.core.model.player.PlayerIds;
-import org.venuspj.studo.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.util.dateProvider.DateProvider;
 import org.venuspj.util.dateProvider.StaticDateProvider;
 

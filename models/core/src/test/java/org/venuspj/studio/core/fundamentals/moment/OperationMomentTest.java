@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
 import org.venuspj.studio.core.model.operator.OperatorId;
 import org.venuspj.studio.core.model.operator.OperatorIdTest;
-import org.venuspj.studo.generic.fundamentals.datetime.RecordDatetime;
+import org.venuspj.studio.generic.fundamentals.datetime.RecordDatetime;
 import org.venuspj.util.dateProvider.StaticDateProvider;
 
 import java.time.LocalDateTime;

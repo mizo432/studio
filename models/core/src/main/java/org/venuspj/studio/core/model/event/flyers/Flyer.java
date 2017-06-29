@@ -1,6 +1,6 @@
 package org.venuspj.studio.core.model.event.flyers;
 
-import org.venuspj.studo.generic.fundamentals.caption.Caption;
+import org.venuspj.studio.generic.fundamentals.caption.Caption;
 import org.venuspj.util.objects2.Objects2;
 
 /**
