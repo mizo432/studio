@@ -15,18 +15,25 @@ public class FlyerTest {
         Flyer target = new Flyer();
         String actual = target.toString();
         assertThat(actual)
-                .isNotNull()
-                .isEqualTo("Flyer{caption=Caption{null}, imagePath=ImagePath{null}}");
+                .isNotNull();
         LOGGER.debug("actual:" + target.toString());
     }
 
     @Test
     public void testToString2() throws Exception {
-        Flyer target = new Flyer(new Caption("Caption"), new ImagePath("ImagePath"));
+        Flyer target = createDummy();
         String actual = target.toString();
         assertThat(actual)
-                .isNotNull()
-                .isEqualTo("Flyer{caption=Caption{Caption}, imagePath=ImagePath{ImagePath}}");
+                .isNotNull();
+        LOGGER.debug("actual:" + target.toString());
+    }
+
+    @Test
+    public void emptyFlyer() throws Exception {
+        Flyer target = Flyer.emptyFlyer();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull();
         LOGGER.debug("actual:" + target.toString());
     }
 
