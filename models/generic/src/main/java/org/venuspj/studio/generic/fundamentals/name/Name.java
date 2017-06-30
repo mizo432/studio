@@ -1,8 +1,9 @@
 package org.venuspj.studio.generic.fundamentals.name;
 
+import org.venuspj.ddd.model.value.StringValue;
 import org.venuspj.util.objects2.Objects2;
 
-public class Name {
+public class Name implements StringValue{
     private String value;
 
     Name() {
@@ -21,4 +22,14 @@ public class Name {
                 .addValue(value)
                 .toString();
     }
+
+    @Override
+    public String asText() {
+        return value;
+    }
+
+    public static Name defaultName() {
+        return new Name();
+    }
+
 }

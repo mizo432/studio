@@ -3,10 +3,10 @@ package org.venuspj.studio.core.model.player;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.studio.core.fundamentals.name.Name;
 import org.venuspj.studio.core.model.studio.StudioCode;
+import org.venuspj.studio.generic.fundamentals.name.Name;
 
-import static org.assertj.core.api.Java6Assertions.*;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class PlayerTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(PlayerTest.class);

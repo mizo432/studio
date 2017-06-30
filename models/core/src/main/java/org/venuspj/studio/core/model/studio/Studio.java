@@ -2,8 +2,8 @@ package org.venuspj.studio.core.model.studio;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
-import org.venuspj.studio.core.fundamentals.name.Name;
 import org.venuspj.studio.core.model.studio.profile.Profile;
+import org.venuspj.studio.generic.fundamentals.name.Name;
 
 public class Studio extends AbstractEntity<Studio> {
     Descriptor descriptor;

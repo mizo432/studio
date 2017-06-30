@@ -1,6 +1,6 @@
 package org.venuspj.studio.core.model.player;
 
-import org.venuspj.studio.core.fundamentals.name.Name;
+import org.venuspj.studio.generic.fundamentals.name.Name;
 import org.venuspj.util.objects2.Objects2;
 
 public class Player {

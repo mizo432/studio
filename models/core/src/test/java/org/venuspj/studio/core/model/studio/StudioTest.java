@@ -4,8 +4,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
-import org.venuspj.studio.core.fundamentals.name.NameTest;
 import org.venuspj.studio.core.model.studio.profile.ProfileTest;
+import org.venuspj.studio.generic.fundamentals.name.NameTest;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 

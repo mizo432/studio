@@ -32,5 +32,11 @@ public class NameTest {
         LOGGER.debug("actual:" + target.toString());
     }
 
+    @Test
+    public void defaultName() throws Exception {
+        Name target = Name.defaultName();
+        assertThat(target).isNotNull();
+        assertThat(target.asText()).isNull();
+    }
 
 }

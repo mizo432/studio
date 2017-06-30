@@ -1,7 +1,7 @@
 package org.venuspj.studio.core.fundamentals.descriptor;
 
-import org.venuspj.studio.core.fundamentals.name.Name;
 import org.venuspj.studio.generic.fundamentals.description.Description;
+import org.venuspj.studio.generic.fundamentals.name.Name;
 import org.venuspj.util.objects2.Objects2;
 
 public class Descriptor {
