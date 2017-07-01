@@ -13,7 +13,16 @@ import static org.assertj.core.api.Java6Assertions.*;
 public class StudioTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(StudioTest.class);
 
-    arget = new Studio();
+    public static Studio createDummy() {
+        return new Studio(NameMock.createDummy(),
+                StudioCodeTest.createDummy(),
+                ProfileTest.createDummy(),
+                DescriptorTest.createDummy());
+    }
+
+    @Test
+    public void equalsTest() {
+        Studio target = new Studio();
         assertThat(target.equals(new Studio())).isTrue();
 
     }
@@ -24,13 +33,6 @@ public class StudioTest {
         assertThat(target.hashCode()).isEqualTo(31);
 
     }
-public static Studio createDummy() {
-        return new Studio(NameMock.createDummy(),
-                StudioCodeTest.createDummy(),
-                ProfileTest.createDummy(),
-           LOG
-  DescriptorTest.createDummy());
-    }
 
     @Test
     public void testToString1() {
@@ -38,23 +40,18 @@ public static Studio createDummy() {
         assertThat(target)
                 .isNotNull();
 
-     t(targ
-GER.debug("target:" + target);
+        LOGGER.debug("target:" + target);
 
     }
 
     @Test
     public void testToString2() {
         Studio target = createDummy();
-        assertThaudio t
-et)
+        assertThat(target)
                 .isNotNull();
 
         LOGGER.debug("target:" + target);
 
     }
 
-    @Test
-    public void equalsTest() {
-        St
 }
