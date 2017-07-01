@@ -1,6 +1,6 @@
 package org.venuspj.studio.generic.fundamentals.address.city;
 
-import org.venuspj.studio.core.fundamentals.StringValue;
+import org.venuspj.ddd.model.value.StringValue;
 import org.venuspj.util.objects2.Objects2;
 
 /**
@@ -19,6 +19,10 @@ public class City implements StringValue {
 
     }
 
+    public static City defaultCity() {
+        return new City("横浜市");
+    }
+
     @Override
     public String asText() {
         return value;
@@ -30,9 +34,5 @@ public class City implements StringValue {
                 .addValue(value)
                 .omitNullValues()
                 .toString();
-    }
-
-    public static City defaultCity() {
-        return new City("横浜市");
     }
 }

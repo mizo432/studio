@@ -1,6 +1,6 @@
 package org.venuspj.studio.generic.fundamentals.address.prefecture;
 
-import org.venuspj.studio.core.fundamentals.IntegerIdValue;
+import org.venuspj.ddd.model.entity.IntegerIdValue;
 import org.venuspj.util.objects2.Objects2;
 
 /**
