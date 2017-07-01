@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.fundamentals.address;
+package org.venuspj.studio.generic.fundamentals.address;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -6,18 +6,17 @@ import org.slf4j.LoggerFactory;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
-/**
- */
-public class AddressStringTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AddressStringTest.class);
+public class AddressTest {
 
-    public static AddressString createDummy() {
-        return new AddressString("ADDRESS_STRING");
+    private static final Logger LOGGER = LoggerFactory.getLogger(AddressTest.class);
+
+    public static Address createDummy() {
+        return Address.defaultAddress();
     }
 
     @Test
     public void testToString1() throws Exception {
-        AddressString target = new AddressString();
+        Address target = new Address();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -26,7 +25,7 @@ public class AddressStringTest {
 
     @Test
     public void testToString2() throws Exception {
-        AddressString target = AddressString.emptyAddressString();
+        Address target = createDummy();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -35,21 +34,11 @@ public class AddressStringTest {
 
     @Test
     public void testToString3() throws Exception {
-        AddressString target = createDummy();
+        Address target = Address.nullAddress();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
         LOGGER.debug("actual:" + target.toString());
-    }
-
-    @Test
-    public void asText() throws Exception {
-        AddressString target = createDummy();
-        String actual = target.asText();
-        assertThat(actual)
-                .isNotNull()
-                .isEqualTo("ADDRESS_STRING");
-        LOGGER.debug("actual:" + actual);
     }
 
 }

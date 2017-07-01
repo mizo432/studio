@@ -1,7 +1,7 @@
-package org.venuspj.studio.core.fundamentals.address;
+package org.venuspj.studio.generic.fundamentals.address;
 
-import org.venuspj.studio.core.fundamentals.address.city.City;
-import org.venuspj.studio.core.fundamentals.address.prefecture.Prefecture;
+import org.venuspj.studio.generic.fundamentals.address.city.City;
+import org.venuspj.studio.generic.fundamentals.address.prefecture.Prefecture;
 import org.venuspj.util.objects2.Objects2;
 
 public class Address {

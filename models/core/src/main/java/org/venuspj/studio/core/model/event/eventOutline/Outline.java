@@ -1,9 +1,9 @@
 package org.venuspj.studio.core.model.event.eventOutline;
 
-import org.venuspj.studio.core.fundamentals.address.Address;
 import org.venuspj.studio.core.fundamentals.place.Place;
 import org.venuspj.studio.core.model.event.EventId;
 import org.venuspj.studio.core.model.player.PlayerIds;
+import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.util.objects2.Objects2;
 

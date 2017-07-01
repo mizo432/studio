@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.fundamentals.address;
+package org.venuspj.studio.generic.fundamentals.address;
 
 import org.venuspj.studio.core.fundamentals.StringValue;
 import org.venuspj.util.objects2.Objects2;

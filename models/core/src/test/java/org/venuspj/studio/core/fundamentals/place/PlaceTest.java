@@ -3,10 +3,10 @@ package org.venuspj.studio.core.fundamentals.place;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.studio.core.fundamentals.address.AddressTest;
 import org.venuspj.studio.core.fundamentals.contact.ContactTest;
 import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
 import org.venuspj.studio.core.fundamentals.snsContact.SnsContactsTest;
+import org.venuspj.studio.generic.fundamentals.address.AddressTest;
 
 import static org.assertj.core.api.Java6Assertions.*;
 

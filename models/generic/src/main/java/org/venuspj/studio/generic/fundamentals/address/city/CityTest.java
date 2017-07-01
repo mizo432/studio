@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.fundamentals.address.city;
+package org.venuspj.studio.generic.fundamentals.address.city;
 
 import org.junit.Test;
 import org.slf4j.Logger;
