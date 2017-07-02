@@ -79,6 +79,7 @@ pipeline {
                         archiveArtifacts "**/findbugs/*.xml"
                         archiveArtifacts "**/pmd/*.xml"
                         archiveArtifacts "**/cpd/*.xml"
+                        archiveArtifacts "**/jdepend/*.xml"
                     },
                     'タスクスキャン': {
                         step([
