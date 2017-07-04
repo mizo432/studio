@@ -37,8 +37,7 @@ public class EventQueryImpl implements EventQuery {
     public EventQueryOutputPort start() {
         EventCredential credential = useCaseInputPort.toCredential();
         Event event = eventRepository.findOne(credential);
-        PlayerIds playerIds = event.playerIds();
-        Players players = playerRepository.findByPlayersIds(playerIds);
+        Players players = playerRepository.findByPlayersIds(event.playerIds());
         EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPort(event, players);
         return eventQueryOutputPort;
     }

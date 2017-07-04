@@ -27,7 +27,7 @@ public class EventQueryImplTest {
         EventRepository eventRepository = new EventRepository() {
             @Override
             public Event findOne(EventCredential credential) {
-                return Event.brankEvent();
+                return Event.blankEvent();
             }
         };
 

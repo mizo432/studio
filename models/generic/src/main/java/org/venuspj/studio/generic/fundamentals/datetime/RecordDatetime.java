@@ -52,4 +52,8 @@ public class RecordDatetime implements Value, DecidableSameValueAs<RecordDatetim
     public static RecordDatetime now() {
         return new RecordDatetime(DateProvider.currentDateTime());
     }
+
+    public static RecordDatetime empty() {
+        return new RecordDatetime(DateProvider.currentDateTime());
+    }
 }

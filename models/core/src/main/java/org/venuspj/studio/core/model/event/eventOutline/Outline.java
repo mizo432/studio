@@ -40,4 +40,8 @@ public class Outline {
                 .omitNullValues()
                 .toString();
     }
+
+    public PlayerIds playerIds() {
+        return playerIds;
+    }
 }

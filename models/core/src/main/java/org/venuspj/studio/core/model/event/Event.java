@@ -4,7 +4,6 @@ import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
 import org.venuspj.studio.core.model.player.PlayerIds;
-import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.util.objects2.Objects2;
 
 /**
@@ -12,20 +11,19 @@ import org.venuspj.util.objects2.Objects2;
  */
 public class Event {
 
+    /** イベント概要 */
+    Outline outline;
     Descriptor descriptor = Descriptor.defaultDescriptor();
     Flyers flyers = Flyers.empty();
-    PlayerIds playerIds = PlayerIds.empty();
-    Outline outline;
 
     Event() {
 
     }
 
-    public Event(Outline anOutline, Descriptor aDescriptor, Flyers aFlyers, PlayerIds aPlayerIds, RecordDate aRecordDate) {
+    public Event(Outline anOutline, Descriptor aDescriptor, Flyers aFlyers) {
         outline = anOutline;
         descriptor = aDescriptor;
         flyers = aFlyers;
-        playerIds = aPlayerIds;
     }
 
     @Override
@@ -35,16 +33,15 @@ public class Event {
                 .add("descriptor", descriptor)
                 .add("outline", outline)
                 .add("flyers", flyers)
-                .add("playerIds", playerIds)
                 .omitNullValues()
                 .toString();
     }
 
-    public static Event brankEvent() {
+    public static Event blankEvent() {
         return new Event();
     }
 
     public PlayerIds playerIds() {
-        return playerIds;
+        return outline.playerIds();
     }
 }
