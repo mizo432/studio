@@ -30,16 +30,29 @@ public class StudioCodeTest {
     }
 
     @Test
-    public void equalsTest() {
-        Studio target = new Studio();
-        assertThat(target.equals(new Studio())).isTrue();
+    public void equals1() {
+        StudioCode target = new StudioCode();
+        assertThat(target.equals(new StudioCode())).isTrue();
 
     }
 
     @Test
-    public void hashCodeTest() {
-        Studio target = new Studio();
-        assertThat(target.hashCode()).isEqualTo(31);
+    public void equals2() {
+        StudioCode target = createDummy();
+        assertThat(target.equals(new StudioCode())).isFalse();
+
+    }
+    @Test
+    public void hashCode1() {
+        StudioCode target = new StudioCode();
+        assertThat(target.hashCode()).isEqualTo(441573456);
+
+    }
+
+    @Test
+    public void hashCode2() {
+        StudioCode target = createDummy();
+        assertThat(target.hashCode()).isEqualTo(441648807);
 
     }
 

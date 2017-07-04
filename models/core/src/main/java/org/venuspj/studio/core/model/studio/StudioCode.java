@@ -32,11 +32,12 @@ public class StudioCode extends AbstractEntityIdentifier<Studio> {
 
     @Override
     public int hashCode() {
-        return Objects2.hash(value);
+        return Objects2.hash(kind, value);
     }
 
     @Override
     public boolean equals(Object obj) {
+        if(!super.equals(obj)) return false;
         if (!(obj instanceof StudioCode))
             return false;
         StudioCode that = (StudioCode) obj;
