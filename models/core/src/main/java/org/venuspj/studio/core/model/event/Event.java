@@ -3,7 +3,6 @@ package org.venuspj.studio.core.model.event;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
-import org.venuspj.studio.core.model.player.PlayerIds;
 import org.venuspj.util.objects2.Objects2;
 
 /**
@@ -11,8 +10,10 @@ import org.venuspj.util.objects2.Objects2;
  */
 public class Event {
 
-    /** イベント概要 */
-    Outline outline;
+    /**
+     * イベント概要
+     */
+    Outline outline = Outline.defaultOutline();
     Descriptor descriptor = Descriptor.defaultDescriptor();
     Flyers flyers = Flyers.empty();
 
@@ -41,7 +42,7 @@ public class Event {
         return new Event();
     }
 
-    public PlayerIds playerIds() {
-        return outline.playerIds();
+    public Outline outline() {
+        return outline;
     }
 }

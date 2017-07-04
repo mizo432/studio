@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import org.venuspj.studio.adapter.presenters.event.EventQueryOutputPort;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventCredential;
-import org.venuspj.studio.core.model.player.PlayerIds;
 import org.venuspj.studio.core.model.player.Players;
 import org.venuspj.studio.core.repositories.event.EventRepository;
 import org.venuspj.studio.core.repositories.player.PlayerRepository;
@@ -37,7 +36,7 @@ public class EventQueryImpl implements EventQuery {
     public EventQueryOutputPort start() {
         EventCredential credential = useCaseInputPort.toCredential();
         Event event = eventRepository.findOne(credential);
-        Players players = playerRepository.findByPlayersIds(event.playerIds());
+        Players players = playerRepository.findByPlayersIds(event.outline().playerIds());
         EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPort(event, players);
         return eventQueryOutputPort;
     }

@@ -14,7 +14,7 @@ public class Outline {
     EventId eventId;
     RecordDate recordDate;
     Address address;
-    PlayerIds playerIds;
+    PlayerIds playerIds = PlayerIds.empty();
     Place place;
 
     Outline() {
@@ -43,5 +43,9 @@ public class Outline {
 
     public PlayerIds playerIds() {
         return playerIds;
+    }
+
+    public static Outline defaultOutline() {
+        return new Outline();
     }
 }
