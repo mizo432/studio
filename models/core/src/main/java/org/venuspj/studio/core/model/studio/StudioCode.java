@@ -1,26 +1,28 @@
 package org.venuspj.studio.core.model.studio;
 
-import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
 import org.venuspj.util.objects2.Objects2;
 
 /**
  */
-public class StudioCode implements EntityIdentifier<Studio> {
+public class StudioCode extends AbstractEntityIdentifier<Studio> {
     String value;
 
     StudioCode() {
-        value = "";
+        this("");
     }
 
     @Override
     public String toString() {
         return Objects2
                 .toStringHelper(this)
-                .addValue(value)
+                .add("kind",kind)
+                .add("studioCode",value)
                 .toString();
     }
 
     public StudioCode(String aValue) {
+        super(Studio.class);
         value = aValue;
     }
 
