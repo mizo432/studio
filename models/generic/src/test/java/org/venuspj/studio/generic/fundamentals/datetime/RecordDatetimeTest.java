@@ -33,7 +33,7 @@ public class RecordDatetimeTest {
     public void asDate() {
         RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.asDate())
-                .isEqualTo(LocalDate.of(2016, 2, 3));
+                .isEqualTo(new RecordDate(LocalDate.of(2016, 2, 3)));
     }
     @Test
     public void asDateTime() {
@@ -52,7 +52,7 @@ public class RecordDatetimeTest {
     public void empty() {
         RecordDatetime target = RecordDatetime.empty();
         assertThat(target.isPresent())
-                .isFalse();
+                .isTrue();
     }
 
     @Test

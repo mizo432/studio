@@ -25,7 +25,7 @@ public class RecordYearMonthTest {
     public void asYearMonth() {
         RecordYearMonth target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.asYearMonth())
-                .isEqualTo(YearMonth.of(2017, 1));
+                .isEqualTo(YearMonth.of(2017, 2));
     }
 
     @Test
