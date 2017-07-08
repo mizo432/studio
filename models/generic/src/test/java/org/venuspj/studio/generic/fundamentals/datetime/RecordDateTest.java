@@ -74,6 +74,13 @@ public class RecordDateTest {
     }
 
     @Test
+    public void sameValueAs5() {
+        RecordDate target = createDummyData(TestDateKind.BASE_DATE);
+        assertThat(target.sameValueAs(null))
+                .isFalse();
+    }
+
+    @Test
     public void hashCode1() throws Exception {
         RecordDate target = createDummyData(TestDateKind.BASE_DATE);
         int actual = target.hashCode();
@@ -86,6 +93,28 @@ public class RecordDateTest {
         RecordDate target = createDummyData(TestDateKind.BASE_DATE);
         boolean actual = target.equals(target);
         assertThat(actual).isTrue();
+    }
+
+    @Test
+    public void equals2() throws Exception {
+        RecordDate target = createDummyData(TestDateKind.BASE_DATE);
+        boolean actual = target.equals(Integer.valueOf(1));
+        assertThat(actual).isFalse();
+    }
+
+    @Test
+    public void equals3() throws Exception {
+        RecordDate target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDate other = createDummyData(TestDateKind.PAST_DATE);
+        boolean actual = target.equals(other);
+        assertThat(actual).isFalse();
+    }
+
+    @Test
+    public void equals4() throws Exception {
+        RecordDate target = createDummyData(TestDateKind.BASE_DATE);
+        boolean actual = target.equals(null);
+        assertThat(actual).isFalse();
     }
 
     public enum TestDateKind {

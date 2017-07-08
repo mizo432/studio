@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.*;
 
 /**
  */
@@ -15,6 +15,7 @@ public class RecordDatetimeTest {
     public static RecordDatetime createDummyData(TestDateKind aTestDateKind) {
         return new RecordDatetime(aTestDateKind.dateTime());
     }
+
     @Test
     public void isPresent01() {
         RecordDatetime target = new RecordDatetime();
@@ -35,17 +36,19 @@ public class RecordDatetimeTest {
         assertThat(target.asDate())
                 .isEqualTo(new RecordDate(LocalDate.of(2016, 2, 3)));
     }
+
     @Test
     public void asDateTime() {
         RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.asDateTime())
-                .isEqualTo(LocalDateTime.of(2016, 2, 3,4,5,6,7));
+                .isEqualTo(LocalDateTime.of(2016, 2, 3, 4, 5, 6, 7));
     }
+
     @Test
     public void asTime() {
         RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.asTime())
-                .isEqualTo(new RecordTime(LocalTime.of(4,5,6,7)));
+                .isEqualTo(new RecordTime(LocalTime.of(4, 5, 6, 7)));
     }
 
     @Test
@@ -69,6 +72,7 @@ public class RecordDatetimeTest {
         assertThat(target.sameValueAs(other))
                 .isFalse();
     }
+
     @Test
     public void sameValueAs2() {
         RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
@@ -83,6 +87,13 @@ public class RecordDatetimeTest {
         RecordDatetime other = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.sameValueAs(other))
                 .isTrue();
+    }
+
+    @Test
+    public void sameValueAs4() {
+        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
+        assertThat(target.sameValueAs(null))
+                .isFalse();
     }
 
     public enum TestDateKind {

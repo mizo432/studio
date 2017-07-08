@@ -69,6 +69,13 @@ public class RecordYearMonthTest {
     }
 
     @Test
+    public void sameValueAs4() {
+        RecordYearMonth target = createDummyData(TestDateKind.BASE_DATE);
+        assertThat(target.sameValueAs(null))
+                .isFalse();
+    }
+
+    @Test
     public void toString1() throws Exception {
         RecordYearMonth target = createDummyData(TestDateKind.BASE_DATE);
         LOGGER.debug("actual:" + target);
