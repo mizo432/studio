@@ -10,6 +10,10 @@ import static org.assertj.core.api.Java6Assertions.*;
  */
 public class RecordDateTest {
 
+    public static RecordDate createDummyData(TestDateKind aTestDateKind) {
+        return new RecordDate(aTestDateKind.date());
+    }
+
     @Test
     public void isPresent01() {
         RecordDate target = new RecordDate();
@@ -45,6 +49,7 @@ public class RecordDateTest {
         assertThat(target.sameValueAs(other))
                 .isFalse();
     }
+
     @Test
     public void sameValueAs2() {
         RecordDate target = createDummyData(TestDateKind.BASE_DATE);
@@ -61,8 +66,26 @@ public class RecordDateTest {
                 .isTrue();
     }
 
-    public static RecordDate createDummyData(TestDateKind aTestDateKind) {
-        return new RecordDate(aTestDateKind.date());
+    @Test
+    public void sameValueAs4() {
+        RecordDate target = createDummyData(TestDateKind.BASE_DATE);
+        assertThat(target.sameValueAs(target))
+                .isTrue();
+    }
+
+    @Test
+    public void hashCode1() throws Exception {
+        RecordDate target = createDummyData(TestDateKind.BASE_DATE);
+        int actual = target.hashCode();
+        assertThat(actual).isEqualTo(4128930);
+
+    }
+
+    @Test
+    public void equals1() throws Exception {
+        RecordDate target = createDummyData(TestDateKind.BASE_DATE);
+        boolean actual = target.equals(target);
+        assertThat(actual).isTrue();
     }
 
     public enum TestDateKind {
@@ -80,5 +103,4 @@ public class RecordDateTest {
 
         public abstract LocalDate date();
     }
-
 }

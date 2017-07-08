@@ -1,12 +1,21 @@
 package org.venuspj.studio.generic.fundamentals.datetime;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.YearMonth;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.*;
 
 public class RecordYearMonthTest {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RecordYearMonthTest.class);
+
+    public static RecordYearMonth createDummyData(TestDateKind aTestDateKind) {
+        return new RecordYearMonth(aTestDateKind.yearMonth());
+    }
+
     @Test
     public void isPresent01() {
         RecordYearMonth target = new RecordYearMonth();
@@ -42,6 +51,7 @@ public class RecordYearMonthTest {
         assertThat(target.sameValueAs(other))
                 .isFalse();
     }
+
     @Test
     public void sameValueAs2() {
         RecordYearMonth target = createDummyData(TestDateKind.BASE_DATE);
@@ -58,8 +68,10 @@ public class RecordYearMonthTest {
                 .isTrue();
     }
 
-    public static RecordYearMonth createDummyData(TestDateKind aTestDateKind) {
-        return new RecordYearMonth(aTestDateKind.yearMonth());
+    @Test
+    public void toString1() throws Exception {
+        RecordYearMonth target = createDummyData(TestDateKind.BASE_DATE);
+        LOGGER.debug("actual:" + target);
     }
 
     public enum TestDateKind {
