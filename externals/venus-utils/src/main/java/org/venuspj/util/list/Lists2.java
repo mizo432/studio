@@ -14,7 +14,7 @@ public class Lists2 {
 
     public static <T> List<T> newArrayList(T... items) {
         ArrayList<T> result = new ArrayList<>(items.length);
-        for (T item:items){
+        for (T item : items) {
             result.add(item);
         }
         return result;
