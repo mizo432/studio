@@ -13,20 +13,15 @@ import static org.assertj.core.api.Java6Assertions.*;
 public class PartyPlaceThingTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(PartyPlaceThingTest.class);
 
-            String actual = target.toString();
-        assertThat(actual)
-                .isNotNull();
-        LOGGER.debug("actual:" + actual);
-    }ing ac
 
-public static PartyPlaceThing createDummy() {
-        return new PartyPlaceThing(PartyPlaceThingIdTest.createDummy(),new Name("ANSA"));
+    public static PartyPlaceThing createDummy() {
+        return new PartyPlaceThing(PartyPlaceThingIdTest.createDummy(), new Name("ANSA"));
     }
 
     @Test
     public void testToString1() throws Exception {
         PartyPlaceThing target = new PartyPlaceThing();
-        Strtual = target.toString();
+        String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
         LOGGER.debug("actual:" + target.toString());
@@ -36,5 +31,10 @@ public static PartyPlaceThing createDummy() {
     public void testToString2() throws Exception {
         StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
         PartyPlaceThing target = createDummy();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull();
+        LOGGER.debug("actual:" + actual);
+    }
 
 }
