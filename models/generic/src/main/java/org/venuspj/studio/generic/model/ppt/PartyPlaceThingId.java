@@ -4,20 +4,24 @@ import org.venuspj.util.objects2.Objects2;
 
 import java.util.UUID;
 
-public class PersonPlaceThingId {
+public class PartyPlaceThingId {
     String value;
 
-    PersonPlaceThingId() {
+    PartyPlaceThingId() {
 
     }
 
-    public PersonPlaceThingId(String aValue) {
+    public PartyPlaceThingId(String aValue) {
         value = aValue;
 
     }
 
-    public static PersonPlaceThingId newId() {
-        return new PersonPlaceThingId(UUID.randomUUID().toString());
+    public static PartyPlaceThingId newId() {
+        return new PartyPlaceThingId(UUID.randomUUID().toString());
+    }
+
+    public static PartyPlaceThingId empty() {
+        return new PartyPlaceThingId();
     }
 
     @Override
@@ -30,9 +34,5 @@ public class PersonPlaceThingId {
 
     public boolean isPresent() {
         return Objects2.nonNull(value);
-    }
-
-    public static PersonPlaceThingId empty() {
-        return new PersonPlaceThingId();
     }
 }

@@ -2,16 +2,16 @@ package org.venuspj.studio.generic.model.ppt;
 
 import org.junit.Test;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.*;
 
-public class PersonPlaceThingIdTest {
-    public static PersonPlaceThingId createDummy() {
-        return new PersonPlaceThingId("1");
+public class PartyPlaceThingIdTest {
+    public static PartyPlaceThingId createDummy() {
+        return new PartyPlaceThingId("1");
     }
 
     @Test
     public void toString01() throws Exception {
-        PersonPlaceThingId target = new PersonPlaceThingId();
+        PartyPlaceThingId target = new PartyPlaceThingId();
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
@@ -20,7 +20,7 @@ public class PersonPlaceThingIdTest {
 
     @Test
     public void toString02() throws Exception {
-        PersonPlaceThingId target = createDummy();
+        PartyPlaceThingId target = createDummy();
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
@@ -29,7 +29,7 @@ public class PersonPlaceThingIdTest {
 
     @Test
     public void isPresent() throws Exception {
-        PersonPlaceThingId target = new PersonPlaceThingId();
+        PartyPlaceThingId target = new PartyPlaceThingId();
         assertThat(target)
                 .isNotNull();
         assertThat(target.isPresent())
@@ -39,7 +39,7 @@ public class PersonPlaceThingIdTest {
 
     @Test
     public void newId() throws Exception {
-        PersonPlaceThingId target = PersonPlaceThingId.newId();
+        PartyPlaceThingId target = PartyPlaceThingId.newId();
         assertThat(target)
                 .isNotNull();
         assertThat(target.isPresent())
@@ -50,7 +50,7 @@ public class PersonPlaceThingIdTest {
 
     @Test
     public void empty() throws Exception {
-        PersonPlaceThingId target = PersonPlaceThingId.empty();
+        PartyPlaceThingId target = PartyPlaceThingId.empty();
         assertThat(target)
                 .isNotNull();
         assertThat(target.isPresent())
