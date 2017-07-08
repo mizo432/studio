@@ -4,14 +4,18 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.venuspj.util.dateProvider.StaticDateProvider;
-import org.venuspj.util.list2.Lists2;
+import org.venuspj.util.list.Lists2;
 
 import java.time.LocalDateTime;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.*;
 
 public class EventsTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventsTest.class);
+
+    public static Events createDummy() {
+        return new Events(Lists2.newArrayList(EventTest.createDummy()));
+    }
 
     @Test
     public void testToString1() {
@@ -41,9 +45,5 @@ public class EventsTest {
         assertThat(actual)
                 .isNotNull();
         LOGGER.debug("actual:" + target.toString());
-    }
-
-    public static Events createDummy() {
-        return new Events(Lists2.newArrayList(EventTest.createDummy()));
     }
 }
