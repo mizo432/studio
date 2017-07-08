@@ -6,9 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
 import org.venuspj.studio.core.model.event.eventOutline.OutlineTest;
 import org.venuspj.studio.core.model.event.flyers.FlyersTest;
-import org.venuspj.studio.core.model.player.PlayerIds;
-import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
-import org.venuspj.util.dateProvider.DateProvider;
 import org.venuspj.util.dateProvider.StaticDateProvider;
 
 import java.time.LocalDateTime;
@@ -39,22 +36,10 @@ public class EventTest {
         LOGGER.debug("actual:" + actual);
     }
 
-    @Test
-    public void playerIds() throws Exception {
-        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
-        Event target = createDummy();
-        PlayerIds actual = target.playerIds();
-        assertThat(actual)
-                .isNotNull();
-        LOGGER.debug("actual:" + actual);
-    }
-
     public static Event createDummy() {
         return new Event(OutlineTest.createDummy(),
                 DescriptorTest.createDummy(),
-                FlyersTest.createDummy(),
-                PlayerIds.empty(),
-                new RecordDate(DateProvider.currentDateTime().toLocalDate()));
+                FlyersTest.createDummy());
     }
 
 }

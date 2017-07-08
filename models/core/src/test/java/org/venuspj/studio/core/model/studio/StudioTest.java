@@ -3,6 +3,7 @@ package org.venuspj.studio.core.model.studio;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
 import org.venuspj.studio.core.model.studio.profile.ProfileTest;
 import org.venuspj.studio.generic.fundamentals.name.NameMock;
@@ -30,7 +31,7 @@ public class StudioTest {
     @Test
     public void hashCodeTest() {
         Studio target = new Studio();
-        assertThat(target.hashCode()).isEqualTo(31);
+        assertThat(target.hashCode()).isEqualTo(441573456);
 
     }
 
@@ -51,6 +52,17 @@ public class StudioTest {
                 .isNotNull();
 
         LOGGER.debug("target:" + target);
+
+    }
+
+    @Test
+    public void getIdentifier1() {
+        Studio target = createDummy();
+        EntityIdentifier<Studio> actual = target.getIdentifier();
+        assertThat(actual)
+                .isNotNull();
+
+        LOGGER.debug("actual:" + actual);
 
     }
 

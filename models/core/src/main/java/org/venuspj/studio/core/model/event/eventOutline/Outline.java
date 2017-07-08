@@ -14,7 +14,7 @@ public class Outline {
     EventId eventId;
     RecordDate recordDate;
     Address address;
-    PlayerIds playerIds;
+    PlayerIds playerIds = PlayerIds.empty();
     Place place;
 
     Outline() {
@@ -39,5 +39,13 @@ public class Outline {
                 .add("playerIds", playerIds)
                 .omitNullValues()
                 .toString();
+    }
+
+    public PlayerIds playerIds() {
+        return playerIds;
+    }
+
+    public static Outline defaultOutline() {
+        return new Outline();
     }
 }

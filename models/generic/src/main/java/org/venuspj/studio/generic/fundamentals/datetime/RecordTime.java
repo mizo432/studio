@@ -39,4 +39,24 @@ public class RecordTime implements Value, DecidableSameValueAs<RecordTime> {
     public boolean isPresent() {
         return Objects2.nonNull(value);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (Objects2.isNull(value))
+            return false;
+        if (obj instanceof RecordTime) {
+            RecordTime other = (RecordTime) obj;
+            return sameValueAs(other);
+        }
+        return false;
+    }
+
+    public static RecordTime empty() {
+        return new RecordTime();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects2.hash(value);
+    }
 }

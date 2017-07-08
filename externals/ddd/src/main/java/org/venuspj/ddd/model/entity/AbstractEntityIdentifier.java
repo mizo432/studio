@@ -47,4 +47,8 @@ public abstract class AbstractEntityIdentifier<T extends Entity<T>> implements E
         return true;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects2.hash(kind);
+    }
 }

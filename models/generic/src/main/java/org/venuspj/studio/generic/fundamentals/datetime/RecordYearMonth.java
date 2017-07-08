@@ -33,4 +33,11 @@ public class RecordYearMonth implements Value, DecidableSameValueAs<RecordYearMo
         return Objects2.nonNull(other) && value.equals(other.value);
     }
 
+    public boolean isPresent() {
+        return Objects2.nonNull(value);
+    }
+
+    public static RecordYearMonth empty() {
+        return new RecordYearMonth();
+    }
 }
