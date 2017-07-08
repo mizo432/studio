@@ -8,19 +8,19 @@ import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventCredential;
 import org.venuspj.studio.core.model.player.PlayerIds;
-import org.venuspj.studio.core.repositories.player.PlayerRepository;
 import org.venuspj.studio.core.model.player.Players;
 import org.venuspj.studio.core.repositories.event.EventRepository;
-import org.venuspj.cleanArchitecture.useCase.UseCaseOutputPort;
-import org.venuspj.studio.core.usecases.event.EventQuery;
+import org.venuspj.studio.core.repositories.player.PlayerRepository;
 import org.venuspj.studio.core.usecases.event.EventQueryInputPort;
+import org.venuspj.studio.core.usecases.event.EventQueryOutputPort;
+import org.venuspj.studio.core.usecases.event.EventQueryUseCase;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.*;
 
 public class EventQueryImplTest {
     static final Logger LOGGER = LoggerFactory.getLogger(EventQueryImplTest.class);
 
-    EventQuery tergetUsecase;
+    EventQueryUseCase tergetUsecase;
 
     @Before
     public void setUp() throws Exception {
@@ -38,7 +38,7 @@ public class EventQueryImplTest {
             }
         };
 
-        tergetUsecase = new EventQueryImpl(eventRepository, playerRepository);
+        tergetUsecase = new EventQuery(eventRepository, playerRepository);
     }
 
     @After
@@ -48,9 +48,11 @@ public class EventQueryImplTest {
 
     @Test
     public void start() throws Exception {
-        EventQueryInputPort eventQueryInputPort = new EventQueryInputPort();
-        UseCaseOutputPort actual = tergetUsecase.withInputPort(eventQueryInputPort).start();
-        assertThat(actual)
+        EventQueryInputPort eventQueryInputPort = new EventQueryInputPortMock();
+        EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPortMock();
+        tergetUsecase.withEventQueryInputPort(eventQueryInputPort)
+                .withEventQueryOutputPort(eventQueryOutputPort).start();
+        assertThat(eventQueryInputPort)
                 .isNotNull();
 
 
