@@ -12,6 +12,7 @@ public class Lists2 {
         return Lists.newArrayList();
     }
 
+    @SafeVarargs
     public static <T> ArrayList<T> newArrayList(T... items) {
         ArrayList<T> result = new ArrayList<>(items.length);
         for (T item : items) {
