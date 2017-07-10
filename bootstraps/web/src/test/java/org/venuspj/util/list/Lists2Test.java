@@ -7,7 +7,6 @@ import java.util.List;
 import static org.assertj.core.api.Java6Assertions.*;
 
 /**
- * Created by mizoguchi on 2017/07/10.
  */
 public class Lists2Test {
     @Test
