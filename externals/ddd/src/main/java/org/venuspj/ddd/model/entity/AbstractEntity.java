@@ -4,7 +4,9 @@ import com.google.common.base.MoreObjects;
 import org.venuspj.util.objects2.Objects2;
 
 /**
+ * エンティティの抽象クラス
  *
+ * @param <T> エンティティクラス
  */
 public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
 
@@ -24,6 +26,7 @@ public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public T clone() {
         try {
             return (T) super.clone();
