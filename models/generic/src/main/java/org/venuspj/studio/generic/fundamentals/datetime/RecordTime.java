@@ -42,7 +42,7 @@ public class RecordTime implements Value, DecidableSameValueAs<RecordTime> {
 
     @Override
     public boolean equals(Object obj) {
-        if (Objects2.isNull(value))
+        if (Objects2.isNull(obj))
             return false;
         if (obj instanceof RecordTime) {
             RecordTime other = (RecordTime) obj;
