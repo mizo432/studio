@@ -1,12 +1,11 @@
 package org.venuspj.util.map2;
 
 import com.google.common.primitives.Ints;
+import org.venuspj.util.collect.CollectPreconditions;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import static org.venuspj.util.collect.CollectPreconditions.checkNonnegative;
 
 public final class Maps2 {
 
@@ -20,7 +19,7 @@ public final class Maps2 {
 
     static int capacity(int expectedSize) {
         if (expectedSize < 3) {
-            checkNonnegative(expectedSize, "expectedSize");
+            CollectPreconditions.checkNonNegative(expectedSize, "expectedSize");
             return expectedSize + 1;
         }
         if (expectedSize < Ints.MAX_POWER_OF_TWO) {
