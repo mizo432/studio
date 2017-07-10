@@ -12,7 +12,7 @@ public class RecordTimeTest {
 
     private Logger LOGGER = LoggerFactory.getLogger(RecordTimeTest.class);
 
-    public static RecordTime createDummyData(TestDateKind aTestDateKind) {
+    public static RecordTime createDummyData(TestTimeKind aTestDateKind) {
         return new RecordTime(aTestDateKind.time());
     }
 
@@ -25,14 +25,14 @@ public class RecordTimeTest {
 
     @Test
     public void isPresent02() {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
         assertThat(target.isPresent())
                 .isTrue();
     }
 
     @Test
     public void asDate() {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
         assertThat(target.asTime())
                 .isEqualTo(LocalTime.of(4, 5, 6));
     }
@@ -46,7 +46,7 @@ public class RecordTimeTest {
 
     @Test
     public void sameValueAs1() {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
         RecordTime other = RecordTime.empty();
         assertThat(target.sameValueAs(other))
                 .isFalse();
@@ -54,23 +54,30 @@ public class RecordTimeTest {
 
     @Test
     public void sameValueAs2() {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
-        RecordTime other = createDummyData(TestDateKind.PAST_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
+        RecordTime other = createDummyData(TestTimeKind.PAST_TIME);
         assertThat(target.sameValueAs(other))
                 .isFalse();
     }
 
     @Test
     public void sameValueAs3() {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
-        RecordTime other = createDummyData(TestDateKind.BASE_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
+        RecordTime other = createDummyData(TestTimeKind.BASE_TIME);
         assertThat(target.sameValueAs(other))
                 .isTrue();
     }
 
     @Test
+    public void sameValueAs4() {
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
+        assertThat(target.sameValueAs(null))
+                .isFalse();
+    }
+
+    @Test
     public void hashCode1() throws Exception {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
         int actual = target.hashCode();
         assertThat(actual).isEqualTo(31979903);
 
@@ -78,25 +85,32 @@ public class RecordTimeTest {
 
     @Test
     public void equals1() throws Exception {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
         boolean actual = target.equals(target);
         assertThat(actual).isTrue();
     }
 
     @Test
     public void equals2() throws Exception {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
         boolean actual = target.equals(null);
         assertThat(actual).isFalse();
     }
 
     @Test
+    public void equals3() throws Exception {
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
+        boolean actual = target.equals(Integer.valueOf(1));
+        assertThat(actual).isFalse();
+    }
+
+    @Test
     public void toString1() throws Exception {
-        RecordTime target = createDummyData(TestDateKind.BASE_TIME);
+        RecordTime target = createDummyData(TestTimeKind.BASE_TIME);
         LOGGER.debug("actual:" + target.toString());
     }
 
-    public enum TestDateKind {
+    public enum TestTimeKind {
         BASE_TIME {
             @Override
             public LocalTime time() {
