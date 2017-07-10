@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  */
-public class Lists2 {
+public final class Lists2 {
     public static <T> List<T> newArrayList() {
         return Lists.newArrayList();
     }
