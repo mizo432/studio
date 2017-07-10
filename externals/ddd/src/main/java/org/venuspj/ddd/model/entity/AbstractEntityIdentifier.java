@@ -27,6 +27,7 @@ public abstract class AbstractEntityIdentifier<T extends Entity<T>> implements E
      * @param aKind カインド
      */
     private AbstractEntityIdentifier(String aKind) {
+        this();
         kind = aKind;
     }
 
