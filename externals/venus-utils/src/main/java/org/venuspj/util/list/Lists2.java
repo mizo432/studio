@@ -12,7 +12,7 @@ public class Lists2 {
         return Lists.newArrayList();
     }
 
-    public static <T> List<T> newArrayList(T... items) {
+    public static <T> ArrayList<T> newArrayList(T... items) {
         ArrayList<T> result = new ArrayList<>(items.length);
         for (T item : items) {
             result.add(item);
