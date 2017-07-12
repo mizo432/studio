@@ -92,6 +92,16 @@ public class EventTest {
 
     }
 
+    @Test
+    public void equals4() throws Exception {
+        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        Event target = createDummy(EventType.DEFAULT);
+        boolean actual = target.equals(Integer.valueOf(1));
+        assertThat(actual)
+                .isTrue();
+
+    }
+
     public static enum EventType {
         DEFAULT {
             @Override
