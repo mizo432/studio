@@ -25,14 +25,12 @@ public class Outline {
         place = aPlace;
     }
 
-    );
+    public static Outline defaultOutline() {
+        return new Outline();
     }
 
     public PlayerIds playerIds() {
         return playerIds;
-    }", pla
-public static Outline defaultOutline() {
-        return new Outline();
     }
 
     @Override
@@ -42,8 +40,8 @@ public static Outline defaultOutline() {
                 .add("recordDate", recordDate)
                 .add("address", address)
                 .add("place", place)
-                .add("playerIdstring(
-yerIds)
+                .add("playerIds", playerIds)
                 .omitNullValues()
-                .toS
+                .toString();
+    }
 }
