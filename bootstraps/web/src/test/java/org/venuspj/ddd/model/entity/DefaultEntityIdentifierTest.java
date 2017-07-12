@@ -101,4 +101,19 @@ public class DefaultEntityIdentifierTest {
                 .isFalse();
     }
 
+    @Test
+    public void equals6() throws Exception {
+        UUID uuid = UUID.randomUUID();
+        DefaultEntityIdentifier<ConcreteEntity> target = new DefaultEntityIdentifier<>("A", uuid);
+        DefaultEntityIdentifier<ConcreteEntity> other = new DefaultEntityIdentifier<>("B", uuid);
+        boolean actual = target.equals(other);
+        assertThat(actual)
+                .isFalse();
+    }
+
+    @Test
+    public void dummy() throws Exception {
+        new ConcreteEntity();
+    }
+
 }

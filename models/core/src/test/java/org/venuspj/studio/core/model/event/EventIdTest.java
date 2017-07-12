@@ -52,11 +52,50 @@ public class EventIdTest {
 
     }
 
+    @Test
+    public void equals1() throws Exception {
+        EventId target = createDummy(EventIdType.DEFAULT);
+        boolean actual = target.equals(null);
+        assertThat(actual)
+                .isFalse();
+    }
+
+    @Test
+    public void equals2() throws Exception {
+        EventId target = createDummy(EventIdType.DEFAULT);
+        boolean actual = target.equals(target);
+        assertThat(actual)
+                .isTrue();
+    }
+
+    @Test
+    public void equals3() throws Exception {
+        EventId target = createDummy(EventIdType.DEFAULT);
+        EventId other = createDummy(EventIdType.DEFAULT);
+        boolean actual = target.equals(other);
+        assertThat(actual)
+                .isTrue();
+    }
+
+    @Test
+    public void equals4() throws Exception {
+        EventId target = createDummy(EventIdType.DEFAULT);
+        EventId other = createDummy(EventIdType.DEFAULT_SAME_EVENT);
+        boolean actual = target.equals(other);
+        assertThat(actual)
+                .isFalse();
+    }
+
     public static enum EventIdType {
         DEFAULT {
             @Override
             public Integer createId() {
                 return 1;
+            }
+        }, DEFAULT_SAME_EVENT {
+            @Override
+            public Integer createId() {
+                return 2;
             }
         };
 

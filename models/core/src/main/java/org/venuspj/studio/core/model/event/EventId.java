@@ -26,6 +26,7 @@ public class EventId extends AbstractEntityIdentifier<Event> {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (Objects2.isNull(o))
             return false;
         if (o instanceof EventId) {
