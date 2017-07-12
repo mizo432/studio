@@ -108,6 +108,11 @@ public class EventTest {
             public EventId createEventId() {
                 return EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT);
             }
+        }, OTHER_EVENT {
+            @Override
+            public EventId createEventId() {
+                return EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT_SAME_EVENT);
+            }
         };
 
         public abstract EventId createEventId();

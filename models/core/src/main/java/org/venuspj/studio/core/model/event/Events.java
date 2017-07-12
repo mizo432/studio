@@ -1,11 +1,12 @@
 package org.venuspj.studio.core.model.event;
 
-import org.venuspj.util.list.Lists2;
+import org.venuspj.util.list2.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class Events {
+public class Events implements Iterable<Event> {
     List<Event> list = Lists2.newArrayList();
 
     Events() {
@@ -16,6 +17,10 @@ public class Events {
         list.addAll(aList);
     }
 
+    public static Events empty() {
+        return new Events();
+    }
+
     @Override
     public String toString() {
         return Objects2
@@ -24,7 +29,8 @@ public class Events {
                 .toString();
     }
 
-    public static Events empty() {
-        return new Events();
+    @Override
+    public Iterator<Event> iterator() {
+        return list.iterator();
     }
 }
