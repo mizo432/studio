@@ -98,7 +98,7 @@ public class EventTest {
         Event target = createDummy(EventType.DEFAULT);
         boolean actual = target.equals(Integer.valueOf(1));
         assertThat(actual)
-                .isTrue();
+                .isFalse();
 
     }
 
