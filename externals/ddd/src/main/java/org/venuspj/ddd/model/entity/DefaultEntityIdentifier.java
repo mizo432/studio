@@ -11,7 +11,6 @@ import java.util.UUID;
  */
 public final class DefaultEntityIdentifier<T extends Entity<T>> extends AbstractEntityIdentifier<T> implements EntityIdentifier<T> {
 
-    private String kind;
     private UUID uuid;
 
     /**
@@ -32,7 +31,7 @@ public final class DefaultEntityIdentifier<T extends Entity<T>> extends Abstract
      * @param anUuid {@link UUID}
      */
     public DefaultEntityIdentifier(String aKind, UUID anUuid) {
-        kind = aKind;
+        super(aKind);
         uuid = anUuid;
     }
 
