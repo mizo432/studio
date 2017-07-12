@@ -3,6 +3,7 @@ package org.venuspj.studio.adapter.datasource.studio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.venuspj.studio.core.model.studio.Studio;
+import org.venuspj.studio.core.model.studio.StudioCode;
 import org.venuspj.studio.core.model.studio.StudioRepository;
 import org.venuspj.studio.core.model.studio.Studios;
 import org.venuspj.util.objects2.Objects2;
@@ -26,5 +27,20 @@ public class StudioDatasource implements StudioRepository {
             return new Studios(result);
         }
         return Studios.empty();
+    }
+
+    @Override
+    public Studio findOne(StudioCode studioCode) {
+        return null;
+    }
+
+    @Override
+    public Studio save(Studio entity) {
+        return null;
+    }
+
+    @Override
+    public Studio drop(StudioCode studioCode) {
+        return null;
     }
 }

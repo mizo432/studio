@@ -3,9 +3,10 @@ package org.venuspj.studio.core.model.studio;
 import org.venuspj.util.list2.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class Studios {
+public class Studios implements Iterable<Studio> {
     List<Studio> list = Lists2.newArrayList();
 
     Studios() {
@@ -16,6 +17,10 @@ public class Studios {
         list.addAll(aList);
     }
 
+    public static Studios empty() {
+        return new Studios();
+    }
+
     @Override
     public String toString() {
         return Objects2
@@ -24,7 +29,8 @@ public class Studios {
                 .toString();
     }
 
-    public static Studios empty() {
-        return new Studios();
+    @Override
+    public Iterator<Studio> iterator() {
+        return list.iterator();
     }
 }
