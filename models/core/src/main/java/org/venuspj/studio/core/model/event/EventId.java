@@ -26,9 +26,7 @@ public class EventId extends AbstractEntityIdentifier<Event> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (Objects2.isNull(o))
-            return false;
+        if (!super.equals(o)) return false;
         if (o instanceof EventId) {
             EventId other = (EventId) o;
             return Objects2.equal(kind, other.kind) && Objects2.equal(value, other.value);
