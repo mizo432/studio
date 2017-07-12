@@ -1,6 +1,9 @@
 package org.venuspj.studio.core.model.event;
 
 import org.junit.Test;
+import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
+
+import java.util.UUID;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
@@ -85,11 +88,20 @@ public class EventIdTest {
         assertThat(actual)
                 .isFalse();
     }
-    
+
     @Test
     public void equals5() throws Exception {
         EventId target = createDummy(EventIdType.DEFAULT);
         boolean actual = target.equals(Integer.valueOf(1));
+        assertThat(actual)
+                .isFalse();
+    }
+
+    @Test
+    public void equals6() throws Exception {
+        EventId target = createDummy(EventIdType.DEFAULT);
+        DefaultEntityIdentifier<Event> other = new DefaultEntityIdentifier<>(Event.class, UUID.randomUUID());
+        boolean actual = target.equals(other);
         assertThat(actual)
                 .isFalse();
     }
