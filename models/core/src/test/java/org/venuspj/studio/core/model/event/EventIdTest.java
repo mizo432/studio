@@ -85,6 +85,14 @@ public class EventIdTest {
         assertThat(actual)
                 .isFalse();
     }
+    
+    @Test
+    public void equals5() throws Exception {
+        EventId target = createDummy(EventIdType.DEFAULT);
+        boolean actual = target.equals(Integer.valueOf(1));
+        assertThat(actual)
+                .isFalse();
+    }
 
     public static enum EventIdType {
         DEFAULT {
