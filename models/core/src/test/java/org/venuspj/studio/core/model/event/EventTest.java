@@ -10,12 +10,19 @@ import org.venuspj.util.dateProvider.StaticDateProvider;
 
 import java.time.LocalDateTime;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.*;
 
 /**
  */
 public class EventTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventTest.class);
+
+    public static Event createDummy(EventType anEventType) {
+        return new Event(anEventType.createEventId(),
+                OutlineTest.createDummy(),
+                DescriptorTest.createDummy(),
+                FlyersTest.createDummy());
+    }
 
     @Test
     public void testToString1() throws Exception {
@@ -29,17 +36,70 @@ public class EventTest {
     @Test
     public void testToString2() throws Exception {
         StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
-        Event target = createDummy();
+        Event target = createDummy(EventType.DEFAULT);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
         LOGGER.debug("actual:" + actual);
     }
 
-    public static Event createDummy() {
-        return new Event(OutlineTest.createDummy(),
-                DescriptorTest.createDummy(),
-                FlyersTest.createDummy());
+    @Test
+    public void equals1() throws Exception {
+        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        Event target = createDummy(EventType.DEFAULT);
+        boolean actual = target.equals(null);
+        assertThat(actual)
+                .isFalse();
+
     }
 
+    @Test
+    public void equals2() throws Exception {
+        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        Event target = createDummy(EventType.DEFAULT);
+        boolean actual = target.equals(target);
+        assertThat(actual)
+                .isTrue();
+
+    }
+
+    @Test
+    public void hashCode1() throws Exception {
+        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        Event target = createDummy(EventType.DEFAULT);
+        int actual = target.hashCode();
+        assertThat(actual)
+                .isEqualTo(966542713);
+    }
+
+    @Test
+    public void hashCode2() throws Exception {
+        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        Event target = createDummy(EventType.DEFAULT);
+        int actual = target.hashCode();
+        assertThat(actual)
+                .isEqualTo(target.identifier().hashCode());
+    }
+
+    @Test
+    public void equals3() throws Exception {
+        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        Event target = createDummy(EventType.DEFAULT);
+        Event other = createDummy(EventType.DEFAULT);
+        boolean actual = target.equals(target);
+        assertThat(actual)
+                .isTrue();
+
+    }
+
+    public static enum EventType {
+        DEFAULT {
+            @Override
+            public EventId createEventId() {
+                return EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT);
+            }
+        };
+
+        public abstract EventId createEventId();
+    }
 }

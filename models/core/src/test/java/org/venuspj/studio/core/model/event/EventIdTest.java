@@ -9,8 +9,8 @@ import static org.assertj.core.api.Java6Assertions.*;
  */
 public class EventIdTest {
 
-    public static EventId createDummy() {
-        return new EventId(1);
+    public static EventId createDummy(EventIdType anEventIdType) {
+        return new EventId(anEventIdType.createId());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class EventIdTest {
 
     @Test
     public void toString02() throws Exception {
-        EventId target = createDummy();
+        EventId target = createDummy(EventIdType.DEFAULT);
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
@@ -50,5 +50,16 @@ public class EventIdTest {
                 .isNotNull()
                 .isEqualTo(false);
 
+    }
+
+    public static enum EventIdType {
+        DEFAULT {
+            @Override
+            public Integer createId() {
+                return 1;
+            }
+        };
+
+        public abstract Integer createId();
     }
 }

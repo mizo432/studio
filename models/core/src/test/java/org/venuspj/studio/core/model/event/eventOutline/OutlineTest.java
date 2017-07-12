@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.fundamentals.place.PlaceTest;
-import org.venuspj.studio.core.model.event.EventIdTest;
 import org.venuspj.studio.core.model.player.PlayerIds;
 import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
@@ -21,7 +20,7 @@ public class OutlineTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(OutlineTest.class);
 
     public static Outline createDummy() {
-        return new Outline(EventIdTest.createDummy(), new RecordDate(DateProvider.currentDateTime().toLocalDate()), AddressMock.createDummy(), PlayerIds.empty(), PlaceTest.createDummy());
+        return new Outline(new RecordDate(DateProvider.currentDateTime().toLocalDate()), AddressMock.createDummy(), PlayerIds.empty(), PlaceTest.createDummy());
     }
 
     @Test

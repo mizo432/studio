@@ -14,7 +14,7 @@ public class EventsTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventsTest.class);
 
     public static Events createDummy() {
-        return new Events(Lists2.newArrayList(EventTest.createDummy()));
+        return new Events(Lists2.newArrayList(EventTest.createDummy(EventTest.EventType.DEFAULT)));
     }
 
     @Test

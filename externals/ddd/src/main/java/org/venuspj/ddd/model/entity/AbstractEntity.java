@@ -21,7 +21,7 @@ public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
     }
 
     @Override
-    public EntityIdentifier<T> getIdentifier() {
+    public EntityIdentifier<T> identifier() {
         return identifier;
     }
 
@@ -48,7 +48,7 @@ public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
         if (that == null || that instanceof Entity == false) {
             return false;
         }
-        return identifier.equals(((Entity) that).getIdentifier());
+        return identifier.equals(((Entity) that).identifier());
     }
 
     protected MoreObjects.ToStringHelper string() {

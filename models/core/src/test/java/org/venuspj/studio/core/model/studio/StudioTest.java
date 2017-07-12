@@ -58,7 +58,7 @@ public class StudioTest {
     @Test
     public void getIdentifier1() {
         Studio target = createDummy();
-        EntityIdentifier<Studio> actual = target.getIdentifier();
+        EntityIdentifier<Studio> actual = target.identifier();
         assertThat(actual)
                 .isNotNull();
 
