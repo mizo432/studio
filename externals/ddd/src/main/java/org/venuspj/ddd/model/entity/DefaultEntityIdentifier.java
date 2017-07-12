@@ -9,7 +9,7 @@ import java.util.UUID;
  *
  * @param <T> エンティティの型。コンパイル時のみ利用。
  */
-public final class DefaultEntityIdentifier<T extends Entity<T>> implements EntityIdentifier<T> {
+public final class DefaultEntityIdentifier<T extends Entity<T>> extends AbstractEntityIdentifier<T> implements EntityIdentifier<T> {
 
     private String kind;
     private UUID uuid;
