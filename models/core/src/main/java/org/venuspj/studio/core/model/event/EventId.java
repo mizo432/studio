@@ -29,7 +29,7 @@ public class EventId extends AbstractEntityIdentifier<Event> {
         if (!super.equals(o)) return false;
         if (o instanceof EventId) {
             EventId other = (EventId) o;
-            return Objects2.equal(kind, other.kind) && Objects2.equal(value, other.value);
+            return Objects2.equal(value, other.value);
         }
         return false;
     }
