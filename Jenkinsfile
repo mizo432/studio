@@ -11,7 +11,6 @@ pipeline {
         libsDir = 'build/libs'
         appName = 'studio-web'
         appVersion = '1.0.0-SNAPSHOT'
-        gitBranchName = ${GIT_BRANCH}
     }
 
     // stagesブロック中に一つ以上のstageを定義する
@@ -19,7 +18,7 @@ pipeline {
         stage('事前準備') {
             // 実際の処理はstepsブロック中に定義する
             steps {
-                echo gitBranchName
+                echo ”gitBranchName is ${GIT_BRANCH}”
                 deleteDir()
                 // このJobをトリガーしてきたGithubのプロジェクトをチェックアウト
                 checkout scm
