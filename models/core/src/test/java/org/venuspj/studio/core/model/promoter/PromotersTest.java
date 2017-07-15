@@ -3,8 +3,8 @@ package org.venuspj.studio.core.model.promoter;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.dateProvider.StaticDateProvider;
-import org.venuspj.util.list2.Lists2;
 
 import java.time.LocalDateTime;
 

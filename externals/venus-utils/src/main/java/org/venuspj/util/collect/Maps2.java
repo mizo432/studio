@@ -1,7 +1,6 @@
-package org.venuspj.util.map2;
+package org.venuspj.util.collect;
 
 import com.google.common.primitives.Ints;
-import org.venuspj.util.collect.CollectPreconditions;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

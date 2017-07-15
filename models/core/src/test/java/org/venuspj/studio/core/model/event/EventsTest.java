@@ -3,9 +3,9 @@ package org.venuspj.studio.core.model.event;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.ddd.model.repository.MemoryCrudRepository;
+import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
+import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.dateProvider.StaticDateProvider;
-import org.venuspj.util.list2.Lists2;
 
 import java.time.LocalDateTime;
 
@@ -30,7 +30,7 @@ public class EventsTest {
 
     @Test
     public void eventRepository() throws Exception {
-        MemoryCrudRepository<Event, EventId> repository = new MemoryCrudRepository<Event, EventId>(createDummy());
+        OnMemoryCrudRepository<Event, EventId> repository = new OnMemoryCrudRepository<Event, EventId>(createDummy());
         LOGGER.debug("repository.findAll()" + repository.findAll());
         LOGGER.debug("repository.findOne()" + repository.findOne(EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT)));
         LOGGER.debug("repository.findOne()" + repository.findOne(EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT_SAME_EVENT)));
