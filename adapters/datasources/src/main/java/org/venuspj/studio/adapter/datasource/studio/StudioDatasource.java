@@ -2,13 +2,12 @@ package org.venuspj.studio.adapter.datasource.studio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.model.studio.Studio;
-import org.venuspj.studio.core.model.studio.StudioCode;
 import org.venuspj.studio.core.model.studio.StudioRepository;
-import org.venuspj.studio.core.model.studio.Studios;
-import org.venuspj.util.objects2.Objects2;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  */
@@ -22,29 +21,47 @@ public class StudioDatasource implements StudioRepository {
     }
 
     @Override
-    public Studios findAll() {
-        if (Objects2.nonNull(studioMapper)) {
-            List<Studio> result = studioMapper.findAll();
-            return new Studios(result);
-        }
-        return Studios.empty();
-    }
-
-    @Override
-    public Studio findOne(StudioCode studioCode) {
-        //TODO atdk
+    public Studio resolve(EntityIdentifier<Studio> identifier) {
         return null;
     }
 
     @Override
-    public Studio save(Studio entity) {
-        //TODO atdk
+    public List<Studio> asEntitiesList() {
         return null;
     }
 
     @Override
-    public Studio drop(StudioCode studioCode) {
-        //TODO atdk
+    public Set<Studio> asEntitiesSet() {
         return null;
+    }
+
+    @Override
+    public boolean contains(EntityIdentifier<Studio> identifier) {
+        //TODO atdk
+        return false;
+    }
+
+    @Override
+    public boolean contains(Studio entity) {
+        //TODO atdk
+        return false;
+    }
+
+    @Override
+    public void store(Studio entity) {
+        //TODO atdk
+
+    }
+
+    @Override
+    public void delete(EntityIdentifier<Studio> identifier) {
+        //TODO atdk
+
+    }
+
+    @Override
+    public void delete(Studio entity) {
+        //TODO atdk
+
     }
 }

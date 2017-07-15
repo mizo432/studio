@@ -3,6 +3,7 @@ package org.venuspj.studio.core.model.event;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
 import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
 import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.dateProvider.StaticDateProvider;
@@ -30,16 +31,21 @@ public class EventsTest {
 
     @Test
     public void eventRepository() throws Exception {
-        OnMemoryCrudRepository<Event, EventId> repository = new OnMemoryCrudRepository<Event, EventId>(createDummy());
-        LOGGER.debug("repository.findAll()" + repository.findAll());
-        LOGGER.debug("repository.findOne()" + repository.findOne(EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT)));
-        LOGGER.debug("repository.findOne()" + repository.findOne(EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT_SAME_EVENT)));
+        OnMemoryCrudRepository<Event> repository = new OnMemoryCrudRepository<Event>(createDummy().list);
+        LOGGER.debug("repository.findAll()" + repository.asEntitiesList());
+        LOGGER.debug("repository.findOne()" + repository.resolve(EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT)));
+        try {
+            repository.resolve(EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT_SAME_EVENT));
+        } catch (EntityNotFoundRuntimeException e) {
+            LOGGER.debug("e:" + e);
+
+        }
         Event otherEvent = EventTest.createDummy(EventTest.EventType.OTHER_EVENT);
-        repository.save(otherEvent);
+        repository.contains(otherEvent);
         LOGGER.debug("repository.findOne()" + otherEvent);
-        LOGGER.debug("repository.findAll()" + repository.findAll());
-        LOGGER.debug("repository.findOne()" + repository.drop(EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT_SAME_EVENT)));
-        LOGGER.debug("repository.findAll()" + repository.findAll());
+        LOGGER.debug("repository.findAll()" + repository.asEntitiesList());
+        repository.delete(EventIdTest.createDummy(EventIdTest.EventIdType.DEFAULT_SAME_EVENT));
+        LOGGER.debug("repository.findAll()" + repository.asEntitiesList());
 
     }
 

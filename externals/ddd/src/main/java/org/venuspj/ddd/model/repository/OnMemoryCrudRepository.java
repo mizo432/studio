@@ -4,6 +4,7 @@ import org.venuspj.ddd.model.entity.Entity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.util.collect.Maps2;
 import org.venuspj.util.collect.Sets2;
+import org.venuspj.util.objects2.Objects2;
 import org.venuspj.util.validate.Validate;
 
 import java.util.ArrayList;
@@ -40,6 +41,9 @@ public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudReposito
     @Override
     public T resolve(EntityIdentifier<T> identifier) {
         Validate.notNull(identifier);
+        T entity = entities.get(identifier);
+        if (Objects2.isNull(entity))
+            throw new EntityNotFoundRuntimeException();
         return entities.get(identifier).clone();
     }
 
