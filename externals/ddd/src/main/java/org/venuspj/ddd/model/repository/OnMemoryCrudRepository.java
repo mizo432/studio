@@ -15,7 +15,7 @@ import java.util.Set;
 /**
  * テストで使用するためのリポジトリ
  */
-public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudRepository<T> {
+public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudRepository<T>, Cloneable {
 
     private final Map<EntityIdentifier<T>, T> entities = Maps2.newHashMap();
 

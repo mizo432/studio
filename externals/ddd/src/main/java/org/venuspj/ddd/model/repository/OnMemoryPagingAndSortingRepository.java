@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * テストで使用するためのリポジトリ
  */
-public class OnMemoryPagingAndSortingRepository<T extends Entity<T>> implements PagingAndSortingRepository<T> {
+public class OnMemoryPagingAndSortingRepository<T extends Entity<T>> implements PagingAndSortingRepository<T>, Cloneable {
 
     private CrudRepository<T> crudRepository = new OnMemoryCrudRepository<>();
 
