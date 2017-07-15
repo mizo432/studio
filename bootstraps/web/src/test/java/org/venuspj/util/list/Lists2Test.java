@@ -19,7 +19,7 @@ public class Lists2Test {
     public void newArrayList2() throws Exception {
         Integer integer = Integer.valueOf(10);
 
-        List<Integer> actual = Lists2.newArrayListWithExpectedSize(integer);
+        List<Integer> actual = Lists2.newArrayList(integer);
         assertThat(actual)
                 .isNotNull();
         assertThat(actual.size())
