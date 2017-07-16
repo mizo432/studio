@@ -37,9 +37,22 @@ public class EventQueryImplTest {
         tergetUsecase = null;
     }
 
-    @Test(expected = EntityNotFoundRuntimeException.class)
-    public void start() throws Exception {
+    @Test
+    public void start1() throws Exception {
         EventQueryInputPort eventQueryInputPort = new EventQueryInputPortMock(EventIdMock.createDummy(EventIdMock.EventIDType.EVENT_ON_TODAY));
+        EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPortMock();
+        tergetUsecase.withEventQueryInputPort(eventQueryInputPort)
+                .withEventQueryOutputPort(eventQueryOutputPort).start();
+        assertThat(eventQueryInputPort)
+                .isNotNull();
+        System.out.println(eventQueryOutputPort);
+
+
+    }
+
+    @Test(expected = EntityNotFoundRuntimeException.class)
+    public void star2() throws Exception {
+        EventQueryInputPort eventQueryInputPort = new EventQueryInputPortMock(EventIdMock.createDummy(EventIdMock.EventIDType.NOT_FOUND));
         EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPortMock();
         tergetUsecase.withEventQueryInputPort(eventQueryInputPort)
                 .withEventQueryOutputPort(eventQueryOutputPort).start();

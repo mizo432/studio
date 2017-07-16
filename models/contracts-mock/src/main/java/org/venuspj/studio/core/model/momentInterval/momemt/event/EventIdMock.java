@@ -60,6 +60,11 @@ public class EventIdMock {
             public Integer eventIdValue() {
                 return 5;
             }
+        }, NOT_FOUND {
+            @Override
+            public Integer eventIdValue() {
+                return 10000;
+            }
         };
 
         public abstract Integer eventIdValue();
