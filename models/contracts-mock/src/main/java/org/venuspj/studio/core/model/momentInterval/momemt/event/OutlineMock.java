@@ -1,9 +1,12 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
 import org.venuspj.studio.core.fundamentals.place.Place;
+import org.venuspj.studio.core.fundamentals.place.PlaceMock;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIdsMock;
 import org.venuspj.studio.generic.fundamentals.address.Address;
+import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 
 /**
@@ -12,7 +15,7 @@ public final class OutlineMock {
     public static Outline createDummy(OutlineType anOutlineType) {
         RecordDate recordDate = RecordDateMock.createDummy(anOutlineType.recotdDateType());
         Address address = AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
-        PlayerIds playerIds = PlayerIdsMock.createDummy(PlayerIdsMock.PlayerIdsType.ONE_PLAYER);
+        PlayerIds playerIds = PlayerIdsMock.createDummy(PlayerIdsMock.PlayerIdsType.ONE_DEEJEY);
         Place place = PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
         return new Outline(recordDate, address, playerIds, place);
     }

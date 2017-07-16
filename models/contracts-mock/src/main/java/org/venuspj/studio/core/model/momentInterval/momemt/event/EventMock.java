@@ -1,5 +1,7 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
+import org.venuspj.studio.core.model.momentInterval.momemt.event.flyers.FlyersMock;
+
 /**
  */
 public class EventMock {
@@ -102,6 +104,16 @@ public class EventMock {
             @Override
             public OutlineMock.OutlineType outlineType() {
                 return OutlineMock.OutlineType.EVENT_ON_START_OF_NEXT_MONTH;
+            }
+        }, NOT_FOUND {
+            @Override
+            public EventIdMock.EventIDType eventIdType() {
+                return EventIdMock.EventIDType.NOT_FOUND;
+            }
+
+            @Override
+            public OutlineMock.OutlineType outlineType() {
+                return OutlineMock.OutlineType.EVENT_ON_TODAY;
             }
         };
 
