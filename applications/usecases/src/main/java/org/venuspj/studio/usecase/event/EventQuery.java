@@ -21,7 +21,7 @@ public class EventQuery implements EventQueryUseCase {
     CrudRepository<Event> eventRepository;
     CrudRepository<Player> playerRepository;
 
-    public EventQuery(CrudRepository anEventRepository, CrudRepository<Player> aPlayerRepository) {
+    public EventQuery(CrudRepository<Event> anEventRepository, CrudRepository<Player> aPlayerRepository) {
         eventRepository = anEventRepository;
         playerRepository = aPlayerRepository;
     }
