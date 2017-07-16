@@ -44,6 +44,8 @@ public class EventQuery implements EventQueryUseCase {
         Event event = eventRepository.resolve(credential.eventId());
         Players players = new Players(playerRepository.findByIdentifires(event.outline().playerIds()));
         outputPort.withEvent(event);
+        outputPort.withPlayers(players);
+
     }
 
 }
