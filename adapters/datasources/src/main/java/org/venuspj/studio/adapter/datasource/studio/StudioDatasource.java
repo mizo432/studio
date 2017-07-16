@@ -64,4 +64,10 @@ public class StudioDatasource implements CrudRepository<Studio> {
         //TODO atdk
 
     }
+
+    @Override
+    public List<Studio> findByIdentifires(Iterable<EntityIdentifier<Studio>> entityIdentifiers) {
+        //TODO atdk
+        return null;
+    }
 }
