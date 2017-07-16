@@ -17,7 +17,7 @@ public class NewsId extends AbstractEntityIdentifier<News> {
         value = aValue;
     }
 
-    public static NewsId defaultEventId() {
+    public static NewsId defaultNewsId() {
         return new NewsId();
     }
 

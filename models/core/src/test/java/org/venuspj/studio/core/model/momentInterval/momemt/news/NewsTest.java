@@ -15,7 +15,7 @@ public class NewsTest {
 
     public static News createDummy() {
         Title title = new Title("DUMMY_TITLE");
-        return new News(title, NoteTest.createDummy());
+        return new News(NewsId.defaultNewsId(), title, NoteTest.createDummy());
     }
 
     @Test
