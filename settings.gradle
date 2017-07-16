@@ -23,8 +23,8 @@ project(':studio-presenters').projectDir = file('./adapters/presenters')
 include ':studio-datasources'
 project(':studio-datasources').projectDir = file('./adapters/datasources')
 
-include ':studio-usecases'
-project(':studio-usecases').projectDir = file('./applications/usecases')
+include ':studio-use-cases'
+project(':studio-use-cases').projectDir = file('./applications/usecases')
 
 include ':studio-core'
 project(':studio-core').projectDir = file('./models/core')

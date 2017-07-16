@@ -3,10 +3,7 @@ package org.venuspj.util.collect;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import static com.google.common.base.Preconditions.*;
 
@@ -57,5 +54,9 @@ public final class Lists2 {
 
         // toIndex exclusive
         return sourceList.subList(fromIndex, Math.min(fromIndex + pageSize, sourceList.size()));
+    }
+
+    public static <T> List<T> unmodifiableList(List<T> list) {
+        return Collections.unmodifiableList(list);
     }
 }

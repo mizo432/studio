@@ -1,4 +1,4 @@
-description = "ddd"
+description = "venus-utils"
 
 dependencies {
     compile("com.google.guava:guava:${guavaVersion}")

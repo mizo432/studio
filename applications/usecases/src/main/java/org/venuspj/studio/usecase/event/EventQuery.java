@@ -1,14 +1,14 @@
 package org.venuspj.studio.usecase.event;
 
 import org.springframework.stereotype.Service;
-import org.venuspj.studio.core.model.event.Event;
-import org.venuspj.studio.core.model.event.EventCredential;
-import org.venuspj.studio.core.model.player.Players;
-import org.venuspj.studio.core.repositories.event.EventRepository;
-import org.venuspj.studio.core.repositories.player.PlayerRepository;
-import org.venuspj.studio.core.usecases.event.EventQueryInputPort;
-import org.venuspj.studio.core.usecases.event.EventQueryOutputPort;
-import org.venuspj.studio.core.usecases.event.EventQueryUseCase;
+import org.venuspj.ddd.model.repository.CrudRepository;
+import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
+import org.venuspj.studio.core.model.momentInterval.momemt.event.EventCredential;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
+import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
+import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
+import org.venuspj.studio.core.usecase.event.EventQueryUseCase;
 
 /**
  * イベント詳細画面用表示用ユースケース
@@ -18,10 +18,10 @@ public class EventQuery implements EventQueryUseCase {
 
     EventQueryInputPort inputPort;
     EventQueryOutputPort outputPort;
-    EventRepository eventRepository;
-    PlayerRepository playerRepository;
+    CrudRepository<Event> eventRepository;
+    CrudRepository<Player> playerRepository;
 
-    public EventQuery(EventRepository anEventRepository, PlayerRepository aPlayerRepository) {
+    public EventQuery(CrudRepository anEventRepository, CrudRepository<Player> aPlayerRepository) {
         eventRepository = anEventRepository;
         playerRepository = aPlayerRepository;
     }
@@ -41,8 +41,8 @@ public class EventQuery implements EventQueryUseCase {
     @Override
     public void start() {
         EventCredential credential = inputPort.toCredential();
-        Event event = eventRepository.findOne(credential);
-        Players players = playerRepository.findByPlayersIds(event.outline().playerIds());
+        Event event = eventRepository.resolve(credential.eventId());
+        Players players = new Players(playerRepository.findByIdentifires(event.outline().playerIds()));
         outputPort.withEvent(event);
     }
 

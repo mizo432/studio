@@ -3,8 +3,8 @@ package org.venuspj.studio.adapter.datasource.studio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.core.model.studio.Studio;
-import org.venuspj.studio.core.model.studio.StudioRepository;
+import org.venuspj.ddd.model.repository.CrudRepository;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
 
 import java.util.List;
 import java.util.Set;
@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  */
 @Repository
-public class StudioDatasource implements StudioRepository {
+public class StudioDatasource implements CrudRepository<Studio> {
     StudioMapper studioMapper;
 
     @Autowired

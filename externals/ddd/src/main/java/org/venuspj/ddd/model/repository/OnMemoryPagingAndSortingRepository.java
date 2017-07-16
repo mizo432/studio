@@ -74,6 +74,11 @@ public class OnMemoryPagingAndSortingRepository<T extends Entity<T>> implements 
     }
 
     @Override
+    public List<T> findByIdentifires(Iterable<EntityIdentifier<T>> entityIdentifiers) {
+        return crudRepository.findByIdentifires(entityIdentifiers);
+    }
+
+    @Override
     public Page<T> findAll(Pageable<T> pageable) {
         PageBreaker<T> PageBreaker = pageable.pageBreaker();
         List<T> list = asEntitiesList();

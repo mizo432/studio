@@ -1,6 +1,6 @@
 package org.venuspj.studio.usecase.event;
 
-import org.venuspj.studio.core.usecases.event.EventQueryInputPort;
+import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 
 /**
  */

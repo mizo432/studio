@@ -5,15 +5,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.studio.core.model.event.Event;
-import org.venuspj.studio.core.model.event.EventCredential;
-import org.venuspj.studio.core.model.player.PlayerIds;
-import org.venuspj.studio.core.model.player.Players;
-import org.venuspj.studio.core.repositories.event.EventRepository;
-import org.venuspj.studio.core.repositories.player.PlayerRepository;
-import org.venuspj.studio.core.usecases.event.EventQueryInputPort;
-import org.venuspj.studio.core.usecases.event.EventQueryOutputPort;
-import org.venuspj.studio.core.usecases.event.EventQueryUseCase;
+import org.venuspj.ddd.model.repository.CrudRepository;
+import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
+import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
+import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
+import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
+import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
+import org.venuspj.studio.core.usecase.event.EventQueryUseCase;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
@@ -24,20 +24,8 @@ public class EventQueryImplTest {
 
     @Before
     public void setUp() throws Exception {
-        EventRepository eventRepository = new EventRepository() {
-            @Override
-            public Event findOne(EventCredential credential) {
-                return Event.blankEvent();
-            }
-        };
-
-        PlayerRepository playerRepository = new PlayerRepository() {
-            @Override
-            public Players findByPlayersIds(PlayerIds playerIds) {
-                return Players.empty();
-            }
-        };
-
+        CrudRepository<Event> eventRepository = new OnMemoryCrudRepository<Event>();
+        CrudRepository<Player> playerRepository = new OnMemoryCrudRepository<Player>(Players.empty().asList());
         tergetUsecase = new EventQuery(eventRepository, playerRepository);
     }
 
@@ -46,7 +34,7 @@ public class EventQueryImplTest {
         tergetUsecase = null;
     }
 
-    @Test
+    @Test(expected = EntityNotFoundRuntimeException.class)
     public void start() throws Exception {
         EventQueryInputPort eventQueryInputPort = new EventQueryInputPortMock();
         EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPortMock();

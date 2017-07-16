@@ -77,4 +77,6 @@ public interface CrudRepository<E extends Entity> {
      * @throws RepositoryRuntimeException     リポジトリにアクセスできない場合
      */
     void delete(E entity);
+
+    List<E> findByIdentifires(Iterable<EntityIdentifier<E>> identifiers);
 }
