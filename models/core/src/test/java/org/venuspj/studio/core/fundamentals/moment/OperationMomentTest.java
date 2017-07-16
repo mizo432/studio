@@ -4,17 +4,22 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
-import org.venuspj.studio.core.model.operator.OperatorId;
-import org.venuspj.studio.core.model.operator.OperatorIdTest;
-import org.venuspj.studo.generic.fundamentals.datetime.RecordDatetime;
+import org.venuspj.studio.core.model.role.partyRole.operator.OperatorId;
+import org.venuspj.studio.core.model.role.partyRole.operator.OperatorIdTest;
+import org.venuspj.studio.generic.fundamentals.datetime.RecordDatetime;
 import org.venuspj.util.dateProvider.StaticDateProvider;
 
 import java.time.LocalDateTime;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.*;
 
 public class OperationMomentTest {
     private static Logger LOGGER = LoggerFactory.getLogger(DescriptorTest.class);
+
+    public static OperationMoment createDummy() {
+        StaticDateProvider.initialize(LocalDateTime.of(2017,6,27,1,2,3,4));
+      return new  OperationMoment(RecordDatetime.now(), OperatorId.EMPTY);
+    }
 
     @Test
     public void testToString01() {
@@ -46,6 +51,7 @@ public class OperationMomentTest {
 
         LOGGER.debug("actual:" + actual);
     }
+
     @Test
     public void isPrecent03() {
         OperationMoment target = new OperationMoment(new RecordDatetime(),OperatorId.EMPTY);
@@ -65,11 +71,6 @@ public class OperationMomentTest {
                 .isTrue();
 
         LOGGER.debug("actual:" + actual);
-    }
-
-    public static OperationMoment createDummy() {
-        StaticDateProvider.initialize(LocalDateTime.of(2017,6,27,1,2,3,4));
-      return new  OperationMoment(RecordDatetime.now(), OperatorId.EMPTY);
     }
 
 }

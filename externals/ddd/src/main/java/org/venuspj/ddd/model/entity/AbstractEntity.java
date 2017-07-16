@@ -4,7 +4,9 @@ import com.google.common.base.MoreObjects;
 import org.venuspj.util.objects2.Objects2;
 
 /**
+ * エンティティの抽象クラス
  *
+ * @param <T> エンティティクラス
  */
 public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
 
@@ -19,11 +21,12 @@ public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
     }
 
     @Override
-    public EntityIdentifier<T> getIdentifier() {
+    public EntityIdentifier<T> identifier() {
         return identifier;
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public T clone() {
         try {
             return (T) super.clone();
@@ -45,7 +48,7 @@ public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
         if (that == null || that instanceof Entity == false) {
             return false;
         }
-        return identifier.equals(((Entity) that).getIdentifier());
+        return identifier.equals(((Entity) that).identifier());
     }
 
     protected MoreObjects.ToStringHelper string() {

@@ -1,9 +1,9 @@
 package org.venuspj.studio.core.fundamentals.place;
 
-import org.venuspj.studio.core.fundamentals.address.Address;
 import org.venuspj.studio.core.fundamentals.contact.Contact;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.fundamentals.snsContact.SnsContacts;
+import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.util.objects2.Objects2;
 
 public class Place {

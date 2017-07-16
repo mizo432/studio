@@ -10,7 +10,7 @@ public class Strings2 {
         return !isEmpty(aSrt);
     }
 
-    public String repeat(String string, int count) {
+    public static String repeat(String string, int count) {
 
         final int len = string.length();
         final long longSize = (long) len * (long) count;

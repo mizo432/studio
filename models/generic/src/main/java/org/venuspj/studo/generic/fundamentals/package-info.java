@@ -1,1 +1,0 @@
-package org.venuspj.studo.generic.fundamentals;

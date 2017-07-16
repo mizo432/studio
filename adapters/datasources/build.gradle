@@ -12,6 +12,7 @@ bootRepackage {
 
 dependencies {
     compile project(":studio-core")
+    compile project(":studio-contracts")
     compile("org.springframework.boot:spring-boot-starter")
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
     compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"

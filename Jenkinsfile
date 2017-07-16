@@ -24,6 +24,7 @@ pipeline {
                 // ジョブ失敗の原因調査用にJenkinsfileとbuild.gradleは最初に保存する
                 archiveArtifacts "Jenkinsfile"
                 archiveArtifacts "build.gradle"
+                archiveArtifacts "settings.gradle"
                 // scriptブロックを使うと従来のScripted Pipelinesの記法も使える
                 script {
                     // Permission deniedで怒られないために実行権限を付与する
@@ -78,6 +79,7 @@ pipeline {
                         archiveArtifacts "**/findbugs/*.xml"
                         archiveArtifacts "**/pmd/*.xml"
                         archiveArtifacts "**/cpd/*.xml"
+                        archiveArtifacts "**/jdepend/*.xml"
                     },
                     'タスクスキャン': {
                         step([

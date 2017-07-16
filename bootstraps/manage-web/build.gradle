@@ -59,7 +59,7 @@ dependencies {
     compile project(":studio-core")
     compile project(":studio-presenters")
     compile project(":studio-datasources")
-    compile project(":studio-usecases")
+    compile project(":studio-use-cases")
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile group: "org.springframework.boot", name: "spring-boot-starter-mobile", version: "${springBootVersion}"
     compile("org.springframework.boot:spring-boot-starter-web")

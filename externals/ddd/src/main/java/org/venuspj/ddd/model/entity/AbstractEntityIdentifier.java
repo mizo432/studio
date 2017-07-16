@@ -26,7 +26,8 @@ public abstract class AbstractEntityIdentifier<T extends Entity<T>> implements E
      *
      * @param aKind カインド
      */
-    private AbstractEntityIdentifier(String aKind) {
+    protected AbstractEntityIdentifier(String aKind) {
+        this();
         kind = aKind;
     }
 
@@ -47,4 +48,8 @@ public abstract class AbstractEntityIdentifier<T extends Entity<T>> implements E
         return true;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects2.hash(kind);
+    }
 }

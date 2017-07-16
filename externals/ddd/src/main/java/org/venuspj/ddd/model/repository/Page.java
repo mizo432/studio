@@ -1,4 +1,7 @@
 package org.venuspj.ddd.model.repository;
 
-public interface Page<T> {
+import org.venuspj.ddd.model.entity.Entity;
+
+public class Page<T extends Entity<T>> {
+
 }

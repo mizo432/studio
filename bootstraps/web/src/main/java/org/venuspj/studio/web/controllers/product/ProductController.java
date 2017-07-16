@@ -1,30 +1,32 @@
 package org.venuspj.studio.web.controllers.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.venuspj.studio.adapter.presenters.product.ProductQueryOutputPort;
-import org.venuspj.studio.core.model.product.ProductId;
-import org.venuspj.studio.core.model.studio.StudioCode;
-import org.venuspj.studio.core.usecases.products.ProductQueryInputPort;
-import org.venuspj.studio.core.usecases.products.ProductQuery;
+import org.venuspj.studio.adapter.presenters.product.ProductPage;
+import org.venuspj.studio.core.usecase.products.ProductQueryInputPort;
+import org.venuspj.studio.core.usecase.products.ProductQueryUseCase;
 
 public class ProductController {
 
-    ProductQuery productQuery;
+    ProductQueryUseCase productQuery;
 
     @Autowired
-    public ProductController(ProductQuery aProductQuery) {
+    public ProductController(ProductQueryUseCase aProductQuery) {
         productQuery = aProductQuery;
 
     }
 
     public String get(Integer aProductId) {
 
-        ProductQueryInputPort inputPort = ProductQueryInputPort.of(new ProductId(new StudioCode("LHS"), aProductId));
+        ProductQueryInputPort inputPort = new ProductQueryInputPort() {
+        };
+//        ProductId(new StudioCode("LHS"), aProductId));
 
-        ProductQueryOutputPort outputPort =
-                productQuery
-                        .withInputPort(inputPort)
-                        .start();
+        ProductPage outputPort = new ProductPage();
+        productQuery
+                .withProductQueryOutputPort(outputPort)
+                .withProductQueryInputPort(inputPort)
+
+                .start();
 
         return "";
     }

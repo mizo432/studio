@@ -11,14 +11,14 @@ public final class CollectPreconditions {
         }
     }
 
-    public static int checkNonnegative(int value, String name) {
+    public static int checkNonNegative(int value, String name) {
         if (value < 0) {
             throw new IllegalArgumentException(name + " cannot be negative but was: " + value);
         }
         return value;
     }
 
-    public static long checkNonnegative(long value, String name) {
+    public static long checkNonNegative(long value, String name) {
         if (value < 0) {
             throw new IllegalArgumentException(name + " cannot be negative but was: " + value);
         }

@@ -1,7 +1,7 @@
 package org.venuspj.studio.core.fundamentals.moment;
 
-import org.venuspj.studio.core.model.operator.OperatorId;
-import org.venuspj.studo.generic.fundamentals.datetime.RecordDatetime;
+import org.venuspj.studio.core.model.role.partyRole.operator.OperatorId;
+import org.venuspj.studio.generic.fundamentals.datetime.RecordDatetime;
 import org.venuspj.util.objects2.Objects2;
 
 /**
