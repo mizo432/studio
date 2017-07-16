@@ -31,7 +31,7 @@ public class StudioTest {
     @Test
     public void hashCodeTest() {
         Studio target = new Studio();
-        assertThat(target.hashCode()).isEqualTo(441573456);
+        assertThat(target.hashCode()).isEqualTo(-1926346837);
 
     }
 

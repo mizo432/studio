@@ -50,14 +50,14 @@ public class StudioCodeTest {
     @Test
     public void hashCode1() {
         StudioCode target = new StudioCode();
-        assertThat(target.hashCode()).isEqualTo(441573456);
+        assertThat(target.hashCode()).isEqualTo(-1926346837);
 
     }
 
     @Test
     public void hashCode2() {
         StudioCode target = createDummy();
-        assertThat(target.hashCode()).isEqualTo(441648807);
+        assertThat(target.hashCode()).isEqualTo(-1926271486);
 
     }
 }

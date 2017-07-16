@@ -69,7 +69,7 @@ public class EventTest {
         Event target = createDummy(EventType.DEFAULT);
         int actual = target.hashCode();
         assertThat(actual)
-                .isEqualTo(966542713);
+                .isEqualTo(-1074738147);
     }
 
     @Test
