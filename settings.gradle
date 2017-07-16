@@ -32,3 +32,5 @@ project(':studio-core').projectDir = file('./models/core')
 include ':studio-contracts'
 project(':studio-contracts').projectDir = file('./models/contracts')
 
+include ':studio-contracts-mock'
+project(':studio-contracts-mock').projectDir = file('./models/contracts-mock')

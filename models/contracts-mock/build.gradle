@@ -1,20 +1,10 @@
-apply plugin: 'org.springframework.boot'
+apply plugin: 'java'
 
-description = "studio-use-case"
-
-repositories {
-    mavenCentral()
-}
-bootRepackage {
-    enabled = false
-}
+description = "studio-contracts-mock"
 
 dependencies {
     compile project(":studio-core")
     compile project(":studio-contracts")
-    testCompile project(":studio-contracts-mock")
-    compile("org.springframework.boot:spring-boot-starter")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
