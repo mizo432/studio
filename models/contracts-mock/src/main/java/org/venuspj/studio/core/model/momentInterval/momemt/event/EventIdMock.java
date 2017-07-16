@@ -10,11 +10,59 @@ public class EventIdMock {
     }
 
     public enum EventIDType {
-        EVENT_ON_END_OF_LAST_MONTH, EVENT_ON_START_OF_THIS_MONTH, EVENT_ON_YESTERDAY, EVENT_ON_TODAY, EVENT_ON_THREE_DAYS_AFTER, EVENT_ON_END_OF_THIS_MONTH, EVENT_ON_START_OF_NEXT_MONTH, DEFAULT;
+        EVENT_ON_END_OF_LAST_MONTH {
+            @Override
+            public Integer eventIdValue() {
+                return 1;
+            }
+        }, EVENT_ON_START_OF_THIS_MONTH {
+            @Override
+            public Integer eventIdValue() {
+                return 2;
+            }
+        }, EVENT_ON_THREE_DAYS_BEFORE {
+            @Override
+            public Integer eventIdValue() {
+                return 3;
+            }
+        }, EVENT_ON_YESTERDAY {
+            @Override
+            public Integer eventIdValue() {
+                return 4;
+            }
+        }, EVENT_ON_TODAY {
+            @Override
+            public Integer eventIdValue() {
+                return 5;
+            }
+        }, EVENT_ON_TOMORROW {
+            @Override
+            public Integer eventIdValue() {
+                return 6;
+            }
+        }, EVENT_ON_THREE_DAYS_AFTER {
+            @Override
+            public Integer eventIdValue() {
+                return 7;
+            }
+        }, EVENT_ON_END_OF_THIS_MONTH {
+            @Override
+            public Integer eventIdValue() {
+                return 8;
+            }
+        }, EVENT_ON_START_OF_NEXT_MONTH {
+            @Override
+            public Integer eventIdValue() {
+                return 9;
+            }
+        }, DEFAULT {
+            @Override
+            public Integer eventIdValue() {
+                return 5;
+            }
+        };
 
-        public Integer eventIdValue() {
-            return 1;
-        }
+        public abstract Integer eventIdValue();
     }
 
 }

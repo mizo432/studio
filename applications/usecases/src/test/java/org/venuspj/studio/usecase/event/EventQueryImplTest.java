@@ -7,12 +7,15 @@ import org.venuspj.ddd.model.repository.CrudRepository;
 import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
 import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
+import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventsMock;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
 import org.venuspj.studio.core.usecase.event.EventQueryUseCase;
+
+import java.util.List;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
@@ -22,7 +25,9 @@ public class EventQueryImplTest {
 
     @Before
     public void setUp() throws Exception {
-        CrudRepository<Event> eventRepository = new OnMemoryCrudRepository<Event>(EventsMock.createDummy(EventsMock.EventsType.DEFAULT));
+        List<Event> eventList = EventsMock.createDummy(EventsMock.EventsType.DEFAULT).asList();
+        System.out.println("eventList:" + eventList);
+        CrudRepository<Event> eventRepository = new OnMemoryCrudRepository<Event>(eventList);
         CrudRepository<Player> playerRepository = new OnMemoryCrudRepository<Player>(Players.empty().asList());
         tergetUsecase = new EventQuery(eventRepository, playerRepository);
     }
@@ -34,7 +39,7 @@ public class EventQueryImplTest {
 
     @Test(expected = EntityNotFoundRuntimeException.class)
     public void start() throws Exception {
-        EventQueryInputPort eventQueryInputPort = new EventQueryInputPortMock();
+        EventQueryInputPort eventQueryInputPort = new EventQueryInputPortMock(EventIdMock.createDummy(EventIdMock.EventIDType.EVENT_ON_TODAY));
         EventQueryOutputPort eventQueryOutputPort = new EventQueryOutputPortMock();
         tergetUsecase.withEventQueryInputPort(eventQueryInputPort)
                 .withEventQueryOutputPort(eventQueryOutputPort).start();

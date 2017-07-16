@@ -13,7 +13,7 @@ public final class EventsMock {
         for (EventMock.EventType eventType : anEventsType.eventTypes()) {
             eventList.add(EventMock.createDummy(eventType));
         }
-        return new Events(Lists2.newArrayList());
+        return new Events(eventList);
     }
 
     public enum EventsType {

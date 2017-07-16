@@ -33,4 +33,8 @@ public class Events implements Iterable<Event> {
     public Iterator<Event> iterator() {
         return list.iterator();
     }
+
+    public List<Event> asList() {
+        return list;
+    }
 }
