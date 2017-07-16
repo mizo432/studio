@@ -16,6 +16,12 @@ public class EventPage implements EventQueryOutputPort {
     }
 
     @Override
+    public void withPlayers(Players anyPlayers) {
+        players = anyPlayers;
+
+    }
+
+    @Override
     public String toString() {
         return Objects2
                 .toStringHelper(this)
