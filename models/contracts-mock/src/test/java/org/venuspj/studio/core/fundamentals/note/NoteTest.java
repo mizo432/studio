@@ -1,8 +1,6 @@
 package org.venuspj.studio.core.fundamentals.note;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.venuspj.util.dateProvider.StaticDateProvider;
 
 import java.time.LocalDateTime;
@@ -10,7 +8,6 @@ import java.time.LocalDateTime;
 import static org.assertj.core.api.Java6Assertions.*;
 
 public class NoteTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(NoteTest.class);
 
     @Test
     public void testToString1() throws Exception {
@@ -18,7 +15,7 @@ public class NoteTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + target.toString());
     }
 
     @Test
@@ -28,7 +25,7 @@ public class NoteTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + target.toString());
     }
 
 }

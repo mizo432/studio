@@ -22,7 +22,7 @@ public class SnsIdTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
     @Test
@@ -31,16 +31,16 @@ public class SnsIdTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
-    
+
     @Test
     public void asText() throws Exception {
         SnsId target = createDummy();
         String actual = target.asText();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
 }

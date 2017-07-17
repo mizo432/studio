@@ -1,35 +1,31 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
 /**
- * Created by mizoguchi on 2017/07/16.
  */
 public class StudioCodeTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(StudioCodeTest.class);
 
 
     @Test
     public void testToString1() {
         StudioCode target = new StudioCode();
-        assertThat(target)
+        String actual = target.toString();
+        assertThat(actual)
                 .isNotNull();
-
-        LOGGER.debug("target:" + target);
+        System.out.println("actual:" + actual);
 
     }
 
     @Test
     public void testToString2() {
         StudioCode target = StudioCodeMock.createDummy();
-        assertThat(target)
+        String actual = target.toString();
+        assertThat(actual)
                 .isNotNull();
-
-        LOGGER.debug("target:" + target);
+        System.out.println("actual:" + actual);
 
     }
 

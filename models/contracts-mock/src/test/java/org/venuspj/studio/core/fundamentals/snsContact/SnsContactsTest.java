@@ -1,8 +1,6 @@
 package org.venuspj.studio.core.fundamentals.snsContact;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.venuspj.util.collect.Lists2;
 
 import static org.assertj.core.api.Java6Assertions.*;
@@ -11,7 +9,6 @@ import static org.assertj.core.api.Java6Assertions.*;
  * Created by mizoguchi on 2017/06/25.
  */
 public class SnsContactsTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SnsContactsTest.class);
 
     public static SnsContacts createDummy() {
         return new SnsContacts(Lists2.newArrayList(SnsContactTest.createDummy()));
@@ -23,7 +20,7 @@ public class SnsContactsTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
     @Test
@@ -32,7 +29,7 @@ public class SnsContactsTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
 }

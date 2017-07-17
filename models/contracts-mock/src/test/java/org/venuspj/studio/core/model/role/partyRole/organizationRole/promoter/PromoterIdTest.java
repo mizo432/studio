@@ -5,9 +5,6 @@ import org.junit.Test;
 import static org.assertj.core.api.Java6Assertions.*;
 
 public class PromoterIdTest {
-    public static PromoterId createDummy() {
-        return new PromoterId(1);
-    }
 
     @Test
     public void toString01() throws Exception {
@@ -20,7 +17,7 @@ public class PromoterIdTest {
 
     @Test
     public void toString02() throws Exception {
-        PromoterId target = createDummy();
+        PromoterId target = PromoterIdMock.createDummy(PromoterIdMock.PromoterIdType.DEFAULT);
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
