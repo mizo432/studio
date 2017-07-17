@@ -17,6 +17,21 @@ public class ProductIdMock {
             public Integer value() {
                 return 1;
             }
+        }, PRODUCT1 {
+            @Override
+            public Integer value() {
+                return 1;
+            }
+        }, PRODUCT2 {
+            @Override
+            public Integer value() {
+                return 2;
+            }
+        }, PRODUCT3 {
+            @Override
+            public Integer value() {
+                return 3;
+            }
         };
 
         public abstract Integer value();

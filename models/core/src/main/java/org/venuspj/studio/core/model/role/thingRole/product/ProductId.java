@@ -1,16 +1,19 @@
 package org.venuspj.studio.core.model.role.thingRole.product;
 
+import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioCode;
 import org.venuspj.util.objects2.Objects2;
 
-public class ProductId {
+public class ProductId extends AbstractEntityIdentifier<Product> {
     Integer value;
     StudioCode studioCode = StudioCode.defaultCode();
 
     ProductId() {
+        super(Product.class);
     }
 
     public ProductId(StudioCode aStudioCode, Integer aValue) {
+        this();
         studioCode = aStudioCode;
         value = aValue;
     }
@@ -23,7 +26,8 @@ public class ProductId {
     public String toString() {
         return Objects2
                 .toStringHelper(this)
-                .addValue(value)
+                .add("kind", kind)
+                .add("value", value)
                 .add("studioCode", studioCode)
                 .omitNullValues()
                 .toString();

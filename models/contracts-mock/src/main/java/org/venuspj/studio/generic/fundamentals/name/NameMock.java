@@ -161,6 +161,16 @@ public final class NameMock {
             public int index() {
                 return 4;
             }
+        }, STUDIO_NAME {
+            @Override
+            public String namePrefix() {
+                return name();
+            }
+
+            @Override
+            public int index() {
+                return 1;
+            }
         }, ALUBUM_NAME1 {
             @Override
             public String namePrefix() {
@@ -171,15 +181,25 @@ public final class NameMock {
             public int index() {
                 return 1;
             }
-        }, STUDIO_NAME {
+        }, ALUBUM_NAME2 {
             @Override
             public String namePrefix() {
-                return name();
+                return "ALBUM_NAME";
             }
 
             @Override
             public int index() {
-                return 1;
+                return 2;
+            }
+        }, ALUBUM_NAME3 {
+            @Override
+            public String namePrefix() {
+                return "ALBUM_NAME";
+            }
+
+            @Override
+            public int index() {
+                return 3;
             }
         };
 

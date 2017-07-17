@@ -19,7 +19,7 @@ public class ProductTest {
 
     @Test
     public void testToString2() throws Exception {
-        Product target = ProductMock.createDummy(ProductMock.ProductType.DEFAULT);
+        Product target = ProductMock.createDummy(ProductMock.ProductType.PRODUCT1);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();

@@ -115,16 +115,6 @@ public class DescriptorMock {
             public DescriptionMock.DescriptionType descriptionType() {
                 return DescriptionMock.DescriptionType.DEFAULT;
             }
-        }, ALBUM1 {
-            @Override
-            public NameMock.NameType nameType() {
-                return NameMock.NameType.STUDIO_NAME;
-            }
-
-            @Override
-            public DescriptionMock.DescriptionType descriptionType() {
-                return DescriptionMock.DescriptionType.ALBUM1;
-            }
         }, STUDIO_DESCRIPTOR {
             @Override
             public NameMock.NameType nameType() {
@@ -134,6 +124,36 @@ public class DescriptorMock {
             @Override
             public DescriptionMock.DescriptionType descriptionType() {
                 return DescriptionMock.DescriptionType.STUDIO;
+            }
+        }, ALBUM1 {
+            @Override
+            public NameMock.NameType nameType() {
+                return NameMock.NameType.ALUBUM_NAME1;
+            }
+
+            @Override
+            public DescriptionMock.DescriptionType descriptionType() {
+                return DescriptionMock.DescriptionType.ALBUM1;
+            }
+        }, ALBUM2 {
+            @Override
+            public NameMock.NameType nameType() {
+                return NameMock.NameType.ALUBUM_NAME2;
+            }
+
+            @Override
+            public DescriptionMock.DescriptionType descriptionType() {
+                return DescriptionMock.DescriptionType.ALBUM2;
+            }
+        }, ALBUM3 {
+            @Override
+            public NameMock.NameType nameType() {
+                return NameMock.NameType.ALUBUM_NAME3;
+            }
+
+            @Override
+            public DescriptionMock.DescriptionType descriptionType() {
+                return DescriptionMock.DescriptionType.ALBUM3;
             }
         };
 
