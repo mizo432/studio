@@ -8,10 +8,10 @@ import org.venuspj.studio.generic.fundamentals.name.NameMock;
  */
 public class StudioMock {
     public static Studio createDummy() {
-        return new Studio(NameMock.createDummy(NameMock.NameType.DEFAULT),
+        return new Studio(NameMock.createDummy(NameMock.NameType.STUDIO_NAME),
                 StudioCodeMock.createDummy(),
                 ProfileMock.createDummy(),
-                DescriptorMock.createDummy(DescriptorMock.DescriptorType.DEFAULT));
+                DescriptorMock.createDummy(DescriptorMock.DescriptorType.STUDIO_DESCRIPTOR));
     }
 
 }

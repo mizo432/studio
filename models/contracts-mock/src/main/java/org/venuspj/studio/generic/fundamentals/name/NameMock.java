@@ -9,7 +9,17 @@ public final class NameMock {
     }
 
     public enum NameType {
-        EVENT_DESCRIPTOR_ON_END_OF_LAST_MONTH {
+        DEFAULT {
+            @Override
+            public String namePrefix() {
+                return "DEFAULT_DESCRIPTOR";
+            }
+
+            @Override
+            public int index() {
+                return 0;
+            }
+        }, EVENT_DESCRIPTOR_ON_END_OF_LAST_MONTH {
             @Override
             public String namePrefix() {
                 return "EVENT_DESCRIPTOR";
@@ -29,7 +39,7 @@ public final class NameMock {
             public int index() {
                 return 2;
             }
-        }, EVENT_DESCRIPTOR_ON_YESTERDAY {
+        }, EVENT_DESCRIPTOR_ON_THREE_DAYS_BEFORE {
             @Override
             public String namePrefix() {
                 return "EVENT_DESCRIPTOR";
@@ -38,6 +48,16 @@ public final class NameMock {
             @Override
             public int index() {
                 return 3;
+            }
+        }, EVENT_DESCRIPTOR_ON_YESTERDAY {
+            @Override
+            public String namePrefix() {
+                return "EVENT_DESCRIPTOR";
+            }
+
+            @Override
+            public int index() {
+                return 4;
             }
         },
         EVENT_DESCRIPTOR_ON_TODAY {
@@ -48,7 +68,17 @@ public final class NameMock {
 
             @Override
             public int index() {
-                return 4;
+                return 5;
+            }
+        }, EVENT_DESCRIPTOR_ON_TOMORROW {
+            @Override
+            public String namePrefix() {
+                return name();
+            }
+
+            @Override
+            public int index() {
+                return 6;
             }
         }, EVENT_DESCRIPTOR_ON_THREE_DAYS_AFTER {
             @Override
@@ -58,7 +88,7 @@ public final class NameMock {
 
             @Override
             public int index() {
-                return 5;
+                return 7;
             }
         }, EVENT_DESCRIPTOR_ON_END_OF_THIS_MONTH {
             @Override
@@ -68,7 +98,7 @@ public final class NameMock {
 
             @Override
             public int index() {
-                return 6;
+                return 8;
             }
         },
         EVENT_DESCRIPTOR_ON_START_OF_NEXT_MONTH {
@@ -79,9 +109,9 @@ public final class NameMock {
 
             @Override
             public int index() {
-                return 7;
+                return 9;
             }
-        }, DEFAULT {
+        }, DEFAULT_EVENT_DESCRIPTOR {
             @Override
             public String namePrefix() {
                 return "EVENT_DESCRIPTOR";
@@ -89,7 +119,7 @@ public final class NameMock {
 
             @Override
             public int index() {
-                return 4;
+                return 5;
             }
         }, PLAYER1 {
             @Override
@@ -135,6 +165,16 @@ public final class NameMock {
             @Override
             public String namePrefix() {
                 return "ALBUM_NAME";
+            }
+
+            @Override
+            public int index() {
+                return 1;
+            }
+        }, STUDIO_NAME {
+            @Override
+            public String namePrefix() {
+                return name();
             }
 
             @Override
