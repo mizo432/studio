@@ -1,8 +1,8 @@
 package org.venuspj.studio.adapter.presenters.event;
 
-import org.venuspj.studio.core.model.event.Event;
-import org.venuspj.studio.core.model.player.Players;
-import org.venuspj.studio.core.usecases.event.EventQueryOutputPort;
+import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
+import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
 import org.venuspj.util.objects2.Objects2;
 
 public class EventPage implements EventQueryOutputPort {
@@ -13,6 +13,12 @@ public class EventPage implements EventQueryOutputPort {
     @Override
     public void withEvent(Event anEvent) {
         event = anEvent;
+    }
+
+    @Override
+    public void withPlayers(Players anyPlayers) {
+        players = anyPlayers;
+
     }
 
     @Override

@@ -1,6 +1,6 @@
 apply plugin: 'org.springframework.boot'
 
-description = "studio-usecase"
+description = "studio-use-case"
 
 repositories {
     mavenCentral()
@@ -12,6 +12,7 @@ bootRepackage {
 dependencies {
     compile project(":studio-core")
     compile project(":studio-contracts")
+    testCompile project(":studio-contracts-mock")
     compile("org.springframework.boot:spring-boot-starter")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"

@@ -1,0 +1,2 @@
+v1.0.1 (May 24rd, 2017)
+- Fixed responsiveness bug

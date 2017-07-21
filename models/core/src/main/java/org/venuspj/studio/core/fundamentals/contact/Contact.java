@@ -22,6 +22,10 @@ public class Contact {
 
     }
 
+    public static Contact emptyContact() {
+        return new Contact();
+    }
+
     @Override
     public String toString() {
         return Objects2

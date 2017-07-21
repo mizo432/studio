@@ -13,7 +13,7 @@ public class SnsContacts {
     SnsContacts() {
     }
 
-    SnsContacts(List<SnsContact> aList) {
+    public SnsContacts(List<SnsContact> aList) {
         list.addAll(aList);
     }
 

@@ -12,7 +12,7 @@ public abstract class EntityBuilder<E extends Entity<E>, B extends EntityBuilder
 
     @Override
     protected void apply(E vo, B builder) {
-        builder.withEntityIdentifier(vo.getIdentifier());
+        builder.withEntityIdentifier(vo.identifier());
     }
 
     public B withEntityIdentifier(EntityIdentifier<E> anIdentifier) {

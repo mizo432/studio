@@ -1,0 +1,11 @@
+spring:
+  profiles.active: unit
+  thymeleaf.cache: false
+
+endpoints:
+  shutdown.enabled: true
+
+security:
+  user:
+    name: mizo
+    password: mizo

@@ -1,5 +1,9 @@
 package org.venuspj.util.strings2;
 
+import org.venuspj.util.common.base.Joiner;
+
+import java.util.Collections;
+
 public class Strings2 {
 
     public static boolean isEmpty(final CharSequence cs) {
@@ -28,6 +32,10 @@ public class Strings2 {
         System.arraycopy(array, 0, array, n, size - n);
         return new String(array);
 
+    }
+
+    public static String repeat(String string, int count, String aSeparator) {
+        return Joiner.on(aSeparator).join(Collections.nCopies(count, string));
     }
 
     public static boolean isNumber(final String str) {
@@ -132,4 +140,5 @@ public class Strings2 {
         }
         return !allowSigns && foundDigit;
     }
+
 }

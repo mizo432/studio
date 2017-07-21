@@ -2,8 +2,8 @@ package org.venuspj.studio.web.controllers.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.venuspj.studio.adapter.presenters.product.ProductPage;
-import org.venuspj.studio.core.usecases.products.ProductQueryInputPort;
-import org.venuspj.studio.core.usecases.products.ProductQueryUseCase;
+import org.venuspj.studio.core.usecase.products.ProductQueryInputPort;
+import org.venuspj.studio.core.usecase.products.ProductQueryUseCase;
 
 public class ProductController {
 
