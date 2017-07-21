@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.venuspj.studio.generic.fundamentals.name.Name;
 import org.venuspj.studio.generic.model.ppt.PartyPlaceThing;
 import org.venuspj.studio.generic.model.ppt.PartyPlaceThingId;
-import org.venuspj.util.dateProvider.StaticDateProvider;
+import org.venuspj.util.dateProvider.StaticDateTimeProvider;
 
 import java.time.LocalDateTime;
 
@@ -32,7 +32,7 @@ public class PartyTest {
 
     @Test
     public void testToString2() throws Exception {
-        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
         Party target = createDummy();
         String actual = target.toString();
         assertThat(actual)

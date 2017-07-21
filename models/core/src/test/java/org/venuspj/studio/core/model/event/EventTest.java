@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.venuspj.studio.core.fundamentals.descriptor.DescriptorTest;
 import org.venuspj.studio.core.model.event.eventOutline.OutlineTest;
 import org.venuspj.studio.core.model.event.flyers.FlyersTest;
-import org.venuspj.util.dateProvider.StaticDateProvider;
+import org.venuspj.util.dateProvider.StaticDateTimeProvider;
 
 import java.time.LocalDateTime;
 
@@ -28,7 +28,7 @@ public class EventTest {
 
     @Test
     public void testToString2() throws Exception {
-        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
         Event target = createDummy();
         String actual = target.toString();
         assertThat(actual)

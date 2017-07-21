@@ -1,6 +1,5 @@
 package org.venuspj.ddd.model.entity;
 
-import com.google.common.base.MoreObjects;
 import org.venuspj.util.objects2.Objects2;
 
 /**
@@ -48,7 +47,7 @@ public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
         return identifier.equals(((Entity) that).getIdentifier());
     }
 
-    protected MoreObjects.ToStringHelper string() {
+    protected Objects2.ToStringHelper string() {
         return Objects2
                 .toStringHelper(this)
                 .add("identifier", identifier);

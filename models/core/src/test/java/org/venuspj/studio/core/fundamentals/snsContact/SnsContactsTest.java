@@ -3,7 +3,7 @@ package org.venuspj.studio.core.fundamentals.snsContact;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.util.list.Lists2;
+import org.venuspj.util.collect.Lists2;
 
 import static org.assertj.core.api.Java6Assertions.*;
 

@@ -1,32 +1,24 @@
 package org.venuspj.util.dateProvider;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.time.LocalTime;
 
-/**
- */
 public class StaticDateProvider extends DateProvider {
-    private static AtomicReference<LocalDateTime> localDateTime = new AtomicReference<LocalDateTime>();
+    private static LocalDate localDate;
 
-    private StaticDateProvider() {
-
+    public StaticDateProvider(LocalDate aLocalDate) {
+        super();
+        StaticDateProvider.localDate = aLocalDate;
     }
 
-    public static void initialize(LocalDateTime aLocalDateTime) {
-        StaticDateProvider instance = new StaticDateProvider();
-        instance.setLocalDateTime(aLocalDateTime);
-        DateProvider.setDateProvider(instance);
-
-
+    public static void initialize(LocalDate aLocalDate) {
+        StaticDateProvider instance = new StaticDateProvider(aLocalDate);
+        new DateProvider(instance);
     }
 
-    private void setLocalDateTime(LocalDateTime aLocalDateTime) {
-        StaticDateProvider.localDateTime.set(aLocalDateTime);
-    }
-
-    @Override
-    protected LocalDateTime currentLocalDateTime() {
-        return localDateTime.get();
+    protected LocalDateTime now() {
+        return LocalDateTime.of(StaticDateProvider.localDate, LocalTime.now());
     }
 
 }

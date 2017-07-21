@@ -3,8 +3,8 @@ package org.venuspj.studio.core.model.event;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venuspj.util.dateProvider.StaticDateProvider;
-import org.venuspj.util.list.Lists2;
+import org.venuspj.util.dateProvider.StaticDateTimeProvider;
+import org.venuspj.util.collect.Lists2;
 
 import java.time.LocalDateTime;
 
@@ -29,7 +29,7 @@ public class EventsTest {
 
     @Test
     public void testToString2() throws Exception {
-        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
         Events target = createDummy();
         String actual = target.toString();
         assertThat(actual)

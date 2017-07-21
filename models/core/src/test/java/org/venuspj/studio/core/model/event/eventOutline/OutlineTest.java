@@ -9,7 +9,7 @@ import org.venuspj.studio.core.model.player.PlayerIds;
 import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.util.dateProvider.DateProvider;
-import org.venuspj.util.dateProvider.StaticDateProvider;
+import org.venuspj.util.dateProvider.StaticDateTimeProvider;
 
 import java.time.LocalDateTime;
 
@@ -35,7 +35,7 @@ public class OutlineTest {
 
     @Test
     public void testToString2() throws Exception {
-        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 20, 18, 30, 1, 1));
+        StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 20, 18, 30, 1, 1));
         Outline target = createDummy();
         String actual = target.toString();
         assertThat(actual)

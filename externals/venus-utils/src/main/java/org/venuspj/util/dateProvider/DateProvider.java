@@ -13,6 +13,10 @@ public class DateProvider {
 
     }
 
+    protected DateProvider(DateProvider aDateProvider) {
+        DateProvider.setDateProvider(aDateProvider);
+    }
+
     public static void setDateProvider(DateProvider aDateProvider) {
         DateProvider.dateProvider.set(aDateProvider);
     }
