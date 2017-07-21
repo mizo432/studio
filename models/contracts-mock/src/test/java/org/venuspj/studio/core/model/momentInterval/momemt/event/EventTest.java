@@ -1,7 +1,7 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
 import org.junit.Test;
-import org.venuspj.util.dateProvider.StaticDateProvider;
+import org.venuspj.util.dateProvider.StaticDateTimeProvider;
 
 import java.time.LocalDateTime;
 
@@ -75,7 +75,7 @@ public class EventTest {
 
     @Test
     public void equals4() throws Exception {
-        StaticDateProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
         Event target = EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
         boolean actual = target.equals(Integer.valueOf(1));
         assertThat(actual)

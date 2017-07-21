@@ -2,7 +2,6 @@ package org.venuspj.util.collect;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Java6Assertions.*;
@@ -52,7 +51,7 @@ public class Lists2Test {
 
         @Test
         public void test11() throws Exception {
-            ArrayList<Integer> sourceList = createDummyList(33);
+            List<Integer> sourceList = createDummyList(33);
             List<Integer> actual = Lists2.getPage(sourceList, 1, 10);
             assertThat(actual)
                     .isNotNull();
@@ -61,8 +60,8 @@ public class Lists2Test {
 //            LOGGER.debug("actual:" + actual);
         }
 
-        public ArrayList<Integer> createDummyList(int listCount) {
-            ArrayList<Integer> sourceList = Lists2.newArrayListWithExpectedSize(listCount);
+        public List<Integer> createDummyList(int listCount) {
+            List<Integer> sourceList = Lists2.newArrayListWithExpectedSize(listCount);
             for (int i = 0; i < listCount; i++) {
                 sourceList.add(i);
             }
@@ -71,7 +70,7 @@ public class Lists2Test {
 
         @Test
         public void test12() throws Exception {
-            ArrayList<Integer> sourceList = createDummyList(33);
+            List<Integer> sourceList = createDummyList(33);
             List<Integer> actual = Lists2.getPage(sourceList, 3, 10);
             assertThat(actual)
                     .isNotNull();
@@ -81,7 +80,7 @@ public class Lists2Test {
 
         @Test
         public void test13() throws Exception {
-            ArrayList<Integer> sourceList = createDummyList(33);
+            List<Integer> sourceList = createDummyList(33);
             List<Integer> actual = Lists2.getPage(sourceList, 4, 10);
             assertThat(actual)
                     .isNotNull();
@@ -91,7 +90,7 @@ public class Lists2Test {
 
         @Test
         public void test14() throws Exception {
-            ArrayList<Integer> sourceList = createDummyList(30);
+            List<Integer> sourceList = createDummyList(30);
             List<Integer> actual = Lists2.getPage(sourceList, 1, 10);
             assertThat(actual)
                     .isNotNull();
@@ -101,7 +100,7 @@ public class Lists2Test {
 
         @Test
         public void test15() throws Exception {
-            ArrayList<Integer> sourceList = createDummyList(30);
+            List<Integer> sourceList = createDummyList(30);
             List<Integer> actual = Lists2.getPage(sourceList, 3, 10);
             assertThat(actual)
                     .isNotNull();
@@ -111,7 +110,7 @@ public class Lists2Test {
 
         @Test
         public void test16() throws Exception {
-            ArrayList<Integer> sourceList = createDummyList(30);
+            List<Integer> sourceList = createDummyList(30);
             List<Integer> actual = Lists2.getPage(sourceList, 4, 10);
             assertThat(actual)
                     .isNotNull();

@@ -4,15 +4,19 @@ import org.junit.Test;
 import org.venuspj.studio.core.model.role.partyRole.operator.OperatorId;
 import org.venuspj.studio.core.model.role.partyRole.operator.OperatorIdMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDatetime;
-<<<<<<< HEAD:models/core/src/test/java/org/venuspj/studio/core/fundamentals/moment/OperationMomentTest.java
 import org.venuspj.util.dateProvider.StaticDateTimeProvider;
-=======
->>>>>>> origin/LHS-68:models/contracts-mock/src/test/java/org/venuspj/studio/core/fundamentals/moment/OperationMomentTest.java
+
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
 public class OperationMomentTest {
 
+
+    public static OperationMoment createDummy() {
+        StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 27, 1, 2, 3, 4));
+        return new OperationMoment(RecordDatetime.now(), OperatorId.EMPTY);
+    }
 
     @Test
     public void testToString01() {
@@ -62,16 +66,7 @@ public class OperationMomentTest {
         assertThat(actual)
                 .isTrue();
 
-<<<<<<< HEAD:models/core/src/test/java/org/venuspj/studio/core/fundamentals/moment/OperationMomentTest.java
-        LOGGER.debug("actual:" + actual);
-    }
-
-    public static OperationMoment createDummy() {
-        StaticDateTimeProvider.initialize(LocalDateTime.of(2017,6,27,1,2,3,4));
-      return new  OperationMoment(RecordDatetime.now(), OperatorId.EMPTY);
-=======
         System.out.println("actual:" + actual);
->>>>>>> origin/LHS-68:models/contracts-mock/src/test/java/org/venuspj/studio/core/fundamentals/moment/OperationMomentTest.java
     }
 
 }

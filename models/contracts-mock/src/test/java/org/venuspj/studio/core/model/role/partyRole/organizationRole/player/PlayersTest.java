@@ -1,12 +1,6 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
 import org.junit.Test;
-<<<<<<< HEAD:models/core/src/test/java/org/venuspj/studio/core/model/player/PlayersTest.java
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.venuspj.util.collect.Lists2;
-=======
->>>>>>> origin/LHS-68:models/contracts-mock/src/test/java/org/venuspj/studio/core/model/role/partyRole/organizationRole/player/PlayersTest.java
 
 import static org.assertj.core.api.Java6Assertions.*;
 

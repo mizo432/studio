@@ -1,5 +1,6 @@
 package org.venuspj.studio.core.model.player;
 
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerId;
 import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
