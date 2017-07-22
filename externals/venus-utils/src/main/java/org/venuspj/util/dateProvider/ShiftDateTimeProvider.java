@@ -3,6 +3,7 @@ package org.venuspj.util.dateProvider;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+@SuppressWarnings(value = "ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD")
 public class ShiftDateTimeProvider extends DateProvider {
     private static LocalDateTime startDateTime;
     private static LocalDateTime localDateTime;
