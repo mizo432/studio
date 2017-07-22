@@ -2,7 +2,7 @@ package org.venuspj.util.collect;
 
 import java.util.*;
 
-import static org.venuspj.util.base.Preconditions.checkNotNull;
+import static org.venuspj.util.base.Preconditions.*;
 
 
 /**
@@ -26,6 +26,7 @@ public class Lists2 {
         return result;
     }
 
+    @SafeVarargs
     public static <T> List<T> newArrayList(T... args) {
         List<T> result = new ArrayList<>();
         for (T arg : args)
