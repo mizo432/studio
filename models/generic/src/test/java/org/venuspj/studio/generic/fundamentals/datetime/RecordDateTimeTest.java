@@ -96,6 +96,15 @@ public class RecordDateTimeTest {
                 .isFalse();
     }
 
+    @Test
+    public void hashCode1() {
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
+        int actual = target.hashCode();
+        assertThat(actual)
+                .isEqualTo(30996995);
+
+    }
+
     public enum TestDateKind {
         BASE_DATE {
             @Override

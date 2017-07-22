@@ -66,4 +66,9 @@ public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTim
         }
         return false;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects2.hash(value);
+    }
 }
