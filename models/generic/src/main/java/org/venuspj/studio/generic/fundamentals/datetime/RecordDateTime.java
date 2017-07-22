@@ -7,16 +7,24 @@ import org.venuspj.util.objects2.Objects2;
 
 import java.time.LocalDateTime;
 
-public class RecordDatetime implements Value, DecidableSameValueAs<RecordDatetime> {
+public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTime> {
     private LocalDateTime value;
 
-    public RecordDatetime() {
+    public RecordDateTime() {
 
     }
 
-    public RecordDatetime(LocalDateTime aValue) {
+    public RecordDateTime(LocalDateTime aValue) {
         value = aValue;
 
+    }
+
+    public static RecordDateTime now() {
+        return new RecordDateTime(DateProvider.currentDateTime());
+    }
+
+    public static RecordDateTime empty() {
+        return new RecordDateTime(DateProvider.currentDateTime());
     }
 
     public LocalDateTime asDateTime() {
@@ -32,7 +40,7 @@ public class RecordDatetime implements Value, DecidableSameValueAs<RecordDatetim
     }
 
     @Override
-    public boolean sameValueAs(RecordDatetime other) {
+    public boolean sameValueAs(RecordDateTime other) {
         return Objects2.nonNull(other) &&
                 Objects2.equal(value, other.value);
     }
@@ -49,11 +57,13 @@ public class RecordDatetime implements Value, DecidableSameValueAs<RecordDatetim
         return new RecordTime(value.toLocalTime());
     }
 
-    public static RecordDatetime now() {
-        return new RecordDatetime(DateProvider.currentDateTime());
-    }
-
-    public static RecordDatetime empty() {
-        return new RecordDatetime(DateProvider.currentDateTime());
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof RecordDateTime) {
+            RecordDateTime that = (RecordDateTime) obj;
+            return sameValueAs(that);
+        }
+        return false;
     }
 }

@@ -10,88 +10,88 @@ import static org.assertj.core.api.Java6Assertions.*;
 
 /**
  */
-public class RecordDatetimeTest {
+public class RecordDateTimeTest {
 
-    public static RecordDatetime createDummyData(TestDateKind aTestDateKind) {
-        return new RecordDatetime(aTestDateKind.dateTime());
+    public static RecordDateTime createDummyData(TestDateKind aTestDateKind) {
+        return new RecordDateTime(aTestDateKind.dateTime());
     }
 
     @Test
     public void isPresent01() {
-        RecordDatetime target = new RecordDatetime();
+        RecordDateTime target = new RecordDateTime();
         assertThat(target.isPresent())
                 .isFalse();
     }
 
     @Test
     public void isPresent02() {
-        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.isPresent())
                 .isTrue();
     }
 
     @Test
     public void asDate() {
-        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.asDate())
                 .isEqualTo(new RecordDate(LocalDate.of(2016, 2, 3)));
     }
 
     @Test
     public void asDateTime() {
-        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.asDateTime())
                 .isEqualTo(LocalDateTime.of(2016, 2, 3, 4, 5, 6, 7));
     }
 
     @Test
     public void asTime() {
-        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.asTime())
                 .isEqualTo(new RecordTime(LocalTime.of(4, 5, 6, 7)));
     }
 
     @Test
     public void empty() {
-        RecordDatetime target = RecordDatetime.empty();
+        RecordDateTime target = RecordDateTime.empty();
         assertThat(target.isPresent())
                 .isTrue();
     }
 
     @Test
     public void now() {
-        RecordDatetime target = RecordDatetime.now();
+        RecordDateTime target = RecordDateTime.now();
         assertThat(target.isPresent())
                 .isTrue();
     }
 
     @Test
     public void sameValueAs1() {
-        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
-        RecordDatetime other = RecordDatetime.empty();
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime other = RecordDateTime.empty();
         assertThat(target.sameValueAs(other))
                 .isFalse();
     }
 
     @Test
     public void sameValueAs2() {
-        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
-        RecordDatetime other = createDummyData(TestDateKind.PAST_DATE);
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime other = createDummyData(TestDateKind.PAST_DATE);
         assertThat(target.sameValueAs(other))
                 .isFalse();
     }
 
     @Test
     public void sameValueAs3() {
-        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
-        RecordDatetime other = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime other = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.sameValueAs(other))
                 .isTrue();
     }
 
     @Test
     public void sameValueAs4() {
-        RecordDatetime target = createDummyData(TestDateKind.BASE_DATE);
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
         assertThat(target.sameValueAs(null))
                 .isFalse();
     }
