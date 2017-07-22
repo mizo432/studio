@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.assertj.core.api.Java6Assertions.*;
 
 /**
- * Created by mizoguchi on 2017/07/22.
  */
 public class MoneyTest {
     @Test

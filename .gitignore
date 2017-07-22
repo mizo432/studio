@@ -12,3 +12,5 @@ build
 /externals/clean-architecture/build/
 /externals/ddd/build/
 /externals/venus-utils/build/
+/externals/ddd/out/
+/models/generic/out/
