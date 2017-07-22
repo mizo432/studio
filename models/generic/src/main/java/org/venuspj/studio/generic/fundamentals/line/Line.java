@@ -1,23 +1,20 @@
-package org.venuspj.studio.generic.fundamentals.description;
+package org.venuspj.studio.generic.fundamentals.line;
 
 import org.venuspj.util.objects2.Objects2;
 
-/**
- * 複数行の文章
- */
-public class Description {
+public class Line {
     String value;
 
-    public Description(String aValue) {
+    public Line(String aValue) {
         value = aValue;
     }
 
-    Description() {
+    Line() {
 
     }
 
-    public static Description emptyDescription() {
-        return new Description();
+    public static Line empty() {
+        return new Line();
     }
 
     @Override
@@ -27,5 +24,4 @@ public class Description {
                 .addValue(value)
                 .toString();
     }
-
 }
