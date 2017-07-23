@@ -25,7 +25,7 @@ public class StaticDateTimeProvider extends DateProvider {
     }
 
     @Override
-    protected LocalDateTime currentLocalDateTime() {
+    protected LocalDateTime now() {
         return localDateTime.get();
     }
 

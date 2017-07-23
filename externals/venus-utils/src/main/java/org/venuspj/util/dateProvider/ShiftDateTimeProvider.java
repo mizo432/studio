@@ -19,6 +19,7 @@ public class ShiftDateTimeProvider extends DateProvider {
         new DateProvider(instance);
     }
 
+    @Override
     protected LocalDateTime now() {
         LocalDateTime currentDateTime = LocalDateTime.now();
         return ShiftDateTimeProvider

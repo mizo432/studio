@@ -18,6 +18,7 @@ public class StaticDateProvider extends DateProvider {
         new DateProvider(instance);
     }
 
+    @Override
     protected LocalDateTime now() {
         return LocalDateTime.of(StaticDateProvider.localDate.get(), LocalTime.now());
     }
