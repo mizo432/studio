@@ -1,6 +1,9 @@
 package org.venuspj.util.dateProvider;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.YearMonth;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -22,10 +25,23 @@ public class DateProvider {
     }
 
     public static LocalDateTime currentDateTime() {
-        return DateProvider.dateProvider.get().currentLocalDateTime();
+        return DateProvider.dateProvider.get().now();
     }
 
-    protected LocalDateTime currentLocalDateTime() {
+    public static LocalDate currentDate() {
+        return currentDateTime().toLocalDate();
+    }
+
+    public static LocalTime currentTime() {
+        return currentDateTime().toLocalTime();
+    }
+
+    public static YearMonth currentYearMonth() {
+        LocalDateTime currentDateTime = currentDateTime();
+        return YearMonth.of(currentDateTime.getYear(), currentDateTime.getMonth());
+    }
+
+    protected LocalDateTime now() {
         return LocalDateTime.now();
     }
 
