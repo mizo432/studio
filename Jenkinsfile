@@ -86,7 +86,7 @@ pipeline {
                             $class: 'TasksPublisher',
                             pattern: './**',
                             // 集計対象を検索するときに大文字小文字を区別するか
-                            ignoreCase: true,
+                            ignoreCase: false,
                             // 優先度別に集計対象の文字列を指定できる
                             // 複数指定する場合はカンマ区切りの文字列を指定する
                             high: 'FIXME',
