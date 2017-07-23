@@ -4,7 +4,7 @@ import org.venuspj.util.common.base.Joiner;
 
 import java.util.Collections;
 
-public class Strings2 {
+public final class Strings2 {
 
     public static boolean isEmpty(final CharSequence cs) {
         return cs == null || cs.length() == 0;

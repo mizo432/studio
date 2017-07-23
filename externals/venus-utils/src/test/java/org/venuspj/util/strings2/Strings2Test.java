@@ -113,6 +113,70 @@ public class Strings2Test {
                     .isTrue();
         }
 
+        @Test
+        public void test07() throws Exception {
+            String arg = "0x10";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test08() throws Exception {
+            String arg = "-0.1";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test09() throws Exception {
+            String arg = "0.1";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test10() throws Exception {
+            String arg = "0xf";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test11() throws Exception {
+            String arg = "0xff";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test12() throws Exception {
+            String arg = "0xG";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isFalse();
+        }
+
+        @Test
+        public void test13() throws Exception {
+            String arg = "0x ";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isFalse();
+        }
+
+        @Test
+        public void test14() throws Exception {
+            String arg = "1e3";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
     }
 
 
