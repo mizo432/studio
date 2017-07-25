@@ -14,7 +14,7 @@ public class TelNoTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        System.out.println("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class TelNoTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        System.out.println("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class TelNoTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        System.out.println("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
     @Test
@@ -41,7 +41,16 @@ public class TelNoTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        System.out.println("actual:" + target.toString());
+        System.out.println("actual:" + actual);
+    }
+
+    @Test
+    public void asText() throws Exception {
+        TelNo target = TelNoMock.createDummy(TelNoMock.TelNoType.EXISTS_NUMBER);
+        String actual = target.asText();
+        assertThat(actual)
+                .isNotNull();
+        System.out.println("actual:" + actual);
     }
 
 }
