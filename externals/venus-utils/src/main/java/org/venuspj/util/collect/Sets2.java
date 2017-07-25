@@ -19,7 +19,7 @@ public final class Sets2 {
      * without resizing
      * @throws IllegalArgumentException if {@code expectedSize} is negative
      */
-    public static <E> HashSet<E> newHashSetWithExpectedSize(int expectedSize) {
+    public static <E> Set<E> newHashSetWithExpectedSize(int expectedSize) {
         return new HashSet<E>(Maps2.capacity(expectedSize));
     }
 }
