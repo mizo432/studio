@@ -35,5 +35,14 @@ public class DaysTest {
                 .isEqualTo("Days{3}");
         System.out.println(actual);
     }
+    @Test
+    public void toString02() throws Exception {
+        Days target = new Days();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull()
+                .isEqualTo("Days{null}");
+        System.out.println(actual);
+    }
 
 }

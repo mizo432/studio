@@ -105,6 +105,27 @@ public class RecordDateTimeTest {
 
     }
 
+    @Test
+    public void equals1() throws Exception {
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
+        boolean actual = target.equals(target);
+        assertThat(actual).isTrue();
+    }
+
+    @Test
+    public void equals2() throws Exception {
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
+        boolean actual = target.equals(null);
+        assertThat(actual).isFalse();
+    }
+
+    @Test
+    public void equals3() throws Exception {
+        RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
+        boolean actual = target.equals(Integer.valueOf(1));
+        assertThat(actual).isFalse();
+    }
+
     public enum TestDateKind {
         BASE_DATE {
             @Override

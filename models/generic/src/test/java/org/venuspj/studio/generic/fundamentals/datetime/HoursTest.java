@@ -35,5 +35,14 @@ public class HoursTest {
                 .isEqualTo("Hours{3}");
         System.out.println(actual);
     }
+    @Test
+    public void toString02() throws Exception {
+        Hours target = new Hours();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull()
+                .isEqualTo("Hours{null}");
+        System.out.println(actual);
+    }
 
 }
