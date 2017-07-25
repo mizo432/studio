@@ -57,4 +57,13 @@ public class EventsTest {
                 .isNotNull();
         System.out.println("actual:" + actual);
     }
+
+    @Test
+    public void iterator() throws Exception {
+        Events target = EventsMock.createDummy(EventsMock.EventsType.DEFAULT);
+        for (Event event: target) {
+            System.out.println("event:" + event);
+
+        }
+    }
 }
