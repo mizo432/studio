@@ -2,33 +2,33 @@ package org.venuspj.studio.core.fundamentals.contact;
 
 import org.junit.Test;
 
-import static org.assertj.core.api.Java6Assertions.*;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
  */
-public class ContactTest {
+public class ContactsTest {
 
     @Test
     public void testToString1() throws Exception {
-        Contact target = new Contact();
+        Contacts target = new Contacts();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        System.out.println("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
     @Test
     public void testToString2() throws Exception {
-        Contact target = ContactMock.createDummy(ContactMock.ContactType.EMPTY);
+        Contacts target = ContactsMock.createDummy(ContactsMock.ContactsType.EMPTY);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        System.out.println("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
     @Test
     public void testToString3() throws Exception {
-        Contact target = ContactMock.createDummy(ContactMock.ContactType.DEFAULT);
+        Contacts target = ContactsMock.createDummy(ContactsMock.ContactsType.DEFAULT);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
