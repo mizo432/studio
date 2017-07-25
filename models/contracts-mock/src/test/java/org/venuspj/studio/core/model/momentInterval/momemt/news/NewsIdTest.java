@@ -10,7 +10,7 @@ public class NewsIdTest {
 
     @Test
     public void toString1() throws Exception {
-        NewsId target = NewsIdMock.createDummy(NewsIdMock.NewsIdType.DEFAULT);
+        NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.DEFAULT);
         String actual = target.toString();
         System.out.println("actual:" + actual);
         assertThat(actual)

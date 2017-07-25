@@ -23,6 +23,7 @@ public class News extends AbstractEntity<News> {
     public String toString() {
         return Objects2
                 .toStringHelper(this)
+                .add("identifier", identifier())
                 .add("title", title)
                 .add("note", note)
                 .omitNullValues()
