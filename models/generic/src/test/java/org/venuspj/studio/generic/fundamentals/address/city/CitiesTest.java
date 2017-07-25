@@ -1,36 +1,33 @@
 package org.venuspj.studio.generic.fundamentals.address.city;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
  */
-public class CitysTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CitysTest.class);
+public class CitiesTest {
 
-    public static City createDummy() {
-        return City.defaultCity();
+    public static Cities createDummy() {
+        return Cities.empty();
     }
 
     @Test
     public void testToString1() throws Exception {
-        City target = new City();
+        Cities target = new Cities();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
     @Test
     public void testToString2() throws Exception {
-        City target = createDummy();
+        Cities target = createDummy();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + actual);
     }
 
 }
