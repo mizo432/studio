@@ -2,7 +2,7 @@ package org.venuspj.studio.generic.fundamentals.line;
 
 import org.junit.Test;
 
-import static org.assertj.core.api.Java6Assertions.*;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class LineTest {
     @Test
@@ -23,4 +23,12 @@ public class LineTest {
                 .isEqualTo("Line{null}");
     }
 
+    @Test
+    public void toString3() throws Exception {
+        Line target = new Line("DUMMY_LINE");
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull()
+                .isEqualTo("Line{DUMMY_LINE}");
+    }
 }
