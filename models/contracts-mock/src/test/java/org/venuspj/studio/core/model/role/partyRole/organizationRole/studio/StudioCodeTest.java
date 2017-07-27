@@ -1,6 +1,7 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 
 import org.junit.Test;
+import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
@@ -40,6 +41,22 @@ public class StudioCodeTest {
     public void equals2() {
         StudioCode target = StudioCodeMock.createDummy();
         assertThat(target.equals(new StudioCode())).isFalse();
+
+    }
+
+    @Test
+    public void equals3() {
+        StudioCode target = StudioCodeMock.createDummy();
+        assertThat(target.equals(
+                null)).isFalse();
+
+    }
+
+    @Test
+    public void equals4() {
+        StudioCode target = StudioCodeMock.createDummy();
+        assertThat(target.equals(
+                EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT))).isFalse();
 
     }
 
