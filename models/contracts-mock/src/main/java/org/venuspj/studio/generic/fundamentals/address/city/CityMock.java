@@ -1,6 +1,4 @@
-package org.venuspj.studio.generic.fundamentals.address;
-
-import org.venuspj.studio.generic.fundamentals.address.city.City;
+package org.venuspj.studio.generic.fundamentals.address.city;
 
 /**
  */

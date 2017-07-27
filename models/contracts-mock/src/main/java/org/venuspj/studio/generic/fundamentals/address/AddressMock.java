@@ -1,5 +1,7 @@
 package org.venuspj.studio.generic.fundamentals.address;
 
+import org.venuspj.studio.generic.fundamentals.address.city.CityMock;
+
 /**
  */
 public class AddressMock {
