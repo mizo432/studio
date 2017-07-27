@@ -29,4 +29,21 @@ public class PlayerClassificationTest {
         System.out.println("actual:" + actual);
     }
 
+    @Test
+    public void values() throws Exception {
+
+        PlayerClassification[] actual = PlayerClassification.values();
+        assertThat(actual)
+                .isNotNull();
+        System.out.println("actual:" + actual);
+    }
+
+    @Test
+    public void valueOf() throws Exception {
+        PlayerClassification actual = PlayerClassification.valueOf(PlayerClassification.STUDIO_PLAYER.name());
+        assertThat(actual)
+                .isNotNull();
+        System.out.println("actual:" + actual);
+    }
+
 }

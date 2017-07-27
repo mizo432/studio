@@ -32,6 +32,16 @@ public class PlayerIdMock {
             public PlayerCodeMock.PlayerCodeType playerCodeType() {
                 return PlayerCodeMock.PlayerCodeType.SOUND2;
             }
+        }, OUTER_SOUND {
+            @Override
+            public PlayerCodeMock.PlayerCodeType playerCodeType() {
+                return PlayerCodeMock.PlayerCodeType.OUTER_SOUND;
+            }
+        }, OUTER_DEEJEY {
+            @Override
+            public PlayerCodeMock.PlayerCodeType playerCodeType() {
+                return PlayerCodeMock.PlayerCodeType.OUTER_DEEJEY;
+            }
         };
 
         public abstract PlayerCodeMock.PlayerCodeType playerCodeType();

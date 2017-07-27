@@ -11,8 +11,8 @@ public class PlayersMock {
     public static Players createDummy(PlayersType aPlayersType) {
         PlayerMock.PlayerType[] playerTypes = aPlayersType.playerTypes();
         List<Player> players = Lists2.newArrayListWithExpectedSize(playerTypes.length);
-        for (PlayerMock.PlayerType playeType : playerTypes) {
-            players.add(PlayerMock.createDummy(playeType));
+        for (PlayerMock.PlayerType playerType : playerTypes) {
+            players.add(PlayerMock.createDummy(playerType));
         }
         return new Players(players);
     }
@@ -42,6 +42,11 @@ public class PlayersMock {
             @Override
             public PlayerMock.PlayerType[] playerTypes() {
                 return new PlayerMock.PlayerType[0];
+            }
+        }, ANY_PAYERS {
+            @Override
+            public PlayerMock.PlayerType[] playerTypes() {
+                return new PlayerMock.PlayerType[]{PlayerMock.PlayerType.DEEJEY1, PlayerMock.PlayerType.DEEJEY2, PlayerMock.PlayerType.SOUND1, PlayerMock.PlayerType.SOUND2,PlayerMock.PlayerType.OUTER_DEEJEY, PlayerMock.PlayerType.OUTER_SOUND};
             }
         };
 

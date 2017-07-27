@@ -28,6 +28,16 @@ public class PlayerCodeMock {
             public String playerCode() {
                 return "SOUND2";
             }
+        }, OUTER_SOUND {
+            @Override
+            public String playerCode() {
+                return "OUTER_SOUND";
+            }
+        }, OUTER_DEEJEY {
+            @Override
+            public String playerCode() {
+                return "OUTER_DEEJEY";
+            }
         };
 
         public abstract String playerCode();

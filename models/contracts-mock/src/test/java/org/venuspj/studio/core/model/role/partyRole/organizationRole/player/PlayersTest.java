@@ -29,7 +29,7 @@ public class PlayersTest {
     }
 
     @Test
-    public void testToString2() throws Exception {
+    public void toString2() throws Exception {
         Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ONE_DEEJEY);
         String actual = target.toString();
         assertThat(actual)
@@ -39,13 +39,13 @@ public class PlayersTest {
 
     @Test
     public void selectStudioPlayers() throws Exception {
-        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ONE_DEEJEY);
+        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PAYERS);
         Players actual = target.selectStudioPlayers();
         assertThat(actual)
                 .isNotNull();
         assertThat(actual.playerSize())
                 .isNotNull()
-                .isEqualTo(1);
+                .isEqualTo(4);
         System.out.println("actual:" + actual);
     }
 

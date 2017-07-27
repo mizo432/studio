@@ -20,7 +20,7 @@ public class PlayerIdsTest {
 
 
     @Test
-    public void testToString1() throws Exception {
+    public void toString1() throws Exception {
         PlayerIds target = new PlayerIds();
         String actual = target.toString();
         assertThat(actual)
@@ -29,7 +29,7 @@ public class PlayerIdsTest {
     }
 
     @Test
-    public void testToString2() throws Exception {
+    public void toString2() throws Exception {
         PlayerIds target = PlayerIdsMock.createDummy(PlayerIdsMock.PlayerIdsType.ONE_DEEJEY);
         String actual = target.toString();
         assertThat(actual)
