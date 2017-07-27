@@ -24,5 +24,13 @@ public class NewsesTest {
         assertThat(actual)
                 .isNotNull();
     }
+    @Test
+    public void toString3() throws Exception {
+        Newses target = new Newses();
+        String actual = target.toString();
+        System.out.println("actual:" + actual);
+        assertThat(actual)
+                .isNotNull();
+    }
 
 }
