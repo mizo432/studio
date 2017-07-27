@@ -13,7 +13,7 @@ import static org.assertj.core.api.Java6Assertions.*;
 public class ProductIdTest {
 
     @Test
-    public void testToString1() throws Exception {
+    public void toString1() throws Exception {
         ProductId target = new ProductId();
         String actual = target.toString();
         assertThat(actual)
@@ -22,7 +22,7 @@ public class ProductIdTest {
     }
 
     @Test
-    public void testToString2() throws Exception {
+    public void toString2() throws Exception {
         ProductId productId = ProductIdMock.createDummy(ProductIdMock.ProductIdType.DEFAULT);
         Name name = NameMock.createDummy(NameMock.NameType.ALUBUM_NAME1);
         Descriptor descriptor = DescriptorMock.createDummy(DescriptorMock.DescriptorType.ALBUM1);
@@ -31,6 +31,14 @@ public class ProductIdTest {
         assertThat(actual)
                 .isNotNull();
         System.out.println("actual:" + target.toString());
+    }
+    @Test
+    public void defaultProductId() throws Exception {
+        ProductId target = ProductId.defaultProductId();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull();
+        System.out.println("actual:" + actual);
     }
 
 }

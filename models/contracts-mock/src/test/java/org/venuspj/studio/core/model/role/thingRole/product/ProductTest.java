@@ -9,7 +9,7 @@ import static org.assertj.core.api.Java6Assertions.*;
 public class ProductTest {
 
     @Test
-    public void testToString1() throws Exception {
+    public void toString1() throws Exception {
         Product target = new Product();
         String actual = target.toString();
         assertThat(actual)
@@ -18,7 +18,7 @@ public class ProductTest {
     }
 
     @Test
-    public void testToString2() throws Exception {
+    public void toString2() throws Exception {
         Product target = ProductMock.createDummy(ProductMock.ProductType.PRODUCT1);
         String actual = target.toString();
         assertThat(actual)
