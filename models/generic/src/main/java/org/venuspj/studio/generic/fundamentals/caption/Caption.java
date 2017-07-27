@@ -19,7 +19,7 @@ public class Caption implements Value, DecidableSameValueAs<Caption> {
     }
 
     public boolean sameValueAs(Caption other) {
-        return false;
+        return this == other || (other != null && Objects2.equal(value, other.value));
     }
 
     @Override
