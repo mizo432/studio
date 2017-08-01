@@ -5,6 +5,11 @@ import java.util.*;
 /**
  */
 public final class Collections3 {
+
+    private Collections3() {
+
+    }
+
     public static <T> Collection<T> cast(Iterable<T> iterable) {
         return (Collection<T>) iterable;
     }
