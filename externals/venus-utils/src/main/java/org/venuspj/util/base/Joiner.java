@@ -1,10 +1,11 @@
-package org.venuspj.util.common.base;
+package org.venuspj.util.base;
 
 
 import java.io.IOException;
 import java.util.Iterator;
 
-import static com.google.common.base.Preconditions.*;
+import static org.venuspj.util.base.Preconditions.*;
+
 
 /**
  */
@@ -12,7 +13,7 @@ public class Joiner {
     private final String separator;
 
     private Joiner(String separator) {
-        this.separator = Preconditions.checkNotNull(separator);
+        this.separator = checkNotNull(separator);
     }
 
     private Joiner(Joiner prototype) {

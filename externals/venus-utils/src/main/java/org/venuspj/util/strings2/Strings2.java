@@ -1,6 +1,6 @@
 package org.venuspj.util.strings2;
 
-import org.venuspj.util.common.base.Joiner;
+import org.venuspj.util.base.Joiner;
 
 import java.util.Collections;
 
