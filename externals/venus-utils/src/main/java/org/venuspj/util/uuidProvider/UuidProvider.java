@@ -14,10 +14,10 @@ public class UuidProvider {
     }
 
     protected UuidProvider(UuidProvider aUuidProvider) {
-        UuidProvider.setUuidProvider(aUuidProvider);
+        setUuidProvider(aUuidProvider);
     }
 
-    public static void setUuidProvider(UuidProvider aUuidProvider) {
+    void setUuidProvider(UuidProvider aUuidProvider) {
         UuidProvider.uuidProvider.set(aUuidProvider);
     }
 

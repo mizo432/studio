@@ -14,3 +14,8 @@ build
 /externals/venus-utils/build/
 /externals/ddd/out/
 /models/generic/out/
+externals/clean-architecture/out
+externals/venus-utils/out
+models/contracts-mock/out
+models/contracts/out
+models/core/out
