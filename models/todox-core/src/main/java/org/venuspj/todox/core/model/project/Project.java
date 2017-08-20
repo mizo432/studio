@@ -8,20 +8,18 @@ import org.venuspj.todox.core.model.team.member.MemberIds;
 public class Project extends AbstractEntity<Project> {
 
     private ProjectDescription projectDescription = ProjectDescription.empty();
-    private Vision vision;
     private ProjectConfiguration projectConfiguration;
     private MemberIds memberIds = MemberIds.empty();
-    private TeamIds teamIds;
+    private TeamIds teamIds = TeamIds.empty();
 
     Project() {
 
     }
 
-    public Project(ProjectId aProjectId, ProjectDescription aProjectDescription, Vision aVision, ProjectConfiguration aProjectConfiguration, MemberIds anyMemberIds,TeamIds anyTeamIds) {
+    public Project(ProjectId aProjectId, ProjectDescription aProjectDescription, ProjectConfiguration aProjectConfiguration, MemberIds anyMemberIds, TeamIds anyTeamIds) {
         super(aProjectId);
         projectDescription = aProjectDescription;
         memberIds = anyMemberIds;
-        vision = aVision;
         projectConfiguration = aProjectConfiguration;
         teamIds = anyTeamIds;
 
@@ -35,7 +33,6 @@ public class Project extends AbstractEntity<Project> {
     public String toString() {
         return string()
                 .add("projectDescription", projectDescription)
-                .add("vision", vision)
                 .add("projectConfiguration", projectConfiguration)
                 .add("memberIds", memberIds)
                 .add("teamIds", teamIds)
