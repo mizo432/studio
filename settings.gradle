@@ -29,6 +29,9 @@ project(':studio-use-cases').projectDir = file('./applications/usecases')
 include ':studio-core'
 project(':studio-core').projectDir = file('./models/core')
 
+include ':todox-core'
+project(':todox-core').projectDir = file('./models/todox-core')
+
 include ':studio-contracts'
 project(':studio-contracts').projectDir = file('./models/contracts')
 
