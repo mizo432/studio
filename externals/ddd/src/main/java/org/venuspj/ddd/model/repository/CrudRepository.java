@@ -78,5 +78,5 @@ public interface CrudRepository<E extends Entity> {
      */
     void delete(E entity);
 
-    List<E> findByIdentifires(Iterable<EntityIdentifier<E>> identifiers);
+    List<E> findByIdentifiers(Iterable<EntityIdentifier<E>> identifiers);
 }

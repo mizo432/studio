@@ -103,7 +103,7 @@ public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudReposito
     }
 
     @Override
-    public List<T> findByIdentifires(Iterable<EntityIdentifier<T>> entityIdentifiers) {
+    public List<T> findByIdentifiers(Iterable<EntityIdentifier<T>> entityIdentifiers) {
         List<T> result = Lists2.newArrayList();
         for (EntityIdentifier<T> entityIdentifier : entityIdentifiers) {
             try {

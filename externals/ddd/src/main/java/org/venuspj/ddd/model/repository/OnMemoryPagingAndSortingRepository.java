@@ -74,8 +74,8 @@ public class OnMemoryPagingAndSortingRepository<T extends Entity<T>> implements 
     }
 
     @Override
-    public List<T> findByIdentifires(Iterable<EntityIdentifier<T>> entityIdentifiers) {
-        return crudRepository.findByIdentifires(entityIdentifiers);
+    public List<T> findByIdentifiers(Iterable<EntityIdentifier<T>> entityIdentifiers) {
+        return crudRepository.findByIdentifiers(entityIdentifiers);
     }
 
     @Override

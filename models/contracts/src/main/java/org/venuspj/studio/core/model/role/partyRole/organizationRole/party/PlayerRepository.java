@@ -1,8 +1,7 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.party;
 
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
+import org.venuspj.ddd.model.repository.CrudRepository;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
 
-public interface PlayerRepository {
-    Players findByPlayersIds(PlayerIds playerIds);
+public interface PlayerRepository extends CrudRepository<Player> {
 }
