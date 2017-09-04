@@ -76,5 +76,8 @@ public class Lists2 {
     }
 
 
+    public static <E> List<E> empty() {
+        return Collections.emptyList();
+    }
 }
 

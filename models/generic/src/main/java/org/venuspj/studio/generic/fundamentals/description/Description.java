@@ -2,6 +2,9 @@ package org.venuspj.studio.generic.fundamentals.description;
 
 import org.venuspj.util.objects2.Objects2;
 
+import static org.venuspj.util.objects2.Objects2.*;
+import static org.venuspj.util.strings2.Strings2.*;
+
 /**
  * 複数行の文章
  */
@@ -26,6 +29,10 @@ public class Description {
                 .toStringHelper(this)
                 .addValue(value)
                 .toString();
+    }
+
+    public boolean isPresent() {
+        return nonNull(value) && isNotEmpty(value);
     }
 
 }

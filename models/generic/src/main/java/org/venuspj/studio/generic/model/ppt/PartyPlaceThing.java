@@ -1,14 +1,15 @@
 package org.venuspj.studio.generic.model.ppt;
 
+import org.venuspj.ddd.model.entity.AbstractEntity;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.generic.fundamentals.name.Name;
-import org.venuspj.util.objects2.Objects2;
 
-public class PartyPlaceThing {
-    PartyPlaceThingId personPlaceThingId;
-    Name name;
+public class PartyPlaceThing<E extends PartyPlaceThing<E>> extends AbstractEntity<E> {
 
-    public PartyPlaceThing(PartyPlaceThingId aPersonPlaceThingId, Name aName) {
-        personPlaceThingId = aPersonPlaceThingId;
+    private Name name;
+
+    public PartyPlaceThing(EntityIdentifier<E> aIdentifier, Name aName) {
+        super(aIdentifier);
         name = aName;
     }
 
@@ -19,9 +20,7 @@ public class PartyPlaceThing {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("personPlaceThingId", personPlaceThingId)
+        return string()
                 .add("name", name)
                 .omitNullValues()
                 .toString();

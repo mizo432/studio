@@ -8,8 +8,8 @@ project(':ddd').projectDir = file('./externals/ddd')
 include ':clean-architecture'
 project(':clean-architecture').projectDir = file('./externals/clean-architecture')
 
-include ':studio-generic'
-project(':studio-generic').projectDir = file('./models/generic')
+include ':generic'
+project(':generic').projectDir = file('./models/generic')
 
 include ':studio-web'
 project(':studio-web').projectDir = file('./bootstraps/web')

@@ -7,7 +7,11 @@ import java.util.List;
 public class TaskIds {
     List<TaskId> list = Lists2.newArrayList();
 
-    public TaskIds(List<TaskId> alist){
+    public TaskIds(List<TaskId> alist) {
         list.addAll(list);
+    }
+
+    public static TaskIds empry() {
+        return new TaskIds(Lists2.empty());
     }
 }

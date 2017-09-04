@@ -1,17 +1,17 @@
-package org.venuspj.studio.generic.model.ppt;
+package org.venuspj.studio.generic.model.ppt.party;
 
 import org.junit.Test;
 
-public class PartyPlaceThingIdTest {
+public class PartyIdTest {
     @Test
     public void empty() throws Exception {
-        PartyPlaceThingId target = PartyPlaceThingId.empty();
+        PartyId target = PartyId.empty();
         System.out.println(target);
     }
 
     @Test
     public void constructor() throws Exception {
-        PartyPlaceThingId target = new PartyPlaceThingId("DUMMY");
+        PartyId target = new PartyId("DUMMY");
         System.out.println(target);
     }
 

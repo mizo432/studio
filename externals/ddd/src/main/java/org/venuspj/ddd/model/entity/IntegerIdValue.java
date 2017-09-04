@@ -5,5 +5,5 @@ import org.venuspj.ddd.model.value.IntegerValue;
 /**
  * Created by mizoguchi on 2017/07/01.
  */
-public interface IntegerIdValue extends IntegerValue {
+public interface IntegerIdValue<T extends IntegerIdValue<T>> extends IntegerValue<T> {
 }

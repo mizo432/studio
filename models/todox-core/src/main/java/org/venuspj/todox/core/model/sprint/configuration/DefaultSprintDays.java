@@ -1,6 +1,6 @@
 package org.venuspj.todox.core.model.sprint.configuration;
 
-import org.venuspj.todox.core.funcmentals.days.Days;
+import org.venuspj.studio.generic.fundamentals.datetime.Days;
 
 /**
  * スプリントの日数

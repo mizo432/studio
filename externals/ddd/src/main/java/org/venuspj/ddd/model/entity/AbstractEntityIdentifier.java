@@ -17,7 +17,7 @@ public abstract class AbstractEntityIdentifier<T extends Entity<T>> implements E
      * @param anEntityClass エンティティクラス。カインドにはFQCNが設定される。
      * @return {@link AbstractEntityIdentifier}
      */
-    protected AbstractEntityIdentifier(Class<T> anEntityClass) {
+    protected AbstractEntityIdentifier(Class<?> anEntityClass) {
         this(anEntityClass.getCanonicalName());
     }
 
@@ -52,4 +52,11 @@ public abstract class AbstractEntityIdentifier<T extends Entity<T>> implements E
     public int hashCode() {
         return Objects2.hash(kind);
     }
+
+    public Objects2.ToStringHelper string() {
+        return Objects2
+                .toStringHelper(this)
+                .add("kind", kind);
+    }
+
 }

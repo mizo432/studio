@@ -15,7 +15,7 @@ public class PartyPlaceThingTest {
 
 
     public static PartyPlaceThing createDummy() {
-        return new PartyPlaceThing(PartyPlaceThingIdTest.createDummy(), new Name("ANSA"));
+        return new PartyPlaceThing(PersonIdTest.createDummy(), new Name("ANSA"));
     }
 
     @Test
