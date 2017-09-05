@@ -6,7 +6,7 @@ import org.venuspj.util.objects2.Objects2;
 import static org.venuspj.util.objects2.Objects2.*;
 import static org.venuspj.util.strings2.Strings2.*;
 
-public class Name implements StringValue{
+public class Name implements StringValue {
     private String value;
 
     Name() {

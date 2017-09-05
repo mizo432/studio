@@ -25,6 +25,12 @@ public class Days implements IntegerValue {
     }
 
     @Override
+    public boolean sameValueAs(IntegerValue other) {
+        //TODO atdk
+        return false;
+    }
+
+    @Override
     public String toString() {
         return Objects2
                 .toStringHelper(this)
