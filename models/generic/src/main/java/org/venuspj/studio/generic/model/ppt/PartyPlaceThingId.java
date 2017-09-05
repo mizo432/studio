@@ -2,8 +2,7 @@ package org.venuspj.studio.generic.model.ppt;
 
 import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
 import org.venuspj.util.objects2.Objects2;
-
-import java.util.UUID;
+import org.venuspj.util.uuidProvider.UuidProvider;
 
 public class PartyPlaceThingId<E extends PartyPlaceThing<E>> extends AbstractEntityIdentifier<E> {
 
@@ -32,7 +31,7 @@ public class PartyPlaceThingId<E extends PartyPlaceThing<E>> extends AbstractEnt
     }
 
     public static PartyPlaceThingId newId() {
-        return new PartyPlaceThingId(UUID.randomUUID().toString());
+        return new PartyPlaceThingId(UuidProvider.randomUUID().toString());
     }
 
     public static PartyPlaceThingId empty() {
@@ -42,7 +41,6 @@ public class PartyPlaceThingId<E extends PartyPlaceThing<E>> extends AbstractEnt
     @Override
     public Objects2.ToStringHelper string() {
         return super.string()
-                .add("kind", kind)
                 .add("value", value);
     }
 
