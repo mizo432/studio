@@ -35,6 +35,9 @@ pipeline {
                 gradlew 'clean'
             }
         }
+        stage('検証用echo') {
+            echo env.BRANCH_NAME
+        }
 
         stage('コンパイル') {
             steps {
