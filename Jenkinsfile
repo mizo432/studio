@@ -36,11 +36,6 @@ pipeline {
             }
         }
 
-        stage('検証用') {
-            steps{
-                echo env.BRANCH_NAME
-            }
-        }
 
         stage('コンパイル') {
             steps {
@@ -111,6 +106,17 @@ pipeline {
                 echo 'JacocoReportアーカイブ 開始'
                 jacoco exclusionPattern: '**/*Test*.class,**/*Mock*.class'
                 echo 'JacocoReportアーカイブ 終了'
+            }
+        }
+
+        stage('配備') {
+            steps{
+                if (env.BRANCH_NAME == 'master') {
+                    echo "deploy to production"
+                }
+                if (env.BRANCH_NAME == 'develop') {
+                    echo "deploy to staging"
+                }
             }
         }
     }
