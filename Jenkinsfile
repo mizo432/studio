@@ -37,7 +37,9 @@ pipeline {
         }
 
         stage('検証用') {
-            echo env.BRANCH_NAME
+            steps{
+                echo env.BRANCH_NAME
+            }
         }
 
         stage('コンパイル') {
