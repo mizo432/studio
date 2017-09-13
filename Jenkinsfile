@@ -109,17 +109,6 @@ pipeline {
             }
         }
 
-
-        if (env.BRANCH_NAME == 'master') {
-            stage('配備production') {
-                echo "deploy to production"
-            }
-        }
-        if (env.BRANCH_NAME == 'develop') {
-            stage('配備staging') {
-                echo "deploy to staging"
-            }
-        }
     }
 
     // stagesブロックと同じレベルにpostブロックを定義すると
@@ -129,6 +118,16 @@ pipeline {
             // 最後にワークスペースの中身を削除
             deleteDir()
         }
+    }
+}
+if (env.BRANCH_NAME == 'master') {
+    stage('配備production') {
+        echo "deploy to production"
+    }
+}
+if (env.BRANCH_NAME == 'develop') {
+    stage('配備staging') {
+        echo "deploy to staging"
     }
 }
 
