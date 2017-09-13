@@ -111,11 +111,13 @@ pipeline {
 
         stage('配備') {
             steps{
-                if (env.BRANCH_NAME == 'master') {
-                    echo "deploy to production"
-                }
-                if (env.BRANCH_NAME == 'develop') {
-                    echo "deploy to staging"
+                script {
+                    if (env.BRANCH_NAME == 'master') {
+                        echo "deploy to production"
+                    }
+                    if (env.BRANCH_NAME == 'develop') {
+                        echo "deploy to staging"
+                    }
                 }
             }
         }
