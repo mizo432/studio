@@ -109,16 +109,15 @@ pipeline {
             }
         }
 
-        stage('配備') {
-            steps{
-                script {
-                    if (env.BRANCH_NAME == 'master') {
-                        echo "deploy to production"
-                    }
-                    if (env.BRANCH_NAME == 'develop') {
-                        echo "deploy to staging"
-                    }
-                }
+
+        if (env.BRANCH_NAME == 'master') {
+            stage('配備production') {
+                echo "deploy to production"
+            }
+        }
+        if (env.BRANCH_NAME == 'develop') {
+            stage('配備staging') {
+                echo "deploy to staging"
             }
         }
     }
