@@ -21,7 +21,7 @@ public class StudioDatasource implements CrudRepository<Studio> {
 
     @Override
     public Studio resolve(EntityIdentifier<Studio> identifier) {
-        return null;
+        return studioMapper.resolve(identifier);
     }
 
     @Override
