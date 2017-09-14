@@ -5,9 +5,6 @@ project(':venus-utils').projectDir = file('./externals/venus-utils')
 include ':ddd'
 project(':ddd').projectDir = file('./externals/ddd')
 
-include ':clean-architecture'
-project(':clean-architecture').projectDir = file('./externals/clean-architecture')
-
 include ':generic'
 project(':generic').projectDir = file('./models/generic')
 
@@ -34,3 +31,6 @@ project(':studio-contracts').projectDir = file('./models/contracts')
 
 include ':studio-contracts-mock'
 project(':studio-contracts-mock').projectDir = file('./models/contracts-mock')
+
+//include ':migration'
+//project(':migration').projectDir = file('./database-migration')

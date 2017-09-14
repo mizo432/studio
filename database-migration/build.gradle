@@ -1,0 +1,33 @@
+buildscript {
+    ext {
+        flyWayVersion = '4.2.0'
+        encoding = 'UTF-8'
+        compatibility = 1.8
+        env = "local"
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.flywaydb:flyway-gradle-plugin:${flyWayVersion}"
+        classpath ("mysql:mysql-connector-java:${mySqlConnectorVersion}")
+    }
+}
+
+apply from: "src/main/config/${env}/configuration.gradle"
+apply plugin: "org.flywaydb.flyway"
+
+flyway {
+    driver = 'com.mysql.jdbc.Driver'
+    url = database.url
+    user = database.user
+    password = database.password
+    schemas = ['studio']
+}
+
+
+
+
+
+apply plugin: 'idea'

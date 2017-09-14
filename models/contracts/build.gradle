@@ -3,7 +3,6 @@ apply plugin: 'java'
 description = "studio-contracts"
 
 dependencies {
-    compile project(":clean-architecture")
     compile project(":studio-core")
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"

@@ -7,4 +7,6 @@
     <select id="findAll" resultMap="Studio">
         select 1 "aaaa";
     </select>
+    <select id="resolve"
+            resultMap="Studio"></select>
 </mapper>
