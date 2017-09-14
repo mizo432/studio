@@ -14,6 +14,7 @@ public class PartyPlaceThingTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(PartyPlaceThingTest.class);
 
 
+    @SuppressWarnings("unchecked")
     public static PartyPlaceThing createDummy() {
         return new PartyPlaceThing(PersonIdTest.createDummy(), new Name("ANSA"));
     }
