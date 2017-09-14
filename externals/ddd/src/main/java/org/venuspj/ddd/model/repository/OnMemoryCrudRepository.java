@@ -55,9 +55,11 @@ public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudReposito
     @Override
     public Iterable<T> resolve(Iterable<EntityIdentifier<T>> entityIdentifiers) {
         List<T> result = Lists2.newArrayList();
-        for (EntityIdentifier<T> identifier :
-                entityIdentifiers)
-            result.add(resolve(identifier));
+        for (EntityIdentifier<T> identifier : entityIdentifiers)
+            try {
+                result.add(resolve(identifier));
+            } catch (EntityNotFoundRuntimeException ignore) {
+            }
         return result;
 
     }

@@ -1,10 +1,10 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.flyers.Flyers;
-import org.venuspj.util.objects2.Objects2;
 
 /**
  *
@@ -22,7 +22,7 @@ public class Event extends AbstractEntity<Event> {
 
     }
 
-    public Event(EventId anEventId, Outline anOutline, Descriptor aDescriptor, Flyers aFlyers) {
+    public Event(EntityIdentifier<Event> anEventId, Outline anOutline, Descriptor aDescriptor, Flyers aFlyers) {
         super(anEventId);
         outline = anOutline;
         descriptor = aDescriptor;
@@ -35,9 +35,7 @@ public class Event extends AbstractEntity<Event> {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("identifier", identifier())
+        return string()
                 .add("descriptor", descriptor)
                 .add("outline", outline)
                 .add("flyers", flyers)
