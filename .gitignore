@@ -19,3 +19,8 @@ externals/venus-utils/out
 models/contracts-mock/out
 models/contracts/out
 models/core/out
+adapters/datasources/out
+adapters/presenters/out
+applications/usecases/out
+bootstraps/manage-web/out
+bootstraps/web/out
