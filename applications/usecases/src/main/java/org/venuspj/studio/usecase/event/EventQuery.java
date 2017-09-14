@@ -42,7 +42,7 @@ public class EventQuery implements EventQueryUseCase {
     public void start() {
         EventCredential credential = inputPort.toCredential();
         Event event = eventRepository.resolve(credential.eventId());
-        Players players = new Players(playerRepository.findByIdentifiers(event.outline().playerIds()));
+        Players players = new Players(playerRepository.resolve(event.outline().playerIds()));
         outputPort.withEvent(event);
         outputPort.withPlayers(players);
 

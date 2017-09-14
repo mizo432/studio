@@ -6,14 +6,12 @@ import org.venuspj.ddd.model.entity.Entity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.collect.Maps2;
-import org.venuspj.util.collect.Sets2;
 import org.venuspj.util.objects2.Objects2;
 import org.venuspj.util.validate.Validate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * テストで使用するためのリポジトリ
@@ -26,7 +24,7 @@ public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudReposito
     public OnMemoryCrudRepository() {
     }
 
-    public OnMemoryCrudRepository(List<T> anyEntities) {
+    public OnMemoryCrudRepository(Iterable<T> anyEntities) {
         for (T entity : anyEntities)
             store(entity);
 
@@ -55,17 +53,18 @@ public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudReposito
     }
 
     @Override
-    public List<T> asEntitiesList() {
-        List<T> result = new ArrayList<T>(entities.size());
-        for (T entity : entities.values()) {
-            result.add(entity.clone());
-        }
+    public Iterable<T> resolve(Iterable<EntityIdentifier<T>> entityIdentifiers) {
+        List<T> result = Lists2.newArrayList();
+        for (EntityIdentifier<T> identifier :
+                entityIdentifiers)
+            result.add(resolve(identifier));
         return result;
+
     }
 
     @Override
-    public Set<T> asEntitiesSet() {
-        Set<T> result = Sets2.newHashSetWithExpectedSize(entities.size());
+    public List<T> asEntitiesList() {
+        List<T> result = new ArrayList<T>(entities.size());
         for (T entity : entities.values()) {
             result.add(entity.clone());
         }
@@ -79,14 +78,12 @@ public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudReposito
     }
 
     @Override
-    public boolean contains(T entity) {
-        Validate.notNull(entity);
-        return contains(entity.identifier());
+    public <S extends T> boolean contains(S entity) {
+        return false;
     }
 
     @Override
-    public void store(T entity) {
-        Validate.notNull(entity);
+    public <S extends T> void store(S entity) {
         entities.put(entity.identifier(), entity.clone());
     }
 
@@ -97,21 +94,17 @@ public class OnMemoryCrudRepository<T extends Entity<T>> implements CrudReposito
     }
 
     @Override
-    public void delete(T entity) {
-        Validate.notNull(entity);
-        delete(entity.identifier());
+    public void delete(Iterable<EntityIdentifier<T>> entityIdentifiers) {
+        for (EntityIdentifier<T> identifier : entityIdentifiers)
+            delete(identifier);
+
+
     }
 
     @Override
-    public List<T> findByIdentifiers(Iterable<EntityIdentifier<T>> entityIdentifiers) {
-        List<T> result = Lists2.newArrayList();
-        for (EntityIdentifier<T> entityIdentifier : entityIdentifiers) {
-            try {
-                result.add(resolve(entityIdentifier));
-            } catch (EntityNotFoundRuntimeException ignore) {
-            }
+    public <S extends T> void delete(S entity) {
+        delete(entity.identifier());
 
-        }
-        return result;
     }
+
 }

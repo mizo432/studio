@@ -12,8 +12,8 @@ public class Players {
     Players() {
     }
 
-    public Players(List<Player> aList) {
-        list.addAll(aList);
+    public Players(Iterable<Player> aList) {
+        Lists2.addAll(list,aList);
     }
 
     public static Players empty() {

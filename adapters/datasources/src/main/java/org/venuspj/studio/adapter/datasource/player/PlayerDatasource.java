@@ -5,7 +5,6 @@ import org.venuspj.studio.core.model.role.partyRole.organizationRole.party.Playe
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
 
 import java.util.List;
-import java.util.Set;
 
 public class PlayerDatasource implements PlayerRepository {
 
@@ -15,12 +14,12 @@ public class PlayerDatasource implements PlayerRepository {
     }
 
     @Override
-    public List<Player> asEntitiesList() {
+    public Iterable<Player> resolve(Iterable<EntityIdentifier<Player>> entityIdentifiers) {
         return null;
     }
 
     @Override
-    public Set<Player> asEntitiesSet() {
+    public List<Player> asEntitiesList() {
         return null;
     }
 
@@ -45,12 +44,13 @@ public class PlayerDatasource implements PlayerRepository {
     }
 
     @Override
-    public void delete(Player entity) {
+    public void delete(Iterable<EntityIdentifier<Player>> entityIdentifiers) {
 
     }
 
     @Override
-    public List<Player> findByIdentifiers(Iterable<EntityIdentifier<Player>> entityIdentifiers) {
-        return null;
+    public void delete(Player entity) {
+
     }
+
 }

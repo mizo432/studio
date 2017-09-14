@@ -79,5 +79,10 @@ public class Lists2 {
     public static <E> List<E> empty() {
         return Collections.emptyList();
     }
+
+    public static <E> void addAll(List<E> anyList, Iterable<E> anIterable) {
+        for (E entity : anIterable)
+            anyList.add(entity);
+    }
 }
 

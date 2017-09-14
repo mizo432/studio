@@ -6,10 +6,10 @@ import java.util.Comparator;
 
 public interface PagingAndSortingRepository<T extends Entity<T>> extends CrudRepository<T> {
 
-    Page<T> findAll(Pageable<T> pageable);
+    <S extends T> Page<T> findAll(Pageable<T> pageable);
 
-    Iterable<T> findAll(Comparator<T> sort);
+    <S extends T> Iterable<T> findAll(Comparator<S> sort);
 
-    Page<T> findAll(Pageable<T> pageable, Comparator<T> sortCondition);
+    <S extends T> Page<T> findAll(Pageable<T> pageable, Comparator<S> sortCondition);
 
 }

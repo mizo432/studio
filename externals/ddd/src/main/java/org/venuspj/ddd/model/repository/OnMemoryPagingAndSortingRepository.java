@@ -2,11 +2,9 @@ package org.venuspj.ddd.model.repository;
 
 import org.venuspj.ddd.model.entity.Entity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.util.collect.Collections3;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
 
 /**
  * テストで使用するためのリポジトリ
@@ -39,13 +37,13 @@ public class OnMemoryPagingAndSortingRepository<T extends Entity<T>> implements 
     }
 
     @Override
-    public List<T> asEntitiesList() {
-        return crudRepository.asEntitiesList();
+    public Iterable<T> resolve(Iterable<EntityIdentifier<T>> entityIdentifiers) {
+        return null;
     }
 
     @Override
-    public Set<T> asEntitiesSet() {
-        return crudRepository.asEntitiesSet();
+    public List<T> asEntitiesList() {
+        return crudRepository.asEntitiesList();
     }
 
     @Override
@@ -53,13 +51,14 @@ public class OnMemoryPagingAndSortingRepository<T extends Entity<T>> implements 
         return crudRepository.contains(identifier);
     }
 
+
     @Override
-    public boolean contains(T entity) {
+    public <S extends T> boolean contains(S entity) {
         return crudRepository.contains(entity);
     }
 
     @Override
-    public void store(T entity) {
+    public <S extends T> void store(S entity) {
         crudRepository.store(entity);
     }
 
@@ -69,32 +68,30 @@ public class OnMemoryPagingAndSortingRepository<T extends Entity<T>> implements 
     }
 
     @Override
-    public void delete(T entity) {
+    public void delete(Iterable<EntityIdentifier<T>> entityIdentifiers) {
+        crudRepository.delete(entityIdentifiers);
+
+    }
+
+    @Override
+    public <S extends T> void delete(S entity) {
         crudRepository.delete(entity);
+
     }
 
-    @Override
-    public List<T> findByIdentifiers(Iterable<EntityIdentifier<T>> entityIdentifiers) {
-        return crudRepository.findByIdentifiers(entityIdentifiers);
-    }
 
     @Override
-    public Page<T> findAll(Pageable<T> pageable) {
-        PageBreaker<T> PageBreaker = pageable.pageBreaker();
-        List<T> list = asEntitiesList();
-        return new Page<T>() {
-        };
-    }
-
-    @Override
-    public Iterable<T> findAll(Comparator<T> sortCondition) {
-        List<T> resultList = Collections3.sort(asEntitiesList(), sortCondition);
+    public <S extends T> Page<T> findAll(Pageable<T> pageable) {
         return null;
     }
 
     @Override
-    public Page<T> findAll(Pageable<T> pageable, Comparator<T> sortCondition) {
+    public <S extends T> Iterable<T> findAll(Comparator<S> sort) {
         return null;
     }
 
+    @Override
+    public <S extends T> Page<T> findAll(Pageable<T> pageable, Comparator<S> sortCondition) {
+        return null;
+    }
 }

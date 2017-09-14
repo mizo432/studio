@@ -7,7 +7,6 @@ import org.venuspj.ddd.model.repository.CrudRepository;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  */
@@ -26,12 +25,12 @@ public class StudioDatasource implements CrudRepository<Studio> {
     }
 
     @Override
-    public List<Studio> asEntitiesList() {
+    public Iterable<Studio> resolve(Iterable<EntityIdentifier<Studio>> entityIdentifiers) {
         return null;
     }
 
     @Override
-    public Set<Studio> asEntitiesSet() {
+    public List<Studio> asEntitiesList() {
         return null;
     }
 
@@ -60,14 +59,15 @@ public class StudioDatasource implements CrudRepository<Studio> {
     }
 
     @Override
-    public void delete(Studio entity) {
+    public void delete(Iterable<EntityIdentifier<Studio>> entityIdentifiers) {
         //TODO atdk
 
     }
 
     @Override
-    public List<Studio> findByIdentifiers(Iterable<EntityIdentifier<Studio>> entityIdentifiers) {
+    public void delete(Studio entity) {
         //TODO atdk
-        return null;
+
     }
+
 }
