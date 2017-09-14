@@ -3,6 +3,8 @@ package org.venuspj.studio.core.model.momentInterval.momemt.event;
 import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
 import org.venuspj.util.objects2.Objects2;
 
+import static org.venuspj.util.objects2.Objects2.hash;
+
 public class EventId extends AbstractEntityIdentifier<Event> {
     Integer value;
 
@@ -21,7 +23,7 @@ public class EventId extends AbstractEntityIdentifier<Event> {
 
     @Override
     public int hashCode() {
-        return Objects2.hash(kind, value);
+        return hash(kind, value);
     }
 
     @Override
