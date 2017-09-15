@@ -71,7 +71,6 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
     compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"
-    compile("com.google.guava:guava:${guavaVersion}")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testRuntime('org.springframework.boot:spring-boot-devtools')
     testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"

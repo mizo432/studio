@@ -48,7 +48,6 @@ subprojects {
         //Library versions
         springBootVersion = '1.5.7.RELEASE'
         springSecurityOauth2Version = '2.1.0.RELEASE+'
-        guavaVersion = '22.0'
         mybatisTypeHandlerVersion = '1.0.2'
         mybatisBootVersion = '1.2.0'
         assertJVersion = '3.6.2'
