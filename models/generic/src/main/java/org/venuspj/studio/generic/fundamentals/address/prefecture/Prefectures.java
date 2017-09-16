@@ -1,10 +1,11 @@
 package org.venuspj.studio.generic.fundamentals.address.prefecture;
 
-import com.google.common.collect.Lists;
 import org.venuspj.util.collect.Lists2;
-import org.venuspj.util.objects2.Objects2;
 
 import java.util.List;
+
+import static org.venuspj.util.collect.Lists2.*;
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
@@ -20,7 +21,7 @@ public class Prefectures {
     }
 
     public static Prefectures allPrefecture() {
-        List<Prefecture> list = Lists.newArrayListWithCapacity(47);
+        List<Prefecture> list = newArrayListWithCapacity(47);
         list.add(new Prefecture(new PrefectureCode(1), "北海道"));
         list.add(new Prefecture(new PrefectureCode(2), "青森県"));
         list.add(new Prefecture(new PrefectureCode(3), "岩手県"));
@@ -73,8 +74,7 @@ public class Prefectures {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
+        return toStringHelper(this)
                 .addValue(list)
                 .toString();
     }

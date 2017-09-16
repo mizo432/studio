@@ -1,13 +1,14 @@
 package org.venuspj.util.builder;
 
-import com.google.common.collect.Maps;
 import org.venuspj.util.objects2.Objects2;
 
 import java.util.Map;
 
+import static org.venuspj.util.collect.Maps2.*;
+
 public class MapBuilder<K, V> extends ObjectBuilder<Map<K, V>, MapBuilder<K, V>> {
 
-    Map<K, V> map = Maps.newHashMap();
+    Map<K, V> map = newHashMap();
 
     public MapBuilder<K, V> put(K key, V value) {
         if (Objects2.isNull(key)) return getThis();
@@ -29,7 +30,7 @@ public class MapBuilder<K, V> extends ObjectBuilder<Map<K, V>, MapBuilder<K, V>>
 
     @Override
     protected Map<K, V> createValueObject() {
-        return Maps.newHashMap(map);
+        return newHashMap(map);
     }
 
     @Override

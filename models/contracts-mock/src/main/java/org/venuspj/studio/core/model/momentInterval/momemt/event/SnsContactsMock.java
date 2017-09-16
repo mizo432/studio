@@ -1,16 +1,17 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
-import com.google.common.collect.Lists;
 import org.venuspj.studio.core.fundamentals.snsContact.SnsContact;
 import org.venuspj.studio.core.fundamentals.snsContact.SnsContacts;
 
 import java.util.List;
 
+import static org.venuspj.util.collect.Lists2.*;
+
 /**
  */
 public class SnsContactsMock {
     public static SnsContacts createDummy(SnsContactsType onlyHomePage) {
-        List<SnsContact> list = Lists.newArrayList();
+        List<SnsContact> list = newArrayList();
         return new SnsContacts(list);
     }
 
