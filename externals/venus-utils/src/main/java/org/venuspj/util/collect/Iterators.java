@@ -20,6 +20,8 @@ public final class Iterators {
         }
         return wasModified;
     }
+
+    @SafeVarargs
     private static <T> Iterator<T> consumingForArray(final T... elements) {
         return new UnmodifiableIterator<T>() {
             int index = 0;
@@ -71,6 +73,7 @@ public final class Iterators {
         }
         return !iterator2.hasNext();
     }
+
     static <T> UnmodifiableListIterator<T> emptyListIterator() {
         return (UnmodifiableListIterator<T>) ArrayItr.EMPTY;
     }
