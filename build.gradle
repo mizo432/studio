@@ -18,6 +18,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.13"
+        classpath "org.ajoberstar:grgit:1.7.2"
     }
 }
 
@@ -64,6 +65,7 @@ subprojects {
         mySqlConnectorVersion = '6.0.6'
         // build paramaters
         defaultEncoding = 'UTF-8'
+
     }
 
     tasks.withType(AbstractCompile)*.options*.encoding = defaultEncoding

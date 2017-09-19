@@ -1,6 +1,7 @@
 package org.venuspj.util.collect;
 
-import static org.venuspj.util.base.Preconditions.*;
+
+import static org.venuspj.util.base.Preconditions.checkState;
 
 public final class CollectPreconditions {
     public static void checkEntryNotNull(Object key, Object value) {
