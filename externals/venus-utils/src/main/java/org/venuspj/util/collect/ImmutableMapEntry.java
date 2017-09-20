@@ -2,6 +2,7 @@ package org.venuspj.util.collect;
 
 import static org.venuspj.util.collect.CollectPreconditions.checkEntryNotNull;
 
+@SuppressWarnings("SE_TRANSIENT_FIELD_NOT_RESTORED")
 class ImmutableMapEntry<K, V> extends ImmutableEntry<K, V> {
     @SuppressWarnings("unchecked")
     static <K, V> ImmutableMapEntry<K, V>[] createEntryArray(int size) {
