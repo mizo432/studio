@@ -74,6 +74,7 @@ public final class Iterators {
         return !iterator2.hasNext();
     }
 
+    @SuppressWarnings("unchecked")
     static <T> UnmodifiableListIterator<T> emptyListIterator() {
         return (UnmodifiableListIterator<T>) ArrayItr.EMPTY;
     }
