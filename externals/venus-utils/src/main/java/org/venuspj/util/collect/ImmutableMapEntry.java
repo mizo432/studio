@@ -3,6 +3,7 @@ package org.venuspj.util.collect;
 import static org.venuspj.util.collect.CollectPreconditions.checkEntryNotNull;
 
 class ImmutableMapEntry<K, V> extends ImmutableEntry<K, V> {
+    @SuppressWarnings("unchecked")
     static <K, V> ImmutableMapEntry<K, V>[] createEntryArray(int size) {
         return new ImmutableMapEntry[size];
     }
@@ -25,10 +26,6 @@ class ImmutableMapEntry<K, V> extends ImmutableEntry<K, V> {
         return null;
     }
 
-    /**
-     * Returns true if this entry has no bucket links and can safely be reused as a terminal
-     * entry in a bucket in another map.
-     */
     boolean isReusable() {
         return true;
     }
@@ -50,6 +47,9 @@ class ImmutableMapEntry<K, V> extends ImmutableEntry<K, V> {
         final boolean isReusable() {
             return false;
         }
+        private static final long serialVersionUID = 0;
+
+
     }
 
     static final class NonTerminalImmutableBiMapEntry<K, V>
@@ -69,5 +69,8 @@ class ImmutableMapEntry<K, V> extends ImmutableEntry<K, V> {
         ImmutableMapEntry<K, V> getNextInValueBucket() {
             return nextInValueBucket;
         }
+        private static final long serialVersionUID = 0;
+
     }
+
 }
