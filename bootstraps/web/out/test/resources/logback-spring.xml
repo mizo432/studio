@@ -1,9 +1,0 @@
-<configuration>
-    <springProfile name="unit">
-        <include resource="logback-unit.xml" />
-    </springProfile>
-    <springProfile name="integration">
-        <include resource="logback-unit.xml" />
-    </springProfile>
-
-</configuration>
