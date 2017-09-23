@@ -25,8 +25,8 @@ public class StudioCode extends AbstractEntityIdentifier<Studio> {
     public String toString() {
         return Objects2
                 .toStringHelper(this)
-                .add("kind",kind)
-                .add("studioCode",value)
+                .add("kind", kind)
+                .add("studioCode", value)
                 .toString();
     }
 
@@ -37,11 +37,14 @@ public class StudioCode extends AbstractEntityIdentifier<Studio> {
 
     @Override
     public boolean equals(Object obj) {
-        if(!super.equals(obj)) return false;
+        if (!super.equals(obj)) return false;
         if (!(obj instanceof StudioCode))
             return false;
         StudioCode that = (StudioCode) obj;
         return Objects2.equal(value, that.value);
     }
 
+    public String asText() {
+        return value;
+    }
 }
