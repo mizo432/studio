@@ -28,13 +28,13 @@ bootRepackage {
 }
 
 dependencies {
-    def jdbcDriver = "com.h2database:h2:${h2dbVersion}"
+    def jdbcDriver = "mysql:mysql-connector-java:${mySqlConnectorVersion}"
     def domaVersion = "2.17.0"
     compile("org.codehaus.janino:janino")
     compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.1')
     compile project(":studio-core")
     compile project(":studio-contracts")
-    compile("${jdbcDriver}")
+    testRuntime("${jdbcDriver}")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.seasar.doma:doma:${domaVersion}")
     compile("org.springframework.boot:spring-boot-starter")
@@ -55,12 +55,12 @@ task domaGen << {
     // まず変更が必要なもの
     def rootPackageName = 'org.venuspj.studio.adapter.doma'
     def daoPackagePath = 'src/main/java/org/venuspj/studio/adapter/doma/dao'
-    def dbUrl = 'jdbc:h2:~/test'
-    def dbUser = 'sa'
-    def dbPassword = ''
+    def dbUrl = 'jdbc:mysql://localhost:3306/studiout'
+    def dbUser = 'root'
+    def dbPassword = 'shishi16'
     def tableNamePattern = '.*'
     // おそらく変更不要なもの
-    def importOfComponentAndAutowiredDomaConfig = "${rootPackageName}.util.doma.ComponentAndAutowiredDomaConfig"
+    def importOfComponentAndAutowiredDomaConfig = "${rootPackageName}.ComponentAndAutowiredDomaConfig"
     def workDirPath = 'work'
     def workDaoDirPath = "${workDirPath}/dao"
 
@@ -77,11 +77,16 @@ task domaGen << {
     ant.taskdef(resource: 'domagentask.properties',
             classpath: configurations.domaGenRuntime.asPath)
     ant.gen(url: "${dbUrl}", user: "${dbUser}", password: "${dbPassword}", tableNamePattern: "${tableNamePattern}") {
-        entityConfig(packageName: "${rootPackageName}.entity", useListener: false)
-        daoConfig(packageName: "${rootPackageName}.config")
-        sqlConfig()
+        entityConfig(packageName: "${rootPackageName}.entity", useListener: false, overwrite: true)
+        daoConfig(packageName: "${rootPackageName}.dao", overwrite: true)
+        sqlConfig(overwrite: true)
+        sqlTestCaseConfig {
+            fileset(dir: 'src/main/resources') {
+                include(name: 'META-INF/**/*.sql')
+            }
+        }
     }
-
+    //, tableNamePattern: "${tableNamePattern}"
     // 生成された Dao インターフェースを作業用ディレクトリにコピーし、
     // @ComponentAndAutowiredDomaConfig アノテーションを付加する
     copy() {
@@ -110,15 +115,9 @@ task domaGen << {
     // 作業用ディレクトリを削除する
     clearDir("${workDirPath}")
 
-    // 自動生成したファイルを git add する
-    addGit()
 }
 
 void clearDir(String dirPath) {
     delete dirPath
 }
 
-void addGit() {
-    def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.projectDir)
-    grgit.add(patterns: ['.'])
-}
