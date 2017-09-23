@@ -1,12 +1,12 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event.flyers;
+package org.venuspj.studio.core.model.event.flyers;
 
-import org.venuspj.util.collect.Lists2;
+import org.venuspj.studio.generic.fundamentals.caption.Caption;
 
 /**
  */
-public class FlyersMock {
-    public static Flyers createDummy(FlyersType anEventIDType) {
-        return new Flyers(Lists2.newArrayList(FlyerMock.createDummy()));
+public class FlyerMock {
+    public static Flyer createDummy() {
+        return new Flyer(new Caption("Caption"), new ImagePath("ImagePath"));
     }
 
     public enum FlyersType {

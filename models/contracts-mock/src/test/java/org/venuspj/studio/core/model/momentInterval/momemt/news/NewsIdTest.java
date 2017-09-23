@@ -1,7 +1,7 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.news;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.EventId;
+import org.venuspj.studio.core.model.event.EventId;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
 
 import static org.assertj.core.api.Java6Assertions.*;
@@ -20,6 +20,7 @@ public class NewsIdTest {
                 .isEqualTo("NewsId{kind=org.venuspj.studio.core.model.momentInterval.momemt.news.News, 1}");
 
     }
+
     @Test
     public void toString2() throws Exception {
         NewsId target = new NewsId();
@@ -74,6 +75,7 @@ public class NewsIdTest {
                 .isFalse();
 
     }
+
     @Test
     public void isPresent2() throws Exception {
         NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.DEFAULT);
@@ -117,6 +119,7 @@ public class NewsIdTest {
                 .isTrue();
 
     }
+
     @Test
     public void equals4() throws Exception {
         NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);
@@ -139,6 +142,7 @@ public class NewsIdTest {
                 .isFalse();
 
     }
+
     @Test
     public void equals6() throws Exception {
         NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);

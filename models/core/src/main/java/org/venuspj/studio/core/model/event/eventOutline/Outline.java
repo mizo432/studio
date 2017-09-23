@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event.eventOutline;
+package org.venuspj.studio.core.model.event.eventOutline;
 
 import org.venuspj.studio.core.fundamentals.place.Place;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;

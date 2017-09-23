@@ -1,6 +1,6 @@
 package org.venuspj.studio.core.usecase.event;
 
-import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
+import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
 
 /**

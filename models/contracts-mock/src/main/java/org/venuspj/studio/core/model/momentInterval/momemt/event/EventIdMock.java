@@ -1,5 +1,7 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
+import org.venuspj.studio.core.model.event.EventId;
+
 /**
  * Created by mizoguchi on 2017/07/16.
  */

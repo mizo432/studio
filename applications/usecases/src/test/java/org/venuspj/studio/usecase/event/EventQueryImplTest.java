@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.venuspj.ddd.model.repository.CrudRepository;
 import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
 import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
+import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventsMock;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;

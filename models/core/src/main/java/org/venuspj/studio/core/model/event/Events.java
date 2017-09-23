@@ -1,13 +1,13 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event;
-
-import org.venuspj.util.collect.Lists2;
-import org.venuspj.util.objects2.Objects2;
+package org.venuspj.studio.core.model.event;
 
 import java.util.Iterator;
 import java.util.List;
 
+import static org.venuspj.util.collect.Lists2.*;
+import static org.venuspj.util.objects2.Objects2.*;
+
 public class Events implements Iterable<Event> {
-    List<Event> list = Lists2.newArrayList();
+    List<Event> list = newArrayList();
 
     Events() {
 
@@ -23,8 +23,7 @@ public class Events implements Iterable<Event> {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
+        return toStringHelper(this)
                 .addValue(list)
                 .toString();
     }

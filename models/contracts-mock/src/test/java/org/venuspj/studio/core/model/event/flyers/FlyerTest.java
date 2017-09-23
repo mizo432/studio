@@ -1,18 +1,14 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event.flyers;
+package org.venuspj.studio.core.model.event.flyers;
 
 import org.junit.Test;
-import org.venuspj.util.dateProvider.StaticDateTimeProvider;
-
-import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
-public class FlyersTest {
-
+public class FlyerTest {
 
     @Test
     public void testToString1() throws Exception {
-        Flyers target = new Flyers();
+        Flyer target = new Flyer();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -21,8 +17,16 @@ public class FlyersTest {
 
     @Test
     public void testToString2() throws Exception {
-        StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
-        Flyers target = FlyersMock.createDummy(FlyersMock.FlyersType.DEFAULT);
+        Flyer target = FlyerMock.createDummy();
+        String actual = target.toString();
+        assertThat(actual)
+                .isNotNull();
+        System.out.println("actual:" + actual);
+    }
+
+    @Test
+    public void emptyFlyer() throws Exception {
+        Flyer target = Flyer.emptyFlyer();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();

@@ -1,7 +1,8 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event;
+package org.venuspj.studio.core.model.event;
 
 import org.junit.Test;
 import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
+import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
 
 import java.util.UUID;
 
@@ -14,7 +15,7 @@ public class EventIdTest {
 
     @Test
     public void toString01() throws Exception {
-        EventId target = new EventId();
+        EventId target = EventId.defaultEventId();
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
@@ -32,7 +33,7 @@ public class EventIdTest {
 
     @Test
     public void isPresent() throws Exception {
-        EventId target = new EventId();
+        EventId target = EventId.defaultEventId();
         assertThat(target)
                 .isNotNull();
         assertThat(target.isPresent())

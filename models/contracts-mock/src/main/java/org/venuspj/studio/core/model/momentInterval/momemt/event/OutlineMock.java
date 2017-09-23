@@ -2,7 +2,7 @@ package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
 import org.venuspj.studio.core.fundamentals.place.Place;
 import org.venuspj.studio.core.fundamentals.place.PlaceMock;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.eventOutline.Outline;
+import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIdsMock;
 import org.venuspj.studio.generic.fundamentals.address.Address;

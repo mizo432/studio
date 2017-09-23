@@ -1,6 +1,7 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
-import org.venuspj.studio.core.model.momentInterval.momemt.event.flyers.FlyersMock;
+import org.venuspj.studio.core.model.event.Event;
+import org.venuspj.studio.core.model.event.flyers.FlyersMock;
 
 /**
  */

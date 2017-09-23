@@ -1,6 +1,7 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
 import org.junit.Test;
+import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.util.dateProvider.StaticDateTimeProvider;
 
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ public class EventTest {
 
     @Test
     public void testToString1() throws Exception {
-        Event target = new Event();
+        Event target = EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();

@@ -2,7 +2,7 @@ package org.venuspj.studio.usecase.event;
 
 import org.springframework.stereotype.Service;
 import org.venuspj.ddd.model.repository.CrudRepository;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
+import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventCredential;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;

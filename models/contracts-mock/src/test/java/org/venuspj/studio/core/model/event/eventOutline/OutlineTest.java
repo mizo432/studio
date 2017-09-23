@@ -1,14 +1,18 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event.flyers;
+package org.venuspj.studio.core.model.event.eventOutline;
 
 import org.junit.Test;
+import org.venuspj.studio.core.model.momentInterval.momemt.event.OutlineMock;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
-public class FlyerTest {
+/**
+ */
+public class OutlineTest {
+
 
     @Test
     public void testToString1() throws Exception {
-        Flyer target = new Flyer();
+        Outline target = new Outline();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -17,19 +21,12 @@ public class FlyerTest {
 
     @Test
     public void testToString2() throws Exception {
-        Flyer target = FlyerMock.createDummy();
+        Outline target = OutlineMock.createDummy(OutlineMock.OutlineType.DEFAULT);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
         System.out.println("actual:" + actual);
     }
 
-    @Test
-    public void emptyFlyer() throws Exception {
-        Flyer target = Flyer.emptyFlyer();
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull();
-        System.out.println("actual:" + actual);
-    }
+
 }

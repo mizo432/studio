@@ -1,18 +1,18 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event.eventOutline;
+package org.venuspj.studio.core.model.event.flyers;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.OutlineMock;
+import org.venuspj.util.dateProvider.StaticDateTimeProvider;
+
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
-/**
- */
-public class OutlineTest {
+public class FlyersTest {
 
 
     @Test
     public void testToString1() throws Exception {
-        Outline target = new Outline();
+        Flyers target = new Flyers();
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -21,12 +21,11 @@ public class OutlineTest {
 
     @Test
     public void testToString2() throws Exception {
-        Outline target = OutlineMock.createDummy(OutlineMock.OutlineType.DEFAULT);
+        StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));
+        Flyers target = FlyersMock.createDummy(FlyersMock.FlyersType.DEFAULT);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
         System.out.println("actual:" + actual);
     }
-
-
 }
