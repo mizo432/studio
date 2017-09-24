@@ -54,7 +54,7 @@ public class EventTest {
         Event target = EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
         int actual = target.hashCode();
         assertThat(actual)
-                .isEqualTo(-1215747192);
+                .isEqualTo(966542717);
     }
 
     @Test

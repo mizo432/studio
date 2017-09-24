@@ -38,7 +38,7 @@ public class EventIdTest {
                 .isNotNull();
         assertThat(target.isPresent())
                 .isNotNull()
-                .isEqualTo(false);
+                .isEqualTo(true);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class EventIdTest {
                 .isNotNull();
         assertThat(target.isPresent())
                 .isNotNull()
-                .isEqualTo(false);
+                .isEqualTo(true);
 
     }
 

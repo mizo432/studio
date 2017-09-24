@@ -1,10 +1,8 @@
-package org.venuspj.studio.core.model.role.partyRole;
+package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.model.AbstractCrudRepositoryMock;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.party.PlayerRepository;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
 
 import java.util.List;
 
