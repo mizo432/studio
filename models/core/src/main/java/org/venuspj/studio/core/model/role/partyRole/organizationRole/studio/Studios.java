@@ -2,12 +2,12 @@ package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 
 import org.venuspj.ddd.model.entity.Entities;
 import org.venuspj.util.collect.Lists2;
-import org.venuspj.util.objects2.Objects2;
 
 import java.util.Iterator;
 import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.*;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class Studios implements Iterable<Studio>, Entities<Studio> {
     List<Studio> list = Lists2.newArrayList();
@@ -20,14 +20,13 @@ public class Studios implements Iterable<Studio>, Entities<Studio> {
         list.addAll(aList);
     }
 
-    public static Studios empty() {
+    public static Studios emptyStudios() {
         return new Studios();
     }
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
+        return toStringHelper(this)
                 .addValue(list)
                 .toString();
     }
@@ -40,5 +39,9 @@ public class Studios implements Iterable<Studio>, Entities<Studio> {
     @Override
     public List<Studio> asList() {
         return unmodifiableList(list);
+    }
+
+    public boolean isEmpty() {
+        return list.isEmpty();
     }
 }
