@@ -1,12 +1,13 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 
+import org.venuspj.ddd.model.entity.Entities;
 import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class Studios implements Iterable<Studio> {
+public class Studios implements Iterable<Studio>, Entities<Studio> {
     List<Studio> list = Lists2.newArrayList();
 
     Studios() {
@@ -32,5 +33,10 @@ public class Studios implements Iterable<Studio> {
     @Override
     public Iterator<Studio> iterator() {
         return list.iterator();
+    }
+
+    @Override
+    public List<Studio> asList() {
+        return list;
     }
 }

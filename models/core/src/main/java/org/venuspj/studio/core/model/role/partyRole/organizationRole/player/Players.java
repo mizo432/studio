@@ -1,11 +1,13 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
+import org.venuspj.ddd.model.entity.Entities;
 import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class Players {
+public class Players implements Entities<Player> {
 
     List<Player> list = Lists2.newArrayList();
 
@@ -13,7 +15,7 @@ public class Players {
     }
 
     public Players(Iterable<Player> aList) {
-        Lists2.addAll(list,aList);
+        Lists2.addAll(list, aList);
     }
 
     public static Players empty() {
@@ -43,9 +45,14 @@ public class Players {
         return list.size();
     }
 
+    @Override
     public List<Player> asList() {
         return Lists2.unmodifiableList(list);
 
     }
 
+    @Override
+    public Iterator<Player> iterator() {
+        return list.iterator();
+    }
 }

@@ -2,11 +2,12 @@ package org.venuspj.studio.usecase.studio;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioMock;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioRepository;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioRepositoryMock;
 import org.venuspj.studio.core.usecase.studio.StudioQueryUseCase;
-import org.venuspj.util.collect.Lists2;
+
+import static org.venuspj.util.collect.Lists2.*;
 
 /**
  */
@@ -16,8 +17,8 @@ public class StudioQueryTest {
 
     @Before
     public void setUp() throws Exception {
-        OnMemoryCrudRepository<Studio> studioRepository
-                = new OnMemoryCrudRepository<>(Lists2.newArrayList(StudioMock.createDummy()));
+        StudioRepository studioRepository
+                = new StudioRepositoryMock(newArrayList(StudioMock.createDummy()));
         studioQueryUseCase = new StudioQuery(studioRepository);
     }
 

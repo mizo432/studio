@@ -3,8 +3,8 @@ package org.venuspj.studio.usecase.studio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioRepository;
 import org.venuspj.studio.core.usecase.studio.StudioQueryInputPort;
 import org.venuspj.studio.core.usecase.studio.StudioQueryOutputPort;
 import org.venuspj.studio.core.usecase.studio.StudioQueryUseCase;
@@ -12,12 +12,12 @@ import org.venuspj.studio.core.usecase.studio.StudioQueryUseCase;
 @Service
 public class StudioQuery implements StudioQueryUseCase {
 
-    OnMemoryCrudRepository<Studio> studioRepository;
+    StudioRepository studioRepository;
     private StudioQueryInputPort inputPort;
     private StudioQueryOutputPort outputPort;
 
     @Autowired
-    public StudioQuery(OnMemoryCrudRepository<Studio> aStudioRepository) {
+    public StudioQuery(StudioRepository aStudioRepository) {
         studioRepository = aStudioRepository;
 
     }

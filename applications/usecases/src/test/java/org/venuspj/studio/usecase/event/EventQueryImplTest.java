@@ -3,13 +3,14 @@ package org.venuspj.studio.usecase.event;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.venuspj.ddd.model.repository.CrudRepository;
 import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
-import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
 import org.venuspj.studio.core.model.event.Event;
+import org.venuspj.studio.core.model.event.EventRepository;
+import org.venuspj.studio.core.model.event.EventRepositoryMock;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventsMock;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
+import org.venuspj.studio.core.model.role.partyRole.PlayerRepositoryMock;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.party.PlayerRepository;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
@@ -27,8 +28,8 @@ public class EventQueryImplTest {
     public void setUp() throws Exception {
         List<Event> eventList = EventsMock.createDummy(EventsMock.EventsType.DEFAULT).asList();
         System.out.println("eventList:" + eventList);
-        CrudRepository<Event> eventRepository = new OnMemoryCrudRepository<Event>(eventList);
-        CrudRepository<Player> playerRepository = new OnMemoryCrudRepository<Player>(Players.empty().asList());
+        EventRepository eventRepository = new EventRepositoryMock(eventList);
+        PlayerRepository playerRepository = new PlayerRepositoryMock(Players.empty().asList());
         tergetUsecase = new EventQuery(eventRepository, playerRepository);
     }
 

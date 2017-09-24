@@ -2,8 +2,8 @@ package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
 import org.junit.Test;
 import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
-import org.venuspj.ddd.model.repository.OnMemoryCrudRepository;
 import org.venuspj.studio.core.model.event.Event;
+import org.venuspj.studio.core.model.event.EventRepositoryMock;
 import org.venuspj.studio.core.model.event.Events;
 
 import static org.assertj.core.api.Java6Assertions.*;
@@ -23,7 +23,7 @@ public class EventsTest {
 
     @Test
     public void eventRepository() throws Exception {
-        OnMemoryCrudRepository<Event> repository = new OnMemoryCrudRepository<Event>(EventsMock.createDummy(EventsMock.EventsType.DEFAULT).asList());
+        EventRepositoryMock repository = new EventRepositoryMock(EventsMock.createDummy(EventsMock.EventsType.DEFAULT).asList());
         System.out.println("repository.findAll()" + repository.asEntitiesList());
         System.out.println("repository.findOne()" + repository.resolve(EventIdMock.createDummy(EventIdMock.EventIDType.EVENT_ON_TODAY)));
         try {

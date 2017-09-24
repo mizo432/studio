@@ -1,32 +1,31 @@
 package org.venuspj.ddd.model.repository;
 
+import org.venuspj.ddd.model.entity.Entities;
 import org.venuspj.ddd.model.entity.Entity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 
-import java.util.List;
-
-public interface CrudRepository<E extends Entity<E>> {
+public interface CrudRepository<E extends Entity<E>, ENTITIES extends Entities<E>> {
     /**
      * 識別子に該当するエンティティをリポジトリから取得する。
      *
-     * @param identifier 識別子
+     * @param anIdentifier 識別子
      * @return エンティティ
      * @throws IllegalArgumentException
      * @throws EntityNotFoundRuntimeException エンティティが見つからなかった場合
      * @throws RepositoryRuntimeException     リポジトリにアクセスできない場合
      */
-    E resolve(EntityIdentifier<E> identifier);
+    E resolve(EntityIdentifier<E> anIdentifier);
 
     /**
      * 識別子に該当するエンティティをリポジトリから取得する。
      *
-     * @param identifiers 識別子
+     * @param anyIdentifiers 識別子
      * @return エンティティ
      * @throws IllegalArgumentException
      * @throws EntityNotFoundRuntimeException エンティティが見つからなかった場合
      * @throws RepositoryRuntimeException     リポジトリにアクセスできない場合
      */
-    Iterable<E> resolve(Iterable<EntityIdentifier<E>> identifiers);
+    ENTITIES resolve(Iterable<EntityIdentifier<E>> anyIdentifiers);
 
     /**
      * このリポジトリに格納されているすべてのエンティティをListで取得する。
@@ -34,25 +33,25 @@ public interface CrudRepository<E extends Entity<E>> {
      * @return すべてのエンティティのList
      * @throws RepositoryRuntimeException リポジトリにアクセスできない場合
      */
-    List<E> asEntitiesList();
+    ENTITIES asEntitiesList();
 
     /**
      * 指定した識別子のエンティティが存在するかを返す。
      *
-     * @param identifier 識別子
+     * @param anIdentifier 識別子
      * @return 存在する場合はtrue
      * @throws RepositoryRuntimeException リポジトリにアクセスできない場合
      */
-    boolean contains(EntityIdentifier<E> identifier);
+    boolean contains(EntityIdentifier<E> anIdentifier);
 
     /**
      * 指定したのエンティティが存在するかを返す。
      *
-     * @param entity エンティティ
+     * @param anEntity エンティティ
      * @return 存在する場合はtrue
      * @throws RepositoryRuntimeException リポジトリにアクセスできない場合
      */
-    <S extends E> boolean contains(S entity);
+    <S extends E> boolean contains(S anEntity);
 
     /**
      * エンティティを保存する。
@@ -65,29 +64,29 @@ public interface CrudRepository<E extends Entity<E>> {
     /**
      * 指定した識別子のエンティティを削除する。
      *
-     * @param identifier 識別子
+     * @param anIdentifier 識別子
      * @throws EntityNotFoundRuntimeException 指定された識別子を持つエンティティが見つからなかった場合
      * @throws RepositoryRuntimeException     リポジトリにアクセスできない場合
      */
-    void delete(EntityIdentifier<E> identifier);
+    void delete(EntityIdentifier<E> anIdentifier);
 
     /**
      * 指定した識別子のエンティティを削除する。
      *
-     * @param identifiers 識別子
+     * @param anyIdentifiers 識別子
      * @throws EntityNotFoundRuntimeException 指定された識別子を持つエンティティが見つからなかった場合
      * @throws RepositoryRuntimeException     リポジトリにアクセスできない場合
      */
-    void delete(Iterable<EntityIdentifier<E>> identifiers);
+    void delete(Iterable<EntityIdentifier<E>> anyIdentifiers);
 
 
     /**
      * 指定したエンティティを削除する。
      *
-     * @param entity エンティティ
+     * @param anEntity エンティティ
      * @throws EntityNotFoundRuntimeException 指定された識別子を持つエンティティが見つからなかった場合
      * @throws RepositoryRuntimeException     リポジトリにアクセスできない場合
      */
-    <S extends E> void delete(S entity);
+    <S extends E> void delete(S anEntity);
 
 }

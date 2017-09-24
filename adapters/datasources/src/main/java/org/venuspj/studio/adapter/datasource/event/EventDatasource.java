@@ -11,13 +11,12 @@ import org.venuspj.studio.core.fundamentals.snsContact.SnsContacts;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventId;
 import org.venuspj.studio.core.model.event.EventRepository;
+import org.venuspj.studio.core.model.event.Events;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
-
-import java.util.List;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
@@ -33,8 +32,8 @@ public class EventDatasource implements EventRepository {
     }
 
     @Override
-    public Event resolve(EntityIdentifier<Event> identifier) {
-        EventId eventId = (EventId) identifier;
+    public Event resolve(EntityIdentifier<Event> anIdentifier) {
+        EventId eventId = (EventId) anIdentifier;
         org.venuspj.studio.adapter.doma.entity.Event work = eventDao.selectById(eventId.asInteger());
         if (nonNull(work)) {
             Place place = new Place(
@@ -60,22 +59,22 @@ public class EventDatasource implements EventRepository {
     }
 
     @Override
-    public Iterable<Event> resolve(Iterable<EntityIdentifier<Event>> entityIdentifiers) {
+    public Events resolve(Iterable<EntityIdentifier<Event>> anyIdentifiers) {
         return null;
     }
 
     @Override
-    public List<Event> asEntitiesList() {
+    public Events asEntitiesList() {
         return null;
     }
 
     @Override
-    public boolean contains(EntityIdentifier<Event> identifier) {
+    public boolean contains(EntityIdentifier<Event> anIdentifier) {
         return false;
     }
 
     @Override
-    public <S extends Event> boolean contains(S entity) {
+    public <S extends Event> boolean contains(S anEntity) {
         return false;
     }
 
@@ -85,17 +84,17 @@ public class EventDatasource implements EventRepository {
     }
 
     @Override
-    public void delete(EntityIdentifier<Event> identifier) {
+    public void delete(EntityIdentifier<Event> anIdentifier) {
 
     }
 
     @Override
-    public void delete(Iterable<EntityIdentifier<Event>> entityIdentifiers) {
+    public void delete(Iterable<EntityIdentifier<Event>> anyIdentifiers) {
 
     }
 
     @Override
-    public <S extends Event> void delete(S entity) {
+    public <S extends Event> void delete(S anEntity) {
 
     }
 }

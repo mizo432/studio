@@ -1,10 +1,10 @@
 package org.venuspj.studio.usecase.event;
 
 import org.springframework.stereotype.Service;
-import org.venuspj.ddd.model.repository.CrudRepository;
 import org.venuspj.studio.core.model.event.Event;
+import org.venuspj.studio.core.model.event.EventRepository;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventCredential;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.party.PlayerRepository;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
@@ -18,10 +18,10 @@ public class EventQuery implements EventQueryUseCase {
 
     EventQueryInputPort inputPort;
     EventQueryOutputPort outputPort;
-    CrudRepository<Event> eventRepository;
-    CrudRepository<Player> playerRepository;
+    EventRepository eventRepository;
+    PlayerRepository playerRepository;
 
-    public EventQuery(CrudRepository<Event> anEventRepository, CrudRepository<Player> aPlayerRepository) {
+    public EventQuery(EventRepository anEventRepository, PlayerRepository aPlayerRepository) {
         eventRepository = anEventRepository;
         playerRepository = aPlayerRepository;
     }
