@@ -3,7 +3,7 @@ package org.venuspj.util.objects2;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static org.venuspj.util.base.Preconditions.checkNotNull;
+import static org.venuspj.util.base.Preconditions.*;
 
 public class Objects2 {
 
@@ -16,12 +16,13 @@ public class Objects2 {
     }
 
     public static boolean equal(Object a, Object b) {
-        return com.google.common.base.Objects.equal(a,b);
+        return Objects.equals(a, b);
     }
 
     public static int hash(Object... values) {
         return Objects.hash(values);
     }
+
     public static ToStringHelper toStringHelper(Class<?> selfClass) {
         return toStringHelper(selfClass.getSimpleName());
     }

@@ -17,7 +17,7 @@ public class Strings2Test {
 
         @Test
         public void test02() throws Exception {
-            String arg = "";
+            String arg = null;
             boolean actual = Strings2.isEmpty(arg);
             assertThat(actual)
                     .isTrue();
@@ -123,14 +123,6 @@ public class Strings2Test {
 
         @Test
         public void test08() throws Exception {
-            String arg = "-0.1";
-            boolean actual = Strings2.isNumber(arg);
-            assertThat(actual)
-                    .isTrue();
-        }
-
-        @Test
-        public void test09() throws Exception {
             String arg = "0.1";
             boolean actual = Strings2.isNumber(arg);
             assertThat(actual)
@@ -138,7 +130,7 @@ public class Strings2Test {
         }
 
         @Test
-        public void test10() throws Exception {
+        public void test09() throws Exception {
             String arg = "0xf";
             boolean actual = Strings2.isNumber(arg);
             assertThat(actual)
@@ -172,6 +164,86 @@ public class Strings2Test {
         @Test
         public void test14() throws Exception {
             String arg = "1e3";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test22() throws Exception {
+            String arg = "1";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test23() throws Exception {
+            String arg = "- 1";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isFalse();
+        }
+
+        @Test
+        public void test24() throws Exception {
+            String arg = "-3 ";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isFalse();
+        }
+
+        @Test
+        public void test27() throws Exception {
+            String arg = "-0x10";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test28() throws Exception {
+            String arg = "-0.1";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test29() throws Exception {
+            String arg = "-0xf";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test31() throws Exception {
+            String arg = "-0xff";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isTrue();
+        }
+
+        @Test
+        public void test32() throws Exception {
+            String arg = "-0xG";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isFalse();
+        }
+
+        @Test
+        public void test33() throws Exception {
+            String arg = "-0x ";
+            boolean actual = Strings2.isNumber(arg);
+            assertThat(actual)
+                    .isFalse();
+        }
+
+        @Test
+        public void test34() throws Exception {
+            String arg = "-1e3";
             boolean actual = Strings2.isNumber(arg);
             assertThat(actual)
                     .isTrue();
@@ -221,6 +293,12 @@ public class Strings2Test {
         public void repeat13() throws Exception {
             String actual = Strings2.repeat("12", 3, ", ");
             assertThat(actual).isNotNull().isEqualTo("12, 12, 12");
+
+        }
+
+        @Test(expected = ArrayIndexOutOfBoundsException.class)
+        public void repeat14() throws Exception {
+            String actual = Strings2.repeat("111", Integer.MAX_VALUE);
 
         }
     }

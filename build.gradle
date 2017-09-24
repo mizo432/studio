@@ -1,6 +1,8 @@
+import java.util.regex.Pattern
+
 buildscript {
     ext {
-        springBootVersion = '1.5.6.RELEASE+'
+        springBootVersion = '1.5.7.RELEASE+'
     }
     repositories {
         maven {
@@ -16,6 +18,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.13"
+        classpath "org.ajoberstar:grgit:1.7.2"
     }
 }
 
@@ -44,9 +47,8 @@ subprojects {
 
     ext {
         //Library versions
-        springBootVersion = '1.5.6.RELEASE+'
+        springBootVersion = '1.5.7.RELEASE'
         springSecurityOauth2Version = '2.1.0.RELEASE+'
-        guavaVersion = '22.0'
         mybatisTypeHandlerVersion = '1.0.2'
         mybatisBootVersion = '1.2.0'
         assertJVersion = '3.6.2'
@@ -60,9 +62,10 @@ subprojects {
         thymeleafExtrasJava8timeVersion = '3.0.0.RELEASE+'
         springSessionVersion = '1.3.0.RELEASE+'
         findbugsAnnotationsVersion = '3.0.1'
-
+        mySqlConnectorVersion = '5.1.44'
         // build paramaters
         defaultEncoding = 'UTF-8'
+
     }
 
     tasks.withType(AbstractCompile)*.options*.encoding = defaultEncoding
@@ -164,13 +167,13 @@ subprojects {
     }
 
     task wrapper(type: Wrapper) {
-        gradleVersion = '4.0'
+        gradleVersion = '3.5.1'
     }
 
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.0'
+    gradleVersion = '3.5.1'
 }
 
 task incrementVersionCode << {

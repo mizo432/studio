@@ -1,7 +1,7 @@
 package org.venuspj.studio.usecase.event;
 
+import org.venuspj.studio.core.model.event.EventId;
 import org.venuspj.studio.core.model.momentInterval.momemt.event.EventCredential;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.EventId;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 
 /**

@@ -3,70 +3,66 @@ package org.venuspj.studio.adapter.datasource.studio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.ddd.model.repository.CrudRepository;
+import org.venuspj.studio.adapter.doma.dao.StudioDao;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
-
-import java.util.List;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioRepository;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studios;
 
 /**
  */
 @Repository
-public class StudioDatasource implements CrudRepository<Studio> {
-    StudioMapper studioMapper;
+public class StudioDatasource implements StudioRepository {
+    private final StudioDao studioDao;
 
     @Autowired
-    public StudioDatasource(StudioMapper aStudioMapper) {
-        studioMapper = aStudioMapper;
+    StudioDatasource(StudioDao aStudioDao) {
+        studioDao = aStudioDao;
+
     }
 
     @Override
-    public Studio resolve(EntityIdentifier<Studio> identifier) {
+    public Studio resolve(EntityIdentifier<Studio> anIdentifier) {
         return null;
     }
 
     @Override
-    public Iterable<Studio> resolve(Iterable<EntityIdentifier<Studio>> entityIdentifiers) {
+    public Studios resolve(Iterable<EntityIdentifier<Studio>> anyIdentifiers) {
         return null;
     }
 
     @Override
-    public List<Studio> asEntitiesList() {
-        return null;
-    }
-
-    @Override
-    public boolean contains(EntityIdentifier<Studio> identifier) {
+    public Studios asEntitiesList() {
         //TODO atdk
+        return null;
+    }
+
+    @Override
+    public boolean contains(EntityIdentifier<Studio> anIdentifier) {
         return false;
     }
 
     @Override
-    public boolean contains(Studio entity) {
-        //TODO atdk
+    public <S extends Studio> boolean contains(S anEntity) {
         return false;
     }
 
     @Override
-    public void store(Studio entity) {
-        //TODO atdk
+    public <S extends Studio> void store(S entity) {
 
     }
 
     @Override
-    public void delete(EntityIdentifier<Studio> identifier) {
-        //TODO atdk
+    public void delete(EntityIdentifier<Studio> anIdentifier) {
 
     }
 
     @Override
-    public void delete(Iterable<EntityIdentifier<Studio>> entityIdentifiers) {
-        //TODO atdk
+    public void delete(Iterable<EntityIdentifier<Studio>> anyIdentifiers) {
 
     }
 
     @Override
-    public void delete(Studio entity) {
-        //TODO atdk
+    public <S extends Studio> void delete(S anEntity) {
 
     }
 

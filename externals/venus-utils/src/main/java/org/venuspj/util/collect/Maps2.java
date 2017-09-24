@@ -1,6 +1,6 @@
 package org.venuspj.util.collect;
 
-import com.google.common.primitives.Ints;
+import org.venuspj.util.primitives.Ints;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

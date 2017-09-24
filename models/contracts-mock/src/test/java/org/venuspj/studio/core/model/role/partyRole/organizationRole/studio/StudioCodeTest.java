@@ -1,7 +1,7 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
+import org.venuspj.studio.core.model.event.flyers.EventIdMock;
 
 import static org.assertj.core.api.Java6Assertions.*;
 

@@ -1,9 +1,10 @@
 package org.venuspj.studio.usecase.event;
 
-import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
+import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
 import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
-import org.venuspj.util.objects2.Objects2;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
@@ -24,8 +25,7 @@ public class EventQueryOutputPortMock implements EventQueryOutputPort {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
+        return toStringHelper(this)
                 .add("event", event)
                 .add("players", players)
                 .omitNullValues()

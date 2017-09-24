@@ -4,7 +4,8 @@ import org.venuspj.studio.core.fundamentals.contact.Contact;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.fundamentals.snsContact.SnsContacts;
 import org.venuspj.studio.generic.fundamentals.address.Address;
-import org.venuspj.util.objects2.Objects2;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class Place {
 
@@ -30,8 +31,7 @@ public class Place {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
+        return toStringHelper(this)
                 .add("descriptor", descriptor)
                 .add("address", address)
                 .add("contact", contact)

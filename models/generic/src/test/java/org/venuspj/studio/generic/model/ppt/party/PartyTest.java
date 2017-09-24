@@ -17,6 +17,7 @@ import static org.assertj.core.api.Java6Assertions.*;
 public class PartyTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(PartyTest.class);
 
+    @SuppressWarnings("unchecked")
     public static Party createDummy() {
         return new Party(PartyPlaceThingId.newId(), new Name("ANSA"));
     }

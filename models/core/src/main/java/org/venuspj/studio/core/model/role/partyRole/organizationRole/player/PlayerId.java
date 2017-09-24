@@ -39,10 +39,9 @@ public class PlayerId extends AbstractEntityIdentifier<Player> {
     public boolean equals(Object o) {
         if (o == null) return false;
         if (this == o) return true;
-        return o instanceof PlayerId ?
-                equal(studioCode, ((PlayerId) o).studioCode)
-                        && equal(playerCode, ((PlayerId) o).playerCode) :
-                false;
+        return o instanceof PlayerId
+                && equal(studioCode, ((PlayerId) o).studioCode)
+                && equal(playerCode, ((PlayerId) o).playerCode);
 
     }
 

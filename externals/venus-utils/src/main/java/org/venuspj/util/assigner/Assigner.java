@@ -1,11 +1,12 @@
 package org.venuspj.util.assigner;
 
-import com.google.common.collect.Lists;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import static org.venuspj.util.collect.Lists2.newArrayList;
 
 /**
  */
@@ -93,7 +94,7 @@ public class Assigner {
      * @return フィールドの一覧
      */
     private static List<Field> createFields(Class<? extends Object> aClass) {
-        List<Field> results = Lists.newArrayList();
+        List<Field> results = newArrayList();
 
         for (Class<?> clazz = aClass; clazz != Object.class; clazz = clazz.getSuperclass()) {
             try {
