@@ -7,6 +7,8 @@ import org.venuspj.util.objects2.Objects2;
 import java.util.Iterator;
 import java.util.List;
 
+import static org.venuspj.util.collect.Lists2.*;
+
 public class Studios implements Iterable<Studio>, Entities<Studio> {
     List<Studio> list = Lists2.newArrayList();
 
@@ -37,6 +39,6 @@ public class Studios implements Iterable<Studio>, Entities<Studio> {
 
     @Override
     public List<Studio> asList() {
-        return list;
+        return unmodifiableList(list);
     }
 }

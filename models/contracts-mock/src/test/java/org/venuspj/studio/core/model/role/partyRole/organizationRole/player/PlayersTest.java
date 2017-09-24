@@ -2,6 +2,8 @@ package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Java6Assertions.*;
 
 /**
@@ -43,10 +45,22 @@ public class PlayersTest {
         Players actual = target.selectStudioPlayers();
         assertThat(actual)
                 .isNotNull();
+        System.out.println("actual:" + actual);
         assertThat(actual.playerSize())
                 .isNotNull()
                 .isEqualTo(4);
-        System.out.println("actual:" + actual);
     }
 
+    @Test
+    public void asList() throws Exception {
+        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PAYERS);
+        List<Player> actual = target.asList();
+        assertThat(actual)
+                .isNotNull();
+        System.out.println("actual:" + actual);
+        assertThat(actual.size())
+                .isNotNull()
+                .isEqualTo(6);
+
+    }
 }

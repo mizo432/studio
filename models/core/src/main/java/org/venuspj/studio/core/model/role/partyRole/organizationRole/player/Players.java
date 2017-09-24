@@ -7,6 +7,8 @@ import org.venuspj.util.objects2.Objects2;
 import java.util.Iterator;
 import java.util.List;
 
+import static org.venuspj.util.collect.Lists2.*;
+
 public class Players implements Entities<Player> {
 
     List<Player> list = Lists2.newArrayList();
@@ -47,7 +49,7 @@ public class Players implements Entities<Player> {
 
     @Override
     public List<Player> asList() {
-        return Lists2.unmodifiableList(list);
+        return unmodifiableList(list);
 
     }
 

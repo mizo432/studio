@@ -37,6 +37,6 @@ public class Events implements Iterable<Event>, Entities<Event> {
 
     @Override
     public List<Event> asList() {
-        return list;
+        return unmodifiableList(list);
     }
 }
