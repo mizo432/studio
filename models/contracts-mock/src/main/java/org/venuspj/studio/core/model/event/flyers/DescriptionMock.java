@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event;
+package org.venuspj.studio.core.model.event.flyers;
 
 import org.venuspj.studio.generic.fundamentals.description.Description;
 import org.venuspj.util.strings2.Strings2;

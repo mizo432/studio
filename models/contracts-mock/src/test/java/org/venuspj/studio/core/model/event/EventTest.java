@@ -1,7 +1,7 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event;
+package org.venuspj.studio.core.model.event;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.event.Event;
+import org.venuspj.studio.core.model.event.flyers.EventMock;
 import org.venuspj.util.dateProvider.StaticDateTimeProvider;
 
 import java.time.LocalDateTime;
@@ -54,7 +54,7 @@ public class EventTest {
         Event target = EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
         int actual = target.hashCode();
         assertThat(actual)
-                .isEqualTo(-1074738143);
+                .isEqualTo(-1215747192);
     }
 
     @Test

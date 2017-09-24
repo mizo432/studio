@@ -5,6 +5,9 @@ import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventRepositoryMock;
 import org.venuspj.studio.core.model.event.Events;
+import org.venuspj.studio.core.model.event.flyers.EventIdMock;
+import org.venuspj.studio.core.model.event.flyers.EventMock;
+import org.venuspj.studio.core.model.event.flyers.EventsMock;
 
 import static org.assertj.core.api.Java6Assertions.*;
 

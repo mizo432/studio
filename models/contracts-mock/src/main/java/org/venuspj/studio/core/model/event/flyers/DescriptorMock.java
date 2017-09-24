@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.event;
+package org.venuspj.studio.core.model.event.flyers;
 
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.generic.fundamentals.name.NameMock;

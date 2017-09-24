@@ -1,7 +1,7 @@
 package org.venuspj.studio.core.model.event.eventOutline;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.OutlineMock;
+import org.venuspj.studio.core.model.event.flyers.OutlineMock;
 
 import static org.assertj.core.api.Java6Assertions.*;
 

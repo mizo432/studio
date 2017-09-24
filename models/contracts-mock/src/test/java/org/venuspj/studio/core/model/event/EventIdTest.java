@@ -2,7 +2,7 @@ package org.venuspj.studio.core.model.event;
 
 import org.junit.Test;
 import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
+import org.venuspj.studio.core.model.event.flyers.EventIdMock;
 
 import java.util.UUID;
 

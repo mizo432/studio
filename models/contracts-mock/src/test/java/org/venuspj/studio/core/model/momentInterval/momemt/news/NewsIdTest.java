@@ -2,7 +2,7 @@ package org.venuspj.studio.core.model.momentInterval.momemt.news;
 
 import org.junit.Test;
 import org.venuspj.studio.core.model.event.EventId;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.EventIdMock;
+import org.venuspj.studio.core.model.event.flyers.EventIdMock;
 
 import static org.assertj.core.api.Java6Assertions.*;
 

@@ -7,20 +7,39 @@ import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
 
 public class Event extends AbstractEntity<Event> {
-    Outline anOutline;
-    Descriptor aDescriptor;
-    Flyers flyers;
+    boolean isBlank = false;
+    private Outline outline;
+    private Descriptor descriptor;
+    private Flyers flyers;
 
     public Event(EntityIdentifier<Event> anIdentifier, Outline anOutline,
                  Descriptor aDescriptor, Flyers anyFlyers) {
         super(anIdentifier);
+        outline = anOutline;
+        descriptor = aDescriptor;
+        flyers = anyFlyers;
+    }
+
+    public Event() {
+        isBlank = true;
+
     }
 
     public static Event blankEvent() {
-        return null;
+        return new Event();
     }
 
     public Outline outline() {
-        return null;
+        return outline;
+    }
+
+    @Override
+    public String toString() {
+        return string()
+                .add("outline", outline)
+                .add("descriptor", descriptor)
+                .add("flyers", flyers)
+                .omitNullValues()
+                .toString();
     }
 }
