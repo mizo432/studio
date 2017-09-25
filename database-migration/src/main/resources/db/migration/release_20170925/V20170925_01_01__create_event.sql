@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS `event`;
+
+CREATE TABLE IF NOT EXISTS `event` (
+  event_id INTEGER AUTO_INCREMENT COMMENT 'イベントID',
+  PRIMARY KEY (event_id)
+);
+

@@ -3,8 +3,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/studiout
-    username: root
-    password: shishi16
+    username: studio
+    password: shishi1231
 
 # Doma2 Reference URL <https://github.com/domaframework/doma-spring-boot>
 doma:

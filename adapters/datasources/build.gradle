@@ -56,8 +56,8 @@ task domaGen << {
     def rootPackageName = 'org.venuspj.studio.adapter.doma'
     def daoPackagePath = 'src/main/java/org/venuspj/studio/adapter/doma/dao'
     def dbUrl = 'jdbc:mysql://localhost:3306/studiout'
-    def dbUser = 'root'
-    def dbPassword = 'shishi16'
+    def dbUser = 'studio'
+    def dbPassword = 'shishi1231'
     def tableNamePattern = '.*'
     // おそらく変更不要なもの
     def importOfComponentAndAutowiredDomaConfig = "${rootPackageName}.ComponentAndAutowiredDomaConfig"
