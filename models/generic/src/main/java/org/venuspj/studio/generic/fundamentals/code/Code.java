@@ -29,4 +29,9 @@ public class Code implements StringValue {
         if (this == obj) return true;
         return obj instanceof Code && equal(value, ((Code) obj).value);
     }
+
+    @Override
+    public int hashCode() {
+        return hash(value);
+    }
 }
