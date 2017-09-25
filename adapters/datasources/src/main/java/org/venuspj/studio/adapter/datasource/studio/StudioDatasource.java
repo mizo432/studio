@@ -3,7 +3,7 @@ package org.venuspj.studio.adapter.datasource.studio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.adapter.doma.dao.StudioDao;
+import org.venuspj.studio.adapter.doma.dao.StudiosDao;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioRepository;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studios;
@@ -12,11 +12,11 @@ import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Stud
  */
 @Repository
 public class StudioDatasource implements StudioRepository {
-    private final StudioDao studioDao;
+    private final StudiosDao studiosDao;
 
     @Autowired
-    StudioDatasource(StudioDao aStudioDao) {
-        studioDao = aStudioDao;
+    StudioDatasource(StudiosDao aStudiosDao) {
+        studiosDao = aStudiosDao;
 
     }
 
