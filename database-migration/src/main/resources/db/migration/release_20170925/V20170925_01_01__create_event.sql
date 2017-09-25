@@ -4,7 +4,7 @@
 DROP TABLE IF EXISTS `studios`;
 
 CREATE TABLE IF NOT EXISTS `studios` (
-  studio_id VARCHAR(255) COMMENT 'スタジオID',
+  studio_id VARCHAR(26) COMMENT 'スタジオID',
   studio_name_prefix VARCHAR(255) COMMENT 'スタジオ名称接頭',
   studio_name VARCHAR(255) NOT NULL COMMENT 'スタジオ名称',
   studio_name_postfix VARCHAR(255) COMMENT 'スタジオ名称接尾',
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `players`;
   プレイヤー
  */
 CREATE TABLE IF NOT EXISTS `players` (
-  player_id VARCHAR(255) COMMENT 'プレイヤーID',
+  player_id VARCHAR(26) COMMENT 'プレイヤーID',
   topic_name VARCHAR(255) NOT NULL COMMENT 'トピック名称',
   topic_record_date DATETIME NOT NULL COMMENT 'トピック日時',
   topic_publish_date DATETIME NOT NULL COMMENT 'トピック公開日時',
@@ -39,8 +39,8 @@ DROP TABLE IF EXISTS `studio_player_x_members`;
  */
 DROP TABLE IF EXISTS `studio_players`;
 CREATE TABLE IF NOT EXISTS `studio_players` (
-  studio_player_id VARCHAR(255) COMMENT 'スタジオプレイヤーID',
-  player_id VARCHAR(255) NOT NULL COMMENT 'プレイヤーID',
+  studio_player_id VARCHAR(26) COMMENT 'スタジオプレイヤーID',
+  player_id VARCHAR(26) NOT NULL COMMENT 'プレイヤーID',
   studio_name_prefix VARCHAR(255) COMMENT 'プレイヤー名称接頭',
   studio_name_postfix VARCHAR(255) COMMENT 'プレイヤー名称接尾',
   studio_player_path VARCHAR(255) NOT NULL COMMENT 'プレイヤーページパス',
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `studio_players` (
 DROP TABLE IF EXISTS `studio_player_x_members`;
 
 CREATE TABLE IF NOT EXISTS `studio_player_members` (
-  studio_player_member_id VARCHAR(255) COMMENT 'スタジオプレイヤーID',
+  studio_player_member_id VARCHAR(26) COMMENT 'スタジオプレイヤーID',
   studio_player_member_name VARCHAR(255) NOT NULL COMMENT 'プレイヤーメンバー名称',
   display_order_number INTEGER NOT NULL COMMENT '表示順',
   created_at DATETIME NOT NULL COMMENT 'データ作成日時',
@@ -71,8 +71,8 @@ CREATE TABLE IF NOT EXISTS `studio_player_members` (
 　　スタジオプレーヤーメンバー所属
 */
 CREATE TABLE IF NOT EXISTS `studio_player_x_members` (
-  studio_player_id VARCHAR(255) NOT NULL COMMENT 'プレイヤーID',
-  studio_player_member_id VARCHAR(255) COMMENT 'スタジオプレイヤーID',
+  studio_player_id VARCHAR(26) NOT NULL COMMENT 'プレイヤーID',
+  studio_player_member_id VARCHAR(26) COMMENT 'スタジオプレイヤーID',
   created_at DATETIME NOT NULL COMMENT 'データ作成日時',
   created_by VARCHAR(26) NOT NULL COMMENT 'データ作成者ID',
   PRIMARY KEY (studio_player_id, studio_player_member_id)
@@ -146,9 +146,26 @@ CREATE TABLE IF NOT EXISTS `news` (
   スタジオプレイヤーニュース
  */
 CREATE TABLE IF NOT EXISTS `studio_player_x_news` (
-  studio_player_id VARCHAR(255) NOT NULL COMMENT 'プレイヤーID',
-  topic_id VARCHAR(255) COMMENT 'トピックID',
+  studio_player_id VARCHAR(26) NOT NULL COMMENT 'プレイヤーID',
+  topic_id INTEGER COMMENT 'トピックID',
   created_at DATETIME NOT NULL COMMENT 'データ作成日時',
   created_by VARCHAR(26) NOT NULL COMMENT 'データ作成者ID',
   PRIMARY KEY (studio_player_id, topic_id)
 );
+
+/**
+  リンク
+ */
+DROP TABLE IF EXISTS `links`;
+
+CREATE TABLE IF NOT EXISTS `links` (
+  link_id INTEGER AUTO_INCREMENT COMMENT 'リンクID',
+  link_name VARCHAR(255) NOT NULL COMMENT 'リンク名称',
+  link_uri VARCHAR(255) COMMENT 'リンクURI',
+  link_kind VARCHAR(255) COMMENT 'リンク種類',
+  created_at DATETIME NOT NULL COMMENT 'データ作成日時',
+  created_by VARCHAR(26) NOT NULL COMMENT 'データ作成者ID',
+  PRIMARY KEY (link_id)
+);
+
+
