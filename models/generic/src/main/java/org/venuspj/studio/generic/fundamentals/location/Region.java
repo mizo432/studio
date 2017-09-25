@@ -3,7 +3,7 @@ package org.venuspj.studio.generic.fundamentals.location;
 import org.venuspj.studio.generic.fundamentals.caption.Caption;
 import org.venuspj.studio.generic.fundamentals.code.Code;
 
-import static org.venuspj.util.objects2.Objects2.isNull;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public enum Region {
     hokkaido("rgn01", "北海道"),
@@ -30,7 +30,7 @@ public enum Region {
         this.label = new Caption(label);
     }
 
-    public static Region of(String label) {
+    public static Region of(Caption label) {
         if (isNull(label)) return unknown;
         for (Region region : Region.values()) {
             if (region.label.equals(label)) return region;
@@ -47,7 +47,7 @@ public enum Region {
     }
 
     public boolean isSameCode(String code) {
-        return this.code.equals(code);
+        return this.code.equals(new Code(code));
     }
 
     public Code code() {

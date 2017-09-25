@@ -13,7 +13,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 /**
- * 
+ *
  */
 public class VenuesDaoTest extends TestCase {
 
@@ -56,7 +56,6 @@ public class VenuesDaoTest extends TestCase {
     }
 
     /**
-     * 
      * @param sqlFile
      * @throws Exception
      */
@@ -80,7 +79,6 @@ public class VenuesDaoTest extends TestCase {
     }
 
     /**
-     * 
      * @return
      * @throws Exception
      */
@@ -89,16 +87,14 @@ public class VenuesDaoTest extends TestCase {
     }
 
     /**
-     * 
      * @return method
      * @throws Exception
      */
     protected Method getMethod() throws Exception {
-        return getClass().getMethod(getName(), new Class[] {});
+        return getClass().getMethod(getName(), new Class[]{});
     }
 
     /**
-     * 
      * @throws Exception
      */
     public void testSelectById() throws Exception {
