@@ -31,4 +31,7 @@ public class MapPosition implements ValueObject {
                 .toString();
     }
 
+    public static MapPosition emptyMapPosition() {
+        return new MapPosition(Latitude.emptyLatitude(),Longitude.emptyLongitude());
+    }
 }

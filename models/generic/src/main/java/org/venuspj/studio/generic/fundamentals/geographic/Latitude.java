@@ -17,7 +17,7 @@ public class Latitude implements Serializable {
         return Strings2.isEmpty(value) || "0.0".equals(value);
     }
 
-    public String asText(){
+    public String asText() {
         return value;
     }
 
@@ -26,5 +26,9 @@ public class Latitude implements Serializable {
         return toStringHelper(this)
                 .addValue(value)
                 .toString();
+    }
+
+    public static Latitude emptyLatitude() {
+        return new Latitude("");
     }
 }
