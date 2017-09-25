@@ -2,39 +2,39 @@ package org.venuspj.studio.adapter.doma.dao;
 
 import org.seasar.doma.*;
 import org.venuspj.studio.adapter.doma.ComponentAndAutowiredDomaConfig;
-import org.venuspj.studio.adapter.doma.entity.Event;
+import org.venuspj.studio.adapter.doma.entity.Venues;
 
 /**
  */
 @Dao
 @ComponentAndAutowiredDomaConfig
-public interface EventDao {
+public interface VenuesDao {
 
     /**
-     * @param eventId
-     * @return the Event entity
+     * @param venueId
+     * @return the Venues entity
      */
     @Select
-    Event selectById(Integer eventId);
+    Venues selectById(Integer venueId);
 
     /**
      * @param entity
      * @return affected rows
      */
     @Insert
-    int insert(Event entity);
+    int insert(Venues entity);
 
     /**
      * @param entity
      * @return affected rows
      */
     @Update
-    int update(Event entity);
+    int update(Venues entity);
 
     /**
      * @param entity
      * @return affected rows
      */
     @Delete
-    int delete(Event entity);
+    int delete(Venues entity);
 }

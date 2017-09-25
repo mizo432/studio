@@ -1,7 +1,7 @@
 ext {
     database = [
-        user: "root",
-        password: "root",
-        url: "jdbc:mysql://localhost:3306"
+            user: "studio",
+            password: "shishi1231",
+            url: "jdbc:mysql://localhost:3306/studiodevelop"
     ]
 }

@@ -12,7 +12,7 @@ public class PrefectureCodeTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(PrefectureCodeTest.class);
 
     public static PrefectureCode createDummy() {
-        return new PrefectureCode(12);
+        return new PrefectureCode("12");
     }
 
     @Test
@@ -40,15 +40,6 @@ public class PrefectureCodeTest {
         assertThat(actual)
                 .isNotNull()
                 .isEqualTo("12");
-    }
-
-    @Test
-    public void asInteger() throws Exception {
-        PrefectureCode target = createDummy();
-        Integer actual = target.asInteger();
-        assertThat(actual)
-                .isNotNull()
-                .isEqualTo(12);
     }
 
 }

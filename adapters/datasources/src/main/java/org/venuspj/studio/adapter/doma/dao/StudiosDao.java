@@ -2,39 +2,39 @@ package org.venuspj.studio.adapter.doma.dao;
 
 import org.seasar.doma.*;
 import org.venuspj.studio.adapter.doma.ComponentAndAutowiredDomaConfig;
-import org.venuspj.studio.adapter.doma.entity.Studio;
+import org.venuspj.studio.adapter.doma.entity.Studios;
 
 /**
  */
 @Dao
 @ComponentAndAutowiredDomaConfig
-public interface StudioDao {
+public interface StudiosDao {
 
     /**
-     * @param studioCode
-     * @return the Studio entity
+     * @param studioId
+     * @return the Studios entity
      */
     @Select
-    Studio selectById(String studioCode);
+    Studios selectById(String studioId);
 
     /**
      * @param entity
      * @return affected rows
      */
     @Insert
-    int insert(Studio entity);
+    int insert(Studios entity);
 
     /**
      * @param entity
      * @return affected rows
      */
     @Update
-    int update(Studio entity);
+    int update(Studios entity);
 
     /**
      * @param entity
      * @return affected rows
      */
     @Delete
-    int delete(Studio entity);
+    int delete(Studios entity);
 }

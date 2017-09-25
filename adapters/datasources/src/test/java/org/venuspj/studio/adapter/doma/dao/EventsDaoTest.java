@@ -15,7 +15,7 @@ import java.sql.Statement;
 /**
  *
  */
-public class StudioDaoTest extends TestCase {
+public class EventsDaoTest extends TestCase {
 
     /** */
     protected SqlFileRepository repository;
@@ -45,8 +45,8 @@ public class StudioDaoTest extends TestCase {
         driver = driverClass.newInstance();
         DriverManager.registerDriver(driver);
         url = "jdbc:mysql://localhost:3306/studiout";
-        user = "root";
-        password = "shishi16";
+        user = "studio";
+        password = "Shishi1231";
     }
 
     @Override
@@ -98,7 +98,7 @@ public class StudioDaoTest extends TestCase {
      * @throws Exception
      */
     public void testSelectById() throws Exception {
-        SqlFile sqlFile = repository.getSqlFile(getMethod(), "META-INF/org/venuspj/studio/adapter/doma/dao/StudioDao/selectById.sql", dialect);
+        SqlFile sqlFile = repository.getSqlFile(getMethod(), "META-INF/org/venuspj/studio/adapter/doma/dao/EventsDao/selectById.sql", dialect);
         execute(sqlFile);
     }
 

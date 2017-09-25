@@ -3,6 +3,7 @@ package org.venuspj.studio.generic.fundamentals.address.prefecture;
 import org.junit.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.venuspj.util.collect.Lists2.newArrayList;
 
 public class PrefecturesText {
     @Test
@@ -24,7 +25,7 @@ public class PrefecturesText {
     }
     @Test
     public void toString2() throws Exception {
-        Prefectures target = new Prefectures();
+        Prefectures target = new Prefectures(newArrayList());
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();

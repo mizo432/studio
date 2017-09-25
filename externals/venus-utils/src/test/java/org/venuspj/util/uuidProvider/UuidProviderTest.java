@@ -9,5 +9,7 @@ public class UuidProviderTest {
     public void randomUUID() throws Exception {
         UUID actual = UuidProvider.randomUUID();
         System.out.println("actual:" + actual);
+        System.out.println("actual.toString().length():" + actual.toString().length());
+
     }
 }

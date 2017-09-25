@@ -1,6 +1,6 @@
 select
   /*%expand*/*
 from
-  event
+  events
 where
   event_id = /* eventId */1

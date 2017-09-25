@@ -3,7 +3,7 @@ package org.venuspj.studio.adapter.datasource.event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.adapter.doma.dao.EventDao;
+import org.venuspj.studio.adapter.doma.dao.EventsDao;
 import org.venuspj.studio.core.fundamentals.contact.Contact;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.fundamentals.place.Place;
@@ -24,17 +24,17 @@ import static org.venuspj.util.objects2.Objects2.*;
  */
 @Repository
 public class EventDatasource implements EventRepository {
-    private EventDao eventDao;
+    private EventsDao eventsDao;
 
     @Autowired
-    EventDatasource(EventDao anEventDao) {
-        eventDao = anEventDao;
+    EventDatasource(EventsDao anEventsDao) {
+        eventsDao = anEventsDao;
     }
 
     @Override
     public Event resolve(EntityIdentifier<Event> anIdentifier) {
         EventId eventId = (EventId) anIdentifier;
-        org.venuspj.studio.adapter.doma.entity.Event work = eventDao.selectById(eventId.asInteger());
+        org.venuspj.studio.adapter.doma.entity.Events work = eventsDao.selectById(eventId.asInteger());
         if (nonNull(work)) {
             Place place = new Place(
                     Descriptor.defaultDescriptor(),
@@ -43,7 +43,7 @@ public class EventDatasource implements EventRepository {
                     SnsContacts.emptySnsContacts());
 
             Outline outline = new Outline(
-                    new RecordDate(work.getStartDateTime().toLocalDate()),
+                    new RecordDate(work.getEventStartDatetime().toLocalDate()),
                     Address.defaultAddress(),
                     PlayerIds.empty(),
                     place);

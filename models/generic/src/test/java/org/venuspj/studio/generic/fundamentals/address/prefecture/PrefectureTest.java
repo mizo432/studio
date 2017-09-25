@@ -1,16 +1,12 @@
 package org.venuspj.studio.generic.fundamentals.address.prefecture;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import static org.assertj.core.api.Java6Assertions.*;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
  */
 public class PrefectureTest {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(PrefectureTest.class);
 
     public static Prefecture createDummy() {
         return Prefecture.defaultPrefecture();
@@ -18,11 +14,11 @@ public class PrefectureTest {
 
     @Test
     public void testToString1() throws Exception {
-        Prefecture target = new Prefecture();
+        Prefecture target = Prefecture.unknown;
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + target.toString());
     }
 
     @Test
@@ -31,7 +27,7 @@ public class PrefectureTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        LOGGER.debug("actual:" + target.toString());
+        System.out.println("actual:" + target.toString());
     }
 
 }
