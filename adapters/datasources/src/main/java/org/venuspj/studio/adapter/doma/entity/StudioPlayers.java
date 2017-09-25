@@ -23,17 +23,13 @@ public class StudioPlayers {
     @Column(name = "player_id")
     String playerId;
 
-    /** プレイヤー名称接頭 */
-    @Column(name = "studio_name_prefix")
-    String studioNamePrefix;
-
-    /** プレイヤー名称接尾 */
-    @Column(name = "studio_name_postfix")
-    String studioNamePostfix;
-
     /** プレイヤーページパス */
     @Column(name = "studio_player_path")
     String studioPlayerPath;
+
+    /** プレイヤー名称接頭 */
+    @Column(name = "studio_player_name_prefix")
+    String studioPlayerNamePrefix;
 
     /** プレイヤー名称接尾 */
     @Column(name = "studio_player_name_postfix")
@@ -96,42 +92,6 @@ public class StudioPlayers {
     }
 
     /** 
-     * Returns the studioNamePrefix.
-     * 
-     * @return the studioNamePrefix
-     */
-    public String getStudioNamePrefix() {
-        return studioNamePrefix;
-    }
-
-    /** 
-     * Sets the studioNamePrefix.
-     * 
-     * @param studioNamePrefix the studioNamePrefix
-     */
-    public void setStudioNamePrefix(String studioNamePrefix) {
-        this.studioNamePrefix = studioNamePrefix;
-    }
-
-    /** 
-     * Returns the studioNamePostfix.
-     * 
-     * @return the studioNamePostfix
-     */
-    public String getStudioNamePostfix() {
-        return studioNamePostfix;
-    }
-
-    /** 
-     * Sets the studioNamePostfix.
-     * 
-     * @param studioNamePostfix the studioNamePostfix
-     */
-    public void setStudioNamePostfix(String studioNamePostfix) {
-        this.studioNamePostfix = studioNamePostfix;
-    }
-
-    /** 
      * Returns the studioPlayerPath.
      * 
      * @return the studioPlayerPath
@@ -147,6 +107,24 @@ public class StudioPlayers {
      */
     public void setStudioPlayerPath(String studioPlayerPath) {
         this.studioPlayerPath = studioPlayerPath;
+    }
+
+    /** 
+     * Returns the studioPlayerNamePrefix.
+     * 
+     * @return the studioPlayerNamePrefix
+     */
+    public String getStudioPlayerNamePrefix() {
+        return studioPlayerNamePrefix;
+    }
+
+    /** 
+     * Sets the studioPlayerNamePrefix.
+     * 
+     * @param studioPlayerNamePrefix the studioPlayerNamePrefix
+     */
+    public void setStudioPlayerNamePrefix(String studioPlayerNamePrefix) {
+        this.studioPlayerNamePrefix = studioPlayerNamePrefix;
     }
 
     /** 

@@ -19,21 +19,9 @@ public class Players {
     @Column(name = "player_id")
     String playerId;
 
-    /** トピック名称 */
-    @Column(name = "topic_name")
-    String topicName;
-
-    /** トピック日時 */
-    @Column(name = "topic_record_date")
-    LocalDateTime topicRecordDate;
-
-    /** トピック公開日時 */
-    @Column(name = "topic_publish_date")
-    LocalDateTime topicPublishDate;
-
-    /** トピック詳細 */
-    @Column(name = "topic_description")
-    String topicDescription;
+    /** プレイヤー名称 */
+    @Column(name = "player_name")
+    String playerName;
 
     /** データ作成日時 */
     @Column(name = "created_at")
@@ -62,75 +50,21 @@ public class Players {
     }
 
     /** 
-     * Returns the topicName.
+     * Returns the playerName.
      * 
-     * @return the topicName
+     * @return the playerName
      */
-    public String getTopicName() {
-        return topicName;
+    public String getPlayerName() {
+        return playerName;
     }
 
     /** 
-     * Sets the topicName.
+     * Sets the playerName.
      * 
-     * @param topicName the topicName
+     * @param playerName the playerName
      */
-    public void setTopicName(String topicName) {
-        this.topicName = topicName;
-    }
-
-    /** 
-     * Returns the topicRecordDate.
-     * 
-     * @return the topicRecordDate
-     */
-    public LocalDateTime getTopicRecordDate() {
-        return topicRecordDate;
-    }
-
-    /** 
-     * Sets the topicRecordDate.
-     * 
-     * @param topicRecordDate the topicRecordDate
-     */
-    public void setTopicRecordDate(LocalDateTime topicRecordDate) {
-        this.topicRecordDate = topicRecordDate;
-    }
-
-    /** 
-     * Returns the topicPublishDate.
-     * 
-     * @return the topicPublishDate
-     */
-    public LocalDateTime getTopicPublishDate() {
-        return topicPublishDate;
-    }
-
-    /** 
-     * Sets the topicPublishDate.
-     * 
-     * @param topicPublishDate the topicPublishDate
-     */
-    public void setTopicPublishDate(LocalDateTime topicPublishDate) {
-        this.topicPublishDate = topicPublishDate;
-    }
-
-    /** 
-     * Returns the topicDescription.
-     * 
-     * @return the topicDescription
-     */
-    public String getTopicDescription() {
-        return topicDescription;
-    }
-
-    /** 
-     * Sets the topicDescription.
-     * 
-     * @param topicDescription the topicDescription
-     */
-    public void setTopicDescription(String topicDescription) {
-        this.topicDescription = topicDescription;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     /** 
