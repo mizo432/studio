@@ -68,3 +68,4 @@ models/generic/gradlew
 models/generic/gradlew.bat
 models/generic/gradle/wrapper/gradle-wrapper.jar
 models/generic/gradle/wrapper/gradle-wrapper.properties
+adapters/datasources/work
