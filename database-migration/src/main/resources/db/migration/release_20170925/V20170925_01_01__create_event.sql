@@ -208,4 +208,20 @@ CREATE TABLE IF NOT EXISTS `links` (
   PRIMARY KEY (link_id)
 );
 
+/**
+  リンク
+ */
+DROP TABLE IF EXISTS `twitter_accounts`;
+
+CREATE TABLE IF NOT EXISTS `twitter_accounts` (
+  twitter_accounts_id    INTEGER AUTO_INCREMENT
+  COMMENT 'ツイッターアカウントID',
+  twitter_id  VARCHAR(255) NOT NULL
+  COMMENT 'ツイッターID',
+  created_at DATETIME     NOT NULL
+  COMMENT 'データ作成日時',
+  created_by VARCHAR(26)  NOT NULL
+  COMMENT 'データ作成者ID',
+  PRIMARY KEY (twitter_accounts_id)
+);
 
