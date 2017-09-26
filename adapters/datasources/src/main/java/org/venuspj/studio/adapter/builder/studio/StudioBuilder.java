@@ -2,7 +2,7 @@ package org.venuspj.studio.adapter.builder.studio;
 
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
-import org.venuspj.studio.core.model.ppt.organization.Organization;
+import org.venuspj.studio.core.model.ppt.party.organization.Organization;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.profile.Profile;
 import org.venuspj.studio.generic.fundamentals.name.Name;
