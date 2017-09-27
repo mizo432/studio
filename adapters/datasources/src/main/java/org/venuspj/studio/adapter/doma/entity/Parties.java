@@ -3,6 +3,8 @@ package org.venuspj.studio.adapter.doma.entity;
 import java.time.LocalDateTime;
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
+import org.seasar.doma.GeneratedValue;
+import org.seasar.doma.GenerationType;
 import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 
@@ -10,18 +12,14 @@ import org.seasar.doma.Table;
  * 
  */
 @Entity
-@Table(name = "studio_player_x_members")
-public class StudioPlayerXMembers {
+@Table(name = "parties")
+public class Parties {
 
-    /** プレイヤーID */
+    /** パーティーID */
     @Id
-    @Column(name = "studio_player_id")
-    String studioPlayerId;
-
-    /** スタジオプレイヤーID */
-    @Id
-    @Column(name = "studio_player_member_id")
-    String studioPlayerMemberId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "party_id")
+    Integer partyId;
 
     /** データ作成日時 */
     @Column(name = "created_at")
@@ -32,39 +30,21 @@ public class StudioPlayerXMembers {
     String createdBy;
 
     /** 
-     * Returns the studioPlayerId.
+     * Returns the partyId.
      * 
-     * @return the studioPlayerId
+     * @return the partyId
      */
-    public String getStudioPlayerId() {
-        return studioPlayerId;
+    public Integer getPartyId() {
+        return partyId;
     }
 
     /** 
-     * Sets the studioPlayerId.
+     * Sets the partyId.
      * 
-     * @param studioPlayerId the studioPlayerId
+     * @param partyId the partyId
      */
-    public void setStudioPlayerId(String studioPlayerId) {
-        this.studioPlayerId = studioPlayerId;
-    }
-
-    /** 
-     * Returns the studioPlayerMemberId.
-     * 
-     * @return the studioPlayerMemberId
-     */
-    public String getStudioPlayerMemberId() {
-        return studioPlayerMemberId;
-    }
-
-    /** 
-     * Sets the studioPlayerMemberId.
-     * 
-     * @param studioPlayerMemberId the studioPlayerMemberId
-     */
-    public void setStudioPlayerMemberId(String studioPlayerMemberId) {
-        this.studioPlayerMemberId = studioPlayerMemberId;
+    public void setPartyId(Integer partyId) {
+        this.partyId = partyId;
     }
 
     /** 

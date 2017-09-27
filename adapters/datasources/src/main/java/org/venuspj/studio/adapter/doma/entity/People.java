@@ -10,18 +10,17 @@ import org.seasar.doma.Table;
  * 
  */
 @Entity
-@Table(name = "studio_player_x_members")
-public class StudioPlayerXMembers {
+@Table(name = "people")
+public class People {
 
-    /** プレイヤーID */
+    /** パーティーID */
     @Id
-    @Column(name = "studio_player_id")
-    String studioPlayerId;
+    @Column(name = "party_id")
+    Integer partyId;
 
-    /** スタジオプレイヤーID */
-    @Id
-    @Column(name = "studio_player_member_id")
-    String studioPlayerMemberId;
+    /** 名称 */
+    @Column(name = "name")
+    String name;
 
     /** データ作成日時 */
     @Column(name = "created_at")
@@ -32,39 +31,39 @@ public class StudioPlayerXMembers {
     String createdBy;
 
     /** 
-     * Returns the studioPlayerId.
+     * Returns the partyId.
      * 
-     * @return the studioPlayerId
+     * @return the partyId
      */
-    public String getStudioPlayerId() {
-        return studioPlayerId;
+    public Integer getPartyId() {
+        return partyId;
     }
 
     /** 
-     * Sets the studioPlayerId.
+     * Sets the partyId.
      * 
-     * @param studioPlayerId the studioPlayerId
+     * @param partyId the partyId
      */
-    public void setStudioPlayerId(String studioPlayerId) {
-        this.studioPlayerId = studioPlayerId;
+    public void setPartyId(Integer partyId) {
+        this.partyId = partyId;
     }
 
     /** 
-     * Returns the studioPlayerMemberId.
+     * Returns the name.
      * 
-     * @return the studioPlayerMemberId
+     * @return the name
      */
-    public String getStudioPlayerMemberId() {
-        return studioPlayerMemberId;
+    public String getName() {
+        return name;
     }
 
     /** 
-     * Sets the studioPlayerMemberId.
+     * Sets the name.
      * 
-     * @param studioPlayerMemberId the studioPlayerMemberId
+     * @param name the name
      */
-    public void setStudioPlayerMemberId(String studioPlayerMemberId) {
-        this.studioPlayerMemberId = studioPlayerMemberId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /** 

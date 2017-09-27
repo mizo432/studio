@@ -3,6 +3,8 @@ package org.venuspj.studio.adapter.doma.entity;
 import java.time.LocalDateTime;
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
+import org.seasar.doma.GeneratedValue;
+import org.seasar.doma.GenerationType;
 import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 
@@ -10,18 +12,18 @@ import org.seasar.doma.Table;
  * 
  */
 @Entity
-@Table(name = "studio_player_x_members")
-public class StudioPlayerXMembers {
+@Table(name = "twitter_accounts")
+public class TwitterAccounts {
 
-    /** プレイヤーID */
+    /** ツイッターアカウントID */
     @Id
-    @Column(name = "studio_player_id")
-    String studioPlayerId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "twitter_accounts_id")
+    Integer twitterAccountsId;
 
-    /** スタジオプレイヤーID */
-    @Id
-    @Column(name = "studio_player_member_id")
-    String studioPlayerMemberId;
+    /** ツイッターID */
+    @Column(name = "twitter_id")
+    String twitterId;
 
     /** データ作成日時 */
     @Column(name = "created_at")
@@ -32,39 +34,39 @@ public class StudioPlayerXMembers {
     String createdBy;
 
     /** 
-     * Returns the studioPlayerId.
+     * Returns the twitterAccountsId.
      * 
-     * @return the studioPlayerId
+     * @return the twitterAccountsId
      */
-    public String getStudioPlayerId() {
-        return studioPlayerId;
+    public Integer getTwitterAccountsId() {
+        return twitterAccountsId;
     }
 
     /** 
-     * Sets the studioPlayerId.
+     * Sets the twitterAccountsId.
      * 
-     * @param studioPlayerId the studioPlayerId
+     * @param twitterAccountsId the twitterAccountsId
      */
-    public void setStudioPlayerId(String studioPlayerId) {
-        this.studioPlayerId = studioPlayerId;
+    public void setTwitterAccountsId(Integer twitterAccountsId) {
+        this.twitterAccountsId = twitterAccountsId;
     }
 
     /** 
-     * Returns the studioPlayerMemberId.
+     * Returns the twitterId.
      * 
-     * @return the studioPlayerMemberId
+     * @return the twitterId
      */
-    public String getStudioPlayerMemberId() {
-        return studioPlayerMemberId;
+    public String getTwitterId() {
+        return twitterId;
     }
 
     /** 
-     * Sets the studioPlayerMemberId.
+     * Sets the twitterId.
      * 
-     * @param studioPlayerMemberId the studioPlayerMemberId
+     * @param twitterId the twitterId
      */
-    public void setStudioPlayerMemberId(String studioPlayerMemberId) {
-        this.studioPlayerMemberId = studioPlayerMemberId;
+    public void setTwitterId(String twitterId) {
+        this.twitterId = twitterId;
     }
 
     /** 

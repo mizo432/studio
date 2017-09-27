@@ -3,6 +3,8 @@ package org.venuspj.studio.adapter.doma.entity;
 import java.time.LocalDateTime;
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
+import org.seasar.doma.GeneratedValue;
+import org.seasar.doma.GenerationType;
 import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 
@@ -10,18 +12,14 @@ import org.seasar.doma.Table;
  * 
  */
 @Entity
-@Table(name = "studio_player_x_members")
-public class StudioPlayerXMembers {
+@Table(name = "places")
+public class Places {
 
-    /** プレイヤーID */
+    /** 場所ID */
     @Id
-    @Column(name = "studio_player_id")
-    String studioPlayerId;
-
-    /** スタジオプレイヤーID */
-    @Id
-    @Column(name = "studio_player_member_id")
-    String studioPlayerMemberId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "place_id")
+    Integer placeId;
 
     /** データ作成日時 */
     @Column(name = "created_at")
@@ -32,39 +30,21 @@ public class StudioPlayerXMembers {
     String createdBy;
 
     /** 
-     * Returns the studioPlayerId.
+     * Returns the placeId.
      * 
-     * @return the studioPlayerId
+     * @return the placeId
      */
-    public String getStudioPlayerId() {
-        return studioPlayerId;
+    public Integer getPlaceId() {
+        return placeId;
     }
 
     /** 
-     * Sets the studioPlayerId.
+     * Sets the placeId.
      * 
-     * @param studioPlayerId the studioPlayerId
+     * @param placeId the placeId
      */
-    public void setStudioPlayerId(String studioPlayerId) {
-        this.studioPlayerId = studioPlayerId;
-    }
-
-    /** 
-     * Returns the studioPlayerMemberId.
-     * 
-     * @return the studioPlayerMemberId
-     */
-    public String getStudioPlayerMemberId() {
-        return studioPlayerMemberId;
-    }
-
-    /** 
-     * Sets the studioPlayerMemberId.
-     * 
-     * @param studioPlayerMemberId the studioPlayerMemberId
-     */
-    public void setStudioPlayerMemberId(String studioPlayerMemberId) {
-        this.studioPlayerMemberId = studioPlayerMemberId;
+    public void setPlaceId(Integer placeId) {
+        this.placeId = placeId;
     }
 
     /** 

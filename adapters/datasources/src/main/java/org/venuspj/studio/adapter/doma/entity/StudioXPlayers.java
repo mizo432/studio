@@ -10,18 +10,18 @@ import org.seasar.doma.Table;
  * 
  */
 @Entity
-@Table(name = "studio_player_x_members")
-public class StudioPlayerXMembers {
+@Table(name = "studio_x_players")
+public class StudioXPlayers {
+
+    /** スタジオID */
+    @Id
+    @Column(name = "studio_id")
+    String studioId;
 
     /** プレイヤーID */
     @Id
-    @Column(name = "studio_player_id")
-    String studioPlayerId;
-
-    /** スタジオプレイヤーID */
-    @Id
-    @Column(name = "studio_player_member_id")
-    String studioPlayerMemberId;
+    @Column(name = "player_id")
+    String playerId;
 
     /** データ作成日時 */
     @Column(name = "created_at")
@@ -32,39 +32,39 @@ public class StudioPlayerXMembers {
     String createdBy;
 
     /** 
-     * Returns the studioPlayerId.
+     * Returns the studioId.
      * 
-     * @return the studioPlayerId
+     * @return the studioId
      */
-    public String getStudioPlayerId() {
-        return studioPlayerId;
+    public String getStudioId() {
+        return studioId;
     }
 
     /** 
-     * Sets the studioPlayerId.
+     * Sets the studioId.
      * 
-     * @param studioPlayerId the studioPlayerId
+     * @param studioId the studioId
      */
-    public void setStudioPlayerId(String studioPlayerId) {
-        this.studioPlayerId = studioPlayerId;
+    public void setStudioId(String studioId) {
+        this.studioId = studioId;
     }
 
     /** 
-     * Returns the studioPlayerMemberId.
+     * Returns the playerId.
      * 
-     * @return the studioPlayerMemberId
+     * @return the playerId
      */
-    public String getStudioPlayerMemberId() {
-        return studioPlayerMemberId;
+    public String getPlayerId() {
+        return playerId;
     }
 
     /** 
-     * Sets the studioPlayerMemberId.
+     * Sets the playerId.
      * 
-     * @param studioPlayerMemberId the studioPlayerMemberId
+     * @param playerId the playerId
      */
-    public void setStudioPlayerMemberId(String studioPlayerMemberId) {
-        this.studioPlayerMemberId = studioPlayerMemberId;
+    public void setPlayerId(String playerId) {
+        this.playerId = playerId;
     }
 
     /** 
