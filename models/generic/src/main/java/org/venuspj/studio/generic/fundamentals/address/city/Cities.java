@@ -1,15 +1,17 @@
 package org.venuspj.studio.generic.fundamentals.address.city;
 
 import org.venuspj.ddd.model.value.ListValue;
-import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
+import java.util.Iterator;
 import java.util.List;
+
+import static org.venuspj.util.collect.Lists2.newArrayList;
 
 /**
  */
 public class Cities implements ListValue<City> {
-    List<City> list = Lists2.newArrayList();
+    List<City> list = newArrayList();
 
     Cities() {
     }
@@ -33,5 +35,10 @@ public class Cities implements ListValue<City> {
                 .toStringHelper(this)
                 .addValue(list)
                 .toString();
+    }
+
+    @Override
+    public Iterator<City> iterator() {
+        return list.iterator();
     }
 }

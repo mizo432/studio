@@ -1,8 +1,15 @@
 package org.venuspj.studio.generic.model.ppt.party;
 
-import org.venuspj.studio.generic.model.ppt.PartyPlaceThingId;
+import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.util.objects2.Objects2;
+import org.venuspj.util.uuidProvider.UuidProvider;
 
-public class PartyId<E extends Party<E>> extends PartyPlaceThingId<E> {
+import static org.venuspj.util.objects2.Objects2.nonNull;
+
+public class PartyId extends AbstractEntityIdentifier<Party> {
+    private String value;
+
     protected PartyId() {
         this(Party.class);
 
@@ -14,12 +21,13 @@ public class PartyId<E extends Party<E>> extends PartyPlaceThingId<E> {
     }
 
     protected PartyId(Class<?> anEntityClass, String aValue) {
-        super(anEntityClass, aValue);
+        super(anEntityClass);
+        value = aValue;
 
     }
 
     public PartyId(String aValue) {
-        super(Party.class, aValue);
+        this(Party.class, aValue);
 
     }
 
@@ -27,4 +35,23 @@ public class PartyId<E extends Party<E>> extends PartyPlaceThingId<E> {
         return new PartyId();
     }
 
+    @Override
+    public String toString() {
+        return string()
+                .omitNullValues()
+                .toString();
+    }
+
+    protected Objects2.ToStringHelper string() {
+        return super.string()
+                .add("value", value);
+    }
+
+    public boolean isPresent() {
+        return nonNull(value);
+    }
+
+    public static EntityIdentifier<Party> newId() {
+        return new PartyId(UuidProvider.randomUUID().toString());
+    }
 }
