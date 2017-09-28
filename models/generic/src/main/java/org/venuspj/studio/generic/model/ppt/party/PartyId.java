@@ -5,6 +5,8 @@ import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.util.objects2.Objects2;
 import org.venuspj.util.uuidProvider.UuidProvider;
 
+import static org.venuspj.util.objects2.Objects2.equal;
+import static org.venuspj.util.objects2.Objects2.isNull;
 import static org.venuspj.util.objects2.Objects2.nonNull;
 
 public class PartyId extends AbstractEntityIdentifier<Party> {
@@ -53,5 +55,12 @@ public class PartyId extends AbstractEntityIdentifier<Party> {
 
     public static EntityIdentifier<Party> newId() {
         return new PartyId(UuidProvider.randomUUID().toString());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (isNull(o)) return false;
+        if (this == o) return true;
+        return o instanceof PartyId && super.equals(o) && equal(value, ((PartyId) o).value);
     }
 }
