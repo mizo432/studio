@@ -13,7 +13,7 @@ public class Code implements StringValue {
 
     @Override
     public String asText() {
-        return null;
+        return value;
     }
 
     @Override
@@ -33,5 +33,9 @@ public class Code implements StringValue {
     @Override
     public int hashCode() {
         return hash(value);
+    }
+
+    public boolean sameValueAs(Code aCode) {
+        return equals(aCode);
     }
 }
