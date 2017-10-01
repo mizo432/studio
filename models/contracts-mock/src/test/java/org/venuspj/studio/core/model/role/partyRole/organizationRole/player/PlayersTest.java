@@ -41,7 +41,7 @@ public class PlayersTest {
 
     @Test
     public void selectStudioPlayers() throws Exception {
-        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ALL_PLAYERS);
+        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS);
         Players actual = target.selectStudioPlayers();
         assertThat(actual)
                 .isNotNull();

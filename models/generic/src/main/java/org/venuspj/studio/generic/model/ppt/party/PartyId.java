@@ -68,4 +68,9 @@ public class PartyId<P extends Party<P>> extends AbstractEntityIdentifier<P> {
         if (this == o) return true;
         return o instanceof PartyId && super.equals(o) && equal(value, ((PartyId) o).value);
     }
+
+    @Override
+    public int hashCode() {
+        return hash(kind, value);
+    }
 }
