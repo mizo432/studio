@@ -3,76 +3,144 @@ package org.venuspj.studio.core.model.event.flyers;
 import org.venuspj.studio.core.fundamentals.place.Place;
 import org.venuspj.studio.core.fundamentals.place.PlaceMock;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIdsMock;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayersMock;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
 
-/**
- */
-public final class OutlineMock {
+public class OutlineMock {
     public static Outline createDummy(OutlineType anOutlineType) {
-        RecordDate recordDate = RecordDateMock.createDummy(anOutlineType.recotdDateType());
-        Address address = AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
-        PlayerIds playerIds = PlayerIdsMock.createDummy(PlayerIdsMock.PlayerIdsType.ONE_DEEJEY);
-        Place place = PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
-        return new Outline(recordDate, address, playerIds, place);
+        return anOutlineType.createDummy();
     }
 
     public enum OutlineType {
         EVENT_ON_END_OF_LAST_MONTH {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.END_OF_LAST_MONTH;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.END_OF_LAST_MONTH);
             }
-        }, EVENT_ON_START_OF_THIS_MONTH {
+        },
+        EVENT_ON_START_OF_THIS_MONTH {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.START_OF_THIS_MONTH;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.START_OF_THIS_MONTH);
+            }
+
+            @Override
+            public Address getAddress() {
+                return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+            }
+
+            @Override
+            public OrganizationUnitIds getOrganizationUnitIds() {
+                return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
+            }
+
+            @Override
+            public Place getPlace() {
+                return PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
             }
         }, EVENT_ON_THREE_DAYS_BEFORE {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.THREE_DAYS_BEFORE;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.THREE_DAYS_BEFORE);
+            }
+
+            @Override
+            public Address getAddress() {
+                return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+            }
+
+            @Override
+            public OrganizationUnitIds getOrganizationUnitIds() {
+                return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
+            }
+
+            @Override
+            public Place getPlace() {
+                return PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
             }
         }, EVENT_ON_YESTERDAY {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.YESTERDAY;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.YESTERDAY);
+            }
+
+            @Override
+            public Address getAddress() {
+                return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+            }
+
+            @Override
+            public OrganizationUnitIds getOrganizationUnitIds() {
+                return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
+            }
+
+            @Override
+            public Place getPlace() {
+                return PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
             }
         }, EVENT_ON_TODAY {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.TODAY;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.TODAY);
             }
+
+            @Override
+            public Address getAddress() {
+                return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+            }
+
+
         }, EVENT_ON_TOMORROW {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.TOMORROW;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.TOMORROW);
             }
         }, EVENT_ON_THREE_DAYS_AFTER {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.THREE_DAYS_AFTER;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.THREE_DAYS_AFTER);
             }
         }, EVENT_ON_END_OF_THIS_MONTH {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.END_OF_THIS_MONTH;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.END_OF_THIS_MONTH);
             }
         }, EVENT_ON_START_OF_NEXT_MONTH {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.START_OF_THIS_MONTH;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.START_OF_NEXT_MONTH);
             }
         }, DEFAULT {
             @Override
-            public RecordDateMock.RecordDateType recotdDateType() {
-                return RecordDateMock.RecordDateType.DEFAULT;
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.DEFAULT);
             }
         };
 
-        public abstract RecordDateMock.RecordDateType recotdDateType();
+        public abstract RecordDate getRecordDate();
+
+        public Address getAddress() {
+            return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+        }
+
+        public OrganizationUnitIds getOrganizationUnitIds() {
+            return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
+
+        }
+
+        public Place getPlace() {
+            return PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
+        }
+
+        public Outline createDummy() {
+            return new Outline(getRecordDate(),
+                    getAddress(),
+                    getOrganizationUnitIds(),
+                    getPlace());
+
+        }
     }
 }

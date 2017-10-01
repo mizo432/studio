@@ -1,16 +1,30 @@
 package org.venuspj.studio.generic.model.role.partyRole.organizationRole;
 
-import org.venuspj.ddd.model.entity.Entity;
-import org.venuspj.studio.generic.model.ppt.party.Party;
-import org.venuspj.studio.generic.model.ppt.party.organization.Organization;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitId;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitImpl;
 import org.venuspj.studio.generic.model.role.partyRole.PartyRoleImpl;
 
-public class OrganizationRoleImpl extends PartyRoleImpl implements Entity<Party>, OrganizationRole {
-    private final Organization organization;
+public abstract class OrganizationRoleImpl extends PartyRoleImpl<OrganizationUnit>
+        implements OrganizationUnit, OrganizationRole<OrganizationUnit> {
+    private final OrganizationUnit organizationUnit;
 
-    public OrganizationRoleImpl(Organization anOrganization) {
-        super(anOrganization);
-        organization = anOrganization;
+    protected OrganizationRoleImpl() {
+        super();
+        organizationUnit = OrganizationUnitImpl.emptyOrganizationUnit();
     }
 
+    public OrganizationRoleImpl(OrganizationUnit anOrganizationUnit) {
+        super(anOrganizationUnit);
+        organizationUnit = anOrganizationUnit;
+    }
+
+    @Override
+    public OrganizationUnitId identifier() {
+        return organizationUnit.identifier();
+    }
+
+    public OrganizationUnit getOrganizationUnit() {
+        return organizationUnit;
+    }
 }

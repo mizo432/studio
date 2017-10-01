@@ -14,9 +14,9 @@ import org.venuspj.studio.core.model.event.EventRepository;
 import org.venuspj.studio.core.model.event.Events;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
@@ -45,7 +45,7 @@ public class EventDatasource implements EventRepository {
             Outline outline = new Outline(
                     new RecordDate(work.getEventStartDatetime().toLocalDate()),
                     Address.defaultAddress(),
-                    PlayerIds.empty(),
+                    OrganizationUnitIds.emptyOrganizationUnitIds(),
                     place);
 
             return new Event(

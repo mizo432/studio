@@ -1,5 +1,6 @@
 package org.venuspj.studio.usecase.event;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventRepository;
@@ -21,6 +22,7 @@ public class EventQuery implements EventQueryUseCase {
     EventRepository eventRepository;
     PlayerRepository playerRepository;
 
+    @Autowired
     public EventQuery(EventRepository anEventRepository, PlayerRepository aPlayerRepository) {
         eventRepository = anEventRepository;
         playerRepository = aPlayerRepository;
@@ -42,7 +44,7 @@ public class EventQuery implements EventQueryUseCase {
     public void start() {
         EventCredential credential = inputPort.toCredential();
         Event event = eventRepository.resolve(credential.eventId());
-        Players players = new Players(playerRepository.resolve(event.outline().playerIds()));
+        Players players = (Players) playerRepository.resolve(event.outline().playerIds());
         outputPort.withEvent(event);
         outputPort.withPlayers(players);
 

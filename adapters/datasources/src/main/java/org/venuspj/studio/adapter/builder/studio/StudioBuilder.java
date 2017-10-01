@@ -1,30 +1,31 @@
 package org.venuspj.studio.adapter.builder.studio;
 
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
-import org.venuspj.studio.generic.model.ppt.party.organization.Organization;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
 import org.venuspj.util.builder.ObjectBuilder;
 
-import static org.venuspj.util.objects2.Objects2.isNull;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class StudioBuilder extends ObjectBuilder<Studio, StudioBuilder> {
-    private Organization organization;
+    private OrganizationUnit organizationUnit;
 
 
     @Override
     protected void apply(Studio vo, StudioBuilder builder) {
+        builder.withOrganization(vo.getOrganizationUnit());
 
     }
 
-    public StudioBuilder withOrganization(Organization anOrganization) {
-        if (isNull(anOrganization)) return getThis();
-        addConfigurator(builder -> builder.organization = anOrganization);
+    public StudioBuilder withOrganization(OrganizationUnit anOrganizationUnit) {
+        if (isNull(anOrganizationUnit)) return getThis();
+        addConfigurator(builder -> builder.organizationUnit = anOrganizationUnit);
         return getThis();
     }
 
 
     @Override
     protected Studio createValueObject() {
-        return new Studio(organization);
+        return new Studio(organizationUnit);
 
     }
 

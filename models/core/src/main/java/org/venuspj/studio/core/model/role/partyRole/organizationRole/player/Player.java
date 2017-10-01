@@ -1,23 +1,32 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
-import org.venuspj.ddd.model.entity.AbstractEntity;
 import org.venuspj.studio.generic.fundamentals.name.Name;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitId;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitImpl;
+import org.venuspj.studio.generic.model.role.partyRole.organizationRole.OrganizationRoleImpl;
 import org.venuspj.util.objects2.Objects2;
 
-public class Player extends AbstractEntity<Player> {
+/**
+ * プレイヤー 組織の役割
+ */
+public class Player extends OrganizationRoleImpl {
 
     Name name = Name.defaultName();
-    PlayerId playerId = PlayerId.defaultId();
     PlayerClassification playerClassification = PlayerClassification.OUTER_PLAYER;
 
     Player() {
+        super();
 
     }
 
-    public Player(PlayerId aPlayerId, Name aName, PlayerClassification aPlayerClassification) {
-        super(aPlayerId);
-        name = aName;
+    public Player(OrganizationUnit anOrganizationUnit, PlayerClassification aPlayerClassification) {
+        super(anOrganizationUnit);
         playerClassification = aPlayerClassification;
+    }
+
+    public static Player emptyPlayer() {
+        return new Player(OrganizationUnitImpl.emptyOrganizationUnit(), PlayerClassification.NULL_PLAYER);
     }
 
     @Override
@@ -33,5 +42,10 @@ public class Player extends AbstractEntity<Player> {
 
     public boolean isStudioPlayer() {
         return playerClassification.isStudioPlayer();
+    }
+
+    @Override
+    public OrganizationUnitId identifier() {
+        return super.getOrganizationUnit().identifier();
     }
 }

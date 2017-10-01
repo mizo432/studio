@@ -22,6 +22,10 @@ public class Name implements StringValue {
         return new Name();
     }
 
+    public static Name emptyName() {
+        return new Name();
+    }
+
     @Override
     public String toString() {
         return Objects2

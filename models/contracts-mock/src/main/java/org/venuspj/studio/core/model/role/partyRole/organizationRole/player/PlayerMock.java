@@ -1,106 +1,52 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
-import org.venuspj.studio.generic.fundamentals.name.NameMock;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitMock;
 
-/**
- * Created by mizoguchi on 2017/07/16.
- */
 public class PlayerMock {
     public static Player createDummy(PlayerType aPlayerType) {
-        return new Player(PlayerIdMock.createDummy(aPlayerType.playerIdType()), NameMock.createDummy(aPlayerType.nameType()), PlayerClassificationMock.createDummy(aPlayerType));
+        if (aPlayerType == PlayerType.EMPTY)
+            return Player.emptyPlayer();
+        return new Player(OrganizationUnitMock.createDimmy(OrganizationUnitMock.OrganizationUnitType.EMPTY), aPlayerType.getPlayerClassification());
     }
 
     public enum PlayerType {
-        DEEJEY1 {
+        DEEJEY2 {
             @Override
-            public PlayerIdMock.PlayerIdType playerIdType() {
-                return PlayerIdMock.PlayerIdType.DEEJEY1;
+            public PlayerClassification getPlayerClassification() {
+                return PlayerClassification.STUDIO_PLAYER;
             }
-
+        }, DEEJEY3 {
             @Override
-            public NameMock.NameType nameType() {
-                return NameMock.NameType.PLAYER1;
-            }
-
-            @Override
-            public String playerClassification() {
-                return PlayerClassification.STUDIO_PLAYER.name();
-            }
-        }, DEEJEY2 {
-            @Override
-            public PlayerIdMock.PlayerIdType playerIdType() {
-                return PlayerIdMock.PlayerIdType.DEEJEY2;
-            }
-
-            @Override
-            public NameMock.NameType nameType() {
-                return NameMock.NameType.PLAYER2;
-            }
-            @Override
-            public String playerClassification() {
-                return PlayerClassification.STUDIO_PLAYER.name();
+            public PlayerClassification getPlayerClassification() {
+                return PlayerClassification.STUDIO_PLAYER;
             }
         }, SOUND1 {
             @Override
-            public PlayerIdMock.PlayerIdType playerIdType() {
-                return PlayerIdMock.PlayerIdType.SOUND1;
+            public PlayerClassification getPlayerClassification() {
+                return PlayerClassification.STUDIO_PLAYER;
             }
-
+        }, DEEJEY1 {
             @Override
-            public NameMock.NameType nameType() {
-                return NameMock.NameType.PLAYER3;
+            public PlayerClassification getPlayerClassification() {
+                return PlayerClassification.STUDIO_PLAYER;
             }
+        }, EMPTY {
             @Override
-            public String playerClassification() {
-                return PlayerClassification.STUDIO_PLAYER.name();
+            public PlayerClassification getPlayerClassification() {
+                return PlayerClassification.NULL_PLAYER;
             }
-        }, SOUND2 {
+        }, OUTER_BAND1 {
             @Override
-            public PlayerIdMock.PlayerIdType playerIdType() {
-                return PlayerIdMock.PlayerIdType.SOUND2;
+            public PlayerClassification getPlayerClassification() {
+                return PlayerClassification.OUTER_PLAYER;
             }
-
+        }, OUTER_BAND2 {
             @Override
-            public NameMock.NameType nameType() {
-                return NameMock.NameType.PLAYER4;
-            }
-            @Override
-            public String playerClassification() {
-                return PlayerClassification.STUDIO_PLAYER.name();
-            }
-        }, OUTER_DEEJEY {
-            @Override
-            public PlayerIdMock.PlayerIdType playerIdType() {
-                return PlayerIdMock.PlayerIdType.OUTER_DEEJEY;
-            }
-
-            @Override
-            public NameMock.NameType nameType() {
-                return NameMock.NameType.PLAYER5;            }
-            @Override
-            public String playerClassification() {
-                return PlayerClassification.OUTER_PLAYER.name();
-            }
-        }, OUTER_SOUND {
-            @Override
-            public PlayerIdMock.PlayerIdType playerIdType() {
-                return PlayerIdMock.PlayerIdType.OUTER_SOUND;
-            }
-
-            @Override
-            public NameMock.NameType nameType() {
-                return NameMock.NameType.PLAYER6;            }
-            @Override
-            public String playerClassification() {
-                return PlayerClassification.OUTER_PLAYER.name();
+            public PlayerClassification getPlayerClassification() {
+                return PlayerClassification.OUTER_PLAYER;
             }
         };
 
-        public abstract PlayerIdMock.PlayerIdType playerIdType();
-
-        public abstract NameMock.NameType nameType();
-
-        public abstract String playerClassification();
+        public abstract PlayerClassification getPlayerClassification();
     }
-
 }

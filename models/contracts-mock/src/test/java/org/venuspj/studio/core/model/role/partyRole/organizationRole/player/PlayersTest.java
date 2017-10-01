@@ -41,7 +41,7 @@ public class PlayersTest {
 
     @Test
     public void selectStudioPlayers() throws Exception {
-        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PAYERS);
+        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ALL_PLAYERS);
         Players actual = target.selectStudioPlayers();
         assertThat(actual)
                 .isNotNull();
@@ -53,7 +53,7 @@ public class PlayersTest {
 
     @Test
     public void asList() throws Exception {
-        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PAYERS);
+        Players target = PlayersMock.createDummy(PlayersMock.PlayersType.ALL_PLAYERS);
         List<Player> actual = target.asList();
         assertThat(actual)
                 .isNotNull();

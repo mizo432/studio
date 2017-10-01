@@ -25,12 +25,22 @@ public class PlayerTest {
     }
 
     @Test
-    public void isStudioPlayer() throws Exception {
+    public void isStudioPlayer1() throws Exception {
         Player target = PlayerMock.createDummy(PlayerMock.PlayerType.DEEJEY1);
         boolean actual = target.isStudioPlayer();
         assertThat(actual)
                 .isNotNull()
                 .isTrue();
+        System.out.println("actual:" + actual);
+    }
+
+    @Test
+    public void isStudioPlayer2() throws Exception {
+        Player target = PlayerMock.createDummy(PlayerMock.PlayerType.OUTER_BAND1);
+        boolean actual = target.isStudioPlayer();
+        assertThat(actual)
+                .isNotNull()
+                .isFalse();
         System.out.println("actual:" + actual);
     }
 

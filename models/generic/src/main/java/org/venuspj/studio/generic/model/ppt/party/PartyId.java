@@ -1,16 +1,15 @@
 package org.venuspj.studio.generic.model.ppt.party;
 
 import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
-import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.util.objects2.Objects2;
 import org.venuspj.util.uuidProvider.UuidProvider;
 
-import static org.venuspj.util.objects2.Objects2.equal;
-import static org.venuspj.util.objects2.Objects2.isNull;
-import static org.venuspj.util.objects2.Objects2.nonNull;
+import java.util.UUID;
 
-public class PartyId extends AbstractEntityIdentifier<Party> {
-    private String value;
+import static org.venuspj.util.objects2.Objects2.*;
+
+public class PartyId<P extends Party<P>> extends AbstractEntityIdentifier<P> {
+    protected String value;
 
     protected PartyId() {
         this(Party.class);
@@ -28,13 +27,22 @@ public class PartyId extends AbstractEntityIdentifier<Party> {
 
     }
 
+    public PartyId(UUID aValue) {
+        this(Party.class, aValue.toString());
+
+    }
+
     public PartyId(String aValue) {
         this(Party.class, aValue);
 
     }
 
-    public static PartyId empty() {
+    public static PartyId emptyPartyId() {
         return new PartyId();
+    }
+
+    public static PartyId newId() {
+        return new PartyId(UuidProvider.randomUUID());
     }
 
     @Override
@@ -44,6 +52,7 @@ public class PartyId extends AbstractEntityIdentifier<Party> {
                 .toString();
     }
 
+    @Override
     protected Objects2.ToStringHelper string() {
         return super.string()
                 .add("value", value);
@@ -51,10 +60,6 @@ public class PartyId extends AbstractEntityIdentifier<Party> {
 
     public boolean isPresent() {
         return nonNull(value);
-    }
-
-    public static EntityIdentifier<Party> newId() {
-        return new PartyId(UuidProvider.randomUUID().toString());
     }
 
     @Override
