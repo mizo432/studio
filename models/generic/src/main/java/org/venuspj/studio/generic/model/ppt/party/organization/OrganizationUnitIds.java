@@ -35,7 +35,9 @@ public class OrganizationUnitIds implements Iterable<EntityIdentifier<Organizati
 
     @Override
     public boolean equals(Object that) {
-        return false;
+        if (isNull(that)) return false;
+        if (this == that) return true;
+        return that instanceof OrganizationUnitIds && equal(((OrganizationUnitIds) that).list, list);
     }
 
     @Override
