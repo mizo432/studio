@@ -8,6 +8,7 @@ import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 
 /**
  */
+@Deprecated
 public class PlaceMock {
     public static Place createDummy(PlaceType aPlaceType) {
         return new Place(DescriptorMock.createDummy(DescriptorMock.DescriptorType.DEFAULT),

@@ -1,13 +1,13 @@
 package org.venuspj.studio.core.model.event.flyers;
 
-import org.venuspj.studio.core.fundamentals.place.Place;
-import org.venuspj.studio.core.fundamentals.place.PlaceMock;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayersMock;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
+import org.venuspj.studio.generic.model.ppt.place.Place;
+import org.venuspj.studio.generic.model.ppt.place.PlaceMock;
 
 public class OutlineMock {
     public static Outline createDummy(OutlineType anOutlineType) {
@@ -40,6 +40,7 @@ public class OutlineMock {
             @Override
             public Place getPlace() {
                 return PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
+
             }
         }, EVENT_ON_THREE_DAYS_BEFORE {
             @Override
