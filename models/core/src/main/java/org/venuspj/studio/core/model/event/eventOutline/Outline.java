@@ -1,9 +1,11 @@
 package org.venuspj.studio.core.model.event.eventOutline;
 
-import org.venuspj.studio.core.fundamentals.place.Place;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
+import org.venuspj.studio.generic.model.ppt.place.Place;
 import org.venuspj.util.objects2.Objects2;
 
 /**
@@ -12,13 +14,13 @@ import org.venuspj.util.objects2.Objects2;
 public class Outline {
     RecordDate recordDate;
     Address address;
-    PlayerIds playerIds = PlayerIds.empty();
+    OrganizationUnitIds playerIds = OrganizationUnitIds.emptyOrganizationUnitIds();
     Place place;
 
     Outline() {
     }
 
-    public Outline(RecordDate aRecordDate, Address anAddress, PlayerIds anPlayerIds, Place aPlace) {
+    public Outline(RecordDate aRecordDate, Address anAddress, OrganizationUnitIds anPlayerIds, Place aPlace) {
         recordDate = aRecordDate;
         address = anAddress;
         playerIds = anPlayerIds;
@@ -29,7 +31,7 @@ public class Outline {
         return new Outline();
     }
 
-    public PlayerIds playerIds() {
+    public Iterable<EntityIdentifier<OrganizationUnit>> playerIds() {
         return playerIds;
     }
 

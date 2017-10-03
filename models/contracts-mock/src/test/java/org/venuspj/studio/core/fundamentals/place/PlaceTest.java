@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
+@Deprecated
 public class PlaceTest {
 
     @Test

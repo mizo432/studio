@@ -5,22 +5,21 @@ import org.venuspj.util.uuidProvider.UuidProvider;
 
 public class PersonId extends PartyId<Person> {
 
-    PersonId() {
-        super(Person.class);
-
-    }
-
     public PersonId(String aValue) {
-        super(aValue);
+        super(Person.class, aValue);
 
     }
 
-    public static PersonId newId() {
+    public static PersonId newPersonId() {
         return new PersonId(UuidProvider.randomUUID().toString());
     }
 
-    public static PersonId empty() {
-        return new PersonId();
+    public static PersonId emptyPersonId() {
+        return new PersonId(null);
+    }
+
+    public String getValue() {
+        return value;
     }
 
 }

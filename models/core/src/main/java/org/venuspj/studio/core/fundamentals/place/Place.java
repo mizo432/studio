@@ -7,6 +7,7 @@ import org.venuspj.studio.generic.fundamentals.address.Address;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
+@Deprecated
 public class Place {
 
     Descriptor descriptor;

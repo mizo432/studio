@@ -1,4 +1,60 @@
 /**
+  場所
+ */
+DROP TABLE IF EXISTS `places`;
+
+CREATE TABLE IF NOT EXISTS `places` (
+  place_id    INTEGER AUTO_INCREMENT
+  COMMENT '場所ID',
+  created_at DATETIME     NOT NULL
+  COMMENT 'データ作成日時',
+  created_by VARCHAR(26)  NOT NULL
+  COMMENT 'データ作成者ID',
+  PRIMARY KEY (place_id)
+);
+
+/**
+  パーティー
+ */
+DROP TABLE IF EXISTS `parties`;
+
+CREATE TABLE IF NOT EXISTS `parties` (
+  party_id    INTEGER AUTO_INCREMENT
+  COMMENT 'パーティーID',
+  created_at DATETIME     NOT NULL
+  COMMENT 'データ作成日時',
+  created_by VARCHAR(26)  NOT NULL
+  COMMENT 'データ作成者ID',
+  PRIMARY KEY (party_id)
+);
+
+/**
+  人
+ */
+DROP TABLE IF EXISTS `people`;
+
+CREATE TABLE IF NOT EXISTS `people` (
+  party_id INTEGER COMMENT 'パーティーID',
+  name  VARCHAR(50) NOT NULL COMMENT '名称',
+  created_at DATETIME NOT NULL COMMENT 'データ作成日時',
+  created_by VARCHAR(26)  NOT NULL COMMENT 'データ作成者ID',
+  PRIMARY KEY (party_id)
+);
+
+/**
+  人
+ */
+DROP TABLE IF EXISTS `organizations`;
+
+CREATE TABLE IF NOT EXISTS `organizations` (
+  party_id    INTEGER COMMENT 'パーティーID',
+  name  VARCHAR(50) NOT NULL COMMENT '名称',
+  created_at DATETIME  NOT NULL COMMENT 'データ作成日時',
+  created_by VARCHAR(26) NOT NULL COMMENT 'データ作成者ID',
+  PRIMARY KEY (party_id)
+);
+
+/**
   スタジオ
  */
 DROP TABLE IF EXISTS `studios`;
@@ -208,4 +264,20 @@ CREATE TABLE IF NOT EXISTS `links` (
   PRIMARY KEY (link_id)
 );
 
+/**
+  リンク
+ */
+DROP TABLE IF EXISTS `twitter_accounts`;
+
+CREATE TABLE IF NOT EXISTS `twitter_accounts` (
+  twitter_accounts_id    INTEGER AUTO_INCREMENT
+  COMMENT 'ツイッターアカウントID',
+  twitter_id  VARCHAR(255) NOT NULL
+  COMMENT 'ツイッターID',
+  created_at DATETIME     NOT NULL
+  COMMENT 'データ作成日時',
+  created_by VARCHAR(26)  NOT NULL
+  COMMENT 'データ作成者ID',
+  PRIMARY KEY (twitter_accounts_id)
+);
 

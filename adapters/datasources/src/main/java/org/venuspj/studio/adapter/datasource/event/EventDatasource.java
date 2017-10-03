@@ -4,19 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.adapter.doma.dao.EventsDao;
-import org.venuspj.studio.core.fundamentals.contact.Contact;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
-import org.venuspj.studio.core.fundamentals.place.Place;
-import org.venuspj.studio.core.fundamentals.snsContact.SnsContacts;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventId;
 import org.venuspj.studio.core.model.event.EventRepository;
 import org.venuspj.studio.core.model.event.Events;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerIds;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.fundamentals.name.Name;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
+import org.venuspj.studio.generic.model.ppt.place.Place;
+import org.venuspj.studio.generic.model.ppt.place.PlaceId;
+import org.venuspj.studio.generic.model.ppt.place.PlaceImpl;
+import org.venuspj.studio.generic.model.ppt.place.PlaceInfo;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
@@ -36,16 +38,12 @@ public class EventDatasource implements EventRepository {
         EventId eventId = (EventId) anIdentifier;
         org.venuspj.studio.adapter.doma.entity.Events work = eventsDao.selectById(eventId.asInteger());
         if (nonNull(work)) {
-            Place place = new Place(
-                    Descriptor.defaultDescriptor(),
-                    Address.defaultAddress(),
-                    Contact.emptyContact(),
-                    SnsContacts.emptySnsContacts());
+            Place place = new PlaceImpl(PlaceId.newPlaceId(), new PlaceInfo(Name.emptyName(), Address.nullAddress()));
 
             Outline outline = new Outline(
                     new RecordDate(work.getEventStartDatetime().toLocalDate()),
                     Address.defaultAddress(),
-                    PlayerIds.empty(),
+                    OrganizationUnitIds.emptyOrganizationUnitIds(),
                     place);
 
             return new Event(

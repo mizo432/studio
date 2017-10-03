@@ -14,6 +14,11 @@ public class AddressStringMock {
             public String addressTypeString() {
                 return null;
             }
+        }, SAKAWAGAWA {
+            @Override
+            public String addressTypeString() {
+                return "酒匂川ビーチ";
+            }
         };
 
         public abstract String addressTypeString();

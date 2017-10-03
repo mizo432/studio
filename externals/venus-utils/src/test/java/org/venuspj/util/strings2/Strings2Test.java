@@ -298,7 +298,7 @@ public class Strings2Test {
 
         @Test(expected = ArrayIndexOutOfBoundsException.class)
         public void repeat14() throws Exception {
-            String actual = Strings2.repeat("111", Integer.MAX_VALUE);
+            Strings2.repeat("111", Integer.MAX_VALUE);
 
         }
     }

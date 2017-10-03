@@ -1,6 +1,6 @@
 package org.venuspj.studio.core.model.event.flyers;
 
-import org.venuspj.util.objects2.Objects2;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 /**
  * Created by mizoguchi on 2017/06/11.
@@ -21,8 +21,7 @@ public class ImagePath {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
+        return toStringHelper(this)
                 .addValue(value)
                 .toString();
     }

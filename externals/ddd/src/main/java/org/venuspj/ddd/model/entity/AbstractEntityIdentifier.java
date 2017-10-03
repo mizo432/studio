@@ -2,6 +2,8 @@ package org.venuspj.ddd.model.entity;
 
 import org.venuspj.util.objects2.Objects2;
 
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
+
 /**
  * {@link EntityIdentifier}のデフォルト実装。
  *
@@ -53,9 +55,8 @@ public abstract class AbstractEntityIdentifier<T extends Entity<T>> implements E
         return Objects2.hash(kind);
     }
 
-    public Objects2.ToStringHelper string() {
-        return Objects2
-                .toStringHelper(this)
+    protected Objects2.ToStringHelper string() {
+        return toStringHelper(this)
                 .add("kind", kind);
     }
 
