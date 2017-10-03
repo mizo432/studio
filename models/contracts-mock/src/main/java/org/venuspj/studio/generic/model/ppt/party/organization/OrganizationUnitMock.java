@@ -4,7 +4,7 @@ public class OrganizationUnitMock {
     public static OrganizationUnit createDimmy(OrganizationUnitType anOrganizationUnitType) {
 
         return new OrganizationUnitImpl(
-                anOrganizationUnitType.OrganizationUnitId(),
+                anOrganizationUnitType.getOrganizationUnitId(),
                 anOrganizationUnitType.unitInfo(),
                 anOrganizationUnitType.organization(),
                 anOrganizationUnitType.largeUnits(),
@@ -17,7 +17,7 @@ public class OrganizationUnitMock {
 
         EMPTY {
             @Override
-            public OrganizationUnitId OrganizationUnitId() {
+            public OrganizationUnitId getOrganizationUnitId() {
                 return OrganizationUnitId.newOrganizationUnitId();
             }
 
@@ -42,7 +42,7 @@ public class OrganizationUnitMock {
             }
         };
 
-        public abstract OrganizationUnitId OrganizationUnitId();
+        public abstract OrganizationUnitId getOrganizationUnitId();
 
         public abstract OrganizationUnitInfo unitInfo();
 

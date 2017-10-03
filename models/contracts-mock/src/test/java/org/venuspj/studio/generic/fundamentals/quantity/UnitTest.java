@@ -18,7 +18,7 @@ public class UnitTest {
     }
 
     @Test
-    public void ToString01() throws Exception {
+    public void toString01() throws Exception {
         Unit target = new Unit("式");
         String actual = target.toString();
         assertThat(actual)

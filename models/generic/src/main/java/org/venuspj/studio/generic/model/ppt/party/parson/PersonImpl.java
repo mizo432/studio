@@ -9,7 +9,6 @@ import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 public class PersonImpl extends AbstractEntity<Person> implements Entity<Person>, Person {
 
-    private PersonId personId;
     private PersonInfo personInfo;
 
     public PersonImpl(PersonId anIdentifier, Name name, PersonInfo aPersonInfo) {
@@ -20,21 +19,21 @@ public class PersonImpl extends AbstractEntity<Person> implements Entity<Person>
 
     protected Objects2.ToStringHelper string() {
         return toStringHelper(this)
-                .add("personId", personId)
+                .add("personId", identifier())
                 .add("personInfo", personInfo);
 
     }
 
     @Override
     public String toString() {
-        return this.string()
+        return string()
                 .omitNullValues()
                 .toString();
     }
 
     @Override
     public PersonId getPersonId() {
-        return personId;
+        return (PersonId) identifier();
     }
 
     public PersonInfo getPersonInfo() {

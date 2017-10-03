@@ -31,7 +31,11 @@ public class OrganizationImpl extends AbstractEntity<Organization> implements En
 
     @Override
     public Organization clone() {
-        return new OrganizationBuilder().apply(this);
+        try {
+            return new OrganizationBuilder().apply(this);
+        } catch (RuntimeException e) {
+            return super.clone();
+        }
     }
 
     @Override

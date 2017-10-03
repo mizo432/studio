@@ -31,4 +31,8 @@ public class Period {
                 .omitNullValues()
                 .toString();
     }
+
+    public static Period emptyPeriod() {
+        return new Period(RecordDate.empty(), RecordDate.empty());
+    }
 }
