@@ -5,6 +5,9 @@ import org.venuspj.studio.generic.model.ppt.party.parson.Person;
 import org.venuspj.studio.generic.model.ppt.party.parson.PersonImpl;
 import org.venuspj.studio.generic.model.ppt.party.parson.PersonInfo;
 import org.venuspj.studio.generic.model.role.partyRole.PartyRoleImpl;
+import org.venuspj.util.objects2.Objects2;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 public abstract class PersonRoleImpl
         extends PartyRoleImpl
@@ -23,7 +26,7 @@ public abstract class PersonRoleImpl
 
     @Override
     public Party clone() {
-        Party b = null;
+        Party b = new DefaultPersonRole(person);
 
         /*ObjectクラスのcloneメソッドはCloneNotSupportedExceptionを投げる可能性があるので、try-catch文で記述(呼び出し元に投げても良い)*/
         try {
@@ -32,6 +35,12 @@ public abstract class PersonRoleImpl
             e.printStackTrace();
         }
         return b;
+
+    }
+
+    protected Objects2.ToStringHelper string() {
+        return toStringHelper(this)
+                .add("person", person);
 
     }
 
