@@ -29,7 +29,8 @@ public abstract class OrganizationRoleImpl extends PartyRoleImpl implements Orga
 
     @Override
     public Party clone() {
-        Party b = null;
+        Party b = new OrganizationRoleImpl() {
+        };
 
         try {
             b = (Party) super.clone(); //親クラスのcloneメソッドを呼び出す(親クラスの型で返ってくるので、自分自身の型でのキャストを忘れないようにする)

@@ -31,7 +31,7 @@ public class Player extends OrganizationRoleImpl {
 
     @Override
     public Party clone() {
-        Player b = null;
+        Player b = new Player(organizationUnit, playerClassification);
 
         /*ObjectクラスのcloneメソッドはCloneNotSupportedExceptionを投げる可能性があるので、try-catch文で記述(呼び出し元に投げても良い)*/
         try {
@@ -41,7 +41,6 @@ public class Player extends OrganizationRoleImpl {
             e.printStackTrace();
         }
         return b;
-//        return new Player(organizationUnit, playerClassification);
     }
 
     @Override
