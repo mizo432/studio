@@ -5,6 +5,9 @@ import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitImpl;
 import org.venuspj.studio.generic.model.role.partyRole.PartyRoleImpl;
+import org.venuspj.util.objects2.Objects2;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 public abstract class OrganizationRoleImpl extends PartyRoleImpl implements OrganizationUnit, OrganizationRole {
     protected final OrganizationUnit organizationUnit;
@@ -38,6 +41,12 @@ public abstract class OrganizationRoleImpl extends PartyRoleImpl implements Orga
             e.printStackTrace();
         }
         return b;
+    }
+
+    protected Objects2.ToStringHelper string() {
+        return toStringHelper(this)
+                .add("organizationUnit", organizationUnit);
+
     }
 
 }

@@ -45,6 +45,10 @@ public final class DefaultEntityIdentifier<T extends Entity<T>> extends Abstract
         return new DefaultEntityIdentifier<E>(clazz, null);
     }
 
+    public static <E extends Entity<E>> EntityIdentifier<E> byUuid(Class<E> clazz, UUID anUuid) {
+        return new DefaultEntityIdentifier<E>(clazz, anUuid);
+    }
+
     public String getKind() {
         return kind;
     }
@@ -65,5 +69,14 @@ public final class DefaultEntityIdentifier<T extends Entity<T>> extends Abstract
         return o instanceof DefaultEntityIdentifier &&
                 equal((((DefaultEntityIdentifier) o).kind), kind) &&
                 equal((((DefaultEntityIdentifier) o).uuid), uuid);
+    }
+
+    @Override
+    public String toString() {
+        return toStringHelper(this)
+                .add("kind", kind)
+                .add("uuid", uuid)
+                .omitNullValues()
+                .toString();
     }
 }

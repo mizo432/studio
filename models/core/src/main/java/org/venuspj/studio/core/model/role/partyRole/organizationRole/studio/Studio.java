@@ -8,19 +8,36 @@ import static org.venuspj.util.objects2.Objects2.*;
 
 public class Studio extends OrganizationRoleImpl {
 
-    public Studio(OrganizationUnit anOrganization) {
+    private final StudioInfo studioInfo;
+
+    public Studio(OrganizationUnit anOrganization, StudioInfo aStudioInfo) {
         super(anOrganization);
+        studioInfo = aStudioInfo;
+
     }
 
     @Override
     public Party clone() {
-        return new Studio(organizationUnit);
+        Studio studio = new Studio(organizationUnit, studioInfo);
+        try {
+            studio = (Studio) super.clone();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return studio;
     }
 
 
     @Override
+    protected ToStringHelper string() {
+        return super.string()
+                .add("studioInfo", studioInfo);
+
+    }
+
+    @Override
     public String toString() {
-        return toStringHelper(this)
+        return string()
                 .omitNullValues()
                 .toString();
     }

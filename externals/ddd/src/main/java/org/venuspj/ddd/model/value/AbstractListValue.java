@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.*;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class AbstractListValue<E> implements ListValue<E> {
 
@@ -27,5 +28,12 @@ public class AbstractListValue<E> implements ListValue<E> {
     @Override
     public Iterator<E> iterator() {
         return asList().iterator();
+    }
+
+    @Override
+    public String toString() {
+        return toStringHelper(this)
+                .addValue(list)
+                .toString();
     }
 }

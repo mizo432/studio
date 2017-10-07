@@ -4,7 +4,6 @@ import org.venuspj.ddd.model.entity.DefaultEntityIdentifiers;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.ddd.model.value.AbstractListValue;
 import org.venuspj.studio.generic.model.ppt.party.Party;
-import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
 import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
@@ -38,11 +37,10 @@ public class Players extends AbstractListValue<Player> {
 
     public Players selectStudioPlayers() {
         List<Player> resultList = Lists2.newArrayList();
-        for (OrganizationUnit organizationUnit : list) {
-            if (((Player) organizationUnit).isStudioPlayer())
-                resultList.add(new Player(organizationUnit, ((Player) organizationUnit).playerClassification));
+        for (Player player : list)
+            if (player.isStudioPlayer())
+                resultList.add(player);
 
-        }
         return new Players(resultList);
     }
 

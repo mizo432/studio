@@ -4,6 +4,7 @@ import org.venuspj.studio.core.fundamentals.StringValue;
 import org.venuspj.util.objects2.Objects2;
 
 /**
+ * @deprecated use Description
  */
 public class Note implements StringValue {
     private String value;
@@ -16,13 +17,13 @@ public class Note implements StringValue {
         value = aValue;
     }
 
+    public static Note defailtNote() {
+        return new Note();
+    }
+
     @Override
     public String asText() {
         return value;
-    }
-
-    public static Note defailtNote() {
-        return new Note();
     }
 
     @Override

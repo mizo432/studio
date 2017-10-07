@@ -1,6 +1,5 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
-import org.venuspj.studio.generic.fundamentals.name.Name;
 import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitImpl;
@@ -12,26 +11,28 @@ import org.venuspj.util.objects2.Objects2;
  */
 public class Player extends OrganizationRoleImpl {
 
-    Name name = Name.defaultName();
-    PlayerClassification playerClassification = PlayerClassification.OUTER_PLAYER;
+    private PlayerInfo playerInfo = PlayerInfo.emptyPlayerInfo();
+
+    private PlayerClassification playerClassification = PlayerClassification.OUTER_PLAYER;
 
     Player() {
         super();
 
     }
 
-    public Player(OrganizationUnit anOrganizationUnit, PlayerClassification aPlayerClassification) {
+    public Player(OrganizationUnit anOrganizationUnit, PlayerClassification aPlayerClassification, PlayerInfo aPlayerInfo) {
         super(anOrganizationUnit);
         playerClassification = aPlayerClassification;
+        playerInfo = aPlayerInfo;
     }
 
     public static Player emptyPlayer() {
-        return new Player(OrganizationUnitImpl.emptyOrganizationUnit(), PlayerClassification.NULL_PLAYER);
+        return new Player(OrganizationUnitImpl.emptyOrganizationUnit(), PlayerClassification.NULL_PLAYER, PlayerInfo.emptyPlayerInfo());
     }
 
     @Override
     public Party clone() {
-        Player b = new Player(organizationUnit, playerClassification);
+        Player b = new Player(organizationUnit, playerClassification, playerInfo);
 
         /*ObjectクラスのcloneメソッドはCloneNotSupportedExceptionを投げる可能性があるので、try-catch文で記述(呼び出し元に投げても良い)*/
         try {
@@ -48,8 +49,9 @@ public class Player extends OrganizationRoleImpl {
         return Objects2
                 .toStringHelper(this)
                 .add("identifier", identifier())
-                .add("name", name)
+                .add("playerInfo", playerInfo)
                 .add("playerClassification", playerClassification)
+                .add("organizationUnit", organizationUnit)
                 .omitNullValues()
                 .toString();
     }
