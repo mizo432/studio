@@ -1,6 +1,7 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.news;
 
-import org.venuspj.studio.core.fundamentals.note.NoteMock;
+
+import org.venuspj.studio.generic.fundamentals.note.NoteMock;
 
 /**
  */

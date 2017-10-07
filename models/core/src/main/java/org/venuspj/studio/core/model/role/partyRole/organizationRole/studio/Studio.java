@@ -41,4 +41,8 @@ public class Studio extends OrganizationRoleImpl {
                 .omitNullValues()
                 .toString();
     }
+
+    public StudioInfo getStudioInfo() {
+        return studioInfo;
+    }
 }

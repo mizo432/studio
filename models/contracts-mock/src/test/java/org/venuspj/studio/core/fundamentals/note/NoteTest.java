@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
+@Deprecated
 public class NoteTest {
 
     @Test
@@ -27,6 +28,7 @@ public class NoteTest {
                 .isNotNull();
         System.out.println("actual:" + target.toString());
     }
+
     @Test
     public void asText() throws Exception {
         StaticDateTimeProvider.initialize(LocalDateTime.of(2017, 6, 1, 0, 0, 0, 0));

@@ -36,7 +36,7 @@ public class DescriptionMock {
                         .append("EVENT『YOFUKASHI』を新横浜 Funky にて主催する。（不定期開催）").append("\n")
                         .toString();
             }
-        }, ALBUM1, EVENT_DESCRIPTION_ON_TOMORROW, EVENT_DESCRIPTION_ON_ON_THREE_DAYS_BEFORE, ALBUM2, ALBUM3;
+        }, ALBUM1, EVENT_DESCRIPTION_ON_TOMORROW, EVENT_DESCRIPTION_ON_ON_THREE_DAYS_BEFORE, ALBUM2, ALBUM3, NEWS1_DESCRIPTION;
 
         public String text() {
             return Strings2.repeat(name() + ", ", 10);

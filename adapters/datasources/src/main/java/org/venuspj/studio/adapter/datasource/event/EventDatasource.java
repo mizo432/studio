@@ -12,6 +12,7 @@ import org.venuspj.studio.core.model.event.EventRepository;
 import org.venuspj.studio.core.model.event.Events;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.Performers;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.studio.generic.fundamentals.name.Name;
@@ -47,10 +48,12 @@ public class EventDatasource implements EventRepository {
                     place);
 
             return new Event(
-                    new EventId(work.getEventId())
-                    , outline
-                    , Descriptor.defaultDescriptor()
-                    , Flyers.empty());
+                    new EventId(work.getEventId()),
+                    outline,
+                    Descriptor.defaultDescriptor(),
+                    Flyers.empty(),
+                    Performers.emptyPerformers()
+            );
         }
 
         return null;
