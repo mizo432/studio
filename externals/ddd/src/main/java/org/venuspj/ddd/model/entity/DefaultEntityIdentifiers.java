@@ -8,10 +8,11 @@ public class DefaultEntityIdentifiers<E extends Entity<E>> extends AbstractEntit
 
     }
 
-    public DefaultEntityIdentifiers(Collection<? extends EntityIdentifier<E>> anyList) {
-        super(anyList);
+    public DefaultEntityIdentifiers(Collection<? extends EntityIdentifier<E>> anyCollection) {
+        super(anyCollection);
     }
 
+    @SuppressWarnings(value = "unchecked")
     public static <E extends Entity<E>> EntityIdentifiers<E> emptyEntityIdentifiers() {
         return new DefaultEntityIdentifiers();
     }

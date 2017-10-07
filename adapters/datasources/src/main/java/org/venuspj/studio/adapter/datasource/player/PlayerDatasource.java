@@ -3,7 +3,7 @@ package org.venuspj.studio.adapter.datasource.player;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.party.PlayerRepository;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
-import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
+import org.venuspj.studio.generic.model.ppt.party.Party;
 
 public class PlayerDatasource implements PlayerRepository {
 
@@ -14,12 +14,12 @@ public class PlayerDatasource implements PlayerRepository {
     }
 
     @Override
-    public Player resolve(EntityIdentifier<OrganizationUnit> anIdentifier) {
+    public Player resolve(EntityIdentifier<Party> anIdentifier) {
         return null;
     }
 
     @Override
-    public Iterable<Player> resolve(Iterable<EntityIdentifier<OrganizationUnit>> anyIdentifiers) {
+    public Iterable<Player> resolve(Iterable<EntityIdentifier<Party>> anyIdentifiers) {
         return null;
     }
 
@@ -29,7 +29,7 @@ public class PlayerDatasource implements PlayerRepository {
     }
 
     @Override
-    public boolean contains(EntityIdentifier<OrganizationUnit> anIdentifier) {
+    public boolean contains(EntityIdentifier<Party> anIdentifier) {
         return false;
     }
 
@@ -44,12 +44,13 @@ public class PlayerDatasource implements PlayerRepository {
     }
 
     @Override
-    public void delete(EntityIdentifier<OrganizationUnit> anIdentifier) {
+    public void delete(EntityIdentifier<Party> anIdentifier) {
 
     }
 
     @Override
-    public void delete(Iterable<EntityIdentifier<OrganizationUnit>> anyIdentifiers) {
+    public void delete(Iterable<EntityIdentifier<Party>> anyIdentifiers) {
 
     }
+
 }
