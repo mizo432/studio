@@ -1,5 +1,9 @@
 package org.venuspj.studio.generic.model.ppt.party.organization;
 
+import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.studio.generic.model.ppt.party.Party;
+
 public class OrganizationUnitMock {
     public static OrganizationUnit createDimmy(OrganizationUnitType anOrganizationUnitType) {
 
@@ -17,8 +21,8 @@ public class OrganizationUnitMock {
 
         EMPTY {
             @Override
-            public OrganizationUnitId getOrganizationUnitId() {
-                return OrganizationUnitId.newOrganizationUnitId();
+            public EntityIdentifier<Party> getOrganizationUnitId() {
+                return DefaultEntityIdentifier.newId(Party.class);
             }
 
             @Override
@@ -42,7 +46,7 @@ public class OrganizationUnitMock {
             }
         };
 
-        public abstract OrganizationUnitId getOrganizationUnitId();
+        public abstract EntityIdentifier<Party> getOrganizationUnitId();
 
         public abstract OrganizationUnitInfo unitInfo();
 

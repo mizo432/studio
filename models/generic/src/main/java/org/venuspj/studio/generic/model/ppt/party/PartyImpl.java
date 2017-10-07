@@ -1,24 +1,29 @@
 package org.venuspj.studio.generic.model.ppt.party;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
-import org.venuspj.studio.generic.fundamentals.name.Name;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationImpl;
 import org.venuspj.util.objects2.Objects2;
 
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
-public abstract class PartyImpl<P extends Party<P>> extends AbstractEntity<P> {
+public abstract class PartyImpl extends AbstractEntity<Party> {
 
-    private final PartyInfo partyInfo;
+    private PartyInfo partyInfo = PartyInfo.emptyPartyInfo();
 
     @SuppressWarnings("unchecked")
-    public PartyImpl(PartyId anIdentifier, Name aName, PartyInfo aPartyInfo) {
+    public PartyImpl(EntityIdentifier<Party> anIdentifier, PartyInfo aPartyInfo) {
         super(anIdentifier);
         partyInfo = aPartyInfo;
     }
 
+    public static Party emptyParty() {
+        return OrganizationImpl.emptyOrganization();
+    }
+
+    @Override
     protected Objects2.ToStringHelper string() {
         return toStringHelper(this)
                 .add("identifier", identifier())
@@ -31,10 +36,6 @@ public abstract class PartyImpl<P extends Party<P>> extends AbstractEntity<P> {
         return this.string()
                 .omitNullValues()
                 .toString();
-    }
-
-    public static Party<?> emptyParty() {
-        return OrganizationImpl.emptyOrganization();
     }
 
 }

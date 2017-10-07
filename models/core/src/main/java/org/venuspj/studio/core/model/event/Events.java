@@ -1,22 +1,23 @@
 package org.venuspj.studio.core.model.event;
 
-import org.venuspj.ddd.model.entity.Entities;
+import org.venuspj.ddd.model.entity.AbstractEntities;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.*;
 import static org.venuspj.util.objects2.Objects2.*;
 
-public class Events implements Iterable<Event>, Entities<Event> {
-    List<Event> list = newArrayList();
+public class Events extends AbstractEntities<Event> {
 
     Events() {
+        super();
 
     }
 
-    public Events(List<Event> aList) {
-        list.addAll(aList);
+    public Events(Collection<? extends Event> anyCollection) {
+        list.addAll(anyCollection);
     }
 
     public static Events empty() {

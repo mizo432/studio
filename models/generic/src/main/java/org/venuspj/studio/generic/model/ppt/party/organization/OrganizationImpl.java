@@ -1,29 +1,27 @@
 package org.venuspj.studio.generic.model.ppt.party.organization;
 
-import org.venuspj.ddd.model.entity.AbstractEntity;
-import org.venuspj.ddd.model.entity.Entity;
+import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.studio.generic.model.ppt.party.Party;
+import org.venuspj.studio.generic.model.ppt.party.PartyImpl;
 import org.venuspj.util.builder.ObjectBuilder;
 import org.venuspj.util.objects2.Objects2;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
-public class OrganizationImpl extends AbstractEntity<Organization> implements Entity<Organization>, Organization {
-    private final OrganizationId organizationId;
-    private final boolean isEmpty;
+public class OrganizationImpl extends PartyImpl implements Organization {
     private final OrganizationInfo info;
     private final OrganizationUnits units;
 
-    public OrganizationImpl(OrganizationId anIdentifier, OrganizationInfo anInfo, OrganizationUnits anyUnits) {
-        super(anIdentifier);
-        isEmpty = !anIdentifier.isPresent();
-        organizationId = anIdentifier;
+    public OrganizationImpl(EntityIdentifier<Party> anIdentifier, OrganizationInfo anInfo, OrganizationUnits anyUnits) {
+        super(anIdentifier, anInfo);
         info = anInfo;
         units = anyUnits;
     }
 
     public static Organization emptyOrganization() {
         return new OrganizationImpl(
-                OrganizationId.emptyOrganizationId(),
+                DefaultEntityIdentifier.newId(Party.class),
                 OrganizationInfo.emptyOrganizationInfo(),
                 OrganizationUnits.emptyOrganizationUnits()
         );
@@ -31,16 +29,7 @@ public class OrganizationImpl extends AbstractEntity<Organization> implements En
 
     @Override
     public Organization clone() {
-        try {
-            return new OrganizationBuilder().apply(this);
-        } catch (RuntimeException e) {
-            return super.clone();
-        }
-    }
-
-    @Override
-    public OrganizationId identifier() {
-        return organizationId;
+        return new OrganizationBuilder().apply(this);
     }
 
     @Override
@@ -56,8 +45,7 @@ public class OrganizationImpl extends AbstractEntity<Organization> implements En
     @Override
     protected Objects2.ToStringHelper string() {
         return toStringHelper(this)
-                .add("organizationId", organizationId)
-                .add("isEmpty", isEmpty)
+                .add("identifier", identifier())
                 .add("info", info);
     }
 
@@ -70,7 +58,7 @@ public class OrganizationImpl extends AbstractEntity<Organization> implements En
 
     private class OrganizationBuilder extends ObjectBuilder<Organization, OrganizationBuilder> {
 
-        private OrganizationId identifier;
+        private EntityIdentifier<Party> identifier;
         private OrganizationInfo info;
         private OrganizationUnits units;
 
@@ -96,7 +84,7 @@ public class OrganizationImpl extends AbstractEntity<Organization> implements En
 
         }
 
-        public OrganizationBuilder withIdentifier(OrganizationId anIdentifier) {
+        public OrganizationBuilder withIdentifier(EntityIdentifier<Party> anIdentifier) {
             if (isNull(anIdentifier)) return getThis();
             addConfigurator(builder -> builder.identifier = anIdentifier);
             return getThis();

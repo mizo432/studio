@@ -1,22 +1,21 @@
 package org.venuspj.studio.generic.model.ppt.party.organization;
 
-import org.venuspj.ddd.model.entity.Entities;
+import org.venuspj.ddd.model.value.AbstractListValue;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.*;
 
-public class OrganizationUnits implements Entities<OrganizationUnit> {
-
-    List<OrganizationUnit> list = newArrayList();
+public class OrganizationUnits extends AbstractListValue<OrganizationUnit> {
 
     private OrganizationUnits() {
-
+        super();
     }
 
-    public OrganizationUnits(List<OrganizationUnit> anyList) {
-        list.addAll(anyList);
+    public OrganizationUnits(Collection<? extends OrganizationUnit> anyList) {
+        super(anyList);
 
     }
 
@@ -33,4 +32,5 @@ public class OrganizationUnits implements Entities<OrganizationUnit> {
     public Iterator<OrganizationUnit> iterator() {
         return list.iterator();
     }
+
 }

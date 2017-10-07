@@ -1,8 +1,10 @@
 package org.venuspj.ddd.model.entity;
 
-import org.venuspj.util.objects2.Objects2;
+import org.venuspj.util.uuidProvider.UuidProvider;
 
 import java.util.UUID;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  * {@link EntityIdentifier}のデフォルト実装。
@@ -35,6 +37,14 @@ public final class DefaultEntityIdentifier<T extends Entity<T>> extends Abstract
         uuid = anUuid;
     }
 
+    public static <E extends Entity<E>> EntityIdentifier<E> newId(Class<E> clazz) {
+        return new DefaultEntityIdentifier<E>(clazz, UuidProvider.randomUUID());
+    }
+
+    public static <E extends Entity<E>> EntityIdentifier<E> emptyIdentifier(Class<E> clazz) {
+        return new DefaultEntityIdentifier<E>(clazz, null);
+    }
+
     public String getKind() {
         return kind;
     }
@@ -45,20 +55,15 @@ public final class DefaultEntityIdentifier<T extends Entity<T>> extends Abstract
 
     @Override
     public int hashCode() {
-        return Objects2.hash(kind, uuid);
+        return hash(kind, uuid);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || o instanceof DefaultEntityIdentifier == false) {
-            return false;
-        }
-        DefaultEntityIdentifier that = (DefaultEntityIdentifier) o;
-        if (!Objects2.equal(kind, that.kind)) return false;
-        if (!Objects2.equal(uuid, that.uuid)) return false;
-        return true;
+        if (isNull(o)) return false;
+        if (this == o) return true;
+        return o instanceof DefaultEntityIdentifier &&
+                equal((((DefaultEntityIdentifier) o).kind), kind) &&
+                equal((((DefaultEntityIdentifier) o).uuid), uuid);
     }
 }

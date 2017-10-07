@@ -1,8 +1,8 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
 import org.venuspj.studio.generic.fundamentals.name.Name;
+import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
-import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitId;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitImpl;
 import org.venuspj.studio.generic.model.role.partyRole.organizationRole.OrganizationRoleImpl;
 import org.venuspj.util.objects2.Objects2;
@@ -30,6 +30,11 @@ public class Player extends OrganizationRoleImpl {
     }
 
     @Override
+    public Party clone() {
+        return new Player(organizationUnit, playerClassification);
+    }
+
+    @Override
     public String toString() {
         return Objects2
                 .toStringHelper(this)
@@ -44,8 +49,4 @@ public class Player extends OrganizationRoleImpl {
         return playerClassification.isStudioPlayer();
     }
 
-    @Override
-    public OrganizationUnitId identifier() {
-        return super.getOrganizationUnit().identifier();
-    }
 }

@@ -1,17 +1,16 @@
 package org.venuspj.studio.generic.model.ppt.thing;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.util.objects2.Objects2;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
 public class ThingImpl extends AbstractEntity<Thing> implements Thing {
-    ThingId thingId;
     ThingInfo thingInfo;
 
-    public ThingImpl(ThingId anIdentifier, ThingInfo aThingInfo) {
+    public ThingImpl(EntityIdentifier<Thing> anIdentifier, ThingInfo aThingInfo) {
         super(anIdentifier);
-        thingId = anIdentifier;
         thingInfo = aThingInfo;
     }
 
@@ -22,7 +21,7 @@ public class ThingImpl extends AbstractEntity<Thing> implements Thing {
     @Override
     protected Objects2.ToStringHelper string() {
         return toStringHelper(this)
-                .add("thingId", thingId)
+                .add("thingId", identifier())
                 .add("thingInfo", thingInfo);
 
     }

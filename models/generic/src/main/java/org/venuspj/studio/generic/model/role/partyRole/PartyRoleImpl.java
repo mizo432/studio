@@ -1,16 +1,15 @@
 package org.venuspj.studio.generic.model.role.partyRole;
 
-import org.venuspj.ddd.model.entity.AbstractEntity;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.studio.generic.model.ppt.party.DefaultParty;
 import org.venuspj.studio.generic.model.ppt.party.Party;
-import org.venuspj.studio.generic.model.ppt.party.PartyId;
-import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitImpl;
 
-public abstract class PartyRoleImpl<P extends Party<P>> extends AbstractEntity<P> implements Party<P>, PartyRole<P> {
+public abstract class PartyRoleImpl implements Party, PartyRole {
 
-    private final Party party;
+    protected final Party party;
 
     public PartyRoleImpl() {
-        this(OrganizationUnitImpl.emptyOrganizationUnit());
+        this(DefaultParty.emptyParty());
     }
 
     /**
@@ -23,8 +22,11 @@ public abstract class PartyRoleImpl<P extends Party<P>> extends AbstractEntity<P
     }
 
     @Override
-    public PartyId identifier() {
-        return (PartyId) party.identifier();
+    public EntityIdentifier<Party> identifier() {
+        return party.identifier();
     }
+
+    @Override
+    public abstract Party clone();
 
 }

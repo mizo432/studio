@@ -1,26 +1,26 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
-import org.venuspj.ddd.model.value.ListValue;
+import org.venuspj.ddd.model.entity.DefaultEntityIdentifiers;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.ddd.model.value.AbstractListValue;
+import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
-import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitId;
-import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
 import org.venuspj.util.collect.Lists2;
 import org.venuspj.util.objects2.Objects2;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.*;
 
-public class Players implements ListValue<Player>, Iterable<Player> {
-
-    List<Player> list = Lists2.newArrayList();
+public class Players extends AbstractListValue<Player> {
 
     Players() {
     }
 
-    public Players(Iterable<Player> aList) {
-        Lists2.addAll(list, aList);
+    public Players(Collection<? extends Player> aList) {
+        super(aList);
     }
 
     public static Players empty() {
@@ -62,12 +62,12 @@ public class Players implements ListValue<Player>, Iterable<Player> {
     }
 
 
-    public OrganizationUnitIds identifiers() {
-        List<OrganizationUnitId> result = newArrayList();
+    public DefaultEntityIdentifiers<Party> identifiers() {
+        List<EntityIdentifier<Party>> result = newArrayList();
 
         for (Player player : list)
             result.add(player.identifier());
 
-        return new OrganizationUnitIds(result);
+        return new DefaultEntityIdentifiers(result);
     }
 }

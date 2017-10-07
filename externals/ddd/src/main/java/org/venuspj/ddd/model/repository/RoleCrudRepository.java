@@ -5,6 +5,10 @@ import org.venuspj.ddd.model.entity.Entity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 
 
+/**
+ * @param <R>
+ * @param <E>
+ */
 public interface RoleCrudRepository<R extends Role, E extends Entity<E>> {
     /**
      * 識別子に該当するエンティティをリポジトリから取得する。

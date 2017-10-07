@@ -1,6 +1,7 @@
 package org.venuspj.studio.generic.model.ppt.place;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
@@ -8,9 +9,8 @@ public class PlaceImpl extends AbstractEntity<Place> implements Place {
     PlaceId placeId;
     PlaceInfo placeInfo;
 
-    public PlaceImpl(PlaceId anIdentifier, PlaceInfo aPlaceInfo) {
+    public PlaceImpl(EntityIdentifier<Place> anIdentifier, PlaceInfo aPlaceInfo) {
         super(anIdentifier);
-        placeId = anIdentifier;
         placeInfo = aPlaceInfo;
     }
 
@@ -21,9 +21,8 @@ public class PlaceImpl extends AbstractEntity<Place> implements Place {
     @Override
     protected ToStringHelper string() {
         return toStringHelper(this)
-                .add("placeId", placeId)
+                .add("identifier", identifier())
                 .add("placeInfo", placeInfo);
-
     }
 
     @Override

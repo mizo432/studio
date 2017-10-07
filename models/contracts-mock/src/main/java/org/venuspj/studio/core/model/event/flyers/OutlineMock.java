@@ -1,11 +1,12 @@
 package org.venuspj.studio.core.model.event.flyers;
 
+import org.venuspj.ddd.model.entity.EntityIdentifiers;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayersMock;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
-import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
+import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.place.Place;
 import org.venuspj.studio.generic.model.ppt.place.PlaceMock;
 
@@ -33,7 +34,7 @@ public class OutlineMock {
             }
 
             @Override
-            public OrganizationUnitIds getOrganizationUnitIds() {
+            public EntityIdentifiers<Party> getOrganizationUnitIds() {
                 return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
             }
 
@@ -54,7 +55,7 @@ public class OutlineMock {
             }
 
             @Override
-            public OrganizationUnitIds getOrganizationUnitIds() {
+            public EntityIdentifiers<Party> getOrganizationUnitIds() {
                 return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
             }
 
@@ -74,7 +75,7 @@ public class OutlineMock {
             }
 
             @Override
-            public OrganizationUnitIds getOrganizationUnitIds() {
+            public EntityIdentifiers<Party> getOrganizationUnitIds() {
                 return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
             }
 
@@ -127,7 +128,7 @@ public class OutlineMock {
             return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
         }
 
-        public OrganizationUnitIds getOrganizationUnitIds() {
+        public EntityIdentifiers<Party> getOrganizationUnitIds() {
             return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
 
         }

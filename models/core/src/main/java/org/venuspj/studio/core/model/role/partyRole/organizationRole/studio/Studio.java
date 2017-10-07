@@ -1,7 +1,10 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 
+import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
 import org.venuspj.studio.generic.model.role.partyRole.organizationRole.OrganizationRoleImpl;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class Studio extends OrganizationRoleImpl {
 
@@ -9,15 +12,15 @@ public class Studio extends OrganizationRoleImpl {
         super(anOrganization);
     }
 
-
     @Override
-    public OrganizationUnit getOrganizationUnit() {
-        return super.getOrganizationUnit();
+    public Party clone() {
+        return new Studio(organizationUnit);
     }
+
 
     @Override
     public String toString() {
-        return string()
+        return toStringHelper(this)
                 .omitNullValues()
                 .toString();
     }
