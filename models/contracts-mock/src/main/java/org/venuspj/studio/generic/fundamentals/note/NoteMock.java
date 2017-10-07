@@ -1,7 +1,7 @@
 package org.venuspj.studio.generic.fundamentals.note;
 
-import org.venuspj.studio.core.model.event.flyers.DescriptionMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDateTimeMock;
+import org.venuspj.studio.generic.fundamentals.description.DescriptionMock;
 import org.venuspj.util.strings2.Strings2;
 
 public class NoteMock {

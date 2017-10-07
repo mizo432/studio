@@ -1,6 +1,5 @@
-package org.venuspj.studio.core.model.event.flyers;
+package org.venuspj.studio.generic.fundamentals.description;
 
-import org.venuspj.studio.generic.fundamentals.description.Description;
 import org.venuspj.util.strings2.Strings2;
 
 /**
@@ -36,7 +35,7 @@ public class DescriptionMock {
                         .append("EVENT『YOFUKASHI』を新横浜 Funky にて主催する。（不定期開催）").append("\n")
                         .toString();
             }
-        }, ALBUM1, EVENT_DESCRIPTION_ON_TOMORROW, EVENT_DESCRIPTION_ON_ON_THREE_DAYS_BEFORE, ALBUM2, ALBUM3, NEWS1_DESCRIPTION;
+        }, ALBUM1, EVENT_DESCRIPTION_ON_TOMORROW, EVENT_DESCRIPTION_ON_ON_THREE_DAYS_BEFORE, ALBUM2, ALBUM3, NEWS1_DESCRIPTION, EVENT_EMPTY;
 
         public String text() {
             return Strings2.repeat(name() + ", ", 10);

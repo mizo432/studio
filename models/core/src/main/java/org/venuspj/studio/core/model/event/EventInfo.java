@@ -31,6 +31,13 @@ public class EventInfo {
 
     }
 
+    public static EventInfo emptyEventInfo() {
+        return new EventInfo(Outline.emptyOutline(),
+                Descriptor.emptyDescriptor(),
+                Flyers.emptyFlyers(),
+                Performers.emptyPerformers());
+    }
+
     protected Objects2.ToStringHelper string() {
         return toStringHelper(this)
                 .add("outline", outline)
@@ -47,5 +54,7 @@ public class EventInfo {
                 .toString();
     }
 
-
+    public Outline outLine() {
+        return outline;
+    }
 }

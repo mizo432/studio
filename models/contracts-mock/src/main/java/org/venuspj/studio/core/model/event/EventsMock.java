@@ -1,7 +1,5 @@
-package org.venuspj.studio.core.model.event.flyers;
+package org.venuspj.studio.core.model.event;
 
-import org.venuspj.studio.core.model.event.Event;
-import org.venuspj.studio.core.model.event.Events;
 import org.venuspj.util.collect.Lists2;
 
 import java.util.List;
@@ -25,8 +23,10 @@ public final class EventsMock {
                 return new EventMock.EventType[]{
                         EventMock.EventType.EVENT_ON_END_OF_LAST_MONTH,
                         EventMock.EventType.EVENT_ON_START_OF_THIS_MONTH,
+                        EventMock.EventType.EVENT_ON_THREE_DAYS_BEFORE,
                         EventMock.EventType.EVENT_ON_YESTERDAY,
                         EventMock.EventType.EVENT_ON_TODAY,
+                        EventMock.EventType.EVENT_ON_TOMORROW,
                         EventMock.EventType.EVENT_ON_THREE_DAYS_AFTER,
                         EventMock.EventType.EVENT_ON_END_OF_THIS_MONTH,
                         EventMock.EventType.EVENT_ON_START_OF_NEXT_MONTH

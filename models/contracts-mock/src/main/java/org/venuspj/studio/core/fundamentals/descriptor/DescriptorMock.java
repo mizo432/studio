@@ -1,6 +1,6 @@
-package org.venuspj.studio.core.model.event.flyers;
+package org.venuspj.studio.core.fundamentals.descriptor;
 
-import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
+import org.venuspj.studio.generic.fundamentals.description.DescriptionMock;
 import org.venuspj.studio.generic.fundamentals.name.NameMock;
 
 /**
@@ -154,6 +154,16 @@ public class DescriptorMock {
             @Override
             public DescriptionMock.DescriptionType descriptionType() {
                 return DescriptionMock.DescriptionType.ALBUM3;
+            }
+        }, EVENT_EMPTY {
+            @Override
+            public NameMock.NameType nameType() {
+                return NameMock.NameType.EMPTY;
+            }
+
+            @Override
+            public DescriptionMock.DescriptionType descriptionType() {
+                return DescriptionMock.DescriptionType.EVENT_EMPTY;
             }
         };
 

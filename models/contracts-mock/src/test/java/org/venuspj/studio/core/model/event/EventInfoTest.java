@@ -9,11 +9,17 @@ import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.P
 public class EventInfoTest {
 
     @Test
-    public void name() throws Exception {
+    public void constructor() throws Exception {
         EventInfo target = new EventInfo(Outline.emptyOutline(),
                 Descriptor.emptyDescriptor(),
                 Flyers.emptyFlyers(),
                 Performers.emptyPerformers());
+        System.out.println(target);
+    }
+
+    @Test
+    public void empty() throws Exception {
+        EventInfo target = EventInfoMock.createDummy(EventInfoMock.EventInfoType.EMPTY);
         System.out.println(target);
     }
 }

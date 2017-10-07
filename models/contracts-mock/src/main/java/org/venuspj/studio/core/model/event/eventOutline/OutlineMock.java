@@ -1,11 +1,11 @@
-package org.venuspj.studio.core.model.event.flyers;
+package org.venuspj.studio.core.model.event.eventOutline;
 
 import org.venuspj.ddd.model.entity.EntityIdentifiers;
-import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayersMock;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.fundamentals.datetime.RecordDateMock;
 import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.place.Place;
 import org.venuspj.studio.generic.model.ppt.place.PlaceMock;
@@ -119,6 +119,11 @@ public class OutlineMock {
             @Override
             public RecordDate getRecordDate() {
                 return RecordDateMock.createDummy(RecordDateMock.RecordDateType.DEFAULT);
+            }
+        }, EMPTY {
+            @Override
+            public RecordDate getRecordDate() {
+                return EVENT_ON_TODAY.getRecordDate();
             }
         };
 

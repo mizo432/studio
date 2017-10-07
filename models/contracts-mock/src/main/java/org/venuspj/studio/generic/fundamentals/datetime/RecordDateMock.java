@@ -1,6 +1,4 @@
-package org.venuspj.studio.core.model.event.flyers;
-
-import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
+package org.venuspj.studio.generic.fundamentals.datetime;
 
 import java.time.LocalDate;
 

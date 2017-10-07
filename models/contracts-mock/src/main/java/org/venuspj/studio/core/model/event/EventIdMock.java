@@ -1,6 +1,4 @@
-package org.venuspj.studio.core.model.event.flyers;
-
-import org.venuspj.studio.core.model.event.EventId;
+package org.venuspj.studio.core.model.event;
 
 /**
  * Created by mizoguchi on 2017/07/16.
@@ -66,6 +64,11 @@ public class EventIdMock {
             @Override
             public Integer eventIdValue() {
                 return 10000;
+            }
+        }, EMPTY {
+            @Override
+            public Integer eventIdValue() {
+                return null;
             }
         };
 

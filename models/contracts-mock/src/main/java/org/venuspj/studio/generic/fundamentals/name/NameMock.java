@@ -212,6 +212,7 @@ public final class NameMock {
                 return 5;
             }
         }, PLAYER5 {
+            @Override
             public String namePrefix() {
                 return "PLAYER";
             }
@@ -219,6 +220,16 @@ public final class NameMock {
             @Override
             public int index() {
                 return 6;
+            }
+        }, EMPTY {
+            @Override
+            public String namePrefix() {
+                return "EMPTY";
+            }
+
+            @Override
+            public int index() {
+                return 0;
             }
         };
 
