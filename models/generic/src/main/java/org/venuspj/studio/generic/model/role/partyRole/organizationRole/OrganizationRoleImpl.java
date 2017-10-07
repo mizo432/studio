@@ -23,6 +23,10 @@ public abstract class OrganizationRoleImpl extends PartyRoleImpl implements Orga
         return organizationUnit.identifier();
     }
 
+    public OrganizationUnit getOrganizationUnit() {
+        return organizationUnit;
+    }
+
     @Override
     public abstract Party clone();
 
