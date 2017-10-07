@@ -6,7 +6,6 @@ import org.venuspj.ddd.model.entity.EntityIdentifier;
 import static org.venuspj.util.objects2.Objects2.*;
 
 public class PlaceImpl extends AbstractEntity<Place> implements Place {
-    PlaceId placeId;
     PlaceInfo placeInfo;
 
     public PlaceImpl(EntityIdentifier<Place> anIdentifier, PlaceInfo aPlaceInfo) {

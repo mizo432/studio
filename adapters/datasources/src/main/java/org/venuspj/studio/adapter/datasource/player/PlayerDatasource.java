@@ -7,7 +7,6 @@ import org.venuspj.studio.generic.model.ppt.party.Party;
 
 public class PlayerDatasource implements PlayerRepository {
 
-
     @Override
     public void delete(Player anEntity) {
 

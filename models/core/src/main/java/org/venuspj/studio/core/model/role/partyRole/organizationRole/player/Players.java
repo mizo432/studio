@@ -62,6 +62,7 @@ public class Players extends AbstractListValue<Player> {
     }
 
 
+    @SuppressWarnings(value = "unchecked")
     public DefaultEntityIdentifiers<Party> identifiers() {
         List<EntityIdentifier<Party>> result = newArrayList();
 

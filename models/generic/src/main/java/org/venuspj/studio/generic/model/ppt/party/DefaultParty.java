@@ -6,8 +6,6 @@ import org.venuspj.ddd.model.entity.EntityIdentifier;
  */
 public class DefaultParty extends PartyImpl implements Party {
 
-    private PartyInfo partyInfo = PartyInfo.emptyPartyInfo();
-
     private DefaultParty(EntityIdentifier<Party> anIdentifier, PartyInfo aPartyInfo) {
         super(anIdentifier, aPartyInfo);
     }

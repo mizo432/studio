@@ -21,7 +21,7 @@ public class ThingImpl extends AbstractEntity<Thing> implements Thing {
     @Override
     protected Objects2.ToStringHelper string() {
         return toStringHelper(this)
-                .add("thingId", identifier())
+                .add("identifier", identifier())
                 .add("thingInfo", thingInfo);
 
     }

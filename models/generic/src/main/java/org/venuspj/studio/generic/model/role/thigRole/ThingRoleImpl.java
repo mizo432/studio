@@ -1,8 +1,8 @@
 package org.venuspj.studio.generic.model.role.thigRole;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
+import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.generic.model.ppt.thing.Thing;
-import org.venuspj.studio.generic.model.ppt.thing.ThingId;
 import org.venuspj.studio.generic.model.ppt.thing.ThingImpl;
 
 public class ThingRoleImpl extends AbstractEntity<Thing> implements Thing, ThingRole {
@@ -19,8 +19,8 @@ public class ThingRoleImpl extends AbstractEntity<Thing> implements Thing, Thing
     }
 
     @Override
-    public ThingId identifier() {
-        return (ThingId) thing.identifier();
+    public EntityIdentifier<Thing> identifier() {
+        return thing.identifier();
     }
 
 }
