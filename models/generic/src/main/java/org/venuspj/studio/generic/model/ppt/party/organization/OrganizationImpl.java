@@ -29,7 +29,11 @@ public class OrganizationImpl extends PartyImpl implements Organization {
 
     @Override
     public Organization clone() {
-        Organization b = null;
+        Organization b = new OrganizationImpl(
+                identifier(),
+                info,
+                units
+        );
 
         /*ObjectクラスのcloneメソッドはCloneNotSupportedExceptionを投げる可能性があるので、try-catch文で記述(呼び出し元に投げても良い)*/
         try {
@@ -38,7 +42,6 @@ public class OrganizationImpl extends PartyImpl implements Organization {
             e.printStackTrace();
         }
         return b;
-        //        return new OrganizationBuilder().apply(this);
     }
 
     @Override

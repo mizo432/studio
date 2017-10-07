@@ -3,6 +3,7 @@ package org.venuspj.studio.generic.model.role.partyRole.personRole;
 import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.party.parson.Person;
 import org.venuspj.studio.generic.model.ppt.party.parson.PersonImpl;
+import org.venuspj.studio.generic.model.ppt.party.parson.PersonInfo;
 import org.venuspj.studio.generic.model.role.partyRole.PartyRoleImpl;
 
 public abstract class PersonRoleImpl
@@ -31,6 +32,18 @@ public abstract class PersonRoleImpl
             e.printStackTrace();
         }
         return b;
+
+    }
+
+    @Override
+    public PersonInfo getPersonInfo() {
+        return person.getPersonInfo();
+    }
+
+    private static class DefaultPersonRole extends PersonRoleImpl {
+        public DefaultPersonRole(Person aPerson) {
+            super(aPerson);
+        }
 
     }
 

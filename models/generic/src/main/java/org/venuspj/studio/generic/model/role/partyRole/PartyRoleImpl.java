@@ -28,7 +28,7 @@ public abstract class PartyRoleImpl implements Party, PartyRole {
 
     @Override
     public Party clone() {
-        Party b = null;
+        Party b = new DefaultPartyRole(party);
 
         /*ObjectクラスのcloneメソッドはCloneNotSupportedExceptionを投げる可能性があるので、try-catch文で記述(呼び出し元に投げても良い)*/
         try {
@@ -40,6 +40,10 @@ public abstract class PartyRoleImpl implements Party, PartyRole {
 
     }
 
-    ;
 
+    private static class DefaultPartyRole extends PartyRoleImpl {
+        public DefaultPartyRole(Party aParty) {
+            super(aParty);
+        }
+    }
 }
