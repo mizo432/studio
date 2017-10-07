@@ -31,7 +31,17 @@ public class Player extends OrganizationRoleImpl {
 
     @Override
     public Party clone() {
-        return new Player(organizationUnit, playerClassification);
+        Player b = null;
+
+        /*ObjectクラスのcloneメソッドはCloneNotSupportedExceptionを投げる可能性があるので、try-catch文で記述(呼び出し元に投げても良い)*/
+        try {
+            b = (Player) super.clone(); //親クラスのcloneメソッドを呼び出す(親クラスの型で返ってくるので、自分自身の型でのキャストを忘れないようにする)
+//            b.s=this.s.clone(); //親クラスのcloneメソッドで深いコピー(複製先のクラス型変数と複製元のクラス型変数で指しているインスタンスの中身が違うコピー)がなされていないクラス型変数をその変数のcloneメソッドで複製し、複製先のクラス型変数に代入
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return b;
+//        return new Player(organizationUnit, playerClassification);
     }
 
     @Override
