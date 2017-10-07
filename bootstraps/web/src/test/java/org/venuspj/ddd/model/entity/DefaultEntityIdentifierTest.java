@@ -76,7 +76,6 @@ public class DefaultEntityIdentifierTest {
     public void equals3() throws Exception {
         UUID uuid = UUID.randomUUID();
         DefaultEntityIdentifier<ConcreteEntity> target = new DefaultEntityIdentifier<ConcreteEntity>(ConcreteEntity.class, uuid);
-        DefaultEntityIdentifier<ConcreteEntity> other = new DefaultEntityIdentifier<ConcreteEntity>(ConcreteEntity.class, uuid);
         boolean actual = target.equals(null);
         assertThat(actual)
                 .isFalse();
@@ -86,7 +85,6 @@ public class DefaultEntityIdentifierTest {
     public void equals4() throws Exception {
         UUID uuid = UUID.randomUUID();
         DefaultEntityIdentifier<ConcreteEntity> target = new DefaultEntityIdentifier<ConcreteEntity>(ConcreteEntity.class, uuid);
-        DefaultEntityIdentifier<ConcreteEntity> other = new DefaultEntityIdentifier<ConcreteEntity>(ConcreteEntity.class, uuid);
         boolean actual = target.equals(Integer.valueOf(1));
         assertThat(actual)
                 .isFalse();

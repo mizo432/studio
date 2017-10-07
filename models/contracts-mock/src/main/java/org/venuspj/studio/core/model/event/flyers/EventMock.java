@@ -1,6 +1,7 @@
 package org.venuspj.studio.core.model.event.flyers;
 
 import org.venuspj.studio.core.model.event.Event;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.PerformersMock;
 
 /**
  */
@@ -10,7 +11,9 @@ public class EventMock {
         return new Event(EventIdMock.createDummy(anEventType.eventIdType()),
                 OutlineMock.createDummy(anEventType.outlineType()),
                 DescriptorMock.createDummy(anEventType.descriptorType()),
-                FlyersMock.createDummy(anEventType.flyersType()));
+                FlyersMock.createDummy(anEventType.flyersType()),
+                PerformersMock.createDummy(anEventType.performersType())
+        );
     }
 
 
@@ -128,5 +131,10 @@ public class EventMock {
         public FlyersMock.FlyersType flyersType() {
             return FlyersMock.FlyersType.DEFAULT;
         }
+
+        public PerformersMock.PerformersType performersType() {
+            return PerformersMock.PerformersType.EMPTY;
+        }
+
     }
 }

@@ -2,9 +2,9 @@ package org.venuspj.studio.usecase.studio;
 
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioCode;
 import org.venuspj.studio.core.usecase.studio.StudioQueryInputPort;
 import org.venuspj.studio.core.usecase.studio.StudioQueryOutputPort;
+import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.util.objects2.Objects2;
 
 /**
@@ -25,8 +25,8 @@ public class StudioQueryPortMock implements StudioQueryInputPort, StudioQueryOut
     }
 
     @Override
-    public EntityIdentifier<Studio> getStudioId() {
-        return new StudioCode(studioCode);
+    public EntityIdentifier<Party> getStudioId() {
+        return null;
     }
 
     @Override

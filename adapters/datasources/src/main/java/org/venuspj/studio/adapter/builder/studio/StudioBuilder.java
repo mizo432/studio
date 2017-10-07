@@ -1,57 +1,40 @@
 package org.venuspj.studio.adapter.builder.studio;
 
-import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.profile.Profile;
-import org.venuspj.studio.generic.fundamentals.name.Name;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioInfo;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
 import org.venuspj.util.builder.ObjectBuilder;
 
-import static org.venuspj.util.objects2.Objects2.isNull;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class StudioBuilder extends ObjectBuilder<Studio, StudioBuilder> {
-    private Name name;
-    private EntityIdentifier<Studio> identifier;
-    private Profile profile;
-    private Descriptor descriptor;
+    private OrganizationUnit organizationUnit;
+    private StudioInfo studioInfo;
 
 
     @Override
     protected void apply(Studio vo, StudioBuilder builder) {
-        builder.withName(vo.getName());
-        builder.withIdentifier(vo.identifier());
-        builder.withProfile(vo.getProfile());
-        builder.withDescriptor(vo.getDescriptor());
+        builder.withOrganization(vo.getOrganizationUnit());
+        builder.withStudioInfo(vo.getStudioInfo());
 
     }
 
-    public StudioBuilder withName(Name aName) {
-        if (isNull(aName)) return getThis();
-        addConfigurator(builder -> builder.name = aName);
+    public StudioBuilder withOrganization(OrganizationUnit anOrganizationUnit) {
+        if (isNull(anOrganizationUnit)) return getThis();
+        addConfigurator(builder -> builder.organizationUnit = anOrganizationUnit);
         return getThis();
     }
 
-    public StudioBuilder withIdentifier(EntityIdentifier<Studio> anIdentifier) {
-        if (isNull(anIdentifier)) return getThis();
-        addConfigurator(builder -> builder.identifier = anIdentifier);
+    public StudioBuilder withStudioInfo(StudioInfo aStudioInfo) {
+        if (isNull(aStudioInfo)) return getThis();
+        addConfigurator(builder -> builder.studioInfo = aStudioInfo);
         return getThis();
     }
 
-    public StudioBuilder withProfile(Profile aProfile) {
-        if (isNull(aProfile)) return getThis();
-        addConfigurator(builder -> builder.profile = aProfile);
-        return getThis();
-    }
-
-    public StudioBuilder withDescriptor(Descriptor aDescriptor) {
-        if (isNull(aDescriptor)) return getThis();
-        addConfigurator(builder -> builder.descriptor = aDescriptor);
-        return getThis();
-    }
 
     @Override
     protected Studio createValueObject() {
-        return new Studio(name, identifier, profile, descriptor);
+        return new Studio(organizationUnit, studioInfo);
 
     }
 

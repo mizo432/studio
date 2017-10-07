@@ -1,19 +1,21 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.profile;
 
-import org.venuspj.studio.core.fundamentals.note.Note;
+import org.venuspj.studio.generic.fundamentals.description.Description;
 import org.venuspj.util.objects2.Objects2;
 
 /**
  */
 public class Profile {
-    Note note = Note.defailtNote();
+
+    private final Description description;
 
     Profile() {
+        description = Description.emptyDescription();
 
     }
 
-    public Profile(Note aNote) {
-        note = aNote;
+    public Profile(Description aDescription) {
+        description = aDescription;
 
     }
 
@@ -25,7 +27,7 @@ public class Profile {
     public String toString() {
         return Objects2
                 .toStringHelper(this)
-                .add("note", note)
+                .add("description", description)
                 .omitNullValues()
                 .toString();
 

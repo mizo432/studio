@@ -1,7 +1,7 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.news;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
-import org.venuspj.studio.core.fundamentals.note.Note;
+import org.venuspj.studio.generic.fundamentals.note.Note;
 import org.venuspj.util.objects2.Objects2;
 
 /**

@@ -13,6 +13,8 @@ public class Lists2Test {
     @Test
     public void newArrayList1() throws Exception {
         List<Integer> actual = Lists2.newArrayList();
+        assertThat(actual)
+                .isNotNull();
     }
 
     @Test

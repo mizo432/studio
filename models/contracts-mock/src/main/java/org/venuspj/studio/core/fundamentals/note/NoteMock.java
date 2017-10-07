@@ -3,6 +3,7 @@ package org.venuspj.studio.core.fundamentals.note;
 import org.venuspj.util.strings2.Strings2;
 
 /**
+ * @deprecated
  */
 public class NoteMock {
     public static Note createDummy(NoteType aNoteType) {

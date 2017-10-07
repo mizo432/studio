@@ -1,19 +1,20 @@
 package org.venuspj.studio.adapter.doma.dao;
 
-import junit.framework.TestCase;
-import org.seasar.doma.jdbc.NoCacheSqlFileRepository;
-import org.seasar.doma.jdbc.SqlFile;
-import org.seasar.doma.jdbc.SqlFileRepository;
-import org.seasar.doma.jdbc.dialect.Dialect;
-
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+import junit.framework.TestCase;
+
+import org.seasar.doma.jdbc.NoCacheSqlFileRepository;
+import org.seasar.doma.jdbc.SqlFile;
+import org.seasar.doma.jdbc.SqlFileRepository;
+import org.seasar.doma.jdbc.dialect.Dialect;
+
 /**
- *
+ * 
  */
 public class LinksDaoTest extends TestCase {
 
@@ -56,6 +57,7 @@ public class LinksDaoTest extends TestCase {
     }
 
     /**
+     * 
      * @param sqlFile
      * @throws Exception
      */
@@ -79,6 +81,7 @@ public class LinksDaoTest extends TestCase {
     }
 
     /**
+     * 
      * @return
      * @throws Exception
      */
@@ -87,14 +90,16 @@ public class LinksDaoTest extends TestCase {
     }
 
     /**
+     * 
      * @return method
      * @throws Exception
      */
     protected Method getMethod() throws Exception {
-        return getClass().getMethod(getName(), new Class[]{});
+        return getClass().getMethod(getName(), new Class[] {});
     }
 
     /**
+     * 
      * @throws Exception
      */
     public void testSelectById() throws Exception {
