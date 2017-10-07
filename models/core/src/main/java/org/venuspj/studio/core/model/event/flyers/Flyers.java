@@ -20,7 +20,7 @@ public class Flyers {
 
     }
 
-    public static Flyers empty() {
+    public static Flyers emptyFlyers() {
         return new Flyers();
     }
 

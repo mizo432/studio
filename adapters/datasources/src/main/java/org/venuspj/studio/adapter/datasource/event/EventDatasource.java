@@ -51,7 +51,7 @@ public class EventDatasource implements EventRepository {
                     new EventId(work.getEventId()),
                     outline,
                     Descriptor.defaultDescriptor(),
-                    Flyers.empty(),
+                    Flyers.emptyFlyers(),
                     Performers.emptyPerformers()
             );
         }

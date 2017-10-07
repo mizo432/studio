@@ -14,6 +14,10 @@ public class Period {
         endDate = anEndDate;
     }
 
+    public static Period emptyPeriod() {
+        return new Period(RecordDate.emptyRecordDate(), RecordDate.emptyRecordDate());
+    }
+
     public RecordDate startDate() {
         return startDate;
     }
@@ -30,9 +34,5 @@ public class Period {
                 .add("endDate", endDate)
                 .omitNullValues()
                 .toString();
-    }
-
-    public static Period emptyPeriod() {
-        return new Period(RecordDate.empty(), RecordDate.empty());
     }
 }
