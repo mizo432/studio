@@ -6,10 +6,7 @@ import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.adapter.doma.dao.EventsDao;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
-import org.venuspj.studio.core.model.event.Event;
-import org.venuspj.studio.core.model.event.EventId;
-import org.venuspj.studio.core.model.event.EventRepository;
-import org.venuspj.studio.core.model.event.Events;
+import org.venuspj.studio.core.model.event.*;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.Performers;
@@ -47,13 +44,14 @@ public class EventDatasource implements EventRepository {
                     OrganizationUnitIds.emptyOrganizationUnitIds(),
                     place);
 
-            return new Event(
-                    new EventId(work.getEventId()),
-                    outline,
+            EventInfo eventInfo = new EventInfo(outline,
                     Descriptor.defaultDescriptor(),
                     Flyers.emptyFlyers(),
-                    Performers.emptyPerformers()
-            );
+                    Performers.emptyPerformers());
+
+            return new Event(
+                    new EventId(work.getEventId()),
+                    eventInfo);
         }
 
         return null;

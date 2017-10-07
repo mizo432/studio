@@ -20,10 +20,10 @@ public class EventInfo {
 
     }
 
-    EventInfo(Outline anOutline,
-              Descriptor aDescriptor,
-              Flyers anyFlyers,
-              Performers anyPerformers) {
+    public EventInfo(Outline anOutline,
+                     Descriptor aDescriptor,
+                     Flyers anyFlyers,
+                     Performers anyPerformers) {
         outline = anOutline;
         descriptor = aDescriptor;
         flyers = anyFlyers;
