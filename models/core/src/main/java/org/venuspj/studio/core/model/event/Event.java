@@ -7,7 +7,6 @@ import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import static org.venuspj.util.objects2.Objects2.*;
 
 public class Event extends AbstractEntity<Event> {
-    boolean isBlank = false;
     EventInfo eventInfo = EventInfo.emptyEventInfo();
 
     public Event(EntityIdentifier<Event> anIdentifier, EventInfo anEventInfo) {
@@ -15,13 +14,15 @@ public class Event extends AbstractEntity<Event> {
         eventInfo = anEventInfo;
     }
 
-    public Event() {
-        isBlank = true;
+    private Event() {
 
     }
 
-    public static Event blankEvent() {
-        return new Event();
+    public static Event emptyEvent() {
+        return new Event(
+                EventId.emptyEventId(),
+                EventInfo.emptyEventInfo()
+        );
     }
 
     public Outline outline() {

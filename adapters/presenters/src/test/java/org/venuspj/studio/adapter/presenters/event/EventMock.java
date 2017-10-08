@@ -6,6 +6,6 @@ import org.venuspj.studio.core.model.event.Event;
  */
 public class EventMock {
     public static Event createDummy() {
-        return Event.blankEvent();
+        return Event.emptyEvent();
     }
 }
