@@ -12,6 +12,7 @@ import org.venuspj.studio.core.model.event.flyers.Flyers;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.Performers;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
+import org.venuspj.studio.generic.fundamentals.description.Description;
 import org.venuspj.studio.generic.fundamentals.name.Name;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
 import org.venuspj.studio.generic.model.ppt.place.Place;
@@ -44,8 +45,10 @@ public class EventDatasource implements EventRepository {
                     OrganizationUnitIds.emptyOrganizationUnitIds(),
                     place);
 
+            Descriptor descriptor = new Descriptor(new Name(work.getEventName()), new Description(work.getEventDescription()));
+
             EventInfo eventInfo = new EventInfo(outline,
-                    Descriptor.defaultDescriptor(),
+                    descriptor,
                     Flyers.emptyFlyers(),
                     Performers.emptyPerformers());
 
