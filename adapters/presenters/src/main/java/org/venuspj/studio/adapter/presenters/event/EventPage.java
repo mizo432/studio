@@ -20,4 +20,25 @@ public class EventPage implements EventQueryOutputPort {
                 .omitNullValues()
                 .toString();
     }
+
+    public EventPageView getDetail() {
+        EventPageView eventPageView = new EventPageView();
+        eventPageView.setEventName(event.getInfo().getDescriptor().getName().asText());
+        return eventPageView;
+    }
+
+    public static class EventPageView {
+
+        private String eventName;
+
+        public String getEventName() {
+            return eventName;
+        }
+
+        public void setEventName(String aValue) {
+        }
+
+    }
+
+
 }

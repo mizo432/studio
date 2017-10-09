@@ -26,7 +26,8 @@ public class EventController {
     public String index(@PathParam("aEventId") Integer aEventId, Model model) {
         EventPage eventPage = new EventPage();
         EventQueryCriteria eventQueryCriteria = new EventQueryCriteria(aEventId);
-
+        eventQueryUseCase.start(eventQueryCriteria, eventPage);
+        model.addAttribute("page", eventPage.getDetail());
 
         return "/events/detail";
     }

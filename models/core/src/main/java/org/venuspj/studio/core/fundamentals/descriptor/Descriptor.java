@@ -27,6 +27,10 @@ public class Descriptor {
         return new Descriptor(Name.emptyName(), Description.emptyDescription());
     }
 
+    public Name getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return Objects2

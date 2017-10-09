@@ -26,7 +26,7 @@ public class Event extends AbstractEntity<Event> {
     }
 
     public Outline outline() {
-        return eventInfo.outLine();
+        return eventInfo.getOutLine();
     }
 
     @Override
@@ -36,5 +36,9 @@ public class Event extends AbstractEntity<Event> {
                 .add("\neventInfo", eventInfo)
                 .omitNullValues()
                 .toString();
+    }
+
+    public EventInfo getInfo() {
+        return eventInfo;
     }
 }

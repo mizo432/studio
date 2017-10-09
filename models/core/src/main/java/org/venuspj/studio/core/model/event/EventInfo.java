@@ -9,14 +9,12 @@ import org.venuspj.util.objects2.Objects2;
 import static org.venuspj.util.objects2.Objects2.*;
 
 public class EventInfo {
-    boolean isBlank = false;
     private Outline outline;
     private Descriptor descriptor;
     private Flyers flyers;
     private Performers performers;
 
     EventInfo() {
-        boolean isBlank = true;
 
     }
 
@@ -54,7 +52,11 @@ public class EventInfo {
                 .toString();
     }
 
-    public Outline outLine() {
+    public Outline getOutLine() {
         return outline;
+    }
+
+    public Descriptor getDescriptor() {
+        return descriptor;
     }
 }
