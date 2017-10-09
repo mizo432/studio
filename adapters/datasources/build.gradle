@@ -34,10 +34,11 @@ dependencies {
     compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.1')
     compile project(":studio-core")
     compile project(":studio-contracts")
-    testRuntime project(":studio-contracts-mock")
+    testCompile project(":studio-contracts-mock")
     compile("${jdbcDriver}")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.seasar.doma:doma:${domaVersion}")
+    compile group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: '1.1.1'
     compile("org.springframework.boot:spring-boot-starter")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"

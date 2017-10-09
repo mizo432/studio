@@ -45,7 +45,7 @@ subprojects {
         assertJVersion = '3.6.2'
         h2dbVersion = '1.4.193+'
         springStateMachineCoreVersion = '1.2.1.RELEASE'
-        logbackVersion = '1.1.9'
+        logbackVersion = '1.1.11'
         slf4jVersion = '1.7.22'
         junitDevVersion = "4.11"
         junitVersion = "4.12"
@@ -61,6 +61,8 @@ subprojects {
     //buildDir = 'out'
     //tasks.withType(AbstractCompile)*.options*.encoding = defaultEncoding
     //tasks.withType(GroovyCompile)*.groovyOptions*.encoding = defaultEncoding
+    idea.module.outputDir = compileJava.destinationDir
+    idea.module.inheritOutputDirs = true
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8

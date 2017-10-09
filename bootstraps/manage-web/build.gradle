@@ -37,7 +37,7 @@ jar {
     version = '1.0.0-SNAPSHOT'
     manifest {
         attributes 'Main-Class': 'org.springframework.boot.loader.JarLauncher'
-        attributes "Start-Class": "org.venuspj.studio.ManageApplication"
+        attributes "Start-Class": "org.venuspj.studi.StudioManageApplication"
     }
     archiveName = 'studio-manage.jar'
 }
