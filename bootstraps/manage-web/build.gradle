@@ -69,10 +69,7 @@ dependencies {
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-java8time", version: "${thymeleafExtrasJava8timeVersion}"
     compile group: "org.springframework.session", name: "spring-session", version: "${springSessionVersion}"
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
-    compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testRuntime('org.springframework.boot:spring-boot-devtools')
     testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
-    runtime group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
 }

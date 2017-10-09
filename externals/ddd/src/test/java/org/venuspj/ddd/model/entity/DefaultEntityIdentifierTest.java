@@ -14,6 +14,10 @@ public class DefaultEntityIdentifierTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultEntityIdentifierTest.class);
 
     @Test
+    public void emptyIdentifier() throws Exception {
+    }
+
+    @Test
     public void getKind1() throws Exception {
         UUID uuid = UUID.randomUUID();
         DefaultEntityIdentifier<ConcreteEntity> target = new DefaultEntityIdentifier<ConcreteEntity>(ConcreteEntity.class, uuid);
@@ -110,8 +114,16 @@ public class DefaultEntityIdentifierTest {
     }
 
     @Test
-    public void dummy() throws Exception {
-        new ConcreteEntity();
+    public void newId() throws Exception {
+        EntityIdentifier<ConcreteEntity> target = DefaultEntityIdentifier.newId(ConcreteEntity.class);
+        System.out.println(target);
+        //207214d3-7694-489b-be78-9db292aa9861
+    }
+
+    @Test
+    public void byUuid() throws Exception {
+        EntityIdentifier<ConcreteEntity> target = DefaultEntityIdentifier.byUuid(ConcreteEntity.class, UUID.fromString("207214d3-7694-489b-be78-9db292aa9861"));
+        System.out.println(target);
     }
 
 }

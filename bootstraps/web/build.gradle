@@ -60,11 +60,8 @@ dependencies {
     compile project(":studio-datasources")
     compile project(":studio-use-cases")
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
-    compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testRuntime('org.springframework.boot:spring-boot-devtools')
-    runtime group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
 }
 
 jar {

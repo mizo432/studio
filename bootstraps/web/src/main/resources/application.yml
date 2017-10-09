@@ -1,2 +1,6 @@
 spring:
   profiles.active: develop
+
+doma:
+  dialect: mysql
+  sql-file-repository: no_cachedoma:
