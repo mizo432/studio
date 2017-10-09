@@ -30,7 +30,7 @@ jar {
     version = '1.0.0-SNAPSHOT'
     manifest {
         attributes 'Main-Class': 'org.springframework.boot.loader.JarLauncher'
-        attributes "Start-Class": "org.venuspj.studio.WebApplication"
+        attributes "Start-Class": "org.venuspj.studio.StudioWebApplication"
     }
 }
 

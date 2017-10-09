@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.util.ClassUtils;
 
 @SpringBootApplication
-public class StudioApplication {
+public class StudioWebApplication {
     public static void main(String[] args) {
-        final SpringApplication springApplication = new SpringApplication(StudioApplication.class);
+        final SpringApplication springApplication = new SpringApplication(StudioWebApplication.class);
         if (isDeveloping()) { // ローカル開発環境では
             springApplication.setAdditionalProfiles("development"); // developing プロファイルを追加
         }
