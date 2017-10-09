@@ -6,9 +6,6 @@ buildscript {
     }
     repositories {
         maven {
-            url 'http://www.venus-pj.org/artifactory/plugins-release'
-        }
-        maven {
             url 'https://plugins.gradle.org/m2/'
         }
         mavenCentral()
@@ -24,12 +21,8 @@ buildscript {
 
 apply plugin: 'base'
 apply plugin: 'idea'
-apply plugin: 'com.jfrog.artifactory'
 
 repositories {
-    maven {
-        url 'http://www.venus-pj.org/artifactory/plugins-release'
-    }
     mavenCentral()
     jcenter()
 }
@@ -65,17 +58,14 @@ subprojects {
         defaultEncoding = 'UTF-8'
 
     }
-    buildDir = 'out'
-    tasks.withType(AbstractCompile)*.options*.encoding = defaultEncoding
-    tasks.withType(GroovyCompile)*.groovyOptions*.encoding = defaultEncoding
+    //buildDir = 'out'
+    //tasks.withType(AbstractCompile)*.options*.encoding = defaultEncoding
+    //tasks.withType(GroovyCompile)*.groovyOptions*.encoding = defaultEncoding
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 
     repositories {
-        maven {
-            url 'http://www.venus-pj.org/artifactory/plugins-release/'
-        }
         maven {
             url 'http://repo.opennms.org/maven2/'
         }
@@ -187,21 +177,4 @@ task incrementVersionCode << {
     println(":incrementVersionCode - current versionCode=" + mVersionCode);
     println(":incrementVersionCode - next versionCode=" + mNextVersionCode);
     buildGradleFile.write(manifestContent)
-}
-
-artifactory {
-    publish {
-        repository {
-            repoKey = 'libs-release-local'
-            maven = true
-
-        }
-    }
-    resolve {
-        repository {
-            repoKey = 'libs-release'
-            maven = true
-
-        }
-    }
 }

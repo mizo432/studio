@@ -62,6 +62,8 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testRuntime('org.springframework.boot:spring-boot-devtools')
+    runtime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
+    runtime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
 }
 
 jar {
