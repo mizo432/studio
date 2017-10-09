@@ -36,6 +36,7 @@ public class EventPage implements EventQueryOutputPort {
         }
 
         public void setEventName(String aValue) {
+            eventName = aValue;
         }
 
     }
