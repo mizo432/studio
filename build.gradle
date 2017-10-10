@@ -94,6 +94,7 @@ subprojects {
         // 失敗しても後続の処理を継続させる
         ignoreFailures = true
         sourceSets = [sourceSets.main]
+        exclude '*.yml, *.xml, *.sql'
         toolVersion = "3.0.1"
     }
 
