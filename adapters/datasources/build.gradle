@@ -30,7 +30,7 @@ bootRepackage {
 dependencies {
     def jdbcDriver = "mysql:mysql-connector-java:${mySqlConnectorVersion}"
     def domaVersion = "2.17.0"
-    compile("org.codehaus.janino:janino")
+//    compile("org.codehaus.janino:janino")
     compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.1')
     compile project(":studio-core")
     compile project(":studio-contracts")
