@@ -39,6 +39,7 @@ dependencies {
     compile group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: '1.1.1'
     compile("org.springframework.boot:spring-boot-starter")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"

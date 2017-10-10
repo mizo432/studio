@@ -1,7 +1,7 @@
 package org.venuspj.studio.adapter.datasource.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.adapter.doma.dao.EventsDao;
@@ -19,11 +19,11 @@ import org.venuspj.studio.generic.model.ppt.place.Place;
 import org.venuspj.studio.generic.model.ppt.place.PlaceImpl;
 import org.venuspj.studio.generic.model.ppt.place.PlaceInfo;
 
-import static org.venuspj.util.objects2.Objects2.*;
+import static org.venuspj.util.objects2.Objects2.nonNull;
 
 /**
  */
-@Repository
+@Service
 public class EventDatasource implements EventRepository {
     private EventsDao eventsDao;
 
