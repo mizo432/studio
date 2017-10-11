@@ -68,8 +68,8 @@ dependencies {
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-springsecurity4", version: "${thymeleafExtrasVersion}"
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-java8time", version: "${thymeleafExtrasJava8timeVersion}"
     compile group: "org.springframework.session", name: "spring-session", version: "${springSessionVersion}"
+    runtime('org.springframework.boot:spring-boot-devtools')
+
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    testRuntime('org.springframework.boot:spring-boot-devtools')
-    testCompile group: 'junit', name: 'junit-dep', version: "${junitDevVersion}"
 }

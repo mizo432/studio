@@ -5,10 +5,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventMock;
-
-import javax.transaction.Transactional;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
@@ -19,6 +18,7 @@ public class EventDatasourceTest {
     @Autowired
     EventDatasource eventDatasource;
 
+    @Transactional
     @Test
     public void インスタンスの存在確認() throws Exception {
         assertThat(eventDatasource)

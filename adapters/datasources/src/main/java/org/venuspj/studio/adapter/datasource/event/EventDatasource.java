@@ -1,10 +1,10 @@
 package org.venuspj.studio.adapter.datasource.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.adapter.doma.dao.EventsDao;
+import org.venuspj.studio.adapter.mybatis.mapper.EventsMapper;
 import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.model.event.*;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
@@ -19,23 +19,23 @@ import org.venuspj.studio.generic.model.ppt.place.Place;
 import org.venuspj.studio.generic.model.ppt.place.PlaceImpl;
 import org.venuspj.studio.generic.model.ppt.place.PlaceInfo;
 
-import static org.venuspj.util.objects2.Objects2.nonNull;
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
-@Service
+@Repository
 public class EventDatasource implements EventRepository {
-    private EventsDao eventsDao;
+    private EventsMapper eventsMapper;
 
     @Autowired
-    EventDatasource(EventsDao anEventsDao) {
-        eventsDao = anEventsDao;
+    EventDatasource(EventsMapper anEventsMapper) {
+        eventsMapper = anEventsMapper;
     }
 
     @Override
     public Event resolve(EntityIdentifier<Event> anIdentifier) {
         EventId eventId = (EventId) anIdentifier;
-        org.venuspj.studio.adapter.doma.entity.Events work = eventsDao.selectById(eventId.asInteger());
+        org.venuspj.studio.adapter.mybatis.model.Events work = eventsMapper.selectByPrimaryKey(eventId.asInteger());
         if (nonNull(work)) {
             Place place = new PlaceImpl(DefaultEntityIdentifier.newId(Place.class), new PlaceInfo(Name.emptyName(), Address.nullAddress()));
 
