@@ -33,6 +33,7 @@ pipeline {
                     }
                 }
                 gradlew 'clean'
+                gradlew 'dependencies'
             }
         }
 
@@ -104,7 +105,7 @@ pipeline {
                 archiveArtifacts allowEmptyArchive: true, artifacts: "**/${testReportDir}/*.xml"
                 // カバレッジレポートを生成（テストクラスを除外）
                 echo 'JacocoReportアーカイブ 開始'
-                jacoco exclusionPattern: '**/*Test*.class,**/*Mock*.class,**/*DaoImpl*.class'
+                jacoco exclusionPattern: '**/*Test*.class,**/*Mock*.class,**/*DaoImpl*.class,**/*DaoImpl*.class'
                 echo 'JacocoReportアーカイブ 終了'
             }
         }

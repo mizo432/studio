@@ -7,9 +7,6 @@ buildscript {
     }
     repositories {
         maven {
-            url 'http://www.venus-pj.org/artifactory/plugins-release'
-        }
-        maven {
             url 'https://plugins.gradle.org/m2/'
         }
         mavenCentral()
@@ -51,10 +48,7 @@ dependencies {
     compile group: "org.springframework.boot", name: "spring-boot-starter-mobile", version: "${springBootVersion}"
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    compile group: "org.springframework.security.oauth", name: "spring-security-oauth2", version: "${springSecurityOauth2Version}"
-    compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-springsecurity4", version: "${thymeleafExtrasVersion}"
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-java8time", version: "${thymeleafExtrasJava8timeVersion}"
-    compile group: "org.springframework.session", name: "spring-session", version: "${springSessionVersion}"
     compile project(":studio-core")
     compile project(":studio-presenters")
     compile project(":studio-datasources")
