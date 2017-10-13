@@ -125,6 +125,16 @@ public class OutlineMock {
             public RecordDate getRecordDate() {
                 return EVENT_ON_TODAY.getRecordDate();
             }
+        }, EVENT_ON_START_OF_NEXT_WEEK {
+            @Override
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.START_OF_NEXT_WEEK);
+            }
+        }, ANY_EVENT {
+            @Override
+            public RecordDate getRecordDate() {
+                return RecordDateMock.createDummy(RecordDateMock.RecordDateType.START_OF_NEXT_WEEK);
+            }
         };
 
         public abstract RecordDate getRecordDate();

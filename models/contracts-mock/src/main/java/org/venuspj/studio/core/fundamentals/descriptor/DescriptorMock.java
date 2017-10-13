@@ -165,6 +165,16 @@ public class DescriptorMock {
             public DescriptionMock.DescriptionType descriptionType() {
                 return DescriptionMock.DescriptionType.EVENT_EMPTY;
             }
+        }, ANY_EVENT {
+            @Override
+            public NameMock.NameType nameType() {
+                return NameMock.NameType.ANY_EVENT;
+            }
+
+            @Override
+            public DescriptionMock.DescriptionType descriptionType() {
+                return DescriptionMock.DescriptionType.ANY_EVENT;
+            }
         };
 
 

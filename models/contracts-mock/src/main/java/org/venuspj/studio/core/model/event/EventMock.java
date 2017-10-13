@@ -186,6 +186,21 @@ public class EventMock {
             public EventInfoMock.EventInfoType getEventInfoType() {
                 return EventInfoMock.EventInfoType.EMPTY;
             }
+        }, NOT_INSERTED_EVENT {
+            @Override
+            public EventIdMock.EventIDType eventIdType() {
+                return EventIdMock.EventIDType.EMPTY;
+            }
+
+            @Override
+            public OutlineMock.OutlineType outlineType() {
+                return OutlineMock.OutlineType.EVENT_ON_START_OF_NEXT_WEEK;
+            }
+
+            @Override
+            public EventInfoMock.EventInfoType getEventInfoType() {
+                return EventInfoMock.EventInfoType.EVENT_ON_DAY_OF_NEXT_WEEK_SATADAY;
+            }
         };
 
         public abstract EventIdMock.EventIDType eventIdType();

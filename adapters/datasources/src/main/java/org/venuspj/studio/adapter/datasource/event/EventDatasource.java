@@ -85,7 +85,7 @@ public class EventDatasource implements EventRepository {
 
         org.venuspj.studio.adapter.mybatis.model.Events record = new org.venuspj.studio.adapter.mybatis.model.Events();
         record.setEventId(((EventId) entity.identifier()).asInteger());
-        System.out.println(record);
+        record.setEventName(entity.getInfo().getDescriptor().getName().asText());
         if (needInsertEntity(record)) {
             eventsMapper.insert(record);
             return;
@@ -94,7 +94,7 @@ public class EventDatasource implements EventRepository {
 
     }
 
-    private boolean needInsertEntity(org.venuspj.studio.adapter.mybatis.model.Events record){
+    private boolean needInsertEntity(org.venuspj.studio.adapter.mybatis.model.Events record) {
         return isNull(record.getEventId());
     }
 

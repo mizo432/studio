@@ -231,6 +231,16 @@ public final class NameMock {
             public int index() {
                 return 0;
             }
+        }, ANY_EVENT {
+            @Override
+            public String namePrefix() {
+                return "ANY_EVENT";
+            }
+
+            @Override
+            public int index() {
+                return 0;
+            }
         };
 
         public abstract String namePrefix();

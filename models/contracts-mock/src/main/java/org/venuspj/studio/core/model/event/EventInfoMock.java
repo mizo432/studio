@@ -123,6 +123,15 @@ public class EventInfoMock {
                         Performers.emptyPerformers());
             }
 
+        }, EVENT_ON_DAY_OF_NEXT_WEEK_SATADAY {
+            @Override
+            public EventInfo getEventInfo() {
+                return new EventInfo(
+                        OutlineMock.createDummy(OutlineMock.OutlineType.EVENT_ON_START_OF_NEXT_WEEK),
+                        DescriptorMock.createDummy(DescriptorMock.DescriptorType.ANY_EVENT),
+                        Flyers.emptyFlyers(),
+                        Performers.emptyPerformers());
+            }
         };
 
         public EventInfo getEventInfo() {

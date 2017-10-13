@@ -59,4 +59,5 @@ public class EventInfo {
     public Descriptor getDescriptor() {
         return descriptor;
     }
+
 }
