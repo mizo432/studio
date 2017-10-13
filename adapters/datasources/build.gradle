@@ -43,10 +43,10 @@ dependencies {
     compile project(":studio-contracts")
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:${myBatisSpringBootVersion}")
-    compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
+    compile("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypehandlersJsr310Version}")
+    compile("org.slf4j:slf4j-api:${slf4jVersion}")
 
-    compile("org.springframework.boot:spring-boot-starter-test")
-    testCompile("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypehandlersJsr310Version}")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile project(":studio-contracts-mock")
     testRuntime("${jdbcDriver}")
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"

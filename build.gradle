@@ -151,7 +151,7 @@ subprojects {
         // カバレッジレポートからテストクラスを除外
         afterEvaluate {
             classDirectories = files(classDirectories.files.collect {
-                fileTree(dir: it, exclude: ['**/*Test.class', '**/*Mock.class', '**/*DaoImpl.class', '**/_*.class'])
+                fileTree(dir: it, exclude: ['**/*Test.class', '**/*Mock.class'])
             })
         }
     }

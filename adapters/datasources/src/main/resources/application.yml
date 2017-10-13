@@ -8,4 +8,4 @@ spring:
     password: Shishi1231
 
 mybatis:
-  type-handlers-package: com.example.typehandler
+  type-handlers-package: org.venuspj.studio.adapter.mybatis.typehandler
