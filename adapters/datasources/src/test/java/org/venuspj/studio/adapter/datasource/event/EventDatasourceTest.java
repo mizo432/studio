@@ -40,5 +40,13 @@ public class EventDatasourceTest {
                 .isNotNull()
                 .isEqualTo(event.identifier());
     }
+    @Transactional
+    @Test
+    public void store2() throws Exception {
+        Event event = EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
+
+        eventDatasource.store(event);
+        System.out.println(event.identifier());
+    }
 
 }
