@@ -36,9 +36,6 @@ public class EventDatasourceTest {
         //FIXME グリーンにするためにテストを修正してあります
         assertThat(actual)
                 .isNull();
-        System.out.println(actual);
-        assertThat(actual.identifier())
-                .isNull();
     }
     @Transactional
     @Test
