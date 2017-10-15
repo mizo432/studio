@@ -125,7 +125,7 @@ subprojects {
             fileset(dir: "src/main/java") {
                 include(name: '**/*.java')
                 exclude(name: '**/*Mock.java')
-                exclude(name: '**/*Example.java')
+                exclude(name: '**/mybatis/**/*.java')
             }
         }
     }
