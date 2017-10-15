@@ -150,7 +150,7 @@ subprojects {
         // カバレッジレポートからテストクラスを除外
         afterEvaluate {
             classDirectories = files(classDirectories.files.collect {
-                fileTree(dir: it, exclude: ['**/ *Test.class ', '**/*Mock.class', '**/ * Example.class '])
+                fileTree(dir: it, exclude: ['**/ *Test.class ', '**/*Mock.class', '**/mybatis/**/*.class '])
             })
         }
     }
