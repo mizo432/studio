@@ -5,3 +5,5 @@ spring:
     username: studio
     password: Shishi1231
 
+flyway:
+  locations: ../db/migration/

@@ -33,11 +33,9 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: 'jacoco'
-    apply plugin: 'jdepend'
     apply plugin: "findbugs"
     apply plugin: "maven"
     apply plugin: 'pmd'
-
     ext {
         //Library versions
         springBootVersion = '1.5.7.RELEASE'
@@ -56,7 +54,6 @@ subprojects {
         mybatisTypehandlersJsr310Version = '1.0.2'
         // build paramaters
         defaultEncoding = 'UTF-8'
-
     }
     //buildDir = 'out'
     //tasks.withType(AbstractCompile)*.options*.encoding = defaultEncoding
@@ -166,17 +163,19 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.5.1'
 }
 
-task incrementVersionCode << {
-    println(":incrementVersionCode - Incrementing Version Code...")
-    def buildGradleFile = file("build.gradle")
-    def patternVersionCode = Pattern.compile("versionCode (\\d+)")
-    def buildGradleFileText = buildGradleFile.getText()
-    def matcherVersionCode = patternVersionCode.matcher(buildGradleFileText)
-    matcherVersionCode.find()
-    def mVersionCode = Integer.parseInt(matcherVersionCode.group(1))
-    def mNextVersionCode = mVersionCode + 1
-    def manifestContent = matcherVersionCode.replaceAll("versionCode " + mNextVersionCode)
-    println(":incrementVersionCode - current versionCode=" + mVersionCode);
-    println(":incrementVersionCode - next versionCode=" + mNextVersionCode);
-    buildGradleFile.write(manifestContent)
+task incrementVersionCode {
+    doLast {
+        println(":incrementVersionCode - Incrementing Version Code...")
+        def buildGradleFile = file("build.gradle")
+        def patternVersionCode = Pattern.compile("versionCode (\\d+)")
+        def buildGradleFileText = buildGradleFile.getText()
+        def matcherVersionCode = patternVersionCode.matcher(buildGradleFileText)
+        matcherVersionCode.find()
+        def mVersionCode = Integer.parseInt(matcherVersionCode.group(1))
+        def mNextVersionCode = mVersionCode + 1
+        def manifestContent = matcherVersionCode.replaceAll("versionCode " + mNextVersionCode)
+        println(":incrementVersionCode - current versionCode=" + mVersionCode);
+        println(":incrementVersionCode - next versionCode=" + mNextVersionCode);
+        buildGradleFile.write(manifestContent)
+    }
 }

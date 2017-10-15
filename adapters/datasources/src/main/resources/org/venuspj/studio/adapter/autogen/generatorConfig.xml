@@ -34,7 +34,7 @@
         <table tableName="%"
                enableInsert="true"
                enableSelectByPrimaryKey="true"
-               enableSelectByExample="false"
+               enableSelectByExample="true"
                enableUpdateByPrimaryKey="true"
                enableUpdateByExample="false"
                enableDeleteByPrimaryKey="true"
@@ -42,10 +42,13 @@
                enableCountByExample="false"
                selectByExampleQueryId="false"
                modelType="flat">
+            <generatedKey column="event_id" sqlStatement="MySql"/>
             <columnOverride column="created_at" javaType="java.time.LocalDateTime"/>
             <columnOverride column="event_end_datetime" javaType="java.time.LocalDateTime"/>
             <columnOverride column="event_start_datetime" javaType="java.time.LocalDateTime"/>
             <columnOverride column="event_open_datetime" javaType="java.time.LocalDateTime"/>
+            <columnOverride column="topic_publish_datetime" javaType="java.time.LocalDateTime"/>
+            <columnOverride column="topic_record_datetime" javaType="java.time.LocalDateTime"/>
             <columnOverride column="DATE" javaType="java.time.LocalDate"/>
         </table>
     </context>
