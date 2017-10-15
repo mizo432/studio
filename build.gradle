@@ -124,6 +124,7 @@ subprojects {
         ) {
             fileset(dir: "src/main/java") {
                 include(name: '**/*.java')
+                exclude(name: '**/*Mock*.java,**/*Example*.java')
             }
         }
     }
