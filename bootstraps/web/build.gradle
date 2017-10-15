@@ -7,9 +7,6 @@ buildscript {
     }
     repositories {
         maven {
-            url 'http://www.venus-pj.org/artifactory/plugins-release'
-        }
-        maven {
             url 'https://plugins.gradle.org/m2/'
         }
         mavenCentral()
@@ -30,7 +27,7 @@ jar {
     version = '1.0.0-SNAPSHOT'
     manifest {
         attributes 'Main-Class': 'org.springframework.boot.loader.JarLauncher'
-        attributes "Start-Class": "org.venuspj.studio.WebApplication"
+        attributes "Start-Class": "org.venuspj.studio.StudioWebApplication"
     }
 }
 
@@ -47,24 +44,26 @@ bootRepackage {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-aop")
+    def jdbcDriver = "mysql:mysql-connector-java:${mySqlConnectorVersion}"
     compile group: "org.springframework.boot", name: "spring-boot-starter-mobile", version: "${springBootVersion}"
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-aop")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    compile group: "org.springframework.security.oauth", name: "spring-security-oauth2", version: "${springSecurityOauth2Version}"
-    compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-springsecurity4", version: "${thymeleafExtrasVersion}"
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-java8time", version: "${thymeleafExtrasJava8timeVersion}"
-    compile group: "org.springframework.session", name: "spring-session", version: "${springSessionVersion}"
     compile project(":studio-core")
     compile project(":studio-presenters")
     compile project(":studio-datasources")
     compile project(":studio-use-cases")
+
+    runtime("org.mybatis.spring.boot:mybatis-spring-boot-starter:${myBatisSpringBootVersion}")
+    runtime("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypehandlersJsr310Version}")
+    runtime("${jdbcDriver}")
+    runtime("org.springframework.boot:spring-boot-starter-actuator")
+    runtime('org.springframework.boot:spring-boot-devtools')
+    runtime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
+    runtime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisBootVersion}"
-    compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: "${mybatisTypeHandlerVersion}"
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    testRuntime('org.springframework.boot:spring-boot-devtools')
-    runtime group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
 }
 
 jar {

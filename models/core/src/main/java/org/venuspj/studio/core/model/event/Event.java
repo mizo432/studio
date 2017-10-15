@@ -2,48 +2,43 @@ package org.venuspj.studio.core.model.event;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
-import org.venuspj.studio.core.model.event.flyers.Flyers;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.Performers;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class Event extends AbstractEntity<Event> {
-    boolean isBlank = false;
-    private Outline outline;
-    private Descriptor descriptor;
-    private Flyers flyers;
-    private Performers performers;
+    EventInfo eventInfo = EventInfo.emptyEventInfo();
 
-    public Event(EntityIdentifier<Event> anIdentifier, Outline anOutline,
-                 Descriptor aDescriptor, Flyers anyFlyers, Performers anyPerformers) {
+    public Event(EntityIdentifier<Event> anIdentifier, EventInfo anEventInfo) {
         super(anIdentifier);
-        outline = anOutline;
-        descriptor = aDescriptor;
-        flyers = anyFlyers;
-        performers = anyPerformers;
+        eventInfo = anEventInfo;
     }
 
-    public Event() {
-        isBlank = true;
+    private Event() {
 
     }
 
-    public static Event blankEvent() {
-        return new Event();
+    public static Event emptyEvent() {
+        return new Event(
+                EventId.emptyEventId(),
+                EventInfo.emptyEventInfo()
+        );
     }
 
     public Outline outline() {
-        return outline;
+        return eventInfo.getOutLine();
     }
 
     @Override
     public String toString() {
-        return string()
-                .add("outline", outline)
-                .add("descriptor", descriptor)
-                .add("flyers", flyers)
-                .add("performers", performers)
+        return toStringHelper(this)
+                .add("identifier", identifier())
+                .add("\neventInfo", eventInfo)
                 .omitNullValues()
                 .toString();
+    }
+
+    public EventInfo getInfo() {
+        return eventInfo;
     }
 }

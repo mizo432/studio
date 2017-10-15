@@ -5,15 +5,25 @@ import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
 import static org.venuspj.util.objects2.Objects2.*;
 
 public class EventId extends AbstractEntityIdentifier<Event> {
-    private final Integer value;
+    private Integer value;
 
     public EventId(Integer aValue) {
-        super(Event.class);
+        this();
         value = aValue;
     }
 
-    public static EventId defaultEventId() {
-        return new EventId(-1);
+    public EventId() {
+        super(Event.class);
+
+    }
+
+    /**
+     * 空のイベントIDを取得する
+     *
+     * @return 空のイベントID
+     */
+    public static EventId emptyEventId() {
+        return new EventId();
     }
 
     public Integer asInteger() {
@@ -21,7 +31,7 @@ public class EventId extends AbstractEntityIdentifier<Event> {
     }
 
     public boolean isPresent() {
-        return Integer.valueOf(-1).equals(value);
+        return nonNull(value);
     }
 
     @Override

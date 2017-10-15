@@ -2,7 +2,6 @@ package org.venuspj.studio.core.model.event;
 
 import org.junit.Test;
 import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
-import org.venuspj.studio.core.model.event.flyers.EventIdMock;
 
 import java.util.UUID;
 
@@ -15,7 +14,7 @@ public class EventIdTest {
 
     @Test
     public void toString01() throws Exception {
-        EventId target = EventId.defaultEventId();
+        EventId target = EventId.emptyEventId();
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
@@ -33,22 +32,22 @@ public class EventIdTest {
 
     @Test
     public void isPresent() throws Exception {
-        EventId target = EventId.defaultEventId();
+        EventId target = EventId.emptyEventId();
         assertThat(target)
                 .isNotNull();
         assertThat(target.isPresent())
                 .isNotNull()
-                .isEqualTo(true);
+                .isEqualTo(false);
     }
 
     @Test
-    public void defaultEventId() throws Exception {
-        EventId target = EventId.defaultEventId();
+    public void emptyEventId() throws Exception {
+        EventId target = EventId.emptyEventId();
         assertThat(target)
                 .isNotNull();
         assertThat(target.isPresent())
                 .isNotNull()
-                .isEqualTo(true);
+                .isEqualTo(false);
 
     }
 

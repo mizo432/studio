@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.venuspj.studio" level="DEBUG"/>
+    <logger name="org.venuspj.studio" level="INFO"/>
 
     <root level="TRACE">
         <appender-ref ref="STDOUT"/>

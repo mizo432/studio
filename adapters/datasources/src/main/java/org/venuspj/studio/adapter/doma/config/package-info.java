@@ -1,1 +1,0 @@
-package org.venuspj.studio.adapter.doma.config;

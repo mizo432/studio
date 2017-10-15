@@ -1,10 +1,10 @@
 server:
-    port: 8090
+  port: 18081
 
 spring:
   datasource:
-    url:  jdbc:mysql://127.0.0.1:3306/studio_develop
-    username: shishi_admin
-    password: shishigaya1126
+    url:  jdbc:mysql://127.0.0.1:3306/studiout
+    username: studio
+    password: Shishi1231
     driverClassName: com.mysql.jdbc.Driver
-  profiles.active: develop
+  thymeleaf.cache: false

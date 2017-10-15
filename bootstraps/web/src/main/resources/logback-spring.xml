@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProfile name="staging">
+        <include resource="logback-staging.xml"/>
+        <!-- configuration to be enabled when the "staging" profile is active -->
+    </springProfile>
+
+    <springProfile name="develop, staging">
+        <include resource="logback-develop.xml"/>
+        <!-- configuration to be enabled when the "develop" or "staging" profiles are active -->
+    </springProfile>
+
+    <springProfile name="!production">
+        <include resource="logback-unit.xml"/>
+        <!-- configuration to be enabled when the "production" profile is not active -->
+    </springProfile>
+</configuration>

@@ -1,7 +1,6 @@
 package org.venuspj.studio.core.model.event;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.event.flyers.EventMock;
 import org.venuspj.util.dateProvider.StaticDateTimeProvider;
 
 import java.time.LocalDateTime;

@@ -4,11 +4,11 @@
 DROP TABLE IF EXISTS `places`;
 
 CREATE TABLE IF NOT EXISTS `places` (
-  place_id    INTEGER AUTO_INCREMENT
+  place_id   INTEGER AUTO_INCREMENT
   COMMENT '場所ID',
-  created_at DATETIME     NOT NULL
+  created_at DATETIME    NOT NULL
   COMMENT 'データ作成日時',
-  created_by VARCHAR(26)  NOT NULL
+  created_by VARCHAR(26) NOT NULL
   COMMENT 'データ作成者ID',
   PRIMARY KEY (place_id)
 );
@@ -19,11 +19,11 @@ CREATE TABLE IF NOT EXISTS `places` (
 DROP TABLE IF EXISTS `parties`;
 
 CREATE TABLE IF NOT EXISTS `parties` (
-  party_id    INTEGER AUTO_INCREMENT
+  party_id   INTEGER AUTO_INCREMENT
   COMMENT 'パーティーID',
-  created_at DATETIME     NOT NULL
+  created_at DATETIME    NOT NULL
   COMMENT 'データ作成日時',
-  created_by VARCHAR(26)  NOT NULL
+  created_by VARCHAR(26) NOT NULL
   COMMENT 'データ作成者ID',
   PRIMARY KEY (party_id)
 );
@@ -34,10 +34,13 @@ CREATE TABLE IF NOT EXISTS `parties` (
 DROP TABLE IF EXISTS `people`;
 
 CREATE TABLE IF NOT EXISTS `people` (
-  party_id INTEGER COMMENT 'パーティーID',
-  name  VARCHAR(50) NOT NULL COMMENT '名称',
-  created_at DATETIME NOT NULL COMMENT 'データ作成日時',
-  created_by VARCHAR(26)  NOT NULL COMMENT 'データ作成者ID',
+  party_id   INTEGER COMMENT 'パーティーID',
+  name       VARCHAR(50) NOT NULL
+  COMMENT '名称',
+  created_at DATETIME    NOT NULL
+  COMMENT 'データ作成日時',
+  created_by VARCHAR(26) NOT NULL
+  COMMENT 'データ作成者ID',
   PRIMARY KEY (party_id)
 );
 
@@ -47,10 +50,13 @@ CREATE TABLE IF NOT EXISTS `people` (
 DROP TABLE IF EXISTS `organizations`;
 
 CREATE TABLE IF NOT EXISTS `organizations` (
-  party_id    INTEGER COMMENT 'パーティーID',
-  name  VARCHAR(50) NOT NULL COMMENT '名称',
-  created_at DATETIME  NOT NULL COMMENT 'データ作成日時',
-  created_by VARCHAR(26) NOT NULL COMMENT 'データ作成者ID',
+  party_id   INTEGER COMMENT 'パーティーID',
+  name       VARCHAR(50) NOT NULL
+  COMMENT '名称',
+  created_at DATETIME    NOT NULL
+  COMMENT 'データ作成日時',
+  created_by VARCHAR(26) NOT NULL
+  COMMENT 'データ作成者ID',
   PRIMARY KEY (party_id)
 );
 
@@ -215,18 +221,18 @@ DROP TABLE IF EXISTS `studio_player_x_news`;
 DROP TABLE IF EXISTS `news`;
 
 CREATE TABLE IF NOT EXISTS `news` (
-  topic_id           INTEGER AUTO_INCREMENT
+  topic_id               INTEGER AUTO_INCREMENT
   COMMENT 'トピックID',
-  topic_name         VARCHAR(255) NOT NULL
+  topic_name             VARCHAR(255) NOT NULL
   COMMENT 'トピック名称',
-  topic_record_date  DATETIME     NOT NULL
-  COMMENT 'トピック日時',
-  topic_publish_date DATETIME     NOT NULL
+  topic_record_datetime  DATETIME     NOT NULL
+  COMMENT 'トピック登録日時',
+  topic_publish_datetime DATETIME     NOT NULL
   COMMENT 'トピック公開日時',
-  topic_description  TEXT COMMENT 'トピック詳細',
-  created_at         DATETIME     NOT NULL
+  topic_description      TEXT COMMENT 'トピック詳細',
+  created_at             DATETIME     NOT NULL
   COMMENT 'データ作成日時',
-  created_by         VARCHAR(26)  NOT NULL
+  created_by             VARCHAR(26)  NOT NULL
   COMMENT 'データ作成者ID',
   PRIMARY KEY (topic_id)
 );
@@ -270,13 +276,13 @@ CREATE TABLE IF NOT EXISTS `links` (
 DROP TABLE IF EXISTS `twitter_accounts`;
 
 CREATE TABLE IF NOT EXISTS `twitter_accounts` (
-  twitter_accounts_id    INTEGER AUTO_INCREMENT
+  twitter_accounts_id INTEGER AUTO_INCREMENT
   COMMENT 'ツイッターアカウントID',
-  twitter_id  VARCHAR(255) NOT NULL
+  twitter_id          VARCHAR(255) NOT NULL
   COMMENT 'ツイッターID',
-  created_at DATETIME     NOT NULL
+  created_at          DATETIME     NOT NULL
   COMMENT 'データ作成日時',
-  created_by VARCHAR(26)  NOT NULL
+  created_by          VARCHAR(26)  NOT NULL
   COMMENT 'データ作成者ID',
   PRIMARY KEY (twitter_accounts_id)
 );

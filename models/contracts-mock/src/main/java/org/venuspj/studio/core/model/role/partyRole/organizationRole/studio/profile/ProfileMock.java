@@ -1,6 +1,6 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.profile;
 
-import org.venuspj.studio.core.model.event.flyers.DescriptionMock;
+import org.venuspj.studio.generic.fundamentals.description.DescriptionMock;
 
 /**
  */

@@ -1,0 +1,12 @@
+server:
+  port: 18091
+
+spring:
+  datasource:
+    url:  jdbc:mysql://127.0.0.1:3306/studiout
+    username: studio
+    password: Shishi1231
+    driverClassName: com.mysql.jdbc.Driver
+  thymeleaf.cache: false
+  session:
+    store-type: hash_map

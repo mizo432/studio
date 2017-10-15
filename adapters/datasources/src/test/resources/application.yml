@@ -1,0 +1,11 @@
+# Spring Core
+spring:
+  profiles.active: unit
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/studiout
+    username: studio
+    password: Shishi1231
+
+mybatis:
+  type-handlers-package: org.venuspj.studio.adapter.mybatis.typehandler

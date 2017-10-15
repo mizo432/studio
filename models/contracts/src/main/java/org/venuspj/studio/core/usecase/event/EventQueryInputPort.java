@@ -1,8 +1,7 @@
 package org.venuspj.studio.core.usecase.event;
 
-import org.venuspj.studio.core.model.momentInterval.momemt.event.EventCredential;
+import org.venuspj.studio.core.model.event.EventId;
 
 public interface EventQueryInputPort {
-    public EventCredential toCredential();
-
+    EventId getEventId();
 }

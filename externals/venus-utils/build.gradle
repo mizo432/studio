@@ -1,26 +1,7 @@
 description = "venus-utils"
 
-//buildscript {
-//    ext {
-//        git = org.ajoberstar.grgit.Grgit.open(file('.'))
-//        describedCommit = git.describe().toString().trim()
-//    }
-//}
-
-//version = describedCommit +
-//        (describedCommit.matches(".*-[0-9]+-g[0-9a-f]{7}") ? "-SNAPSHOT" : "") +
-//        (git.status().isClean() ? "" : "+dirty")
-
-
 dependencies {
     testCompile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
 }
-
-//task showVersion {
-//    doLast {
-//        println version
-//    }
-//}
-
