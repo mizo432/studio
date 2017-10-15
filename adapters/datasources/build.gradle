@@ -45,7 +45,7 @@ dependencies {
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:${myBatisSpringBootVersion}")
     compile("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypehandlersJsr310Version}")
     compile("org.slf4j:slf4j-api:${slf4jVersion}")
-    compile("org.flywaydb:flyway-core")
+    // compile("org.flywaydb:flyway-core")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile project(":studio-contracts-mock")
