@@ -1,4 +1,4 @@
-package org.venuspj.studio.web.studio;
+package org.venuspj.studio.web.controller.events;
 
 import org.junit.Test;
 import org.venuspj.studio.core.model.event.EventId;

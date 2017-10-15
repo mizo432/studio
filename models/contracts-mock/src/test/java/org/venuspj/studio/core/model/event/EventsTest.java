@@ -61,7 +61,7 @@ public class EventsTest {
     public void iterator() throws Exception {
         Events target = EventsMock.createDummy(EventsMock.EventsType.DEFAULT);
         for (Event event : target) {
-            System.out.println("event:" + event);
+            System.out.println("events:" + event);
 
         }
     }

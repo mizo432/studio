@@ -44,20 +44,26 @@ bootRepackage {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-aop")
+    def jdbcDriver = "mysql:mysql-connector-java:${mySqlConnectorVersion}"
     compile group: "org.springframework.boot", name: "spring-boot-starter-mobile", version: "${springBootVersion}"
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-aop")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-java8time", version: "${thymeleafExtrasJava8timeVersion}"
     compile project(":studio-core")
     compile project(":studio-presenters")
     compile project(":studio-datasources")
     compile project(":studio-use-cases")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    runtime("org.mybatis.spring.boot:mybatis-spring-boot-starter:${myBatisSpringBootVersion}")
+    runtime("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypehandlersJsr310Version}")
+    runtime("${jdbcDriver}")
+    runtime("org.springframework.boot:spring-boot-starter-actuator")
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     runtime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 jar {

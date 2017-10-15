@@ -1,5 +1,5 @@
 server:
-    port: 8090
+  port: 18080
 
 spring:
   datasource:
@@ -7,4 +7,4 @@ spring:
     username: studio
     password: Shishi1231
     driverClassName: com.mysql.jdbc.Driver
-  profiles.active: develop
+  thymeleaf.cache: false

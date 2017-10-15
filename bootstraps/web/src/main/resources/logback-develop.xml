@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <included>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <target>System.out</target>
+        <Target>System.out</Target>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-            <immediateFlush>false</immediateFlush>
         </encoder>
     </appender>
 
-    <root level="DEBUG">
-        <appender-ref ref="STDOUT" />
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
     </root>
 </included>

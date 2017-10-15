@@ -16,7 +16,7 @@ public class EventPage implements EventQueryOutputPort {
     @Override
     public String toString() {
         return toStringHelper(this)
-                .add("event", event)
+                .add("events", event)
                 .omitNullValues()
                 .toString();
     }

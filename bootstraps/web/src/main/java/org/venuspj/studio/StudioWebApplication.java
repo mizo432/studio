@@ -2,11 +2,9 @@ package org.venuspj.studio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.util.ClassUtils;
 
-@SpringBootApplication(exclude={JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@SpringBootApplication
 public class StudioWebApplication {
     public static void main(String[] args) {
         final SpringApplication springApplication = new SpringApplication(StudioWebApplication.class);

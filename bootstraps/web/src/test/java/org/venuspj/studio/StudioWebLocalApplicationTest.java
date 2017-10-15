@@ -8,10 +8,10 @@ import org.springframework.util.ClassUtils;
 
 @ComponentScan(basePackages = "org.venuspj.studio")
 @EnableAutoConfiguration
-public class StudioLocalApplicationTest {
+public class StudioWebLocalApplicationTest {
 
     public static void main(String[] args) {
-        final SpringApplication springApplication = new SpringApplication(StudioLocalApplicationTest.class);
+        final SpringApplication springApplication = new SpringApplication(StudioWebLocalApplicationTest.class);
         if (isDeveloping()) { // ローカル開発環境では
             springApplication.setAdditionalProfiles("development"); // developing プロファイルを追加
         }

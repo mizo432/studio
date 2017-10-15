@@ -1,4 +1,4 @@
-package org.venuspj.studio.web.controllers.product;
+package org.venuspj.studio.web.controller.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.venuspj.studio.adapter.presenters.product.ProductPage;
