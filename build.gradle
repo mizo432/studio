@@ -124,7 +124,8 @@ subprojects {
         ) {
             fileset(dir: "src/main/java") {
                 include(name: '**/*.java')
-                exclude(name: '**/*Mock*.java,**/*Example*.java')
+                exclude(name: '**/*Mock.java')
+                exclude(name: '**/*Example.java')
             }
         }
     }
@@ -149,7 +150,7 @@ subprojects {
         // カバレッジレポートからテストクラスを除外
         afterEvaluate {
             classDirectories = files(classDirectories.files.collect {
-                fileTree(dir: it, exclude: ['**/*Test.class', '**/*Mock.class', '**/*Example.class'])
+                fileTree(dir: it, exclude: ['**/ *Test.class ', '**/*Mock.class', '**/ * Example.class '])
             })
         }
     }
