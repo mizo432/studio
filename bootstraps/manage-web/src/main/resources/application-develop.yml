@@ -1,5 +1,5 @@
 server:
-  port: 18081
+  port: 18091
 
 spring:
   datasource:
@@ -8,3 +8,5 @@ spring:
     password: Shishi1231
     driverClassName: com.mysql.jdbc.Driver
   thymeleaf.cache: false
+  session:
+    store-type: hash_map

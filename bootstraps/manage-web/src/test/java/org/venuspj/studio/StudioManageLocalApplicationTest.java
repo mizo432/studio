@@ -7,9 +7,9 @@ import org.springframework.util.ClassUtils;
 
 @ComponentScan(basePackages = "org.venuspj.studio")
 @SpringBootApplication
-public class StudioManageApplication {
+public class StudioManageLocalApplicationTest {
     public static void main(String[] args) {
-        final SpringApplication springApplication = new SpringApplication(StudioManageApplication.class);
+        final SpringApplication springApplication = new SpringApplication(StudioManageLocalApplicationTest.class);
         if (isDeveloping()) { // ローカル開発環境では
             springApplication.setAdditionalProfiles("development"); // developing プロファイルを追加
         }

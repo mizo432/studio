@@ -2,8 +2,10 @@ package org.venuspj.studio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.util.ClassUtils;
 
+@ComponentScan(basePackages = "org.venuspj.studio")
 @SpringBootApplication
 public class StudioWebApplication {
     public static void main(String[] args) {
