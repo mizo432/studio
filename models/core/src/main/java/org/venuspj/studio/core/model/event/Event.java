@@ -50,6 +50,7 @@ public class Event extends AbstractEntity<Event> {
     public static final class EventBuilder extends ObjectBuilder<Event, EventBuilder> {
         private EntityIdentifier<Event> identifier;
         private EventInfo eventInfo;
+
         @Override
         protected void apply(Event vo, EventBuilder builder) {
             builder.withIdentifier(vo.identifier());
@@ -57,13 +58,13 @@ public class Event extends AbstractEntity<Event> {
         }
 
         public EventBuilder withEventInfo(EventInfo anEventInfo) {
-            if(isNull(anEventInfo)) return getThis();
+            if (isNull(anEventInfo)) return getThis();
             addConfigurator(builder -> builder.eventInfo = anEventInfo);
             return getThis();
         }
 
         public EventBuilder withIdentifier(EntityIdentifier<Event> anIdentifier) {
-            if(isNull(anIdentifier)) return getThis();
+            if (isNull(anIdentifier)) return getThis();
             addConfigurator(builder -> builder.identifier = anIdentifier);
             return getThis();
 
@@ -71,7 +72,7 @@ public class Event extends AbstractEntity<Event> {
 
         @Override
         protected Event createValueObject() {
-            return new Event();
+            return new Event(identifier, eventInfo);
         }
 
         @Override
