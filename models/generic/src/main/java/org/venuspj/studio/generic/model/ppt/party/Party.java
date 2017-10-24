@@ -7,4 +7,5 @@ import org.venuspj.ddd.model.entity.Entity;
  */
 public interface Party extends Entity<Party> {
 
+
 }
