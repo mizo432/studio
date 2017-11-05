@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class PromotersMock {
     public static Promoters createDummy(PromotersType aPromotersType) {
-        List<Promoter> promoterList = Lists2.newArrayListWithExpectedSize(aPromotersType.promoterCount());
+        List<Promoter> promoterList = Lists2.newArrayListWithCapacity(aPromotersType.promoterCount());
         for (PromoterMock.PromoterType promoterType : aPromotersType.promoterTypes()) {
             promoterList.add(PromoterMock.createDummy(promoterType));
         }

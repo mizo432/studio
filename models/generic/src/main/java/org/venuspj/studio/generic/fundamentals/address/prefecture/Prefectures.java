@@ -2,14 +2,13 @@ package org.venuspj.studio.generic.fundamentals.address.prefecture;
 
 import java.util.List;
 
-import static org.venuspj.util.collect.Lists2.newArrayListWithCapacity;
-import static org.venuspj.util.collect.Lists2.newArrayListWithExpectedSize;
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.venuspj.util.collect.Lists2.*;
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
 public class Prefectures {
-    List<Prefecture> list = newArrayListWithExpectedSize(47);
+    List<Prefecture> list = newArrayListWithCapacity(47);
 
     public Prefectures(List<Prefecture> anylist) {
         list.addAll(anylist);

@@ -61,7 +61,7 @@ public class Lists2Test {
         }
 
         public List<Integer> createDummyList(int listCount) {
-            List<Integer> sourceList = Lists2.newArrayListWithExpectedSize(listCount);
+            List<Integer> sourceList = Lists2.newArrayListWithCapacity(listCount);
             for (int i = 0; i < listCount; i++) {
                 sourceList.add(i);
             }

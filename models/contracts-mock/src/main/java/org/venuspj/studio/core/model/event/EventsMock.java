@@ -9,7 +9,7 @@ import java.util.List;
 public final class EventsMock {
 
     public static Events createDummy(EventsType anEventsType) {
-        List<Event> eventList = Lists2.newArrayListWithExpectedSize(anEventsType.eventCount());
+        List<Event> eventList = Lists2.newArrayListWithCapacity(anEventsType.eventCount());
         for (EventMock.EventType eventType : anEventsType.eventTypes()) {
             eventList.add(EventMock.createDummy(eventType));
         }

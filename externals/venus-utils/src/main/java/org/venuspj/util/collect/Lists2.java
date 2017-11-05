@@ -4,7 +4,7 @@ import org.venuspj.util.objects2.Objects2;
 
 import java.util.*;
 
-import static org.venuspj.util.base.Preconditions.checkNotNull;
+import static org.venuspj.util.base.Preconditions.*;
 
 
 /**
@@ -72,18 +72,12 @@ public class Lists2 {
     }
 
 
-    public static <T> List<T> newArrayListWithExpectedSize(int length) {
-        ArrayList<T> result = new ArrayList<>(length);
-        return result;
-    }
-
-
     public static <E> List<E> empty() {
         return Collections.emptyList();
     }
 
-    public static <E> void addAll(List<E> anyList, Iterable<E> anIterable) {
-        for (E entity : anIterable)
+    public static <E> void addAll(List<E> anyList, Iterable<E> iterable) {
+        for (E entity : iterable)
             anyList.add(entity);
     }
 
@@ -118,6 +112,7 @@ public class Lists2 {
         }
         return -1;
     }
+
     static int lastIndexOfImpl(List<?> list, Object element) {
         if (list instanceof RandomAccess) {
             return lastIndexOfRandomAccess(list, element);
@@ -132,7 +127,7 @@ public class Lists2 {
         }
     }
 
-    private static int lastIndexOfRandomAccess(List<?> list,  Object element) {
+    private static int lastIndexOfRandomAccess(List<?> list, Object element) {
         if (element == null) {
             for (int i = list.size() - 1; i >= 0; i--) {
                 if (list.get(i) == null) {
@@ -148,6 +143,7 @@ public class Lists2 {
         }
         return -1;
     }
+
     static boolean equalsImpl(List<?> thisList, Object other) {
         if (other == checkNotNull(thisList)) {
             return true;
@@ -171,5 +167,6 @@ public class Lists2 {
         } else {
             return Iterators.elementsEqual(thisList.iterator(), otherList.iterator());
         }
-    }}
+    }
+}
 
