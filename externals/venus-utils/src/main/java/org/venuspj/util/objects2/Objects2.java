@@ -1,9 +1,18 @@
 package org.venuspj.util.objects2;
 
-import java.util.Arrays;
-import java.util.Objects;
+import org.venuspj.util.strings2.Strings2;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.YearMonth;
+import java.util.*;
 
 import static org.venuspj.util.base.Preconditions.*;
+import static org.venuspj.util.collect.Lists2.*;
+import static org.venuspj.util.collect.Maps2.*;
+import static org.venuspj.util.collect.Sets2.*;
 
 public class Objects2 {
 
@@ -28,20 +37,27 @@ public class Objects2 {
     }
 
     public static ToStringHelper toStringHelper(Object self) {
-        return new ToStringHelper(self
-                .getClass()
-                .getSimpleName());
+        return new ToStringHelper(self);
     }
 
 
     public static final class ToStringHelper {
         private final String className;
-        private final ToStringHelper.ValueHolder holderHead = new ToStringHelper.ValueHolder();
-        private ToStringHelper.ValueHolder holderTail = holderHead;
+        private final Object instance;
+        private final List<ValueHolder> valueHolders = newArrayList();
+        boolean prettyPrint = true;
         private boolean omitNullValues = false;
+        private boolean multiLine = false;
+        private boolean hideFieldNames = false;
 
         private ToStringHelper(String className) {
             this.className = checkNotNull(className);
+            this.instance = null;
+        }
+
+        private ToStringHelper(Object anInstance) {
+            this.className = anInstance.getClass().getSimpleName();
+            this.instance = anInstance;
         }
 
         public ToStringHelper omitNullValues() {
@@ -107,43 +123,80 @@ public class Objects2 {
 
         @Override
         public String toString() {
-            boolean omitNullValuesSnapshot = omitNullValues;
-            String nextSeparator = "";
-            StringBuilder builder = new StringBuilder(32)
-                    .append(className)
-                    .append('{');
-            for (ToStringHelper.ValueHolder valueHolder = holderHead.next;
-                 valueHolder != null;
-                 valueHolder = valueHolder.next) {
-                Object value = valueHolder.value;
-                if (!omitNullValuesSnapshot || value != null) {
-                    builder.append(nextSeparator);
-                    nextSeparator = ", ";
-
-                    if (valueHolder.name != null) {
-                        builder
-                                .append(valueHolder.name)
-                                .append('=');
-                    }
-                    if (value != null && value
-                            .getClass()
-                            .isArray()) {
-                        Object[] objectArray = {value};
-                        String arrayString = Arrays.deepToString(objectArray);
-                        builder.append(arrayString, 1, arrayString.length() - 1);
-                    } else {
-                        builder.append(value);
+            if (!ToStringContext.INSTANCE.startProcessing(instance)) {
+                return toSimpleReferenceString(instance);
+            }
+            try {
+                IndentationAwareStringBuilder builder = new IndentationAwareStringBuilder();
+                builder.append(className);
+                builder.append("{");
+                String nextSeparator = "";
+                if (multiLine && valueHolders.size() > 1) {
+                    builder.increaseIndent();
+                }
+                for (ValueHolder part : valueHolders) {
+                    if (!omitNullValues || part.value != null) {
+                        if (multiLine && valueHolders.size() > 1) {
+                            builder.newLine();
+                        } else {
+                            builder.append(nextSeparator);
+                            nextSeparator = ", ";
+                        }
+                        if (part.name != null && !hideFieldNames) {
+                            builder.append(part.name).append(":");
+                        }
+                        internalToString(part.value, builder);
                     }
                 }
+                if (multiLine && valueHolders.size() > 1) {
+                    builder.decreaseIndent().newLine();
+                }
+                builder.append("}");
+                return builder.toString();
+            } finally {
+                ToStringContext.INSTANCE.endProcessing(instance);
             }
-            return builder
-                    .append('}')
-                    .toString();
+        }
+
+        private void convertToString(IndentationAwareStringBuilder builder) {
+            if (!ToStringContext.INSTANCE.startProcessing(instance)) {
+                builder.append(toSimpleReferenceString(instance));
+                return;
+            }
+            try {
+                builder.append(className);
+                builder.append("{");
+                String nextSeparator = "";
+                if (multiLine && valueHolders.size() > 1) {
+                    builder.increaseIndent();
+                }
+                for (ValueHolder part : valueHolders) {
+                    if (!omitNullValues || part.value != null) {
+                        if (multiLine && valueHolders.size() > 1) {
+                            builder.newLine();
+                        } else {
+                            builder.append(nextSeparator);
+                            nextSeparator = ", ";
+                        }
+                        if (part.name != null && !hideFieldNames && valueHolders.size() != 1) {
+                            builder.append(part.name).append(":");
+                        }
+                        internalToString(part.value, builder);
+                    }
+                }
+                if (multiLine && valueHolders.size() > 1) {
+                    builder.decreaseIndent().newLine();
+                }
+                builder.append("}");
+                return;
+            } finally {
+                ToStringContext.INSTANCE.endProcessing(instance);
+            }
         }
 
         private ToStringHelper.ValueHolder addHolder() {
             ToStringHelper.ValueHolder valueHolder = new ToStringHelper.ValueHolder();
-            holderTail = holderTail.next = valueHolder;
+            valueHolders.add(valueHolder);
             return valueHolder;
         }
 
@@ -160,11 +213,195 @@ public class Objects2 {
             return this;
         }
 
+        public ToStringHelper addAllFields() {
+            if (nonNull(instance)) {
+                for (Field field : instance.getClass().getDeclaredFields())
+                    addField(field);
+            }
+            return this;
+        }
+
+        public ToStringHelper addAllDeclaredFields() {
+            if (nonNull(instance))
+                for (Field field : getAllDeclaredFields(instance.getClass()))
+                    addField(field);
+            return this;
+        }
+
+        private List<Field> getAllDeclaredFields(Class<?> clazz) {
+            Class<?> current = clazz;
+            List<Field> result = newArrayList();
+            while (nonNull(current)) {
+                result.addAll(newArrayList(current.getDeclaredFields()));
+                current = current.getSuperclass();
+
+            }
+            return result;
+        }
+
+        private void addField(Field field) {
+            try {
+                if (!Modifier.isStatic(field.getModifiers())) {
+                    field.setAccessible(true);
+                    add(field.getName(), field.get(instance));
+                }
+            } catch (IllegalAccessException ignore) {
+                // この例外が出ても握り潰す
+            }
+        }
+
+        private String toSimpleReferenceString(Object obj) {
+            return obj.getClass().getSimpleName() + "@" + System.identityHashCode(obj);
+        }
+
+        public ToStringHelper multiLine() {
+            multiLine = true;
+            return this;
+
+        }
+
+        ToStringHelper verbatimValues() {
+            prettyPrint = false;
+            return this;
+        }
+
+        private void internalToString(Object object, IndentationAwareStringBuilder sb) {
+            if (isNull(object)) {
+                sb.append("null");
+                return;
+            }
+            if (prettyPrint) {
+                if (object instanceof Iterable<?>) {
+                    serializeIterable((Iterable) object, sb);
+                } else if (object instanceof Object[]) {
+                    sb.append(Arrays.toString((Object[]) object));
+                } else if (object instanceof byte[]) {
+                    sb.append(Arrays.toString((byte[]) object));
+                } else if (object instanceof char[]) {
+                    sb.append(Arrays.toString((char[]) object));
+                } else if (object instanceof int[]) {
+                    sb.append(Arrays.toString((int[]) object));
+                } else if (object instanceof boolean[]) {
+                    sb.append(Arrays.toString((boolean[]) object));
+                } else if (object instanceof long[]) {
+                    sb.append(Arrays.toString((long[]) object));
+                } else if (object instanceof float[]) {
+                    sb.append(Arrays.toString((float[]) object));
+                } else if (object instanceof double[]) {
+                    sb.append(Arrays.toString((double[]) object));
+                } else if (object instanceof CharSequence) {
+                    sb.append("\"").append(((CharSequence) object).toString().replace("\n", "\\n").replace("\r", "\\r")).append("\"");
+                } else if (object instanceof Enum<?>) {
+                    sb.append(((Enum) object).name());
+                } else if (object.getClass().isPrimitive()) {
+                    sb.append(String.valueOf(object));
+                } else if (isPrimitiveLike(object.getClass())) {
+                    sb.append(String.valueOf(object));
+                } else {
+                    toStringHelper(object).addAllDeclaredFields().configFrom(this).convertToString(sb);
+                }
+            } else {
+                toStringHelper(object).addAllDeclaredFields().configFrom(this).convertToString(sb);
+            }
+        }
+
+        private ToStringHelper configFrom(ToStringHelper toStringHelper) {
+            this.omitNullValues = toStringHelper.omitNullValues;
+            this.multiLine = toStringHelper.multiLine;
+            this.hideFieldNames = toStringHelper.hideFieldNames;
+            return this;
+        }
+
+        private boolean isPrimitiveLike(Class<?> aClazz) {
+            final Set<Class<?>> primitiveLikeClasses = newHashSet(Integer.class, LocalTime.class, LocalDateTime.class, YearMonth.class);
+            return primitiveLikeClasses.contains(aClazz);
+
+        }
+
+        private void serializeIterable(Iterable<?> object, IndentationAwareStringBuilder sb) {
+            Iterator<?> iterator = object.iterator();
+            sb.append(object.getClass().getSimpleName()).append("[");
+            if (multiLine) {
+                sb.increaseIndent();
+            }
+            boolean wasEmpty = true;
+            while (iterator.hasNext()) {
+                wasEmpty = false;
+                if (multiLine) {
+                    sb.newLine();
+                }
+                internalToString(iterator.next(), sb);
+                if (iterator.hasNext()) {
+                    sb.append(",");
+                }
+            }
+            if (multiLine) {
+                sb.decreaseIndent();
+            }
+            if (!wasEmpty && multiLine) {
+                sb.newLine();
+            }
+            sb.append("]");
+        }
+
         private static final class ValueHolder {
             String name;
             Object value;
-            ToStringHelper.ValueHolder next;
+        }
+
+        private static class IndentationAwareStringBuilder {
+            StringBuilder builder = new StringBuilder();
+            String indentationString = "  ";
+            String newLineString = "\n";
+
+            int indentation = 0;
+
+            IndentationAwareStringBuilder increaseIndent() {
+                indentation++;
+                return this;
+            }
+
+            IndentationAwareStringBuilder decreaseIndent() {
+                indentation--;
+                return this;
+            }
+
+            IndentationAwareStringBuilder append(CharSequence string) {
+                if (indentation > 0) {
+                    String replacement = newLineString + Strings2.repeat(indentationString, indentation);
+                    String indented = string.toString().replace(newLineString, replacement);
+                    builder.append(indented);
+                } else {
+                    builder.append(string);
+                }
+                return this;
+            }
+
+            IndentationAwareStringBuilder newLine() {
+                builder.append(newLineString).append(Strings2.repeat(indentationString, indentation));
+                return this;
+            }
+
+            public String toString() {
+                return builder.toString();
+            }
         }
     }
 
+    static class ToStringContext {
+
+        public static ToStringContext INSTANCE = new ToStringContext();
+
+        static ThreadLocal<Map<Object, Boolean>> currentlyProcessed = new ThreadLocal<>();
+
+        public boolean startProcessing(Object obj) {
+            if (isNull(currentlyProcessed.get())) currentlyProcessed.set(newHashMap());
+            return currentlyProcessed.get().put(obj, Boolean.TRUE) == null;
+        }
+
+        public void endProcessing(Object obj) {
+            currentlyProcessed.get().remove(obj);
+        }
+
+    }
 }

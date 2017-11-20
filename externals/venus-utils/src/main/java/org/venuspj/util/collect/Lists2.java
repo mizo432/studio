@@ -168,5 +168,9 @@ public class Lists2 {
             return Iterators.elementsEqual(thisList.iterator(), otherList.iterator());
         }
     }
+
+    public static boolean isNotEmpty(List<?> anyList) {
+        return !anyList.isEmpty();
+    }
 }
 
