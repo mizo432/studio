@@ -19,7 +19,9 @@ public class StudioInfo {
     @Override
     public String toString() {
         return toStringHelper(this)
-                .add("profile", profile)
+                .addAllDeclaredFields()
+                .multiLine()
+                .omitNullValues()
                 .toString();
     }
 }

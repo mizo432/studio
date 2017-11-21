@@ -4,7 +4,7 @@ import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnit;
 import org.venuspj.studio.generic.model.role.partyRole.organizationRole.OrganizationRoleImpl;
 
-import static org.venuspj.util.objects2.Objects2.*;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 public class Studio extends OrganizationRoleImpl {
 
@@ -29,15 +29,10 @@ public class Studio extends OrganizationRoleImpl {
 
 
     @Override
-    protected ToStringHelper string() {
-        return super.string()
-                .add("studioInfo", studioInfo);
-
-    }
-
-    @Override
     public String toString() {
-        return string()
+        return toStringHelper(this)
+                .addAllDeclaredFields()
+                .multiLine()
                 .omitNullValues()
                 .toString();
     }

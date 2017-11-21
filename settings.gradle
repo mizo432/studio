@@ -1,6 +1,8 @@
 rootProject.name = 'studio'
 include ':venus-utils'
 project(':venus-utils').projectDir = file('./externals/venus-utils')
+include ':clean-architecture'
+project(':clean-architecture').projectDir = file('./externals/clean-architecture')
 
 include ':ddd'
 project(':ddd').projectDir = file('./externals/ddd')
