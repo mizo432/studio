@@ -8,20 +8,22 @@ import org.venuspj.studio.core.model.event.*;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 
 import static org.assertj.core.api.Java6Assertions.*;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
-public class EventQueryText {
+public class EventQueryTest {
     EventQuery targetUseCase;
 
     @Before
     public void setUp() {
         targetUseCase = new EventQuery(new EventRepository() {
+
             @Override
-            public Event resolve(EntityIdentifier<Event> anIdentifier) {
+            public <I extends EntityIdentifier<Event>> Event resolve(I anIdentifier) {
                 return EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
             }
 
             @Override
-            public Events resolve(Iterable<EntityIdentifier<Event>> anyIdentifiers) {
+            public <I extends EntityIdentifier<Event>> Events resolve(Iterable<I> anyIdentifiers) {
                 return null;
             }
 
@@ -31,9 +33,10 @@ public class EventQueryText {
             }
 
             @Override
-            public boolean contains(EntityIdentifier<Event> anIdentifier) {
+            public <I extends EntityIdentifier<Event>> boolean contains(I anIdentifier) {
                 return false;
             }
+
 
             @Override
             public <S extends Event> boolean contains(S anEntity) {
@@ -46,12 +49,12 @@ public class EventQueryText {
             }
 
             @Override
-            public void delete(EntityIdentifier<Event> anIdentifier) {
+            public <I extends EntityIdentifier<Event>> void delete(I anIdentifier) {
 
             }
 
             @Override
-            public void delete(Iterable<EntityIdentifier<Event>> anyIdentifiers) {
+            public <I extends EntityIdentifier<Event>> void delete(Iterable<I> anyIdentifiers) {
 
             }
 
@@ -81,7 +84,7 @@ public class EventQueryText {
         assertThat(event.identifier())
                 .isNotNull()
                 .isEqualTo(eventId);
-        System.out.println(event);
+        System.out.println(toStringHelper(event).defaultConfig().toString());
 
     }
 

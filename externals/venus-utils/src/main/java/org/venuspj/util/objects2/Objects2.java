@@ -4,6 +4,7 @@ import org.venuspj.util.strings2.Strings2;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.YearMonth;
@@ -265,6 +266,13 @@ public class Objects2 {
             return this;
         }
 
+        public ToStringHelper defaultConfig() {
+            addAllDeclaredFields()
+                    .omitNullValues()
+                    .multiLine();
+            return this;
+        }
+
         private void internalToString(Object object, IndentationAwareStringBuilder sb) {
             if (isNull(object)) {
                 sb.append("null");
@@ -313,7 +321,8 @@ public class Objects2 {
         }
 
         private boolean isPrimitiveLike(Class<?> aClazz) {
-            final Set<Class<?>> primitiveLikeClasses = newHashSet(Integer.class, LocalTime.class, LocalDateTime.class, YearMonth.class);
+            final Set<Class<?>> primitiveLikeClasses = newHashSet(Integer.class, LocalTime.class, LocalDateTime.class,
+                    YearMonth.class, LocalDate.class, Short.class, UUID.class);
             return primitiveLikeClasses.contains(aClazz);
 
         }

@@ -1,6 +1,7 @@
 package org.venuspj.studio.core.model.event;
 
 import org.venuspj.ddd.model.entity.AbstractEntities;
+import org.venuspj.ddd.model.entity.EntityIdentifiers;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -34,6 +35,15 @@ public class Events extends AbstractEntities<Event> {
     @Override
     public Iterator<Event> iterator() {
         return list.iterator();
+    }
+
+    @Override
+    public EntityIdentifiers<Event> getIdentifiers() {
+        List<EventId> resultList = newArrayList();
+        for (Event event:list) {
+            resultList.add((EventId) event.identifier());
+        }
+        return new EventIds(resultList);
     }
 
     @Override

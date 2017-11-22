@@ -14,7 +14,7 @@ public class StudioMock {
     }
 
     private static StudioInfo studioInf() {
-        return new StudioInfo(ProfileMock.createDummy());
+        return new StudioInfo(ProfileMock.createDummy(), StudioCode.empty());
     }
 
 }

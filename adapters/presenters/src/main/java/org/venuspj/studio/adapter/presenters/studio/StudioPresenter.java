@@ -10,6 +10,7 @@ public class StudioPresenter implements Presenter<StudioView>, FetchStudioRespon
 
     @Override
     public StudioView createView() {
+        //return new StudioView(studio.getStudioInfo().getStudioCode().asText());
         return null;
     }
 

@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 import static org.venuspj.util.collect.Lists2.*;
 import static org.venuspj.util.objects2.Objects2.*;
 
-public class AbstractEntities<E extends Entity<E>> implements Entities<E> {
+public abstract class AbstractEntities<E extends Entity<E>> implements Entities<E> {
 
     protected List<E> list = newArrayList();
 
@@ -35,13 +35,7 @@ public class AbstractEntities<E extends Entity<E>> implements Entities<E> {
     }
 
     @Override
-    public EntityIdentifiers<E> getIdentifiers() {
-        List<EntityIdentifier<E>> resultList = newArrayList();
-        for (Entity<E> entity : list) {
-            resultList.add(entity.identifier());
-        }
-        return new DefaultEntityIdentifiers<E>(resultList);
-    }
+    public abstract <EI extends EntityIdentifiers<E>>  EI getIdentifiers();
 
     @Override
     public String toString() {

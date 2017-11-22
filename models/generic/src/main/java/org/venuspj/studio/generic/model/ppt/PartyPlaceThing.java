@@ -1,5 +1,7 @@
 package org.venuspj.studio.generic.model.ppt;
 
-public interface PartyPlaceThing<PPT extends PartyPlaceThing<PPT>> {
+import org.venuspj.ddd.model.entity.Entity;
+
+public interface PartyPlaceThing<PPT extends PartyPlaceThing<PPT>> extends Entity<PPT> {
 
 }

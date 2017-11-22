@@ -31,10 +31,10 @@ public class AbstractEntityIdentifiers<E extends Entity<E>> implements EntityIde
 
     @Override
     public boolean equals(Object obj) {
-        if (isNull(obj)) return false;
-        if (this == obj) return true;
-        return obj instanceof AbstractEntityIdentifiers &&
-                equal(((AbstractEntityIdentifiers) obj).list, list);
+        return  (nonNull(obj) ||
+                (this == obj) ||
+                (obj instanceof AbstractEntityIdentifiers &&
+                        equal(((AbstractEntityIdentifiers) obj).list, list))) ;
 
     }
 

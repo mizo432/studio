@@ -129,4 +129,11 @@ public interface EventsMapper {
             "where event_id = #{eventId,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Events record);
+
+    @Select({
+            "select",
+            "event_id, event_name_prefix, event_name, event_name_postfix, event_open_datetime, ",
+            "event_start_datetime, event_end_datetime, created_at, created_by, event_description",
+            "from events"})
+    List<Events> selectAll();
 }

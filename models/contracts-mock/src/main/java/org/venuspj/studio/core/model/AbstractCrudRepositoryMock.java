@@ -8,10 +8,10 @@ import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
 
 import java.util.Map;
 
-import static org.venuspj.util.collect.Maps2.*;
-import static org.venuspj.util.objects2.Objects2.*;
+import static org.venuspj.util.collect.Maps2.newHashMap;
+import static org.venuspj.util.objects2.Objects2.isNull;
 
-public abstract class AbstractCrudRepositoryMock<E extends Entity<E>, ENTITIES extends Entities<E>> implements CrudRepository<E, ENTITIES> {
+public abstract class AbstractCrudRepositoryMock<E extends Entity<E>,ES extends Entities<E>> implements CrudRepository<E,ES> {
 
     protected Map<EntityIdentifier<E>, E> map = newHashMap();
 
@@ -22,15 +22,14 @@ public abstract class AbstractCrudRepositoryMock<E extends Entity<E>, ENTITIES e
     }
 
     @Override
-    public E resolve(EntityIdentifier<E> anIdentifier) {
+    public <I extends EntityIdentifier<E>> E resolve(I anIdentifier) {
         E result = map.get(anIdentifier);
         if (isNull(result))
             throw new EntityNotFoundRuntimeException(anIdentifier);
         return result;
     }
 
-    @Override
-    public boolean contains(EntityIdentifier<E> anIdentifier) {
+    public <I extends EntityIdentifier<E>> boolean contains(I anIdentifier) {
         try {
             resolve(anIdentifier);
             return true;
@@ -56,13 +55,13 @@ public abstract class AbstractCrudRepositoryMock<E extends Entity<E>, ENTITIES e
     }
 
     @Override
-    public void delete(EntityIdentifier<E> anIdentifier) {
+    public <I extends EntityIdentifier<E>> void delete(I anIdentifier) {
         map.remove(anIdentifier);
 
     }
 
     @Override
-    public void delete(Iterable<EntityIdentifier<E>> anyIdentifiers) {
+    public <I extends EntityIdentifier<E>> void delete(Iterable<I> anyIdentifiers) {
         for (EntityIdentifier<E> entityIdentifier : anyIdentifiers)
             delete(entityIdentifier);
 
@@ -70,7 +69,6 @@ public abstract class AbstractCrudRepositoryMock<E extends Entity<E>, ENTITIES e
 
     @Override
     public <S extends E> void delete(S anEntity) {
-
         map.remove(anEntity.identifier());
 
     }

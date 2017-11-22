@@ -8,6 +8,6 @@ public interface Entities<E extends Entity<E>> extends Cloneable, Iterable<E>, L
     @Override
     List<E> asList();
 
-    EntityIdentifiers<E> getIdentifiers();
+    <EIS extends EntityIdentifiers<E>> EIS getIdentifiers();
 
 }
