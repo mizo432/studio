@@ -1,6 +1,7 @@
 apply plugin: 'org.springframework.boot'
 
-description = "studio-datasources"
+description = "studio-dataSources"
+
 buildscript {
     repositories {
         jcenter()

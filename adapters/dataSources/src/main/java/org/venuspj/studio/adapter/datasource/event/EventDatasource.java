@@ -22,9 +22,8 @@ import org.venuspj.studio.generic.model.ppt.place.PlaceInfo;
 
 import java.util.List;
 
-import static org.venuspj.util.collect.Lists2.newArrayList;
-import static org.venuspj.util.objects2.Objects2.isNull;
-import static org.venuspj.util.objects2.Objects2.nonNull;
+import static org.venuspj.util.collect.Lists2.*;
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */

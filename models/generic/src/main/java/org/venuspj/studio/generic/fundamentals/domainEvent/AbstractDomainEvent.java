@@ -3,10 +3,10 @@ package org.venuspj.studio.generic.fundamentals.domainEvent;
 import org.venuspj.studio.generic.fundamentals.moment.Moment;
 import org.venuspj.util.objects2.Objects2;
 
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public abstract class AbstractDomainEvent {
-    protected Moment occurredMoment = Moment.emptyMoment();
+    protected Moment occurredMoment = Moment.empty();
 
     public AbstractDomainEvent(Moment anOccurredMoment) {
         occurredMoment = anOccurredMoment;

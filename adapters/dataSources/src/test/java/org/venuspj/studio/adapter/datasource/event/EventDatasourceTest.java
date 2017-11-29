@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.model.event.EventMock;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

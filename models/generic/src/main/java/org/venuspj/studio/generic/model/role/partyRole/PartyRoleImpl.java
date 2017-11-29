@@ -1,7 +1,6 @@
 package org.venuspj.studio.generic.model.role.partyRole;
 
 import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.generic.model.ppt.party.DefaultParty;
 import org.venuspj.studio.generic.model.ppt.party.Party;
 
 public abstract class PartyRoleImpl implements Party, PartyRole {
@@ -9,7 +8,7 @@ public abstract class PartyRoleImpl implements Party, PartyRole {
     protected final Party party;
 
     public PartyRoleImpl() {
-        this(DefaultParty.emptyParty());
+        this(null);
     }
 
     /**

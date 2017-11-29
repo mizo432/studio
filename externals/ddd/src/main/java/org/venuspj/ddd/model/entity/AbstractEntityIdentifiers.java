@@ -31,10 +31,10 @@ public class AbstractEntityIdentifiers<E extends Entity<E>> implements EntityIde
 
     @Override
     public boolean equals(Object obj) {
-        return  (nonNull(obj) ||
+        return (nonNull(obj) ||
                 (this == obj) ||
                 (obj instanceof AbstractEntityIdentifiers &&
-                        equal(((AbstractEntityIdentifiers) obj).list, list))) ;
+                        equal(((AbstractEntityIdentifiers) obj).list, list)));
 
     }
 
@@ -43,10 +43,4 @@ public class AbstractEntityIdentifiers<E extends Entity<E>> implements EntityIde
         return hash(list);
     }
 
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .addValue(list)
-                .toString();
-    }
 }
