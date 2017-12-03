@@ -1,12 +1,10 @@
 package org.venuspj.studio.core.model.event;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
-import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.util.builder.ObjectBuilder;
 
-import static org.venuspj.util.objects2.Objects2.isNull;
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  * イベント
@@ -14,7 +12,7 @@ import static org.venuspj.util.objects2.Objects2.toStringHelper;
 public class Event extends AbstractEntity<Event> {
     EventInfo eventInfo = EventInfo.emptyEventInfo();
 
-    public Event(EntityIdentifier<Event> anIdentifier, EventInfo anEventInfo) {
+    public Event(EventIdentifier anIdentifier, EventInfo anEventInfo) {
         super(anIdentifier);
         eventInfo = anEventInfo;
     }
@@ -25,7 +23,7 @@ public class Event extends AbstractEntity<Event> {
 
     public static Event emptyEvent() {
         return new Event(
-                EventId.emptyEventId(),
+                EventIdentifier.empty(),
                 EventInfo.emptyEventInfo()
         );
     }
@@ -34,26 +32,21 @@ public class Event extends AbstractEntity<Event> {
         return eventInfo.getOutLine();
     }
 
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .add("identifier", identifier())
-                .add("\neventInfo", eventInfo)
-                .omitNullValues()
-                .toString();
-    }
-
     public EventInfo getInfo() {
         return eventInfo;
     }
 
+    public EventIdentifier getEventIdentifier() {
+        return (EventIdentifier) identifier();
+    }
+
     public static final class EventBuilder extends ObjectBuilder<Event, EventBuilder> {
-        private EntityIdentifier<Event> identifier;
+        private EventIdentifier identifier;
         private EventInfo eventInfo;
 
         @Override
         protected void apply(Event vo, EventBuilder builder) {
-            builder.withIdentifier(vo.identifier());
+            builder.withIdentifier((EventIdentifier) vo.identifier());
             builder.withEventInfo(vo.getInfo());
         }
 
@@ -63,7 +56,7 @@ public class Event extends AbstractEntity<Event> {
             return getThis();
         }
 
-        public EventBuilder withIdentifier(EntityIdentifier<Event> anIdentifier) {
+        public EventBuilder withIdentifier(EventIdentifier anIdentifier) {
             if (isNull(anIdentifier)) return getThis();
             addConfigurator(builder -> builder.identifier = anIdentifier);
             return getThis();

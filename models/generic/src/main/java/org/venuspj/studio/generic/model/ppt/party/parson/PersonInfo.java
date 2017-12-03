@@ -4,7 +4,7 @@ import org.venuspj.studio.generic.model.ppt.party.PartyInfo;
 
 public class PersonInfo extends PartyInfo {
 
-    public static PersonInfo emptyPersonInfo() {
+    public static PersonInfo empty() {
         return new PersonInfo();
     }
 

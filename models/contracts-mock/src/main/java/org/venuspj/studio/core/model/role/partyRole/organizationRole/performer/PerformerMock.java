@@ -1,6 +1,6 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.performer;
 
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayerMock;
+import org.venuspj.studio.generic.model.ppt.party.PartyMock;
 
 public class PerformerMock {
     public static Performer createDummy(PerformerType aPerformerType) {
@@ -12,15 +12,14 @@ public class PerformerMock {
         DEEJEY1_EVENT1 {
             @Override
             public Performer getPerformer() {
-                return new Performer(
-                        PlayerMock.createDummy(PlayerMock.PlayerType.DEEJEY1),
+                return new Performer(PartyMock.createMock(PartyMock.PartyMockType.DEEJEY1),
                         PerformerInfoMock.createDummy(PerformerInfoMock.PerformerInfoType.DEEJEY1_EVENT1)
                 );
             }
         };
 
         public Performer getPerformer() {
-            return Performer.emptyPerformer();
+            return Performer.empty();
         }
     }
 }

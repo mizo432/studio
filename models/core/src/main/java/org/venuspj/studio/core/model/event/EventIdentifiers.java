@@ -5,9 +5,9 @@ import org.venuspj.ddd.model.entity.EntityIdentifiers;
 
 import java.util.Collection;
 
-public class EventIds extends AbstractEntityIdentifiers<Event> implements EntityIdentifiers<Event> {
+public class EventIdentifiers extends AbstractEntityIdentifiers<Event> implements EntityIdentifiers<Event> {
 
-    public EventIds(Collection<? extends EventId> anyCollection) {
+    public EventIdentifiers(Collection<? extends EventIdentifier> anyCollection) {
         super(anyCollection);
 
 

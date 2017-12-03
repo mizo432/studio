@@ -1,12 +1,28 @@
 package org.venuspj.studio.generic.model.ppt.party.organization;
 
-import org.venuspj.ddd.model.entity.AbstractEntityIdentifiers;
-import org.venuspj.studio.generic.model.ppt.party.Party;
+import org.venuspj.ddd.model.value.ListValue;
+import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 
-public class OrganizationUnitIds extends AbstractEntityIdentifiers<Party> {
+import java.util.Iterator;
+import java.util.List;
 
-    public static OrganizationUnitIds emptyOrganizationUnitIds() {
+import static org.venuspj.util.collect.Lists2.*;
+
+public class OrganizationUnitIds implements ListValue<PartyIdentifier> {
+
+    List<PartyIdentifier> list = newArrayList();
+
+    public static OrganizationUnitIds empty() {
         return new OrganizationUnitIds();
     }
 
+    @Override
+    public List<PartyIdentifier> asList() {
+        return unmodifiableList(list);
+    }
+
+    @Override
+    public Iterator<PartyIdentifier> iterator() {
+        return asList().iterator();
+    }
 }

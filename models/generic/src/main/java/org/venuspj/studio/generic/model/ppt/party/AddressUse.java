@@ -15,8 +15,8 @@ public class AddressUse extends AbstractEntity<AddressUse> {
     Place place = PlaceImpl.emptyPlace();
     PartyIds partyIds = PartyIds.emptyPartyIds();
 
-    public AddressUse(AddressUseId anAddressUseId, Period aPeriod, Place aPlace, PartyIds anyPartyIds) {
-        super(anAddressUseId);
+    public AddressUse(AddressUseIdentifier anAddressUseIdentifier, Period aPeriod, Place aPlace, PartyIds anyPartyIds) {
+        super(anAddressUseIdentifier);
         period = aPeriod;
         place = aPlace;
         partyIds = anyPartyIds;

@@ -5,8 +5,8 @@ import org.venuspj.ddd.model.value.AbstractListValue;
 import java.util.Collection;
 
 public class Performers extends AbstractListValue<Performer> {
-    public Performers(Collection<? extends Performer> anylist) {
-        super(anylist);
+    public Performers(Collection<? extends Performer> anyCollection) {
+        super(anyCollection);
 
     }
 
@@ -14,7 +14,7 @@ public class Performers extends AbstractListValue<Performer> {
 
     }
 
-    public static Performers emptyPerformers() {
+    public static Performers empty() {
         return new Performers();
     }
 }

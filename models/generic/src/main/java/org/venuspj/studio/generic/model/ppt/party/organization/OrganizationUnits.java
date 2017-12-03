@@ -19,7 +19,7 @@ public class OrganizationUnits extends AbstractListValue<OrganizationUnit> {
 
     }
 
-    public static OrganizationUnits emptyOrganizationUnits() {
+    public static OrganizationUnits empty() {
         return new OrganizationUnits();
     }
 

@@ -11,12 +11,6 @@ public class EventQueryOutputPortMock implements EventQueryOutputPort {
     Event event;
 
     @Override
-    public void withEvent(Event anEvent) {
-        event = anEvent;
-
-    }
-
-    @Override
     public String toString() {
         return toStringHelper(this)
                 .add("events", event)
@@ -26,5 +20,11 @@ public class EventQueryOutputPortMock implements EventQueryOutputPort {
 
     public Event getEvent() {
         return event;
+    }
+
+    @Override
+    public void setEvent(Event anEvent) {
+        event = anEvent;
+
     }
 }

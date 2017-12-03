@@ -1,12 +1,8 @@
 package org.venuspj.studio.core.model.event.eventOutline;
 
-import org.venuspj.ddd.model.entity.DefaultEntityIdentifiers;
-import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.ddd.model.entity.EntityIdentifiers;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.Performers;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
-import org.venuspj.studio.generic.model.ppt.party.Party;
-import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitIds;
 import org.venuspj.studio.generic.model.ppt.place.Place;
 import org.venuspj.studio.generic.model.ppt.place.PlaceImpl;
 import org.venuspj.util.builder.ObjectBuilder;
@@ -17,18 +13,18 @@ import static org.venuspj.util.objects2.Objects2.*;
  * イベントのアウトラインを保持するValueObject
  */
 public class Outline {
-    RecordDate recordDate;
-    Address address;
-    EntityIdentifiers<Party> playerIds = OrganizationUnitIds.emptyOrganizationUnitIds();
-    Place place;
+    private RecordDate recordDate;
+    private Address address;
+    private Performers performers;
+    private Place place;
 
     Outline() {
     }
 
-    public Outline(RecordDate aRecordDate, Address anAddress, EntityIdentifiers<Party> anPlayerIds, Place aPlace) {
+    public Outline(RecordDate aRecordDate, Address anAddress, Performers anyPerformers, Place aPlace) {
         recordDate = aRecordDate;
         address = anAddress;
-        playerIds = anPlayerIds;
+        performers = anyPerformers;
         place = aPlace;
     }
 
@@ -40,27 +36,12 @@ public class Outline {
         return new Outline(
                 RecordDate.emptyRecordDate(),
                 Address.nullAddress(),
-                DefaultEntityIdentifiers.emptyEntityIdentifiers(), PlaceImpl.emptyPlace());
-    }
-
-    public Iterable<EntityIdentifier<Party>> playerIds() {
-        return playerIds;
-    }
-
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .add("recordDate", recordDate)
-                .add("address", address)
-                .add("place", place)
-                .add("playerIds", playerIds)
-                .omitNullValues()
-                .toString();
+                Performers.empty(), PlaceImpl.emptyPlace());
     }
 
     @Override
     public int hashCode() {
-        return hash(recordDate, address, place, playerIds);
+        return hash(recordDate, address, place, performers);
     }
 
     @Override
@@ -71,7 +52,7 @@ public class Outline {
                 && equal(((Outline) obj).recordDate, recordDate)
                 && equal(((Outline) obj).address, address)
                 && equal(((Outline) obj).place, place)
-                && equal(((Outline) obj).playerIds, playerIds);
+                && equal(((Outline) obj).performers, performers);
     }
 
     public boolean sameValueAs(Outline anOutline) {
@@ -81,14 +62,14 @@ public class Outline {
     public static final class OutlineBuilder extends ObjectBuilder<Outline, OutlineBuilder> {
         RecordDate recordDate;
         Address address;
-        EntityIdentifiers<Party> playerIds = OrganizationUnitIds.emptyOrganizationUnitIds();
+        Performers performers = Performers.empty();
         Place place;
 
         @Override
         protected void apply(Outline vo, OutlineBuilder builder) {
             builder.withRecordDate(vo.recordDate);
             builder.withAddress(vo.address);
-            builder.withPlayerIds(vo.playerIds);
+            builder.withPerformers(vo.performers);
             builder.withPlace(vo.place);
         }
 
@@ -99,10 +80,10 @@ public class Outline {
             return getThis();
         }
 
-        public OutlineBuilder withPlayerIds(EntityIdentifiers<Party> anyPlayerIds) {
-            if (isNull(anyPlayerIds)) return getThis();
+        public OutlineBuilder withPerformers(Performers anyPerformers) {
+            if (isNull(anyPerformers)) return getThis();
 
-            addConfigurator(builder -> builder.playerIds = anyPlayerIds);
+            addConfigurator(builder -> builder.performers = anyPerformers);
             return getThis();
         }
 
@@ -122,7 +103,7 @@ public class Outline {
 
         @Override
         protected Outline createValueObject() {
-            return new Outline(recordDate, address, playerIds, place);
+            return new Outline(recordDate, address, performers, place);
         }
 
         @Override

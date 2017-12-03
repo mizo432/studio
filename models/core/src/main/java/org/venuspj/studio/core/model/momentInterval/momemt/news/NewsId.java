@@ -1,7 +1,8 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.news;
 
 import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
-import org.venuspj.util.objects2.Objects2;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
@@ -23,7 +24,7 @@ public class NewsId extends AbstractEntityIdentifier<News> {
 
     @Override
     public int hashCode() {
-        return Objects2.hash(kind, value);
+        return hash(kind, value);
     }
 
     @Override
@@ -31,22 +32,17 @@ public class NewsId extends AbstractEntityIdentifier<News> {
         if (!super.equals(o)) return false;
         if (o instanceof NewsId) {
             NewsId other = (NewsId) o;
-            return Objects2.equal(value, other.value);
+            return equal(value, other.value);
         }
         return false;
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("kind", kind)
-                .addValue(value)
-                .toString();
-    }
-
     public boolean isPresent() {
-        return Objects2.nonNull(value);
+        return nonNull(value);
     }
 
+    @Override
+    public boolean isEmpty() {
+        return isNull(value);
+    }
 }

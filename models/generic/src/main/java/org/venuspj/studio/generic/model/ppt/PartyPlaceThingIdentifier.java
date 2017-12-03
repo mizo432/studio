@@ -49,4 +49,9 @@ public class PartyPlaceThingIdentifier<PPTI extends PartyPlaceThing<PPTI>> exten
     public boolean sameValueAs(PartyPlaceThingIdentifier anIdentifier) {
         return equals(anIdentifier);
     }
+
+    @Override
+    public boolean isEmpty() {
+        return isNull(value);
+    }
 }

@@ -2,6 +2,8 @@ package org.venuspj.studio.generic.model.ppt.any.subAny;
 
 import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
 
+import static org.venuspj.util.objects2.Objects2.*;
+
 public class SubAnyIdentifier<SA extends SubAny<SA>> extends AbstractEntityIdentifier<SA> {
     private final Integer value;
 
@@ -16,4 +18,8 @@ public class SubAnyIdentifier<SA extends SubAny<SA>> extends AbstractEntityIdent
 
     }
 
+    @Override
+    public boolean isEmpty() {
+        return isNull(value);
+    }
 }

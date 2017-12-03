@@ -5,10 +5,8 @@ import org.venuspj.studio.core.model.event.eventOutline.Outline;
 import org.venuspj.studio.core.model.event.flyers.Flyers;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.Performers;
 import org.venuspj.util.builder.ObjectBuilder;
-import org.venuspj.util.objects2.Objects2;
 
-import static org.venuspj.util.objects2.Objects2.isNull;
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  * イベントの情報
@@ -51,23 +49,7 @@ public class EventInfo {
         return new EventInfo(Outline.emptyOutline(),
                 Descriptor.emptyDescriptor(),
                 Flyers.emptyFlyers(),
-                Performers.emptyPerformers());
-    }
-
-    protected Objects2.ToStringHelper string() {
-        return toStringHelper(this)
-                .add("outline", outline)
-                .add("descriptor", descriptor)
-                .add("flyers", flyers)
-                .add("performers", performers);
-
-    }
-
-    @Override
-    public String toString() {
-        return string()
-                .omitNullValues()
-                .toString();
+                Performers.empty());
     }
 
     public Outline getOutLine() {

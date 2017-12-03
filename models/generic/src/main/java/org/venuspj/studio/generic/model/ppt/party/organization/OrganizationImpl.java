@@ -1,8 +1,6 @@
 package org.venuspj.studio.generic.model.ppt.party.organization;
 
-import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
-import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.generic.model.ppt.party.Party;
+import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 import org.venuspj.studio.generic.model.ppt.party.PartyImpl;
 import org.venuspj.util.builder.ObjectBuilder;
 import org.venuspj.util.objects2.Objects2;
@@ -13,24 +11,24 @@ public class OrganizationImpl extends PartyImpl implements Organization {
     private final OrganizationInfo info;
     private final OrganizationUnits units;
 
-    public OrganizationImpl(EntityIdentifier<Party> anIdentifier, OrganizationInfo anInfo, OrganizationUnits anyUnits) {
+    public OrganizationImpl(PartyIdentifier anIdentifier, OrganizationInfo anInfo, OrganizationUnits anyUnits) {
         super(anIdentifier, anInfo);
         info = anInfo;
         units = anyUnits;
     }
 
-    public static Organization emptyOrganization() {
+    public static Organization empty() {
         return new OrganizationImpl(
-                DefaultEntityIdentifier.newId(Party.class),
-                OrganizationInfo.emptyOrganizationInfo(),
-                OrganizationUnits.emptyOrganizationUnits()
+                PartyIdentifier.newId(),
+                OrganizationInfo.empty(),
+                OrganizationUnits.empty()
         );
     }
 
     @Override
     public Organization clone() {
         Organization b = new OrganizationImpl(
-                identifier(),
+                (PartyIdentifier) identifier(),
                 info,
                 units
         );
@@ -70,13 +68,13 @@ public class OrganizationImpl extends PartyImpl implements Organization {
 
     private class OrganizationBuilder extends ObjectBuilder<Organization, OrganizationBuilder> {
 
-        private EntityIdentifier<Party> identifier;
+        private PartyIdentifier identifier;
         private OrganizationInfo info;
-        private OrganizationUnits units;
+        private OrganizationUnits units = OrganizationUnits.empty();
 
         @Override
         protected void apply(Organization vo, OrganizationBuilder builder) {
-            builder.withIdentifier(vo.identifier());
+            builder.withIdentifier((PartyIdentifier) vo.identifier());
             builder.withInfo(vo.getInfo());
             builder.withUnits(vo.getUnits());
 
@@ -96,7 +94,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
 
         }
 
-        public OrganizationBuilder withIdentifier(EntityIdentifier<Party> anIdentifier) {
+        public OrganizationBuilder withIdentifier(PartyIdentifier anIdentifier) {
             if (isNull(anIdentifier)) return getThis();
             addConfigurator(builder -> builder.identifier = anIdentifier);
             return getThis();

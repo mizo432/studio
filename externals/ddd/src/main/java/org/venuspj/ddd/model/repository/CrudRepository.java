@@ -1,10 +1,9 @@
 package org.venuspj.ddd.model.repository;
 
-import org.venuspj.ddd.model.entity.Entities;
 import org.venuspj.ddd.model.entity.Entity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 
-public interface CrudRepository<E extends Entity<E>, ES extends Entities<E>> {
+public interface CrudRepository<E extends Entity<E>> {
     /**
      * 識別子に該当するエンティティをリポジトリから取得する。
      *
@@ -25,7 +24,7 @@ public interface CrudRepository<E extends Entity<E>, ES extends Entities<E>> {
      * @throws EntityNotFoundRuntimeException エンティティが見つからなかった場合
      * @throws RepositoryRuntimeException     リポジトリにアクセスできない場合
      */
-    <I extends EntityIdentifier<E>> ES resolve(Iterable<I> anyIdentifiers);
+//    <I extends EntityIdentifier<E>> ES resolve(Iterable<I> anyIdentifiers);
 
     /**
      * このリポジトリに格納されているすべてのエンティティをListで取得する。
@@ -33,7 +32,7 @@ public interface CrudRepository<E extends Entity<E>, ES extends Entities<E>> {
      * @return すべてのエンティティのList
      * @throws RepositoryRuntimeException リポジトリにアクセスできない場合
      */
-    ES asEntitiesList();
+//    ES asEntitiesList();
 
     /**
      * 指定した識別子のエンティティが存在するかを返す。
@@ -42,7 +41,7 @@ public interface CrudRepository<E extends Entity<E>, ES extends Entities<E>> {
      * @return 存在する場合はtrue
      * @throws RepositoryRuntimeException リポジトリにアクセスできない場合
      */
-    <I extends EntityIdentifier<E>> boolean contains(I anIdentifier);
+    boolean contains(EntityIdentifier<E> anIdentifier);
 
     /**
      * 指定したのエンティティが存在するかを返す。

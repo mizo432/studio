@@ -1,16 +1,14 @@
 package org.venuspj.studio.core.model.event;
 
-import org.venuspj.ddd.model.entity.AbstractEntities;
-import org.venuspj.ddd.model.entity.EntityIdentifiers;
+import org.venuspj.ddd.model.value.AbstractListValue;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.*;
-import static org.venuspj.util.objects2.Objects2.*;
 
-public class Events extends AbstractEntities<Event> {
+public class Events extends AbstractListValue<Event> {
 
     Events() {
         super();
@@ -18,7 +16,7 @@ public class Events extends AbstractEntities<Event> {
     }
 
     public Events(Collection<? extends Event> anyCollection) {
-        list.addAll(anyCollection);
+        super(anyCollection);
     }
 
     public static Events empty() {
@@ -26,24 +24,16 @@ public class Events extends AbstractEntities<Event> {
     }
 
     @Override
-    public String toString() {
-        return toStringHelper(this)
-                .addValue(list)
-                .toString();
-    }
-
-    @Override
     public Iterator<Event> iterator() {
-        return list.iterator();
+        return asList().iterator();
     }
 
-    @Override
-    public EntityIdentifiers<Event> getIdentifiers() {
-        List<EventId> resultList = newArrayList();
-        for (Event event:list) {
-            resultList.add((EventId) event.identifier());
+    public EventIdentifiers getIdentifiers() {
+        List<EventIdentifier> resultList = newArrayList();
+        for (Event event : list) {
+            resultList.add((EventIdentifier) event.identifier());
         }
-        return new EventIds(resultList);
+        return new EventIdentifiers(resultList);
     }
 
     @Override

@@ -1,13 +1,11 @@
 package org.venuspj.studio.generic.model.ppt.party.organization;
 
-import org.venuspj.studio.generic.model.ppt.party.PartyInfo;
-
-public class OrganizationUnitInfo extends PartyInfo {
+public class OrganizationUnitInfo extends OrganizationInfo {
     private OrganizationUnitInfo() {
 
     }
 
-    public static OrganizationUnitInfo emptyUnitInfo() {
+    public static OrganizationUnitInfo empty() {
         return new OrganizationUnitInfo();
     }
 }

@@ -5,8 +5,8 @@ package org.venuspj.studio.core.model.event;
  */
 public class EventIdMock {
 
-    public static EventId createDummy(EventIDType anEventIDType) {
-        return new EventId(anEventIDType.eventIdValue());
+    public static EventIdentifier createDummy(EventIDType anEventIDType) {
+        return new EventIdentifier(anEventIDType.eventIdValue());
     }
 
     public enum EventIDType {

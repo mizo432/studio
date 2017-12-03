@@ -8,7 +8,7 @@ public class OrganizationImplTest {
 
     @Test
     public void emptyOrganization() throws Exception {
-        Organization target = OrganizationImpl.emptyOrganization();
+        Organization target = OrganizationImpl.empty();
         assertThat(target)
                 .isNotNull();
     }

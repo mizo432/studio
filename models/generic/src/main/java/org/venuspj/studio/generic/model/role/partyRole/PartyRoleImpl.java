@@ -1,14 +1,12 @@
 package org.venuspj.studio.generic.model.role.partyRole;
 
-import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.generic.model.ppt.party.Party;
+import org.venuspj.studio.generic.model.role.RoleImpl;
 
-public abstract class PartyRoleImpl implements Party, PartyRole {
-
-    protected final Party party;
+public abstract class PartyRoleImpl extends RoleImpl implements PartyRole {
 
     public PartyRoleImpl() {
-        this(null);
+        this(null, null);
     }
 
     /**
@@ -16,33 +14,8 @@ public abstract class PartyRoleImpl implements Party, PartyRole {
      *
      * @param aParty
      */
-    public PartyRoleImpl(Party aParty) {
-        party = aParty;
+    protected <P extends Party, PR extends PartyRoleInformation> PartyRoleImpl(P aParty, PR aPartyRoleInformation) {
+        super(aParty, aPartyRoleInformation);
     }
 
-    @Override
-    public EntityIdentifier<Party> identifier() {
-        return party.identifier();
-    }
-
-    @Override
-    public Party clone() {
-        Party b = new DefaultPartyRole(party);
-
-        /*ObjectクラスのcloneメソッドはCloneNotSupportedExceptionを投げる可能性があるので、try-catch文で記述(呼び出し元に投げても良い)*/
-        try {
-            b = (Party) super.clone(); //親クラスのcloneメソッドを呼び出す(親クラスの型で返ってくるので、自分自身の型でのキャストを忘れないようにする)
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return b;
-
-    }
-
-
-    private static class DefaultPartyRole extends PartyRoleImpl {
-        public DefaultPartyRole(Party aParty) {
-            super(aParty);
-        }
-    }
 }

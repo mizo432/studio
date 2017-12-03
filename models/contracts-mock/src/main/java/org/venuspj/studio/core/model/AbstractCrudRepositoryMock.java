@@ -1,6 +1,5 @@
 package org.venuspj.studio.core.model;
 
-import org.venuspj.ddd.model.entity.Entities;
 import org.venuspj.ddd.model.entity.Entity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.ddd.model.repository.CrudRepository;
@@ -8,10 +7,10 @@ import org.venuspj.ddd.model.repository.EntityNotFoundRuntimeException;
 
 import java.util.Map;
 
-import static org.venuspj.util.collect.Maps2.newHashMap;
-import static org.venuspj.util.objects2.Objects2.isNull;
+import static org.venuspj.util.collect.Maps2.*;
+import static org.venuspj.util.objects2.Objects2.*;
 
-public abstract class AbstractCrudRepositoryMock<E extends Entity<E>,ES extends Entities<E>> implements CrudRepository<E,ES> {
+public abstract class AbstractCrudRepositoryMock<E extends Entity<E>> implements CrudRepository<E> {
 
     protected Map<EntityIdentifier<E>, E> map = newHashMap();
 
@@ -27,15 +26,6 @@ public abstract class AbstractCrudRepositoryMock<E extends Entity<E>,ES extends 
         if (isNull(result))
             throw new EntityNotFoundRuntimeException(anIdentifier);
         return result;
-    }
-
-    public <I extends EntityIdentifier<E>> boolean contains(I anIdentifier) {
-        try {
-            resolve(anIdentifier);
-            return true;
-        } catch (EntityNotFoundRuntimeException e) {
-            return false;
-        }
     }
 
     @Override

@@ -9,7 +9,7 @@ public class EventPage implements EventQueryOutputPort {
     private Event event;
 
     @Override
-    public void withEvent(Event anEvent) {
+    public void setEvent(Event anEvent) {
         event = anEvent;
     }
 

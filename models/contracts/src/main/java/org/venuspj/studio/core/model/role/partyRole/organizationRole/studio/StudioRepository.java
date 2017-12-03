@@ -1,9 +1,10 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 
-import org.venuspj.ddd.model.repository.RoleCrudRepository;
-import org.venuspj.studio.generic.model.ppt.party.Party;
+import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 
-public interface StudioRepository  extends RoleCrudRepository<Studio, Party> {
+public interface StudioRepository {
+
+    Studios resolve(PartyIdentifier partyIdentifier);
 
     Studios resolve(StudioCriteria StudioCriteria);
 

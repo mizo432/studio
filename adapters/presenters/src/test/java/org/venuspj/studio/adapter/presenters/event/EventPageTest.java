@@ -25,7 +25,7 @@ public class EventPageTest {
 
     @Test
     public void withEvent() throws Exception {
-        eventPage.withEvent(EventMock.createDummy());
+        eventPage.setEvent(EventMock.createDummy());
         String actual = eventPage.toString();
         LOGGER.debug("actual:" + actual);
     }

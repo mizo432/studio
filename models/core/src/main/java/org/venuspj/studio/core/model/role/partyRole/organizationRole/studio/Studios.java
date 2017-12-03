@@ -6,9 +6,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.venuspj.util.collect.Lists2.newArrayList;
-import static org.venuspj.util.collect.Lists2.unmodifiableList;
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.venuspj.util.collect.Lists2.*;
 
 public class Studios implements ListValue<Studio> {
 
@@ -18,15 +16,6 @@ public class Studios implements ListValue<Studio> {
     public Studios(Collection<Studio> studioCollection) {
         list.addAll(studioCollection);
 
-    }
-
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .addAllDeclaredFields()
-                .multiLine()
-                .omitNullValues()
-                .toString();
     }
 
     @Override

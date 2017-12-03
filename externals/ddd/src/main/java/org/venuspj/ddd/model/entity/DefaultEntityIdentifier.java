@@ -72,11 +72,7 @@ public final class DefaultEntityIdentifier<T extends Entity<T>> extends Abstract
     }
 
     @Override
-    public String toString() {
-        return toStringHelper(this)
-                .add("kind", kind)
-                .add("uuid", uuid)
-                .omitNullValues()
-                .toString();
+    public boolean isEmpty() {
+        return isNull(uuid);
     }
 }

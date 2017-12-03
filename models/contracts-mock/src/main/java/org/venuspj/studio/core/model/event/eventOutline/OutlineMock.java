@@ -1,12 +1,10 @@
 package org.venuspj.studio.core.model.event.eventOutline;
 
-import org.venuspj.ddd.model.entity.EntityIdentifiers;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.PlayersMock;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.Performers;
 import org.venuspj.studio.generic.fundamentals.address.Address;
 import org.venuspj.studio.generic.fundamentals.address.AddressMock;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDate;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDateMock;
-import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.ppt.place.Place;
 import org.venuspj.studio.generic.model.ppt.place.PlaceMock;
 
@@ -34,11 +32,6 @@ public class OutlineMock {
             }
 
             @Override
-            public EntityIdentifiers<Party> getOrganizationUnitIds() {
-                return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
-            }
-
-            @Override
             public Place getPlace() {
                 return PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
 
@@ -52,11 +45,6 @@ public class OutlineMock {
             @Override
             public Address getAddress() {
                 return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
-            }
-
-            @Override
-            public EntityIdentifiers<Party> getOrganizationUnitIds() {
-                return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
             }
 
             @Override
@@ -74,10 +62,6 @@ public class OutlineMock {
                 return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
             }
 
-            @Override
-            public EntityIdentifiers<Party> getOrganizationUnitIds() {
-                return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
-            }
 
             @Override
             public Place getPlace() {
@@ -143,11 +127,6 @@ public class OutlineMock {
             return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
         }
 
-        public EntityIdentifiers<Party> getOrganizationUnitIds() {
-            return PlayersMock.createDummy(PlayersMock.PlayersType.ANY_PLAYERS).identifiers();
-
-        }
-
         public Place getPlace() {
             return PlaceMock.createDummy(PlaceMock.PlaceType.EMPTY);
         }
@@ -155,8 +134,13 @@ public class OutlineMock {
         public Outline createDummy() {
             return new Outline(getRecordDate(),
                     getAddress(),
-                    getOrganizationUnitIds(),
+                    getPeformers(),
                     getPlace());
+
+        }
+
+        private Performers getPeformers() {
+            return Performers.empty();
 
         }
     }

@@ -6,7 +6,7 @@ import org.venuspj.studio.generic.model.ppt.PartyPlaceThing;
 /**
  * 人または組織.
  */
-public interface Party<P extends Party<P>> extends PartyPlaceThing<P>, Entity<P> {
+public interface Party extends PartyPlaceThing<Party>, Entity<Party> {
 
 
 }

@@ -5,50 +5,50 @@ import java.util.List;
 import static org.venuspj.util.collect.Lists2.*;
 
 public class PlayersMock {
-    public static Players createDummy(PlayersType anyPlayersType) {
-        PlayerMock.PlayerType[] playerTypes = anyPlayersType.getPlayerTypes();
+    public static Players createDummy(PlayersMockType anyPlayersMockType) {
+        PlayerMock.PlayerMockType[] playerTypes = anyPlayersMockType.getPlayerTypes();
         List<Player> result = newArrayList();
-        for (PlayerMock.PlayerType playerType : playerTypes)
+        for (PlayerMock.PlayerMockType playerType : playerTypes)
             result.add(PlayerMock.createDummy(playerType));
         return new Players(result);
     }
 
-    public enum PlayersType {
+    public enum PlayersMockType {
         ANY_PLAYERS {
             @Override
-            public PlayerMock.PlayerType[] getPlayerTypes() {
-                return new PlayerMock.PlayerType[]{
-                        PlayerMock.PlayerType.DEEJEY1,
-                        PlayerMock.PlayerType.DEEJEY2,
-                        PlayerMock.PlayerType.DEEJEY3,
-                        PlayerMock.PlayerType.SOUND1};
+            public PlayerMock.PlayerMockType[] getPlayerTypes() {
+                return new PlayerMock.PlayerMockType[]{
+                        PlayerMock.PlayerMockType.DEEJEY1,
+                        PlayerMock.PlayerMockType.DEEJEY2,
+                        PlayerMock.PlayerMockType.DEEJEY3,
+                        PlayerMock.PlayerMockType.SOUND1};
             }
         }, ONE_DEEJEY {
             @Override
-            public PlayerMock.PlayerType[] getPlayerTypes() {
-                return new PlayerMock.PlayerType[]{
-                        PlayerMock.PlayerType.DEEJEY1};
+            public PlayerMock.PlayerMockType[] getPlayerTypes() {
+                return new PlayerMock.PlayerMockType[]{
+                        PlayerMock.PlayerMockType.DEEJEY1};
             }
         }, ALL_PLAYERS {
             @Override
-            public PlayerMock.PlayerType[] getPlayerTypes() {
-                return new PlayerMock.PlayerType[]{
-                        PlayerMock.PlayerType.DEEJEY1,
-                        PlayerMock.PlayerType.DEEJEY2,
-                        PlayerMock.PlayerType.DEEJEY3,
-                        PlayerMock.PlayerType.SOUND1,
-                        PlayerMock.PlayerType.OUTER_BAND1,
-                        PlayerMock.PlayerType.OUTER_BAND2};
+            public PlayerMock.PlayerMockType[] getPlayerTypes() {
+                return new PlayerMock.PlayerMockType[]{
+                        PlayerMock.PlayerMockType.DEEJEY1,
+                        PlayerMock.PlayerMockType.DEEJEY2,
+                        PlayerMock.PlayerMockType.DEEJEY3,
+                        PlayerMock.PlayerMockType.SOUND1,
+                        PlayerMock.PlayerMockType.OUTER_BAND1,
+                        PlayerMock.PlayerMockType.OUTER_BAND2};
             }
         }, OUTER_PLAYERS {
             @Override
-            public PlayerMock.PlayerType[] getPlayerTypes() {
-                return new PlayerMock.PlayerType[]{
-                        PlayerMock.PlayerType.OUTER_BAND1,
-                        PlayerMock.PlayerType.OUTER_BAND2};
+            public PlayerMock.PlayerMockType[] getPlayerTypes() {
+                return new PlayerMock.PlayerMockType[]{
+                        PlayerMock.PlayerMockType.OUTER_BAND1,
+                        PlayerMock.PlayerMockType.OUTER_BAND2};
             }
         };
 
-        public abstract PlayerMock.PlayerType[] getPlayerTypes();
+        public abstract PlayerMock.PlayerMockType[] getPlayerTypes();
     }
 }

@@ -19,7 +19,7 @@ public class PlayerInfo {
         name = aName;
     }
 
-    public static PlayerInfo emptyPlayerInfo() {
+    public static PlayerInfo empty() {
         return new PlayerInfo(Name.emptyName());
     }
 

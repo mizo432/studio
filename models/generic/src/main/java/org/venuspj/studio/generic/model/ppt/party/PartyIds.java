@@ -8,9 +8,9 @@ import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.*;
 
-public class PartyIds implements ListValue<PartyIdentifier<?>> {
+public class PartyIds implements ListValue<PartyIdentifier> {
 
-    List<PartyIdentifier<?>> list = newArrayList();
+    List<PartyIdentifier> list = newArrayList();
 
     public PartyIds(Collection<? extends PartyIdentifier> anyPartyIds) {
         list.addAll(list);
@@ -25,12 +25,12 @@ public class PartyIds implements ListValue<PartyIdentifier<?>> {
     }
 
     @Override
-    public List<PartyIdentifier<?>> asList() {
+    public List<PartyIdentifier> asList() {
         return unmodifiableList(list);
     }
 
     @Override
-    public Iterator<PartyIdentifier<?>> iterator() {
+    public Iterator<PartyIdentifier> iterator() {
         return asList().iterator();
     }
 }

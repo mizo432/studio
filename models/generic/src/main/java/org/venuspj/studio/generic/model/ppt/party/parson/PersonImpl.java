@@ -1,14 +1,15 @@
 package org.venuspj.studio.generic.model.ppt.party.parson;
 
 import org.venuspj.ddd.model.entity.Entity;
-import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.studio.generic.model.ppt.party.Party;
+import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 import org.venuspj.studio.generic.model.ppt.party.PartyImpl;
 
-public class PersonImpl extends PartyImpl<Person> implements Person, Entity<Person> {
+public class PersonImpl extends PartyImpl implements Person, Entity<Party> {
 
-    private PersonInfo personInfo;
+    private PersonInfo personInfo = PersonInfo.empty();
 
-    public <EI extends EntityIdentifier<Person>> PersonImpl(EntityIdentifier<Person> anIdentifier, PersonInfo aPersonInfo) {
+    public <EI extends PartyIdentifier> PersonImpl(EI anIdentifier, PersonInfo aPersonInfo) {
         super(anIdentifier, aPersonInfo);
         personInfo = aPersonInfo;
 
@@ -16,8 +17,8 @@ public class PersonImpl extends PartyImpl<Person> implements Person, Entity<Pers
 
     public static Person emptyPerson() {
         return new PersonImpl(
-                PersonIdentifier.empty(),
-                PersonInfo.emptyPersonInfo());
+                PartyIdentifier.newId(),
+                PersonInfo.empty());
 
     }
 

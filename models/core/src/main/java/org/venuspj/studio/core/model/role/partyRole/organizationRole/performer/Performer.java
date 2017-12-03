@@ -1,36 +1,25 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.performer;
 
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
-
-import static org.venuspj.util.objects2.Objects2.*;
+import org.venuspj.studio.generic.model.ppt.party.Party;
 
 /**
  * 出演者
  */
-public class Performer {
-    private Player player = Player.emptyPlayer();
-    private PerformerInfo performerInfo = PerformerInfo.emptyPerformerInfo();
+public class Performer extends Player {
 
-    public Performer(Player aPlayer, PerformerInfo aPerformerInfo) {
-        player = aPlayer;
-        performerInfo = aPerformerInfo;
+    public <P extends Party, PI extends PerformerInformation> Performer(P aParty, PI aPerformerInformation) {
+        super(aParty, aPerformerInformation);
 
     }
 
-    Performer() {
+    protected Performer() {
+        super();
 
     }
 
-    public static Performer emptyPerformer() {
+    public static Performer empty() {
         return new Performer();
     }
 
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .add("performerInfo", performerInfo)
-                .add("player", player)
-                .omitNullValues()
-                .toString();
-    }
 }
