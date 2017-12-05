@@ -12,9 +12,10 @@ public class PerformerMock {
         DEEJEY1_EVENT1 {
             @Override
             public Performer getPerformer() {
-                return new Performer(PartyMock.createMock(PartyMock.PartyMockType.DEEJEY1),
-                        PerformerInfoMock.createDummy(PerformerInfoMock.PerformerInfoType.DEEJEY1_EVENT1)
-                );
+                return new Performer.Builder()
+                        .withParty(PartyMock.createMock(PartyMock.PartyMockType.DEEJEY1))
+                        .withPerformerInformation(PerformerInfoMock.createDummy(PerformerInfoMock.PerformerInfoType.DEEJEY1_EVENT1))
+                        .build();
             }
         };
 

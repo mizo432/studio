@@ -10,11 +10,11 @@ import static org.assertj.core.api.Java6Assertions.*;
 
 /**
  */
-public class EventIdTest {
+public class EventIdentifierTest {
 
     @Test
     public void toString01() throws Exception {
-        EventId target = EventId.emptyEventId();
+        EventIdentifier target = EventIdentifier.empty();
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
@@ -23,7 +23,7 @@ public class EventIdTest {
 
     @Test
     public void toString02() throws Exception {
-        EventId target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
@@ -32,7 +32,7 @@ public class EventIdTest {
 
     @Test
     public void isPresent() throws Exception {
-        EventId target = EventId.emptyEventId();
+        EventIdentifier target = EventIdentifier.empty();
         assertThat(target)
                 .isNotNull();
         assertThat(target.isPresent())
@@ -42,7 +42,7 @@ public class EventIdTest {
 
     @Test
     public void emptyEventId() throws Exception {
-        EventId target = EventId.emptyEventId();
+        EventIdentifier target = EventIdentifier.empty();
         assertThat(target)
                 .isNotNull();
         assertThat(target.isPresent())
@@ -53,7 +53,7 @@ public class EventIdTest {
 
     @Test
     public void equals1() throws Exception {
-        EventId target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
         boolean actual = target.equals(null);
         assertThat(actual)
                 .isFalse();
@@ -61,7 +61,7 @@ public class EventIdTest {
 
     @Test
     public void equals2() throws Exception {
-        EventId target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
         boolean actual = target.equals(target);
         assertThat(actual)
                 .isTrue();
@@ -69,8 +69,8 @@ public class EventIdTest {
 
     @Test
     public void equals3() throws Exception {
-        EventId target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
-        EventId other = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier other = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
         boolean actual = target.equals(other);
         assertThat(actual)
                 .isTrue();
@@ -78,8 +78,8 @@ public class EventIdTest {
 
     @Test
     public void equals4() throws Exception {
-        EventId target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
-        EventId other = EventIdMock.createDummy(EventIdMock.EventIDType.EVENT_ON_TOMORROW);
+        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier other = EventIdMock.createDummy(EventIdMock.EventIDType.EVENT_ON_TOMORROW);
         boolean actual = target.equals(other);
         assertThat(actual)
                 .isFalse();
@@ -87,7 +87,7 @@ public class EventIdTest {
 
     @Test
     public void equals5() throws Exception {
-        EventId target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
         boolean actual = target.equals(Integer.valueOf(1));
         assertThat(actual)
                 .isFalse();
@@ -95,7 +95,7 @@ public class EventIdTest {
 
     @Test
     public void equals6() throws Exception {
-        EventId target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
         DefaultEntityIdentifier<Event> other = new DefaultEntityIdentifier<>(Event.class, UUID.randomUUID());
         boolean actual = target.equals(other);
         assertThat(actual)

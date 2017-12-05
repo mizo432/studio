@@ -5,7 +5,7 @@ import org.junit.Test;
 public class PerformerTest {
     @Test
     public void emptyPerformer() throws Exception {
-        Performer target = Performer.emptyPerformer();
+        Performer target = Performer.empty();
         System.out.println(target);
     }
 

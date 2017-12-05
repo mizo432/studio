@@ -17,7 +17,7 @@ public class PlayerTest {
 
     @Test
     public void toString2() throws Exception {
-        Player target = PlayerMock.createDummy(PlayerMock.PlayerType.DEEJEY1);
+        Player target = PlayerMock.createDummy(PlayerMock.PlayerMockType.DEEJEY1);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -26,7 +26,7 @@ public class PlayerTest {
 
     @Test
     public void isStudioPlayer1() throws Exception {
-        Player target = PlayerMock.createDummy(PlayerMock.PlayerType.DEEJEY1);
+        Player target = PlayerMock.createDummy(PlayerMock.PlayerMockType.DEEJEY1);
         boolean actual = target.isStudioPlayer();
         assertThat(actual)
                 .isNotNull()
@@ -36,7 +36,7 @@ public class PlayerTest {
 
     @Test
     public void isStudioPlayer2() throws Exception {
-        Player target = PlayerMock.createDummy(PlayerMock.PlayerType.OUTER_BAND1);
+        Player target = PlayerMock.createDummy(PlayerMock.PlayerMockType.OUTER_BAND1);
         boolean actual = target.isStudioPlayer();
         assertThat(actual)
                 .isNotNull()

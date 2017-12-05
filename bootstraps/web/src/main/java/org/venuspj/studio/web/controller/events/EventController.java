@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.venuspj.studio.adapter.presenters.event.EventPage;
-import org.venuspj.studio.core.model.event.EventId;
+import org.venuspj.studio.core.model.event.EventIdentifier;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 import org.venuspj.studio.core.usecase.event.EventQueryUseCase;
 
@@ -33,14 +33,14 @@ public class EventController {
     }
 
     static class EventQueryCriteria implements EventQueryInputPort {
-        EventId eventId = EventId.emptyEventId();
+        EventIdentifier eventId = EventIdentifier.empty();
 
         public EventQueryCriteria(Integer aEventId) {
-            eventId = new EventId(aEventId);
+            eventId = new EventIdentifier(aEventId);
         }
 
         @Override
-        public EventId getEventId() {
+        public EventIdentifier getEventIdentifier() {
             return eventId;
         }
     }

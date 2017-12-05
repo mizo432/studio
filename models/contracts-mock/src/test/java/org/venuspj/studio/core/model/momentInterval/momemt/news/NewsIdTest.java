@@ -1,8 +1,8 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.news;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.event.EventId;
 import org.venuspj.studio.core.model.event.EventIdMock;
+import org.venuspj.studio.core.model.event.EventIdentifier;
 
 import static org.assertj.core.api.Java6Assertions.*;
 
@@ -146,7 +146,7 @@ public class NewsIdTest {
     @Test
     public void equals6() throws Exception {
         NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);
-        EventId other = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier other = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
         boolean actual = target.equals(other);
         System.out.println("actual:" + actual);
         assertThat(actual)

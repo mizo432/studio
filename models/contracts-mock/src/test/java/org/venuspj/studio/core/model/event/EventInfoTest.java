@@ -13,7 +13,7 @@ public class EventInfoTest {
         EventInfo target = new EventInfo(Outline.emptyOutline(),
                 Descriptor.emptyDescriptor(),
                 Flyers.emptyFlyers(),
-                Performers.emptyPerformers());
+                Performers.empty());
         System.out.println(target);
     }
 

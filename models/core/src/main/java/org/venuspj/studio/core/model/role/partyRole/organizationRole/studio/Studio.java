@@ -6,7 +6,7 @@ import org.venuspj.studio.generic.model.role.partyRole.organizationRole.Organiza
 public class Studio extends OrganizationRoleImpl {
 
 
-    public Studio(Organization anOrganization, StudioInformation aStudioInformation) {
+    public <O extends Organization> Studio(O anOrganization, StudioInformation aStudioInformation) {
         super(anOrganization, aStudioInformation);
 
     }

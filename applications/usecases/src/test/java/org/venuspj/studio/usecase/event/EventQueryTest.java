@@ -8,7 +8,7 @@ import org.venuspj.studio.core.model.event.*;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 
 import static org.assertj.core.api.Java6Assertions.*;
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class EventQueryTest {
     EventQuery targetUseCase;
@@ -23,8 +23,8 @@ public class EventQueryTest {
             }
 
             @Override
-            public <I extends EntityIdentifier<Event>> Events resolve(Iterable<I> anyIdentifiers) {
-                return null;
+            public boolean contains(EntityIdentifier<Event> anIdentifier) {
+                return false;
             }
 
             @Override
@@ -33,10 +33,9 @@ public class EventQueryTest {
             }
 
             @Override
-            public <I extends EntityIdentifier<Event>> boolean contains(I anIdentifier) {
-                return false;
+            public Events resolveEntities(Iterable<EventIdentifier> anyIdentifiers) {
+                return null;
             }
-
 
             @Override
             public <S extends Event> boolean contains(S anEntity) {
@@ -72,7 +71,7 @@ public class EventQueryTest {
 
     @Test
     public void start() throws Exception {
-        EventId eventId = (EventId) EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY).identifier();
+        EventIdentifier eventId = (EventIdentifier) EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY).identifier();
         EventQueryInputPort in = new EventQueryInputPortMock(eventId);
         EventQueryOutputPortMock out = new EventQueryOutputPortMock();
         targetUseCase.start(in, out);
