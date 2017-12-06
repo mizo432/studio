@@ -9,16 +9,6 @@ public class EventsTest {
 
 
     @Test
-    public void testToString1() {
-        Events target = Events.empty();
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull();
-        System.out.println("actual:" + actual);
-
-    }
-
-    @Test
     public void eventRepository() throws Exception {
         EventRepositoryMock repository = new EventRepositoryMock(EventsMock.createDummy(EventsMock.EventsType.DEFAULT).asList());
         System.out.println("repository.findAll()" + repository.asEntitiesList());

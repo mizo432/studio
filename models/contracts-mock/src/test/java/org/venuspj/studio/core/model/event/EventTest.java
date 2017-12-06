@@ -13,24 +13,6 @@ public class EventTest {
 
 
     @Test
-    public void testToString1() throws Exception {
-        Event target = EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull();
-        System.out.println("actual:" + actual);
-    }
-
-    @Test
-    public void testToString2() throws Exception {
-        Event target = EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull();
-        System.out.println("actual:" + actual);
-    }
-
-    @Test
     public void equals1() throws Exception {
         Event target = EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
         boolean actual = target.equals(null);
