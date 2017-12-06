@@ -3,13 +3,14 @@ package org.venuspj.studio.generic.model.ppt;
 import org.venuspj.ddd.model.entity.AbstractEntity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 
-import static org.venuspj.util.objects2.Objects2.*;
+import static org.venuspj.util.objects2.Objects2.equal;
+import static org.venuspj.util.objects2.Objects2.nonNull;
 
-public class PartyPlaceThingImpl<PPTI extends PartyPlaceThing<PPTI>> extends AbstractEntity<PPTI> implements PartyPlaceThing<PPTI> {
+public class PartyPlaceThingImpl<PPT extends PartyPlaceThing<PPT>> extends AbstractEntity<PPT> implements PartyPlaceThing<PPT> {
 
     protected PptInfo pptInfo;
 
-    public PartyPlaceThingImpl(EntityIdentifier<PPTI> anIdentifier, PptInfo aPptInfo) {
+    public PartyPlaceThingImpl(EntityIdentifier<PPT> anIdentifier, PptInfo aPptInfo) {
         super(anIdentifier);
         pptInfo = aPptInfo;
     }
@@ -21,14 +22,10 @@ public class PartyPlaceThingImpl<PPTI extends PartyPlaceThing<PPTI>> extends Abs
 
     @Override
     public boolean equals(Object that) {
-        return nonNull(that) &&
-                (this == that ||
-                        (that instanceof PartyPlaceThingImpl &&
-                                (equal(((PartyPlaceThingImpl) that).identifier(), identifier()))));
+        return that instanceof PartyPlaceThingImpl && sameIdentifierAs((PartyPlaceThingImpl) that);
     }
 
-    public <PPT extends PartyPlaceThing> Boolean sameIdentifierAs(PPT aPartyPlaceThing) {
-        return equals(aPartyPlaceThing);
-
+    public <PPT extends PartyPlaceThing> Boolean sameIdentifierAs(PPT that) {
+        return nonNull(that) && equal(identifier(), that.identifier());
     }
 }

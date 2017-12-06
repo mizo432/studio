@@ -1,7 +1,8 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.news;
 
 import org.venuspj.studio.core.fundamentals.StringValue;
-import org.venuspj.util.objects2.Objects2;
+
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 /**
  */
@@ -22,8 +23,7 @@ public class Title implements StringValue {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
+        return toStringHelper(this)
                 .addValue(value)
                 .toString();
     }
