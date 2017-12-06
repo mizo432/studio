@@ -2,7 +2,7 @@ package org.venuspj.studio.core.model.momentInterval.momemt.news;
 
 import org.junit.Test;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 /**
  */
@@ -11,17 +11,6 @@ public class NewsTest {
     @Test
     public void toString1() throws Exception {
         News target = NewsMock.createDummy(NewsMock.NewsType.DEFAULT);
-        String actual = target.toString();
-        System.out.println("actual:" + actual);
-        assertThat(actual)
-                .isNotNull();
-    }
-    @Test
-    public void toString2() throws Exception {
-        News target = new News();
-        String actual = target.toString();
-        System.out.println("actual:" + actual);
-        assertThat(actual)
-                .isNotNull();
+        System.out.println("actual:" + toStringHelper(target).defaultConfig().toString());
     }
 }
