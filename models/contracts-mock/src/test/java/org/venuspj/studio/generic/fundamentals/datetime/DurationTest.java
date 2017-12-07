@@ -26,14 +26,4 @@ public class DurationTest {
                 .isEqualTo(new RecordDateTime(LocalDateTime.MAX));
     }
 
-    @Test
-    public void toString03() throws Exception {
-        Duration target = new Duration();
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull()
-                .isEqualTo("Duration{}");
-
-    }
-
 }
