@@ -67,23 +67,4 @@ public class MoneyTest {
         System.out.println(actual);
     }
 
-    @Test
-    public void toString01() throws Exception {
-        Money target = new Money(500);
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull()
-                .isEqualTo("Money{amount=Amount{500}, currency=JPY}");
-        System.out.println(actual);
-    }
-    @Test
-    public void toString02() throws Exception {
-        Money target = new Money();
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull()
-                .isEqualTo("Money{amount=Amount{0}, currency=JPY}");
-        System.out.println(actual);
-    }
-
 }
