@@ -28,4 +28,8 @@ public class PartyPlaceThingImpl<PPT extends PartyPlaceThing<PPT>> extends Abstr
     public <PPT extends PartyPlaceThing> Boolean sameIdentifierAs(PPT that) {
         return nonNull(that) && equal(identifier(), that.identifier());
     }
+
+    protected PptInfo getPptInformation() {
+        return pptInfo;
+    }
 }
