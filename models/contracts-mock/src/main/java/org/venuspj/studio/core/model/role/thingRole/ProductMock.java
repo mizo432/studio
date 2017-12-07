@@ -5,7 +5,7 @@ import org.venuspj.studio.generic.model.ppt.thing.ThingMock;
 
 public class ProductMock {
     public static Product createDummy(ProductType aProductType) {
-        return new Product(ThingMock.createDummy(aProductType.getThingType()));
+        return new Product(ThingMock.createDummy(aProductType.getThingType()), null);
     }
 
     public enum ProductType {

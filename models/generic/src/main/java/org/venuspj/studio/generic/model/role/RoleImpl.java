@@ -3,8 +3,12 @@ package org.venuspj.studio.generic.model.role;
 import org.venuspj.studio.generic.model.ppt.PartyPlaceThing;
 
 public abstract class RoleImpl implements Role {
-    protected PartyPlaceThing partyPlaceThing;
-    protected RoleInformation roleInformation;
+    protected PartyPlaceThing getPartyPlaceThing() {
+        return partyPlaceThing;
+    }
+
+    private PartyPlaceThing partyPlaceThing;
+    private RoleInformation roleInformation;
 
     protected RoleImpl() {
 

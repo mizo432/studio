@@ -24,7 +24,7 @@ public class Performer extends Player {
     }
 
     public PerformerInformation getPerformerInformation() {
-        return (PerformerInformation) roleInformation;
+        return (PerformerInformation) getRoleInformation();
     }
 
     public static class Builder extends ObjectBuilder<Performer, Builder> {

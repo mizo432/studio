@@ -1,25 +1,18 @@
 package org.venuspj.studio.core.model.role.thingRole.product;
 
+import org.venuspj.studio.generic.fundamentals.name.Name;
 import org.venuspj.studio.generic.model.ppt.thing.Thing;
 import org.venuspj.studio.generic.model.ppt.thing.ThingImpl;
 import org.venuspj.studio.generic.model.role.thigRole.ThingRoleImpl;
-
-import static org.venuspj.util.objects2.Objects2.*;
+import org.venuspj.studio.generic.model.role.thigRole.ThingRoleInformation;
 
 public class Product extends ThingRoleImpl {
-    public Product(Thing aThing) {
-        super(aThing);
+    public Product(Thing aThing, ThingRoleInformation aThingRoleInformation) {
+        super(aThing,aThingRoleInformation);
     }
 
-    public static Product emptyProduct() {
-        return new Product(ThingImpl.empty());
+    public static Product empty() {
+        return new Product(ThingImpl.empty(),ThingRoleInformation.empty(new Name("Product")));
     }
 
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .add("thing", super.thing)
-                .omitNullValues()
-                .toString();
-    }
 }

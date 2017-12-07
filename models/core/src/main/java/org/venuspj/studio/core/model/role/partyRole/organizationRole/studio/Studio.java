@@ -13,7 +13,7 @@ public class Studio extends OrganizationRoleImpl {
     }
 
     public StudioInformation getStudioInformation() {
-        return (StudioInformation) super.roleInformation;
+        return (StudioInformation) super.getRoleInformation();
     }
 
 
