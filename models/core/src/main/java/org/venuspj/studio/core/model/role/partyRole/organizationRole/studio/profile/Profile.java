@@ -2,8 +2,6 @@ package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.pro
 
 import org.venuspj.studio.generic.fundamentals.description.Description;
 
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
-
 /**
  */
 public class Profile {
@@ -24,13 +22,4 @@ public class Profile {
         return new Profile();
     }
 
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .addAllDeclaredFields()
-                .multiLine()
-                .omitNullValues()
-                .toString();
-
-    }
 }

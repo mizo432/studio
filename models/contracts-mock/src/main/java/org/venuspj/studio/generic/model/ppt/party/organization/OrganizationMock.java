@@ -13,7 +13,7 @@ public class OrganizationMock {
             public Organization createMock() {
                 return new OrganizationImpl(
                         new PartyIdentifier(1),
-                        OrganizationInfo.empty(),
+                        OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.LHS),
                         OrganizationUnits.empty()
                 );
             }

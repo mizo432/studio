@@ -11,7 +11,7 @@ import static org.venuspj.util.objects2.Objects2.*;
 public class OrganizationImpl extends PartyImpl implements Organization {
     private final OrganizationUnits units;
 
-    public OrganizationImpl(PartyIdentifier anIdentifier, OrganizationInfo anInfo, OrganizationUnits anyUnits) {
+    public OrganizationImpl(PartyIdentifier anIdentifier, OrganizationInformation anInfo, OrganizationUnits anyUnits) {
         super(anIdentifier, anInfo);
         units = anyUnits;
     }
@@ -19,7 +19,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
     public static Organization empty() {
         return new OrganizationImpl(
                 PartyIdentifier.newId(),
-                OrganizationInfo.empty(),
+                OrganizationInformation.empty(),
                 OrganizationUnits.empty()
         );
     }
@@ -41,8 +41,8 @@ public class OrganizationImpl extends PartyImpl implements Organization {
         return b;
     }
 
-    public OrganizationInfo getOrganizationInformation() {
-        return (OrganizationInfo) super.getPartyInformation();
+    public OrganizationInformation getOrganizationInformation() {
+        return (OrganizationInformation) super.getPartyInformation();
     }
 
     @Override
@@ -60,7 +60,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
     private class OrganizationBuilder extends ObjectBuilder<Organization, OrganizationBuilder> {
 
         private PartyIdentifier identifier;
-        private OrganizationInfo info;
+        private OrganizationInformation info;
         private OrganizationUnits units = OrganizationUnits.empty();
 
         @Override
@@ -78,7 +78,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
 
         }
 
-        public OrganizationBuilder withInfo(OrganizationInfo anInfo) {
+        public OrganizationBuilder withInfo(OrganizationInformation anInfo) {
             if (isNull(anInfo)) return getThis();
             addConfigurator(builder -> builder.info = anInfo);
             return getThis();

@@ -5,8 +5,9 @@ import org.venuspj.studio.generic.fundamentals.description.DescriptionMock;
 /**
  */
 public class ProfileMock {
-    public static Profile createDummy() {
+    public static Profile createDummy(MockType aMockType) {
         return new Profile(DescriptionMock.createDummy(DescriptionMock.DescriptionType.STUDIO));
     }
 
+    public enum MockType {LHS}
 }

@@ -9,7 +9,7 @@ public class OrganizationUnitImpl extends OrganizationImpl implements Organizati
     private final OrganizationUnits smaller;
 
     public OrganizationUnitImpl() {
-        super(PartyIdentifier.newId(), OrganizationUnitInfo.empty(),
+        super(PartyIdentifier.newId(), OrganizationUnitInformation.empty(),
                 OrganizationUnits.empty());
         organization = OrganizationImpl.empty();
         larger = OrganizationUnits.empty();
@@ -17,7 +17,7 @@ public class OrganizationUnitImpl extends OrganizationImpl implements Organizati
 
     }
 
-    public OrganizationUnitImpl(PartyIdentifier anIdentifier, OrganizationUnitInfo anOrganizationUnitInfo, Organization anOrganization, OrganizationUnits anyLarger, OrganizationUnits anySmaller, OrganizationUnits anyUnits) {
+    public OrganizationUnitImpl(PartyIdentifier anIdentifier, OrganizationUnitInformation anOrganizationUnitInfo, Organization anOrganization, OrganizationUnits anyLarger, OrganizationUnits anySmaller, OrganizationUnits anyUnits) {
         super(anIdentifier, anOrganizationUnitInfo, anyUnits);
         organization = anOrganization;
         smaller = anySmaller;

@@ -12,7 +12,7 @@ public class StudioTest {
 
     @Test
     public void testToString2() {
-        Studio target = StudioMock.createDummy(StudioMock.StudioMockType.EMPTY);
+        Studio target = StudioMock.createDummy(StudioMock.StudioMockType.LHS);
         assertThat(target)
                 .isNotNull();
 
