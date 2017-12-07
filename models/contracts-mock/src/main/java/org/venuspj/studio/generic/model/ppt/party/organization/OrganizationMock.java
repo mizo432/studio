@@ -3,11 +3,11 @@ package org.venuspj.studio.generic.model.ppt.party.organization;
 import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 
 public class OrganizationMock {
-    public static Organization createDimmy(OrganizationMockType aMockType) {
+    public static Organization createDimmy(MockType aMockType) {
         return aMockType.createMock();
     }
 
-    public enum OrganizationMockType {
+    public enum MockType {
         LIONHOUSE_STUDIO {
             @Override
             public Organization createMock() {

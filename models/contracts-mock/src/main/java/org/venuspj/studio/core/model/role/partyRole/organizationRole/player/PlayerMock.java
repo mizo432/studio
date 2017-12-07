@@ -17,7 +17,7 @@ public class PlayerMock {
 
             @Override
             public Player create() {
-                return new Player(PartyMock.createMock(PartyMock.PartyMockType.DEEJEY1),
+                return new Player(PartyMock.createMock(PartyMock.MockType.DEEJEY1),
                         PlayerInformationMock.createDummy(PlayerInformationMock.PlayerInformationMockType.DEEJEY1));
             }
         }, DEEJEY2 {

@@ -21,7 +21,7 @@ public class StudioMock {
             @Override
             public Studio create() {
                 return new Studio(
-                        (Organization) PartyMock.createMock(PartyMock.PartyMockType.LIONHOUSE_STUDIO),
+                        (Organization) PartyMock.createMock(PartyMock.MockType.LIONHOUSE_STUDIO),
                         StudioInformationMock.createDummy(StudioInformationMock.MockType.LHS));
             }
         };

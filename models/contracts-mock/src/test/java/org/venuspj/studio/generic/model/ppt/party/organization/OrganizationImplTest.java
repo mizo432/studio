@@ -16,7 +16,7 @@ public class OrganizationImplTest {
 
     @Test
     public void lhsOrganization() throws Exception {
-        Organization target = OrganizationMock.createDimmy(OrganizationMock.OrganizationMockType.LIONHOUSE_STUDIO);
+        Organization target = OrganizationMock.createDimmy(OrganizationMock.MockType.LIONHOUSE_STUDIO);
         assertThat(target)
                 .isNotNull();
         System.out.println(toStringHelper(target).defaultConfig().toString());

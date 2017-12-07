@@ -13,7 +13,7 @@ public class PerformerMock {
             @Override
             public Performer getPerformer() {
                 return new Performer.Builder()
-                        .withParty(PartyMock.createMock(PartyMock.PartyMockType.DEEJEY1))
+                        .withParty(PartyMock.createMock(PartyMock.MockType.DEEJEY1))
                         .withPerformerInformation(PerformerInfoMock.createDummy(PerformerInfoMock.PerformerInfoType.DEEJEY1_EVENT1))
                         .build();
             }
