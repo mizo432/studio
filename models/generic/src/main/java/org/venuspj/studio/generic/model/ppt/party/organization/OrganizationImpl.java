@@ -3,11 +3,10 @@ package org.venuspj.studio.generic.model.ppt.party.organization;
 import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 import org.venuspj.studio.generic.model.ppt.party.PartyImpl;
 import org.venuspj.util.builder.ObjectBuilder;
-import org.venuspj.util.objects2.Objects2;
 
-import static java.awt.SystemColor.info;
-import static org.venuspj.util.objects2.Objects2.*;
+import static org.venuspj.util.objects2.Objects2.isNull;
 
+@SuppressWarnings("EQ_SELF_NO_OBJECT")
 public class OrganizationImpl extends PartyImpl implements Organization {
     private final OrganizationUnits units;
 
@@ -50,14 +49,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
         return units;
     }
 
-    @Override
-    protected Objects2.ToStringHelper string() {
-        return toStringHelper(this)
-                .add("identifier", identifier())
-                .add("info", info);
-    }
-
-    private class OrganizationBuilder extends ObjectBuilder<Organization, OrganizationBuilder> {
+    public static class OrganizationBuilder extends ObjectBuilder<Organization, OrganizationBuilder> {
 
         private PartyIdentifier identifier;
         private OrganizationInformation info;
