@@ -59,15 +59,4 @@ public class AmountTest {
         System.out.println("actual:" + actual);
     }
 
-    @Test
-    public void toString01() throws Exception {
-        Amount target = new Amount(500);
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull()
-                .isEqualTo("Amount{500}");
-        System.out.println("actual:" + actual);
-    }
-
-
 }
