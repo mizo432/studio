@@ -5,15 +5,14 @@ import org.venuspj.studio.generic.model.ppt.party.PartyImpl;
 import org.venuspj.util.builder.ObjectBuilder;
 import org.venuspj.util.objects2.Objects2;
 
+import static java.awt.SystemColor.info;
 import static org.venuspj.util.objects2.Objects2.*;
 
 public class OrganizationImpl extends PartyImpl implements Organization {
-    private final OrganizationInfo info;
     private final OrganizationUnits units;
 
     public OrganizationImpl(PartyIdentifier anIdentifier, OrganizationInfo anInfo, OrganizationUnits anyUnits) {
         super(anIdentifier, anInfo);
-        info = anInfo;
         units = anyUnits;
     }
 
@@ -29,7 +28,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
     public Organization clone() {
         Organization b = new OrganizationImpl(
                 (PartyIdentifier) identifier(),
-                info,
+                getOrganizationInformation(),
                 units
         );
 
@@ -42,9 +41,8 @@ public class OrganizationImpl extends PartyImpl implements Organization {
         return b;
     }
 
-    @Override
-    public OrganizationInfo getInfo() {
-        return info;
+    public OrganizationInfo getOrganizationInformation() {
+        return (OrganizationInfo) super.getPartyInformation();
     }
 
     @Override
@@ -59,13 +57,6 @@ public class OrganizationImpl extends PartyImpl implements Organization {
                 .add("info", info);
     }
 
-    @Override
-    public String toString() {
-        return string()
-                .omitNullValues()
-                .toString();
-    }
-
     private class OrganizationBuilder extends ObjectBuilder<Organization, OrganizationBuilder> {
 
         private PartyIdentifier identifier;
@@ -75,7 +66,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
         @Override
         protected void apply(Organization vo, OrganizationBuilder builder) {
             builder.withIdentifier((PartyIdentifier) vo.identifier());
-            builder.withInfo(vo.getInfo());
+            builder.withInfo(vo.getOrganizationInformation());
             builder.withUnits(vo.getUnits());
 
         }

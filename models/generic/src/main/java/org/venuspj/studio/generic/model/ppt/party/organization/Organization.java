@@ -4,7 +4,7 @@ import org.venuspj.studio.generic.model.ppt.party.Party;
 
 public interface Organization extends Party {
 
-    OrganizationInfo getInfo();
+    OrganizationInfo getOrganizationInformation();
 
     OrganizationUnits getUnits();
 
