@@ -10,7 +10,7 @@ public class ThingRoleImpl extends AbstractEntity<Thing> implements Thing, Thing
 
     ThingRoleImpl() {
         super();
-        thing = ThingImpl.emptyThing();
+        thing = ThingImpl.empty();
     }
 
     public ThingRoleImpl(Thing aThing) {

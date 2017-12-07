@@ -12,7 +12,7 @@ public class Product extends ThingRoleImpl {
     }
 
     public static Product emptyProduct() {
-        return new Product(ThingImpl.emptyThing());
+        return new Product(ThingImpl.empty());
     }
 
     @Override

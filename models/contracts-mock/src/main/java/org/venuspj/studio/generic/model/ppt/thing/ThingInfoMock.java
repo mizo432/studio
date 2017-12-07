@@ -1,8 +1,8 @@
 package org.venuspj.studio.generic.model.ppt.thing;
 
 public class ThingInfoMock {
-    public static ThingInfo createDummy(ThingInfoType aThingInfoType) {
-        return new ThingInfo();
+    public static ThingInformation createDummy(ThingInfoType aThingInfoType) {
+        return new ThingInformation();
     }
 
     public enum ThingInfoType {

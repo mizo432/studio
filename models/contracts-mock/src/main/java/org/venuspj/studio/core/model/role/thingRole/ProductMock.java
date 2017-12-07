@@ -11,16 +11,16 @@ public class ProductMock {
     public enum ProductType {
         PRODUCT1 {
             @Override
-            public ThingMock.ThingType getThingType() {
-                return ThingMock.ThingType.PRPDUCT1;
+            public ThingMock.MockType getThingType() {
+                return ThingMock.MockType.PRODUCT1;
             }
         }, PRODUCT2 {
             @Override
-            public ThingMock.ThingType getThingType() {
-                return ThingMock.ThingType.PRPDUCT2;
+            public ThingMock.MockType getThingType() {
+                return ThingMock.MockType.PRODUCT2;
             }
         };
 
-        public abstract ThingMock.ThingType getThingType();
+        public abstract ThingMock.MockType getThingType();
     }
 }

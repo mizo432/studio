@@ -2,13 +2,13 @@ package org.venuspj.studio.generic.model.ppt.thing;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
-public class ThingInfo {
-    public ThingInfo() {
+public class ThingInformation {
+    public ThingInformation() {
 
     }
 
-    public static ThingInfo emptyThingInfo() {
-        return new ThingInfo();
+    public static ThingInformation empty() {
+        return new ThingInformation();
     }
 
     @Override

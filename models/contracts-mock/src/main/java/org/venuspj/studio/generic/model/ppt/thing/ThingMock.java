@@ -1,28 +1,37 @@
 package org.venuspj.studio.generic.model.ppt.thing;
 
-import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
-import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.util.uuidProvider.UuidProvider;
-
 public class ThingMock {
-    public static Thing createDummy(ThingType aThingType) {
-        return new ThingImpl(aThingType.getIdentifier(),
-                ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
+    public static Thing createDummy(MockType aMockType) {
+        return aMockType.create();
     }
 
-    public enum ThingType {
-        PRPDUCT1 {
+    public enum MockType {
+        PRODUCT1 {
             @Override
-            public EntityIdentifier<Thing> getIdentifier() {
-                return new DefaultEntityIdentifier<>(Thing.class, UuidProvider.randomUUID());
+            public ThingIdentifier getIdentifier() {
+                return new ThingIdentifier(1);
             }
-        }, PRPDUCT2 {
+
             @Override
-            public EntityIdentifier<Thing> getIdentifier() {
-                return new DefaultEntityIdentifier<>(Thing.class, UuidProvider.randomUUID());
+            public Thing create() {
+                return new ThingImpl(getIdentifier(),
+                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
+            }
+        }, PRODUCT2 {
+            @Override
+            public ThingIdentifier getIdentifier() {
+                return new ThingIdentifier(2);
+            }
+
+            @Override
+            public Thing create() {
+                return new ThingImpl(getIdentifier(),
+                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
             }
         };
 
-        public abstract EntityIdentifier<Thing> getIdentifier();
+        public abstract ThingIdentifier getIdentifier();
+
+        public abstract Thing create();
     }
 }
