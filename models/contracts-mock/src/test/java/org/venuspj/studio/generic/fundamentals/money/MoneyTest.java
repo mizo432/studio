@@ -19,6 +19,15 @@ public class MoneyTest {
     }
 
     @Test
+    public void asDisplayText() throws Exception {
+        Money target = Money.zero();
+        String actual = target.asDisplayText();
+        System.out.println(actual);
+        assertThat(actual)
+                .isNotNull();
+    }
+
+    @Test
     public void empty() throws Exception {
         Money target = Money.empty();
         String actual = toStringHelper(target).defaultConfig().toString();

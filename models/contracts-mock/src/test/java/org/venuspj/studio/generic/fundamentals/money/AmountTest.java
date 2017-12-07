@@ -3,27 +3,29 @@ package org.venuspj.studio.generic.fundamentals.money;
 import org.junit.Test;
 
 import static org.assertj.core.api.Java6Assertions.*;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 /**
  */
 public class AmountTest {
+
     @Test
     public void zero() throws Exception {
         Amount target = Amount.zero();
-        String actual = target.toString();
+        String actual = toStringHelper(target).defaultConfig().toString();
         assertThat(actual)
-                .isNotNull()
-                .isEqualTo("Amount{0}");
+                .isNotNull();
+//                .isEqualTo("Amount{0}");
         System.out.println(actual);
     }
 
     @Test
     public void empty() throws Exception {
         Amount target = Amount.empty();
-        String actual = target.toString();
+        String actual = toStringHelper(target).defaultConfig().toString();
         assertThat(actual)
                 .isNotNull()
-                .isEqualTo("Amount{null}");
+                .isEqualTo("Amount{}");
         System.out.println(actual);
     }
 
