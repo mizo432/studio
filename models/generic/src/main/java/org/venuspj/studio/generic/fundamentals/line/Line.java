@@ -1,7 +1,7 @@
 package org.venuspj.studio.generic.fundamentals.line;
 
 public class Line {
-    String value;
+    private String value;
 
     public Line(String aValue) {
         value = aValue;
@@ -9,6 +9,10 @@ public class Line {
 
     Line() {
 
+    }
+
+    public String asText() {
+        return value;
     }
 
     public static Line empty() {
