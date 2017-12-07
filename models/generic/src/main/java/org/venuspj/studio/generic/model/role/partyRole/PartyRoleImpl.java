@@ -18,4 +18,8 @@ public abstract class PartyRoleImpl extends RoleImpl implements PartyRole {
         super(aParty, aPartyRoleInformation);
     }
 
+    protected Party getParty() {
+        return (Party) super.partyPlaceThing;
+
+    }
 }

@@ -13,14 +13,12 @@ public class Studio extends OrganizationRoleImpl {
     }
 
     public StudioInformation getStudioInformation() {
-        return (StudioInformation) super.roleInfoInformation;
+        return (StudioInformation) super.roleInformation;
     }
 
-    public Organization getOrganization() {
-        return (Organization) super.roleInfoInformation;
-    }
 
     public static Studio empty() {
-        return new Studio(OrganizationImpl.empty(),StudioInformation.empty());
+        return new Studio(OrganizationImpl.empty(), StudioInformation.empty());
     }
+
 }

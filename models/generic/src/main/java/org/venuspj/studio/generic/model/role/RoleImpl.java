@@ -4,7 +4,7 @@ import org.venuspj.studio.generic.model.ppt.PartyPlaceThing;
 
 public abstract class RoleImpl implements Role {
     protected PartyPlaceThing partyPlaceThing;
-    protected RoleInfoInformation roleInfoInformation;
+    protected RoleInformation roleInformation;
 
     protected RoleImpl() {
 
@@ -14,15 +14,15 @@ public abstract class RoleImpl implements Role {
      * コンストラクター
      *
      * @param aPartyPlaceThing
-     * @param aRoleInfoInformation
+     * @param aRoleInformation
      * @param <PPT>
      * @param <RI>
      */
     protected <PPT extends PartyPlaceThing,
-            RI extends RoleInfoInformation> RoleImpl(PartyPlaceThing aPartyPlaceThing,
-                                                     RoleInfoInformation aRoleInfoInformation) {
+            RI extends RoleInformation> RoleImpl(PartyPlaceThing aPartyPlaceThing,
+                                                 RoleInformation aRoleInformation) {
         partyPlaceThing = aPartyPlaceThing;
-        roleInfoInformation = aRoleInfoInformation;
+        roleInformation = aRoleInformation;
 
     }
 }

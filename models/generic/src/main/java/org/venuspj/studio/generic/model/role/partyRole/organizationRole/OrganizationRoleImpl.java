@@ -19,4 +19,8 @@ public class OrganizationRoleImpl extends PartyRoleImpl implements OrganizationR
         super(anOrganization, anRoleInformation);
     }
 
+    protected Organization getOrganization() {
+        return (Organization) super.getParty();
+    }
+
 }

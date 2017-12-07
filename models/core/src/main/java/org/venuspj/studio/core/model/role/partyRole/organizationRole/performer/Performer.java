@@ -23,12 +23,8 @@ public class Performer extends Player {
         return new Performer();
     }
 
-    Party getParty() {
-        return (Party) partyPlaceThing;
-    }
-
     public PerformerInformation getPerformerInformation() {
-        return (PerformerInformation) roleInfoInformation;
+        return (PerformerInformation) roleInformation;
     }
 
     public static class Builder extends ObjectBuilder<Performer, Builder> {

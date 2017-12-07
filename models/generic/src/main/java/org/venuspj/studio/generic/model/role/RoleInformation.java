@@ -1,4 +1,4 @@
 package org.venuspj.studio.generic.model.role;
 
-public class RoleInfoInformation {
+public class RoleInformation {
 }
