@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Java6Assertions.*;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 /**
  */
@@ -17,7 +18,7 @@ public class PlayersTest {
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
-        System.out.println("actual:" + actual);
+        System.out.println("actual:" + toStringHelper(target).defaultConfig().toString());
     }
 
     @Test(expected = NullPointerException.class)
@@ -26,7 +27,7 @@ public class PlayersTest {
         Players actual = target.selectStudioPlayers();
         assertThat(actual)
                 .isNotNull();
-        System.out.println("actual:" + actual);
+        System.out.println("actual:" + toStringHelper(actual).defaultConfig().toString());
         assertThat(actual.playerSize())
                 .isNotNull()
                 .isEqualTo(4);

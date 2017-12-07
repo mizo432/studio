@@ -7,6 +7,7 @@ import static org.assertj.core.api.Java6Assertions.*;
 /**
  */
 public class MoneyTest {
+
     @Test
     public void zero() throws Exception {
         Money target = Money.zero();

@@ -1,7 +1,5 @@
 package org.venuspj.studio.generic.fundamentals.money;
 
-import org.venuspj.util.objects2.Objects2;
-
 import java.util.Currency;
 import java.util.Locale;
 
@@ -35,13 +33,4 @@ public class Money {
         return amount.isEmpty();
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("amount", amount)
-                .add("currency", currency)
-                .omitNullValues()
-                .toString();
-    }
 }
