@@ -1,6 +1,6 @@
 package org.venuspj.studio.generic.fundamentals.money;
 
-import java.util.Currency;
+import java.text.NumberFormat;
 import java.util.Locale;
 
 /**
@@ -8,7 +8,7 @@ import java.util.Locale;
  */
 public class Money {
     protected Amount amount = Amount.zero();
-    protected Currency currency = Currency.getInstance(Locale.JAPAN);
+    protected Locale locale = Locale.JAPAN;
 
     Money() {
     }
@@ -31,6 +31,11 @@ public class Money {
 
     public boolean isEmpty() {
         return amount.isEmpty();
+    }
+
+    public String asDisplayText(){
+        NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
+        return nf.format(amount.asInteger());
     }
 
 }
