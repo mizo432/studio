@@ -17,14 +17,4 @@ public class UnitTest {
         System.out.println("actual:" + actual);
     }
 
-    @Test
-    public void toString01() throws Exception {
-        Unit target = new Unit("式");
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull()
-                .isEqualTo("Unit{式}");
-        System.out.println("actual:" + actual);
-    }
-
 }
