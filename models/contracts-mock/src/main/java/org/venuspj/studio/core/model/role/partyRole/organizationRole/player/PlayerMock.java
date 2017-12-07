@@ -19,7 +19,7 @@ public class PlayerMock {
 
             @Override
             public Player create() {
-                return null;
+                return Player.empty();
             }
         }, DEEJEY2 {
             @Override
@@ -94,7 +94,7 @@ public class PlayerMock {
 
             @Override
             public Player create() {
-                return null;
+                return Player.empty();
             }
         }, OUTER_BAND2 {
             @Override
