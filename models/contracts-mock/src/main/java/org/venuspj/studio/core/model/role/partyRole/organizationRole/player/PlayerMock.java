@@ -1,5 +1,7 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
+import org.venuspj.studio.generic.model.ppt.party.PartyMock;
+
 public class PlayerMock {
     public static Player createDummy(PlayerMockType aMockType) {
         return aMockType.create();
@@ -12,24 +14,16 @@ public class PlayerMock {
                 return PlayerClassification.STUDIO_PLAYER;
             }
 
-            @Override
-            public PlayerInfo getPlayerInfo() {
-                return PlayerInfoMock.createDummy(PlayerInfoMock.PlayerInfoType.DEEJEY1);
-            }
 
             @Override
             public Player create() {
-                return Player.empty();
+                return new Player(PartyMock.createMock(PartyMock.PartyMockType.DEEJEY1),
+                        PlayerInformationMock.createDummy(PlayerInformationMock.PlayerInformationMockType.DEEJEY1));
             }
         }, DEEJEY2 {
             @Override
             public PlayerClassification getPlayerClassification() {
                 return PlayerClassification.STUDIO_PLAYER;
-            }
-
-            @Override
-            public PlayerInfo getPlayerInfo() {
-                return PlayerInfoMock.createDummy(PlayerInfoMock.PlayerInfoType.DEEJEY1);
             }
 
             @Override
@@ -43,11 +37,6 @@ public class PlayerMock {
             }
 
             @Override
-            public PlayerInfo getPlayerInfo() {
-                return PlayerInfoMock.createDummy(PlayerInfoMock.PlayerInfoType.DEEJEY1);
-            }
-
-            @Override
             public Player create() {
                 return null;
             }
@@ -55,11 +44,6 @@ public class PlayerMock {
             @Override
             public PlayerClassification getPlayerClassification() {
                 return PlayerClassification.STUDIO_PLAYER;
-            }
-
-            @Override
-            public PlayerInfo getPlayerInfo() {
-                return PlayerInfoMock.createDummy(PlayerInfoMock.PlayerInfoType.DEEJEY1);
             }
 
             @Override
@@ -73,11 +57,6 @@ public class PlayerMock {
             }
 
             @Override
-            public PlayerInfo getPlayerInfo() {
-                return PlayerInfoMock.createDummy(PlayerInfoMock.PlayerInfoType.DEEJEY1);
-            }
-
-            @Override
             public Player create() {
                 return null;
             }
@@ -88,23 +67,14 @@ public class PlayerMock {
             }
 
             @Override
-            public PlayerInfo getPlayerInfo() {
-                return PlayerInfoMock.createDummy(PlayerInfoMock.PlayerInfoType.DEEJEY1);
-            }
-
-            @Override
             public Player create() {
                 return Player.empty();
             }
+
         }, OUTER_BAND2 {
             @Override
             public PlayerClassification getPlayerClassification() {
                 return PlayerClassification.OUTER_PLAYER;
-            }
-
-            @Override
-            public PlayerInfo getPlayerInfo() {
-                return PlayerInfoMock.createDummy(PlayerInfoMock.PlayerInfoType.DEEJEY1);
             }
 
             @Override
@@ -115,8 +85,6 @@ public class PlayerMock {
 
         public abstract PlayerClassification getPlayerClassification();
 
-
-        public abstract PlayerInfo getPlayerInfo();
 
         public abstract Player create();
     }
