@@ -13,13 +13,6 @@ public class CodeTest {
     }
 
     @Test
-    public void toString1() throws Exception {
-        Code target = new Code("A");
-        assertThat(target.toString())
-                .isEqualTo("Code{A}");
-    }
-
-    @Test
     public void equals1() throws Exception {
         Code target = new Code("A");
         assertThat(target.equals(target))
