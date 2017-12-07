@@ -25,4 +25,10 @@ public abstract class RoleImpl implements Role {
         roleInformation = aRoleInformation;
 
     }
+
+    protected RoleInformation getRoleInformation() {
+        return roleInformation;
+
+    }
+
 }
