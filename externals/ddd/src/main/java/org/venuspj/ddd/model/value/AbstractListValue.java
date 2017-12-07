@@ -33,7 +33,7 @@ public class AbstractListValue<E> implements ListValue<E> {
     @Override
     public String toString() {
         return toStringHelper(this)
-                .addValue(list)
+                .defaultConfig()
                 .toString();
     }
 }

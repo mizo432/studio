@@ -1,18 +1,19 @@
 package org.venuspj.studio.generic.model.ppt.party.parson;
 
-import org.venuspj.ddd.model.value.ListValue;
+import org.venuspj.ddd.model.value.AbstractListValue;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.venuspj.util.collect.Lists2.*;
+import static org.venuspj.util.collect.Lists2.unmodifiableList;
+import static org.venuspj.util.objects2.Objects2.equal;
+import static org.venuspj.util.objects2.Objects2.hash;
 
-public class People implements ListValue<Person> {
-    List<Person> list = newArrayList();
+public class People extends AbstractListValue<Person> {
 
     public <P extends Person> People(Collection<P> anyCollection) {
-        list.addAll(anyCollection);
+        super(anyCollection);
     }
 
     @Override
@@ -27,11 +28,15 @@ public class People implements ListValue<Person> {
 
     @Override
     public boolean equals(Object that) {
-        return false;
+        return that instanceof People && sameValueOf((People) that);
+    }
+
+    public boolean sameValueOf(People that) {
+        return equal(list, that.list);
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return hash(list.toArray());
     }
 }
