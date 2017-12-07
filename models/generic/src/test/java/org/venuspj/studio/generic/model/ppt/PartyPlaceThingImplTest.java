@@ -18,6 +18,7 @@ public class PartyPlaceThingImplTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void constructor() throws Exception {
         PartyPlaceThing target = new PartyPlaceThingImpl(new PartyPlaceThingIdentifier(1), new PptInfo());
  
