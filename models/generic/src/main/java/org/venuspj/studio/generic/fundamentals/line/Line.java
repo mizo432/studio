@@ -1,7 +1,5 @@
 package org.venuspj.studio.generic.fundamentals.line;
 
-import org.venuspj.util.objects2.Objects2;
-
 public class Line {
     String value;
 
@@ -17,11 +15,4 @@ public class Line {
         return new Line();
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .addValue(value)
-                .toString();
-    }
 }
