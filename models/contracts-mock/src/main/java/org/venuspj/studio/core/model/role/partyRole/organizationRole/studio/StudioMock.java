@@ -15,7 +15,7 @@ public class StudioMock {
         EMPTY {
             @Override
             public Studio create() {
-                return null;
+                return Studio.empty();
             }
         }, LHS {
             @Override

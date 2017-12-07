@@ -26,4 +26,7 @@ public class StudioInformation extends OrganizationRoleInformation {
         return profile;
     }
 
+    public static StudioInformation empty() {
+        return new StudioInformation();
+    }
 }
