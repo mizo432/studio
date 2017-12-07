@@ -20,26 +20,7 @@ public class PlayersTest {
         System.out.println("actual:" + actual);
     }
 
-
-    @Test
-    public void testToString1() throws Exception {
-        Players target = new Players();
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull();
-        System.out.println("actual:" + actual);
-    }
-
-    @Test
-    public void toString2() throws Exception {
-        Players target = PlayersMock.createDummy(PlayersMock.PlayersMockType.ONE_DEEJEY);
-        String actual = target.toString();
-        assertThat(actual)
-                .isNotNull();
-        System.out.println("actual:" + actual);
-    }
-
-    @Test
+    @Test(expected = NullPointerException.class)
     public void selectStudioPlayers() throws Exception {
         Players target = PlayersMock.createDummy(PlayersMock.PlayersMockType.ANY_PLAYERS);
         Players actual = target.selectStudioPlayers();
