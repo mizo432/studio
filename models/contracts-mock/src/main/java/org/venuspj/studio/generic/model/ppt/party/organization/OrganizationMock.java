@@ -17,6 +17,15 @@ public class OrganizationMock {
                         OrganizationUnits.empty()
                 );
             }
+        }, DEEJEY1 {
+            @Override
+            public Organization createMock() {
+                return new OrganizationImpl(
+                        new PartyIdentifier(1),
+                        OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.DEEJEY1),
+                        OrganizationUnits.empty()
+                );
+            }
         };
 
         public abstract Organization createMock();

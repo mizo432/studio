@@ -7,11 +7,11 @@ import org.venuspj.studio.generic.fundamentals.geographic.MapPositionMock;
 /**
  */
 public class AddressMock {
-    public static Address createDummy(AddressType anAddressType) {
-        return anAddressType.getAddress();
+    public static Address createDummy(MockType anMockType) {
+        return anMockType.getAddress();
     }
 
-    public enum AddressType {
+    public enum MockType {
         /**
          *
          */

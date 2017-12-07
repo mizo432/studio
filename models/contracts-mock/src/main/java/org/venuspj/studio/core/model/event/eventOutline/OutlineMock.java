@@ -28,7 +28,7 @@ public class OutlineMock {
 
             @Override
             public Address getAddress() {
-                return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+                return AddressMock.createDummy(AddressMock.MockType.DEFAULT);
             }
 
             @Override
@@ -44,7 +44,7 @@ public class OutlineMock {
 
             @Override
             public Address getAddress() {
-                return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+                return AddressMock.createDummy(AddressMock.MockType.DEFAULT);
             }
 
             @Override
@@ -59,7 +59,7 @@ public class OutlineMock {
 
             @Override
             public Address getAddress() {
-                return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+                return AddressMock.createDummy(AddressMock.MockType.DEFAULT);
             }
 
 
@@ -75,7 +75,7 @@ public class OutlineMock {
 
             @Override
             public Address getAddress() {
-                return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+                return AddressMock.createDummy(AddressMock.MockType.DEFAULT);
             }
 
 
@@ -124,7 +124,7 @@ public class OutlineMock {
         public abstract RecordDate getRecordDate();
 
         public Address getAddress() {
-            return AddressMock.createDummy(AddressMock.AddressType.DEFAULT);
+            return AddressMock.createDummy(AddressMock.MockType.DEFAULT);
         }
 
         public Place getPlace() {

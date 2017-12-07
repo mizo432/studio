@@ -3,16 +3,15 @@ package org.venuspj.studio.generic.model.ppt;
 import org.venuspj.ddd.model.entity.AbstractEntity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 
-import static org.venuspj.util.objects2.Objects2.equal;
-import static org.venuspj.util.objects2.Objects2.nonNull;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class PartyPlaceThingImpl<PPT extends PartyPlaceThing<PPT>> extends AbstractEntity<PPT> implements PartyPlaceThing<PPT> {
 
-    protected PptInfo pptInfo;
+    protected PptInformation pptInformation;
 
-    public PartyPlaceThingImpl(EntityIdentifier<PPT> anIdentifier, PptInfo aPptInfo) {
+    public PartyPlaceThingImpl(EntityIdentifier<PPT> anIdentifier, PptInformation aPptInformation) {
         super(anIdentifier);
-        pptInfo = aPptInfo;
+        pptInformation = aPptInformation;
     }
 
     @Override
@@ -29,7 +28,7 @@ public class PartyPlaceThingImpl<PPT extends PartyPlaceThing<PPT>> extends Abstr
         return nonNull(that) && equal(identifier(), that.identifier());
     }
 
-    protected PptInfo getPptInformation() {
-        return pptInfo;
+    protected PptInformation getPptInformation() {
+        return pptInformation;
     }
 }

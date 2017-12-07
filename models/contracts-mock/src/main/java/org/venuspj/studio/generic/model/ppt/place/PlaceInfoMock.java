@@ -11,11 +11,11 @@ public class PlaceInfoMock {
     public enum PlaceInfoType {
         VENUE1 {
             @Override
-            public AddressMock.AddressType addressType() {
-                return AddressMock.AddressType.VENUE1;
+            public AddressMock.MockType addressType() {
+                return AddressMock.MockType.VENUE1;
             }
         };
 
-        public abstract AddressMock.AddressType addressType();
+        public abstract AddressMock.MockType addressType();
     }
 }

@@ -8,10 +8,18 @@ public class PartyMock {
     }
 
     public enum MockType {
-        LIONHOUSE_STUDIO, DEEJEY1;
+        LIONHOUSE_STUDIO {
+            @Override
+            public Party create() {
+                return OrganizationMock.createDimmy(OrganizationMock.MockType.LIONHOUSE_STUDIO);
+            }
+        }, DEEJEY1 {
+            @Override
+            public Party create() {
+                return OrganizationMock.createDimmy(OrganizationMock.MockType.DEEJEY1);
+            }
+        };
 
-        public Party create() {
-            return OrganizationMock.createDimmy(OrganizationMock.MockType.LIONHOUSE_STUDIO);
-        }
+        public abstract Party create();
     }
 }

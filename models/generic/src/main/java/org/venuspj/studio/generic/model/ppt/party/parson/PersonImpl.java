@@ -7,20 +7,20 @@ import org.venuspj.studio.generic.model.ppt.party.PartyImpl;
 
 public class PersonImpl extends PartyImpl implements Person, Entity<Party> {
 
-    public <EI extends PartyIdentifier> PersonImpl(EI anIdentifier, PersonInfo aPersonInfo) {
-        super(anIdentifier, aPersonInfo);
+    public <EI extends PartyIdentifier> PersonImpl(EI anIdentifier, PersonInformation aPersonInformation) {
+        super(anIdentifier, aPersonInformation);
 
     }
 
     public static Person emptyPerson() {
         return new PersonImpl(
                 PartyIdentifier.newId(),
-                PersonInfo.empty());
+                PersonInformation.empty());
 
     }
 
     @Override
-    public PersonInfo getPersonInfo() {
-        return (PersonInfo) super.getPartyInformation();
+    public PersonInformation getPersonInfo() {
+        return (PersonInformation) super.getPartyInformation();
     }
 }
