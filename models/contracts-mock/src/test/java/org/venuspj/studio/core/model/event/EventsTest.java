@@ -10,7 +10,7 @@ public class EventsTest {
 
     @Test
     public void eventRepository() throws Exception {
-        EventRepositoryMock repository = new EventRepositoryMock(EventsMock.createDummy(EventsMock.EventsType.DEFAULT).asList());
+        EventRepositoryMock repository = new EventRepositoryMock(EventsMock.createDummy(EventsMock.MockType.DEFAULT).asList());
         System.out.println("repository.findAll()" + repository.asEntitiesList());
         System.out.println("repository.findOne()" + repository.resolve(EventIdMock.createDummy(EventIdMock.EventIDType.EVENT_ON_TODAY)));
         try {
@@ -30,7 +30,7 @@ public class EventsTest {
 
     @Test
     public void testToString2() throws Exception {
-        Events target = EventsMock.createDummy(EventsMock.EventsType.DEFAULT);
+        Events target = EventsMock.createDummy(EventsMock.MockType.DEFAULT);
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -49,7 +49,7 @@ public class EventsTest {
 
     @Test
     public void iterator() throws Exception {
-        Events target = EventsMock.createDummy(EventsMock.EventsType.DEFAULT);
+        Events target = EventsMock.createDummy(EventsMock.MockType.DEFAULT);
         for (Event event : target) {
             System.out.println("events:" + event);
 

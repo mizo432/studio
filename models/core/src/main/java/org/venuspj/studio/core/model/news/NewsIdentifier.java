@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.news;
+package org.venuspj.studio.core.model.news;
 
 import org.venuspj.ddd.model.entity.AbstractEntityIdentifier;
 
@@ -6,20 +6,22 @@ import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
-public class NewsId extends AbstractEntityIdentifier<News> {
-    Integer value;
+public class NewsIdentifier extends AbstractEntityIdentifier<News> {
 
-    NewsId() {
+    private final Integer value;
+
+    NewsIdentifier() {
         super(News.class);
+        value = null;
     }
 
-    public NewsId(Integer aValue) {
+    public NewsIdentifier(Integer aValue) {
         super(News.class);
         value = aValue;
     }
 
-    public static NewsId defaultNewsId() {
-        return new NewsId();
+    public static NewsIdentifier defaultNewsId() {
+        return new NewsIdentifier();
     }
 
     @Override
@@ -30,8 +32,8 @@ public class NewsId extends AbstractEntityIdentifier<News> {
     @Override
     public boolean equals(Object o) {
         if (!super.equals(o)) return false;
-        if (o instanceof NewsId) {
-            NewsId other = (NewsId) o;
+        if (o instanceof NewsIdentifier) {
+            NewsIdentifier other = (NewsIdentifier) o;
             return equal(value, other.value);
         }
         return false;
@@ -45,4 +47,5 @@ public class NewsId extends AbstractEntityIdentifier<News> {
     public boolean isEmpty() {
         return isNull(value);
     }
+
 }

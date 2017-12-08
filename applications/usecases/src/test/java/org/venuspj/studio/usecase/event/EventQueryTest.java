@@ -3,65 +3,18 @@ package org.venuspj.studio.usecase.event;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.core.model.event.*;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 
-import static org.assertj.core.api.Java6Assertions.*;
-import static org.venuspj.util.objects2.Objects2.*;
+import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 public class EventQueryTest {
     EventQuery targetUseCase;
 
     @Before
     public void setUp() {
-        targetUseCase = new EventQuery(new EventRepository() {
-
-            @Override
-            public <I extends EntityIdentifier<Event>> Event resolve(I anIdentifier) {
-                return EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY);
-            }
-
-            @Override
-            public boolean contains(EntityIdentifier<Event> anIdentifier) {
-                return false;
-            }
-
-            @Override
-            public Events asEntitiesList() {
-                return null;
-            }
-
-            @Override
-            public Events resolveEntities(Iterable<EventIdentifier> anyIdentifiers) {
-                return null;
-            }
-
-            @Override
-            public <S extends Event> boolean contains(S anEntity) {
-                return false;
-            }
-
-            @Override
-            public <S extends Event> void store(S entity) {
-
-            }
-
-            @Override
-            public <I extends EntityIdentifier<Event>> void delete(I anIdentifier) {
-
-            }
-
-            @Override
-            public <I extends EntityIdentifier<Event>> void delete(Iterable<I> anyIdentifiers) {
-
-            }
-
-            @Override
-            public <S extends Event> void delete(S anEntity) {
-
-            }
-        });
+        targetUseCase = new EventQuery(EventRepositoryMock.create());
     }
 
     @After

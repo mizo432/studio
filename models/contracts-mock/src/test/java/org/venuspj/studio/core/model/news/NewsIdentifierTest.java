@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.news;
+package org.venuspj.studio.core.model.news;
 
 import org.junit.Test;
 import org.venuspj.studio.core.model.event.EventIdMock;
@@ -8,11 +8,11 @@ import static org.assertj.core.api.Java6Assertions.*;
 
 /**
  */
-public class NewsIdTest {
+public class NewsIdentifierTest {
 
     @Test
     public void hashCode1() throws Exception {
-        NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.DEFAULT);
+        NewsIdentifier target = NewsIdMock.createDummy(NewsMock.NewsType.DEFAULT);
         int actual = target.hashCode();
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -23,7 +23,7 @@ public class NewsIdTest {
 
     @Test
     public void hashCode2() throws Exception {
-        NewsId target = new NewsId();
+        NewsIdentifier target = new NewsIdentifier();
         int actual = target.hashCode();
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -34,7 +34,7 @@ public class NewsIdTest {
 
     @Test
     public void hashCode3() throws Exception {
-        NewsId target = NewsId.defaultNewsId();
+        NewsIdentifier target = NewsIdentifier.defaultNewsId();
         int actual = target.hashCode();
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -45,7 +45,7 @@ public class NewsIdTest {
 
     @Test
     public void isPresent1() throws Exception {
-        NewsId target = NewsId.defaultNewsId();
+        NewsIdentifier target = NewsIdentifier.defaultNewsId();
         boolean actual = target.isPresent();
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -56,7 +56,7 @@ public class NewsIdTest {
 
     @Test
     public void isPresent2() throws Exception {
-        NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.DEFAULT);
+        NewsIdentifier target = NewsIdMock.createDummy(NewsMock.NewsType.DEFAULT);
         boolean actual = target.isPresent();
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -67,7 +67,7 @@ public class NewsIdTest {
 
     @Test
     public void equals1() throws Exception {
-        NewsId target = NewsId.defaultNewsId();
+        NewsIdentifier target = NewsIdentifier.defaultNewsId();
         boolean actual = target.equals(null);
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -78,7 +78,7 @@ public class NewsIdTest {
 
     @Test
     public void equals2() throws Exception {
-        NewsId target = NewsId.defaultNewsId();
+        NewsIdentifier target = NewsIdentifier.defaultNewsId();
         boolean actual = target.equals(Integer.valueOf(1));
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -89,7 +89,7 @@ public class NewsIdTest {
 
     @Test
     public void equals3() throws Exception {
-        NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.DEFAULT);
+        NewsIdentifier target = NewsIdMock.createDummy(NewsMock.NewsType.DEFAULT);
         boolean actual = target.equals(target);
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -100,7 +100,7 @@ public class NewsIdTest {
 
     @Test
     public void equals4() throws Exception {
-        NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);
+        NewsIdentifier target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);
         boolean actual = target.equals(target);
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -111,8 +111,8 @@ public class NewsIdTest {
 
     @Test
     public void equals5() throws Exception {
-        NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);
-        NewsId other = NewsIdMock.createDummy(NewsMock.NewsType.NEWS2);
+        NewsIdentifier target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);
+        NewsIdentifier other = NewsIdMock.createDummy(NewsMock.NewsType.NEWS2);
         boolean actual = target.equals(other);
         System.out.println("actual:" + actual);
         assertThat(actual)
@@ -123,7 +123,7 @@ public class NewsIdTest {
 
     @Test
     public void equals6() throws Exception {
-        NewsId target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);
+        NewsIdentifier target = NewsIdMock.createDummy(NewsMock.NewsType.NEWS1);
         EventIdentifier other = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
         boolean actual = target.equals(other);
         System.out.println("actual:" + actual);

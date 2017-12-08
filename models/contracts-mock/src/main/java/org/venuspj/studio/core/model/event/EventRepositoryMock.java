@@ -22,6 +22,11 @@ public class EventRepositoryMock extends AbstractCrudRepositoryMock<Event> imple
     }
 
     @Override
+    public Events resolveEntities(EventCriteria aCriteria) {
+        return Events.empty();
+    }
+
+    @Override
     public Events resolveEntities(Iterable<EventIdentifier> anyIdentifiers) {
         return null;
     }
@@ -46,5 +51,9 @@ public class EventRepositoryMock extends AbstractCrudRepositoryMock<Event> imple
     @Override
     public boolean contains(EntityIdentifier<Event> anIdentifier) {
         return false;
+    }
+
+    public static EventRepository create() {
+        return new EventRepositoryMock(EventsMock.createDummy(EventsMock.MockType.DEFAULT));
     }
 }

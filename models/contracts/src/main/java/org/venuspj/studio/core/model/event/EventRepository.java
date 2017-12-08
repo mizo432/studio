@@ -6,6 +6,8 @@ public interface EventRepository extends CrudRepository<Event> {
 
     Events asEntitiesList();
 
+    Events resolveEntities(EventCriteria aCriteria);
+
     Events resolveEntities(Iterable<EventIdentifier> anyIdentifiers);
 
 }

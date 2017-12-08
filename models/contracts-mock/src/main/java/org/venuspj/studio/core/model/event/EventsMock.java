@@ -8,15 +8,15 @@ import java.util.List;
  */
 public final class EventsMock {
 
-    public static Events createDummy(EventsType anEventsType) {
-        List<Event> eventList = Lists2.newArrayListWithCapacity(anEventsType.eventCount());
-        for (EventMock.EventType eventType : anEventsType.eventTypes()) {
+    public static Events createDummy(MockType anMockType) {
+        List<Event> eventList = Lists2.newArrayListWithCapacity(anMockType.eventCount());
+        for (EventMock.EventType eventType : anMockType.eventTypes()) {
             eventList.add(EventMock.createDummy(eventType));
         }
         return new Events(eventList);
     }
 
-    public enum EventsType {
+    public enum MockType {
         DEFAULT {
             @Override
             public EventMock.EventType[] eventTypes() {

@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.news;
+package org.venuspj.studio.core.model.news;
 
 import org.venuspj.ddd.model.entity.AbstractEntity;
 import org.venuspj.studio.generic.fundamentals.note.Note;
@@ -13,8 +13,8 @@ public class News extends AbstractEntity<News> {
     News() {
     }
 
-    public News(NewsId aNewsId, Title aTitle, Note aNote) {
-        super(aNewsId);
+    public News(NewsIdentifier aNewsIdentifier, Title aTitle, Note aNote) {
+        super(aNewsIdentifier);
         title = aTitle;
         note = aNote;
     }

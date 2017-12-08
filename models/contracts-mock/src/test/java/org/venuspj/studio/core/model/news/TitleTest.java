@@ -1,4 +1,4 @@
-package org.venuspj.studio.core.model.momentInterval.momemt.news;
+package org.venuspj.studio.core.model.news;
 
 import org.junit.Test;
 
