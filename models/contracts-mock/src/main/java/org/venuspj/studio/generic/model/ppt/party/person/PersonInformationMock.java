@@ -1,5 +1,6 @@
 package org.venuspj.studio.generic.model.ppt.party.person;
 
+import org.venuspj.studio.generic.model.ppt.party.AddressUseMock;
 import org.venuspj.studio.generic.model.ppt.party.parson.PersonInformation;
 
 public class PersonInformationMock {
@@ -11,7 +12,7 @@ public class PersonInformationMock {
         PLAYER_NUMBER1 {
             @Override
             public PersonInformation create() {
-                return PersonInformation.empty();
+                return new PersonInformation(AddressUseMock.createDummy(AddressUseMock.MockType.VENUE1));
             }
         };
 
