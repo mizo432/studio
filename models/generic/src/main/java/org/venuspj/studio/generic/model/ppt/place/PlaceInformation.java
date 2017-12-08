@@ -5,8 +5,9 @@ import org.venuspj.studio.generic.fundamentals.name.Name;
 import org.venuspj.studio.generic.model.ppt.PptInformation;
 
 public class PlaceInformation extends PptInformation {
-    Name name;
-    Address address;
+    protected Name name;
+
+    protected Address address;
 
     public PlaceInformation(Name aName, Address anAddress) {
         name = aName;
@@ -17,5 +18,14 @@ public class PlaceInformation extends PptInformation {
     public static PlaceInformation empty() {
         return new PlaceInformation(Name.emptyName(), Address.nullAddress());
     }
+
+    public Name getName() {
+        return name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
 
 }
