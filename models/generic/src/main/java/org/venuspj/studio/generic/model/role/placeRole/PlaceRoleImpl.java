@@ -1,6 +1,6 @@
 package org.venuspj.studio.generic.model.role.placeRole;
 
-import org.venuspj.studio.generic.model.ppt.thing.Thing;
+import org.venuspj.studio.generic.model.ppt.place.Place;
 import org.venuspj.studio.generic.model.role.RoleImpl;
 
 public class PlaceRoleImpl extends RoleImpl implements PlaceRole {
@@ -9,17 +9,17 @@ public class PlaceRoleImpl extends RoleImpl implements PlaceRole {
         super();
     }
 
-    public PlaceRoleImpl(Thing aThing, PlaceRoleInformation aPlaceRoleInformation) {
-        super(aThing, aPlaceRoleInformation);
+    public PlaceRoleImpl(Place aPlace, PlaceRoleInformation aPlaceRoleInformation) {
+        super(aPlace, aPlaceRoleInformation);
     }
 
     @Override
-    public Thing clone() {
-        return null;
+    public PlaceRoleImpl clone() {
+        return new PlaceRoleImpl(getPlace(),getThingRoleInformation());
     }
 
-    protected Thing getThing() {
-        return (Thing) super.getPartyPlaceThing();
+    protected Place getPlace() {
+        return (Place) super.getPartyPlaceThing();
     }
 
     protected PlaceRoleInformation getThingRoleInformation() {

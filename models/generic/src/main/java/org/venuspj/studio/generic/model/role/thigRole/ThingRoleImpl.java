@@ -14,8 +14,8 @@ public class ThingRoleImpl extends RoleImpl implements ThingRole {
     }
 
     @Override
-    public Thing clone() {
-        return null;
+    public ThingRoleImpl clone() {
+        return new ThingRoleImpl(getThing(), getThingRoleInformation());
     }
 
     protected Thing getThing() {
