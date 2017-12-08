@@ -3,7 +3,9 @@ package org.venuspj.studio.generic.model.ppt;
 import org.venuspj.ddd.model.entity.AbstractEntity;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 
-import static org.venuspj.util.objects2.Objects2.*;
+import static org.venuspj.util.objects2.Objects2.equal;
+import static org.venuspj.util.objects2.Objects2.isNull;
+import static org.venuspj.util.objects2.Objects2.nonNull;
 
 public class PartyPlaceThingImpl<PPT extends PartyPlaceThing<PPT>> extends AbstractEntity<PPT> implements PartyPlaceThing<PPT> {
 
@@ -30,5 +32,10 @@ public class PartyPlaceThingImpl<PPT extends PartyPlaceThing<PPT>> extends Abstr
 
     protected PptInformation getPptInformation() {
         return pptInformation;
+    }
+
+    public boolean sameValueAs(PartyPlaceThingImpl that) {
+        if (isNull(that)) return false;
+        return sameIdentifierAs(that) && equal(pptInformation, that.getPptInformation());
     }
 }

@@ -4,6 +4,7 @@ import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 import org.venuspj.studio.generic.model.ppt.party.PartyImpl;
 import org.venuspj.util.builder.ObjectBuilder;
 
+import static org.venuspj.util.objects2.Objects2.equal;
 import static org.venuspj.util.objects2.Objects2.isNull;
 
 @SuppressWarnings("EQ_SELF_NO_OBJECT")
@@ -44,13 +45,26 @@ public class OrganizationImpl extends PartyImpl implements Organization {
         return (OrganizationInformation) super.getPartyInformation();
     }
 
+    @Override
     public boolean equals(Object that) {
         return super.equals(that);
     }
 
     @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
     public OrganizationUnits getUnits() {
         return units;
+    }
+
+    public boolean sameValueAs(OrganizationImpl that) {
+        if (isNull(that)) return false;
+        return super.sameValueAs(that) &&
+                equal(units, that.getUnits());
+
     }
 
     public static class OrganizationBuilder extends ObjectBuilder<Organization, OrganizationBuilder> {

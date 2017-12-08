@@ -2,6 +2,9 @@ package org.venuspj.studio.generic.model.ppt.party.organization;
 
 import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 
+import static org.venuspj.util.objects2.Objects2.equal;
+import static org.venuspj.util.objects2.Objects2.isNull;
+
 public class OrganizationUnitImpl extends OrganizationImpl implements OrganizationUnit {
     public Organization getOrganization() {
         return organization;
@@ -36,9 +39,25 @@ public class OrganizationUnitImpl extends OrganizationImpl implements Organizati
         largerUnits = anyLargerUnits;
     }
 
+    @Override
     public boolean equals(Object that) {
         return super.equals(that);
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    public boolean sameValueAs(OrganizationUnitImpl that){
+        if (isNull(that)) return false;
+        return super.sameValueAs(that) &&
+                equal(organization, that.getOrganization()) &&
+                equal(largerUnits, that.getLargerUnits()) &&
+                equal(smallerUnits, that.getSmallerUnits());
+
+    }
+
 
     public static OrganizationUnit empty() {
         return new OrganizationUnitImpl();
