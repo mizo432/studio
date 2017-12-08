@@ -36,6 +36,10 @@ public class OrganizationUnitImpl extends OrganizationImpl implements Organizati
         largerUnits = anyLargerUnits;
     }
 
+    public boolean equals(Object that) {
+        return super.equals(that);
+    }
+
     public static OrganizationUnit empty() {
         return new OrganizationUnitImpl();
     }

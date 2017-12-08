@@ -44,6 +44,10 @@ public class OrganizationImpl extends PartyImpl implements Organization {
         return (OrganizationInformation) super.getPartyInformation();
     }
 
+    public boolean equals(Object that) {
+        return super.equals(that);
+    }
+
     @Override
     public OrganizationUnits getUnits() {
         return units;
