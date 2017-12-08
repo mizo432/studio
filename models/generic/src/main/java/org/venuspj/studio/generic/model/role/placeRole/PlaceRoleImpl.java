@@ -13,11 +13,6 @@ public class PlaceRoleImpl extends RoleImpl implements PlaceRole {
         super(aPlace, aPlaceRoleInformation);
     }
 
-    @Override
-    public PlaceRoleImpl clone() {
-        return new PlaceRoleImpl(getPlace(),getThingRoleInformation());
-    }
-
     protected Place getPlace() {
         return (Place) super.getPartyPlaceThing();
     }

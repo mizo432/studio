@@ -13,11 +13,6 @@ public class ThingRoleImpl extends RoleImpl implements ThingRole {
         super(aThing, aThingRoleInformation);
     }
 
-    @Override
-    public ThingRoleImpl clone() {
-        return new ThingRoleImpl(getThing(), getThingRoleInformation());
-    }
-
     protected Thing getThing() {
         return (Thing) super.getPartyPlaceThing();
     }
