@@ -1,8 +1,9 @@
 package org.venuspj.studio.generic.model.ppt.thing;
 
-import static org.venuspj.util.objects2.Objects2.*;
+import org.venuspj.studio.generic.model.ppt.PptInformation;
 
-public class ThingInformation {
+public class ThingInformation extends PptInformation {
+
     public ThingInformation() {
 
     }
@@ -11,10 +12,4 @@ public class ThingInformation {
         return new ThingInformation();
     }
 
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .omitNullValues()
-                .toString();
-    }
 }

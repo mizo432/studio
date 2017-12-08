@@ -1,18 +1,15 @@
 package org.venuspj.studio.generic.model.ppt.place;
 
-import org.venuspj.ddd.model.entity.AbstractEntity;
-import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.studio.generic.model.ppt.PartyPlaceThingImpl;
 
-public class PlaceImpl extends AbstractEntity<Place> implements Place {
-    PlaceInfo placeInfo;
+public class PlaceImpl extends PartyPlaceThingImpl<Place> implements Place {
 
-    public PlaceImpl(EntityIdentifier<Place> anIdentifier, PlaceInfo aPlaceInfo) {
-        super(anIdentifier);
-        placeInfo = aPlaceInfo;
+    public PlaceImpl(PlaceIdentifier anIdentifier, PlaceInformation aPlaceInformation) {
+        super(anIdentifier, aPlaceInformation);
     }
 
     public static Place emptyPlace() {
-        return new PlaceImpl(PlaceIdentifier.empty(), PlaceInfo.empty());
+        return new PlaceImpl(PlaceIdentifier.empty(), PlaceInformation.empty());
     }
 
 }

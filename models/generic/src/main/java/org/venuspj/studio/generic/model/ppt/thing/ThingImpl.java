@@ -1,13 +1,11 @@
 package org.venuspj.studio.generic.model.ppt.thing;
 
-import org.venuspj.ddd.model.entity.AbstractEntity;
+import org.venuspj.studio.generic.model.ppt.PartyPlaceThingImpl;
 
-public class ThingImpl extends AbstractEntity<Thing> implements Thing {
-    protected ThingInformation thingInformation;
+public class ThingImpl extends PartyPlaceThingImpl<Thing> implements Thing {
 
     public ThingImpl(ThingIdentifier anIdentifier, ThingInformation aThingInformation) {
-        super(anIdentifier);
-        thingInformation = aThingInformation;
+        super(anIdentifier,aThingInformation);
     }
 
     public static Thing empty() {
