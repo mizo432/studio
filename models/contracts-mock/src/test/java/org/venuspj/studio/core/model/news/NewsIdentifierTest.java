@@ -17,7 +17,7 @@ public class NewsIdentifierTest {
         System.out.println("actual:" + actual);
         assertThat(actual)
                 .isNotNull()
-                .isEqualTo(1155872341);
+                .isEqualTo(1654085297);
 
     }
 
@@ -28,7 +28,7 @@ public class NewsIdentifierTest {
         System.out.println("actual:" + actual);
         assertThat(actual)
                 .isNotNull()
-                .isEqualTo(1155872340);
+                .isEqualTo(1654085296);
 
     }
 
@@ -39,7 +39,7 @@ public class NewsIdentifierTest {
         System.out.println("actual:" + actual);
         assertThat(actual)
                 .isNotNull()
-                .isEqualTo(1155872340);
+                .isEqualTo(1654085296);
 
     }
 
