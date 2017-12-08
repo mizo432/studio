@@ -43,6 +43,10 @@ public class AddressUse extends AbstractEntity<AddressUse> {
         return (AddressUseIdentifier) super.identifier();
     }
 
+    public Place getPlace() {
+        return place;
+    }
+
     public static class Builder extends ObjectBuilder<AddressUse, Builder> {
         AddressUseIdentifier addressUseIdentifier;
         Period period;
@@ -54,8 +58,16 @@ public class AddressUse extends AbstractEntity<AddressUse> {
         protected void apply(AddressUse vo, Builder builder) {
             builder.withAddressUseIdentifier(vo.getAddressUseIdentifier());
             builder.withPeriod(vo.getPeriod());
+            builder.withPlace(vo.getPlace());
             builder.withPartyIds(vo.getPartyIds());
             builder.withAddress(vo.getAddress());
+
+        }
+
+        public Builder withPlace(Place aPlace) {
+            if (isNull(aPlace)) return getThis();
+            addConfigurator(builder -> builder.place = aPlace);
+            return getThis();
         }
 
         public Builder withAddress(Address anAddress) {
