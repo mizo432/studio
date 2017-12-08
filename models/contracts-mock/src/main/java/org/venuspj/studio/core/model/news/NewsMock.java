@@ -7,7 +7,7 @@ import org.venuspj.studio.generic.fundamentals.note.NoteMock;
  */
 public class NewsMock {
     public static News createDummy(NewsType aNewsType) {
-        return new News(NewsIdMock.createDummy(aNewsType), TitleMock.createDummy(aNewsType), NoteMock.createDummy(aNewsType.noteType()));
+        return new News(NewsIdentifierMock.createDummy(aNewsType), TitleMock.createDummy(aNewsType), NoteMock.createDummy(aNewsType.noteType()));
     }
 
     public enum NewsType {

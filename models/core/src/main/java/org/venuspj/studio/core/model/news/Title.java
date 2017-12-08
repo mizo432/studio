@@ -2,8 +2,6 @@ package org.venuspj.studio.core.model.news;
 
 import org.venuspj.studio.core.fundamentals.StringValue;
 
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
-
 /**
  */
 public class Title implements StringValue {
@@ -12,6 +10,7 @@ public class Title implements StringValue {
     Title() {
 
     }
+
     public Title(String aValue) {
         value = aValue;
     }
@@ -21,10 +20,7 @@ public class Title implements StringValue {
         return value;
     }
 
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .addValue(value)
-                .toString();
+    public static Title empty() {
+        return new Title();
     }
 }

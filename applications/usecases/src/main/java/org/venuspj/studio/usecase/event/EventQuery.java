@@ -23,11 +23,12 @@ public class EventQuery implements EventQueryUseCase {
     }
 
     @Override
-    public void start(EventQueryInputPort anInputPort, EventQueryOutputPort anOutputPort) {
-        EventIdentifier eventId = anInputPort.getEventIdentifier();
-        Event event = eventRepository.resolve(eventId);
-        anOutputPort.setEvent(event);
+    public void execute(EventQueryInputPort request, EventQueryOutputPort response) {
+        EventIdentifier eventIdentifier = request.getEventIdentifier();
+
+        Event event = eventRepository.resolve(eventIdentifier);
+
+        response.setEvent(event);
 
     }
-
 }

@@ -27,7 +27,7 @@ public class EventQueryTest {
         EventIdentifier eventId = (EventIdentifier) EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY).identifier();
         EventQueryInputPort in = new EventQueryInputPortMock(eventId);
         EventQueryOutputPortMock out = new EventQueryOutputPortMock();
-        targetUseCase.start(in, out);
+        targetUseCase.execute(in, out);
         assertThat(out)
                 .isNotNull();
         Event event = out.getEvent();
