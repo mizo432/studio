@@ -22,7 +22,39 @@ public class OrganizationInformationMock {
             public OrganizationInformation create() {
                 return new OrganizationInformation
                         .Builder()
-                        .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.VENUE1))
+                        .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.DEEJEY1))
+                        .build();
+            }
+        }, DEEJEY2 {
+            @Override
+            public OrganizationInformation create() {
+                return new OrganizationInformation
+                        .Builder()
+                        .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.DEEJEY2))
+                        .build();
+            }
+        }, DEEJEY3 {
+            @Override
+            public OrganizationInformation create() {
+                return new OrganizationInformation
+                        .Builder()
+                        .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.DEEJEY3))
+                        .build();
+            }
+        }, SOUND1 {
+            @Override
+            public OrganizationInformation create() {
+                return new OrganizationInformation
+                        .Builder()
+                        .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.SOUND1))
+                        .build();
+            }
+        }, SOUND2 {
+            @Override
+            public OrganizationInformation create() {
+                return new OrganizationInformation
+                        .Builder()
+                        .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.SOUND2))
                         .build();
             }
         };

@@ -11,7 +11,7 @@ public class PrefectureMock {
     }
 
     public enum PrefectureType {
-        KANAGAWA;
+        KANAGAWA, TOKYO;
     }
 
 }

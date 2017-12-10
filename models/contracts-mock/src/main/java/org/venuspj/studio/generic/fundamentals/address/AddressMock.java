@@ -30,6 +30,27 @@ public class AddressMock {
                         CityMock.createDummy(CityMock.CityType.KAWASAKI_SAIWAI),
                         AddressStringMock.createDummy(AddressStringMock.AddressStringType.EMPTY), MapPosition.emptyMapPosition());
             }
+        }, VENUE2 {
+            @Override
+            public Address getAddress() {
+                return new Address(PrefectureMock.createDummy(PrefectureMock.PrefectureType.KANAGAWA),
+                        CityMock.createDummy(CityMock.CityType.YOKOHAMA_TOSUKA),
+                        AddressStringMock.createDummy(AddressStringMock.AddressStringType.EMPTY), MapPosition.emptyMapPosition());
+            }
+        }, VENUE3 {
+            @Override
+            public Address getAddress() {
+                return new Address(PrefectureMock.createDummy(PrefectureMock.PrefectureType.TOKYO),
+                        CityMock.createDummy(CityMock.CityType.SHINJYUKU),
+                        AddressStringMock.createDummy(AddressStringMock.AddressStringType.EMPTY), MapPosition.emptyMapPosition());
+            }
+        }, VENUE4 {
+            @Override
+            public Address getAddress() {
+                return new Address(PrefectureMock.createDummy(PrefectureMock.PrefectureType.TOKYO),
+                        CityMock.createDummy(CityMock.CityType.SHIBUYA),
+                        AddressStringMock.createDummy(AddressStringMock.AddressStringType.EMPTY), MapPosition.emptyMapPosition());
+            }
         };
 
         public abstract Address getAddress();

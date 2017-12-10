@@ -11,12 +11,32 @@ public class PartyMock {
         LIONHOUSE_STUDIO {
             @Override
             public Party create() {
-                return OrganizationMock.createDimmy(OrganizationMock.MockType.LIONHOUSE_STUDIO);
+                return OrganizationMock.create(OrganizationMock.MockType.LIONHOUSE_STUDIO);
             }
         }, DEEJEY1 {
             @Override
             public Party create() {
-                return OrganizationMock.createDimmy(OrganizationMock.MockType.DEEJEY1);
+                return OrganizationMock.create(OrganizationMock.MockType.DEEJEY1);
+            }
+        }, DEEJEY2 {
+            @Override
+            public Party create() {
+                return OrganizationMock.create(OrganizationMock.MockType.DEEJEY2);
+            }
+        }, DEEJEY3 {
+            @Override
+            public Party create() {
+                return OrganizationMock.create(OrganizationMock.MockType.DEEJEY3);
+            }
+        }, SOUND1 {
+            @Override
+            public Party create() {
+                return OrganizationMock.create(OrganizationMock.MockType.SOUND1);
+            }
+        }, SOUND2 {
+            @Override
+            public Party create() {
+                return OrganizationMock.create(OrganizationMock.MockType.SOUND2);
             }
         };
 

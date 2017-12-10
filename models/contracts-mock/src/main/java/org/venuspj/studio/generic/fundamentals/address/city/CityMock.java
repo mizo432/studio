@@ -18,6 +18,21 @@ public class CityMock {
             public String getCityName() {
                 return "小田原市";
             }
+        }, YOKOHAMA_TOSUKA {
+            @Override
+            public String getCityName() {
+                return "横浜市戸塚区";
+            }
+        }, SHINJYUKU {
+            @Override
+            public String getCityName() {
+                return "新宿区";
+            }
+        }, SHIBUYA {
+            @Override
+            public String getCityName() {
+                return "渋谷区";
+            }
         };
 
         public abstract String getCityName();
