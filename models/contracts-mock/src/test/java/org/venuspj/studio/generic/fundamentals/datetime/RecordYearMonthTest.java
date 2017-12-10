@@ -2,15 +2,16 @@ package org.venuspj.studio.generic.fundamentals.datetime;
 
 import org.junit.Test;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.time.YearMonth;
 
 import static org.assertj.core.api.Java6Assertions.*;
+import static org.venuspj.util.logger.LoggerFactory.*;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class RecordYearMonthTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RecordYearMonthTest.class);
+    private static final Logger LOGGER = getLogger();
 
     public static RecordYearMonth createDummyData(TestDateKind aTestDateKind) {
         return new RecordYearMonth(aTestDateKind.yearMonth());
@@ -76,9 +77,17 @@ public class RecordYearMonthTest {
     }
 
     @Test
-    public void toString1() throws Exception {
-        RecordYearMonth target = createDummyData(TestDateKind.BASE_DATE);
-        LOGGER.debug("actual:" + target);
+    public void constructor1() {
+        RecordYearMonth target = new RecordYearMonth("2017-06");
+        LOGGER.debug("target:{}", toStringHelper(target).defaultConfig());
+
+    }
+
+    @Test
+    public void of1() {
+        RecordYearMonth target = RecordYearMonth.of(2017, 06);
+        LOGGER.debug("target:{}", toStringHelper(target).defaultConfig());
+
     }
 
     public enum TestDateKind {

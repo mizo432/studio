@@ -142,4 +142,7 @@ public final class Strings2 {
         return !allowSigns && foundDigit;
     }
 
+    public static String surround(String aValue, String s) {
+        return new StringBuilder().append(s).append(aValue).append(s).toString();
+    }
 }

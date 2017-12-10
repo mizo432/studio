@@ -322,7 +322,8 @@ public class Objects2 {
 
         private boolean isPrimitiveLike(Class<?> aClazz) {
             final Set<Class<?>> primitiveLikeClasses = newHashSet(Integer.class, LocalTime.class, LocalDateTime.class,
-                    YearMonth.class, LocalDate.class, Short.class, UUID.class, Currency.class, Locale.class);
+                    YearMonth.class, LocalDate.class, Short.class, UUID.class, Currency.class, Locale.class,
+                    Boolean.class);
             return primitiveLikeClasses.contains(aClazz);
 
         }
