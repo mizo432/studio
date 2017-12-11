@@ -1,28 +1,28 @@
-package org.venuspj.studio.generic.criteria.primitive;
+package org.venuspj.studio.util.criteria.primitive;
 
-import org.venuspj.studio.generic.criteria.AbstractCompositeCriteria;
-import org.venuspj.studio.generic.criteria.AbstractCriteria;
+import org.venuspj.studio.util.criteria.AbstractCriteria;
+import org.venuspj.studio.util.criteria.Criteria;
 
 import java.util.Collection;
 import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.*;
 
-public class InCriteria<T> extends AbstractCompositeCriteria {
+public class NotInCriteria<T> extends AbstractCriteria {
 
 
     private List<T> list = newArrayList();
 
-    public InCriteria(AbstractCriteria aParentCriteria) {
+    public NotInCriteria(Criteria aParentCriteria) {
         super(aParentCriteria);
     }
 
-    public InCriteria() {
+    public NotInCriteria() {
         super();
     }
 
-    public static <T> InCriteria<T> create(AbstractCriteria aParentCriteria) {
-        return new InCriteria<>(aParentCriteria);
+    public static <T> NotInCriteria<T> create(Criteria aParentCriteria) {
+        return new NotInCriteria<>(aParentCriteria);
     }
 
     public List<T> getList() {
