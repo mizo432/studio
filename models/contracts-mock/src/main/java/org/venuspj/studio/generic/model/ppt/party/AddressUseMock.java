@@ -108,6 +108,20 @@ public class AddressUseMock {
                         .withAddress(AddressMock.createDummy(AddressMock.MockType.DEFAULT))
                         .build();
             }
+        }, SOUND3_OUTER {
+            @Override
+            public AddressUse create() {
+                return new AddressUse
+                        .Builder()
+                        .build();
+            }
+        }, DEEJEY4_OUTER {
+            @Override
+            public AddressUse create() {
+                return new AddressUse
+                        .Builder()
+                        .build();
+            }
         };
 
         public abstract AddressUse create();

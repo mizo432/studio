@@ -4,6 +4,6 @@ import org.venuspj.studio.generic.model.ppt.party.Party;
 
 public interface Person extends Party {
 
-    PersonInformation getPersonInfo();
+    PersonInformation getPersonInformation();
 
 }

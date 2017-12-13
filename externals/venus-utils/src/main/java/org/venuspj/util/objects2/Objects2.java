@@ -4,6 +4,7 @@ import org.venuspj.util.strings2.Strings2;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.net.URI;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -323,7 +324,7 @@ public class Objects2 {
         private boolean isPrimitiveLike(Class<?> aClazz) {
             final Set<Class<?>> primitiveLikeClasses = newHashSet(Integer.class, LocalTime.class, LocalDateTime.class,
                     YearMonth.class, LocalDate.class, Short.class, UUID.class, Currency.class, Locale.class,
-                    Boolean.class);
+                    Boolean.class, URI.class);
             return primitiveLikeClasses.contains(aClazz);
 
         }

@@ -1,6 +1,7 @@
 package org.venuspj.studio.generic.model.ppt.party;
 
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationMock;
+import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationUnitMock;
 
 public class PartyMock {
     public static Party createMock(MockType aMockType) {
@@ -16,27 +17,37 @@ public class PartyMock {
         }, DEEJEY1 {
             @Override
             public Party create() {
-                return OrganizationMock.create(OrganizationMock.MockType.DEEJEY1);
+                return OrganizationUnitMock.create(OrganizationUnitMock.MockType.DEEJEY1);
             }
         }, DEEJEY2 {
             @Override
             public Party create() {
-                return OrganizationMock.create(OrganizationMock.MockType.DEEJEY2);
+                return OrganizationUnitMock.create(OrganizationUnitMock.MockType.DEEJEY2);
             }
         }, DEEJEY3 {
             @Override
             public Party create() {
-                return OrganizationMock.create(OrganizationMock.MockType.DEEJEY3);
+                return OrganizationUnitMock.create(OrganizationUnitMock.MockType.DEEJEY3);
             }
         }, SOUND1 {
             @Override
             public Party create() {
-                return OrganizationMock.create(OrganizationMock.MockType.SOUND1);
+                return OrganizationUnitMock.create(OrganizationUnitMock.MockType.SOUND1);
             }
         }, SOUND2 {
             @Override
             public Party create() {
-                return OrganizationMock.create(OrganizationMock.MockType.SOUND2);
+                return OrganizationUnitMock.create(OrganizationUnitMock.MockType.SOUND2);
+            }
+        }, DEEJEY4_OUTER {
+            @Override
+            public Party create() {
+                return OrganizationUnitMock.create(OrganizationUnitMock.MockType.DEEJEY4_OUTER);
+            }
+        }, SOUND3_OUTER {
+            @Override
+            public Party create() {
+                return OrganizationUnitMock.create(OrganizationUnitMock.MockType.SOUND3_OUTER);
             }
         };
 

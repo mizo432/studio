@@ -1,4 +1,4 @@
-package org.venuspj.studio.adapter.datasource.event;
+package org.venuspj.studio.adapter.datasource.core.event;
 
 import org.junit.Test;
 

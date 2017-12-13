@@ -20,7 +20,7 @@ public class Note {
     }
 
     public static Note empty() {
-        return new Note(Description.emptyDescription(),
+        return new Note(Description.empty(),
                 new RecordDateTime(DateProvider.currentDateTime()),
                 new EmptyNoteWriter());
     }

@@ -15,7 +15,7 @@ public class PlayerInformation extends PartyRoleInformation {
 
     public PlayerInformation() {
         super(new Name("PLAYER"));
-        name = Name.emptyName();
+        name = Name.empty();
         playerClassification = PlayerClassification.NULL_PLAYER;
     }
 

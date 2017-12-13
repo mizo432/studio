@@ -2,25 +2,23 @@ package org.venuspj.studio.generic.model.ppt.party.organization;
 
 import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 import org.venuspj.studio.generic.model.ppt.party.PartyImpl;
-import org.venuspj.util.builder.ObjectBuilder;
 
-import static org.venuspj.util.objects2.Objects2.equal;
-import static org.venuspj.util.objects2.Objects2.isNull;
+import static org.venuspj.util.objects2.Objects2.*;
 
 @SuppressWarnings("EQ_SELF_NO_OBJECT")
 public class OrganizationImpl extends PartyImpl implements Organization {
-    private final OrganizationUnits units;
+    private final OrganizationUnitIdentifiers unitsIdentifiers;
 
-    public OrganizationImpl(PartyIdentifier anIdentifier, OrganizationInformation anInfo, OrganizationUnits anyUnits) {
+    public OrganizationImpl(PartyIdentifier anIdentifier, OrganizationInformation anInfo, OrganizationUnitIdentifiers anyUnitsIdentifiers) {
         super(anIdentifier, anInfo);
-        units = anyUnits;
+        unitsIdentifiers = anyUnitsIdentifiers;
     }
 
     public static Organization empty() {
         return new OrganizationImpl(
                 PartyIdentifier.newId(),
                 OrganizationInformation.empty(),
-                OrganizationUnits.empty()
+                OrganizationUnitIdentifiers.empty()
         );
     }
 
@@ -29,7 +27,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
         Organization b = new OrganizationImpl(
                 (PartyIdentifier) identifier(),
                 getOrganizationInformation(),
-                units
+                unitsIdentifiers
         );
 
         /*ObjectクラスのcloneメソッドはCloneNotSupportedExceptionを投げる可能性があるので、try-catch文で記述(呼び出し元に投げても良い)*/
@@ -41,6 +39,7 @@ public class OrganizationImpl extends PartyImpl implements Organization {
         return b;
     }
 
+    @Override
     public OrganizationInformation getOrganizationInformation() {
         return (OrganizationInformation) super.getPartyInformation();
     }
@@ -56,64 +55,55 @@ public class OrganizationImpl extends PartyImpl implements Organization {
     }
 
     @Override
-    public OrganizationUnits getUnits() {
-        return units;
+    public OrganizationUnitIdentifiers getUnitIdentifiers() {
+        return unitsIdentifiers;
     }
 
     public boolean sameValueAs(OrganizationImpl that) {
         if (isNull(that)) return false;
         return super.sameValueAs(that) &&
-                equal(units, that.getUnits());
+                equal(unitsIdentifiers, that.getUnitIdentifiers());
 
     }
 
-    public static class OrganizationBuilder extends ObjectBuilder<Organization, OrganizationBuilder> {
+    public static class Builder extends PartyImpl.Builder<OrganizationImpl, Builder> {
 
-        private PartyIdentifier identifier;
-        private OrganizationInformation info;
-        private OrganizationUnits units = OrganizationUnits.empty();
+        private OrganizationInformation organizationInformation = OrganizationInformation.empty();
+        private OrganizationUnitIdentifiers unitIdentifiers = OrganizationUnitIdentifiers.empty();
 
         @Override
-        protected void apply(Organization vo, OrganizationBuilder builder) {
-            builder.withIdentifier((PartyIdentifier) vo.identifier());
-            builder.withInfo(vo.getOrganizationInformation());
-            builder.withUnits(vo.getUnits());
+        protected void apply(OrganizationImpl vo, Builder builder) {
+            super.apply(vo, builder);
+            builder.withOrganizationInformation(vo.getOrganizationInformation());
+            builder.withUnitIdentifiers(vo.getUnitIdentifiers());
 
         }
 
-        public OrganizationBuilder withUnits(OrganizationUnits anUnits) {
-            if (isNull(anUnits)) return getThis();
-            addConfigurator(builder -> builder.units = anUnits);
+        private Builder withUnitIdentifiers(OrganizationUnitIdentifiers anyUnitIdentifiers) {
+            if (isNull(anyUnitIdentifiers)) return getThis();
+            addConfigurator(builder -> builder.unitIdentifiers = anyUnitIdentifiers);
             return getThis();
-
         }
 
-        public OrganizationBuilder withInfo(OrganizationInformation anInfo) {
-            if (isNull(anInfo)) return getThis();
-            addConfigurator(builder -> builder.info = anInfo);
-            return getThis();
-
-        }
-
-        public OrganizationBuilder withIdentifier(PartyIdentifier anIdentifier) {
-            if (isNull(anIdentifier)) return getThis();
-            addConfigurator(builder -> builder.identifier = anIdentifier);
+        public Builder withOrganizationInformation(OrganizationInformation anOrganizationInformation) {
+            if (isNull(anOrganizationInformation)) return getThis();
+            addConfigurator(builder -> builder.organizationInformation = anOrganizationInformation);
             return getThis();
         }
 
         @Override
         protected OrganizationImpl createValueObject() {
-            return new OrganizationImpl(identifier, info, units);
+            return new OrganizationImpl(identifier, organizationInformation, unitIdentifiers);
         }
 
         @Override
-        protected OrganizationBuilder getThis() {
+        protected Builder getThis() {
             return this;
         }
 
         @Override
-        protected OrganizationBuilder newInstance() {
-            return new OrganizationBuilder();
+        protected Builder newInstance() {
+            return new Builder();
         }
     }
 

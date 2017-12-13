@@ -9,7 +9,7 @@ public class Profile {
     private final Description description;
 
     Profile() {
-        description = Description.emptyDescription();
+        description = Description.empty();
 
     }
 
@@ -20,6 +20,10 @@ public class Profile {
 
     public static Profile defaultProfile() {
         return new Profile();
+    }
+
+    public Description getDescription() {
+        return description;
     }
 
 }

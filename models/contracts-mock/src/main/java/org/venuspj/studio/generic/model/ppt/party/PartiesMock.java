@@ -41,6 +41,26 @@ public class PartiesMock {
                         PartyMock.MockType.SOUND2,
                 };
             }
+        }, ALL_PLAYERS {
+            @Override
+            public PartyMock.MockType[] getPartyMockTypes() {
+                return new PartyMock.MockType[]{PartyMock.MockType.DEEJEY1,
+                        PartyMock.MockType.DEEJEY2,
+                        PartyMock.MockType.DEEJEY3,
+                        PartyMock.MockType.DEEJEY4_OUTER,
+                        PartyMock.MockType.SOUND1,
+                        PartyMock.MockType.SOUND2,
+                        PartyMock.MockType.SOUND3_OUTER
+                };
+            }
+        }, OUTER_PLAYERS {
+            @Override
+            public PartyMock.MockType[] getPartyMockTypes() {
+                return new PartyMock.MockType[]{
+                        PartyMock.MockType.DEEJEY4_OUTER,
+                        PartyMock.MockType.SOUND3_OUTER
+                };
+            }
         };
 
         public abstract PartyMock.MockType[] getPartyMockTypes();

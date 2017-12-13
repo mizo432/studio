@@ -57,6 +57,13 @@ public class OrganizationInformationMock {
                         .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.SOUND2))
                         .build();
             }
+        }, OUTER {
+            @Override
+            public OrganizationInformation create() {
+                return new OrganizationInformation
+                        .Builder()
+                        .build();
+            }
         };
 
         public abstract OrganizationInformation create();

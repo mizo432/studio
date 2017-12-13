@@ -5,7 +5,7 @@ import org.venuspj.ddd.model.value.StringValue;
 import java.util.function.Predicate;
 
 import static org.venuspj.util.objects2.Objects2.*;
-import static org.venuspj.util.strings2.Strings2.isNotEmpty;
+import static org.venuspj.util.strings2.Strings2.*;
 
 public class Name implements StringValue {
     private String value;
@@ -23,7 +23,7 @@ public class Name implements StringValue {
         return new Name();
     }
 
-    public static Name emptyName() {
+    public static Name empty() {
         return new Name();
     }
 
@@ -50,6 +50,7 @@ public class Name implements StringValue {
         public boolean test(Name aName) {
             return equalStringCriteria.test(aName);
         }
+
         NameCriteria equal(Name aName) {
             equalStringCriteria.setSource(aName);
             return this;
@@ -57,23 +58,24 @@ public class Name implements StringValue {
 
 
     }
+
     private static class EqualStringCriteria implements Predicate<StringValue> {
         private boolean isEmpty = true;
         private StringValue source = null;
 
+        public static EqualStringCriteria emptyEqualStringCriteria() {
+            return new EqualStringCriteria();
+        }
+
         @Override
         public boolean test(StringValue aStringValue) {
             if (isEmpty) return true;
-            return equal(source.asText(),aStringValue.asText());
+            return equal(source.asText(), aStringValue.asText());
         }
 
         public void setSource(StringValue aStringValue) {
             source = aStringValue;
             isEmpty = false;
-        }
-
-        public static EqualStringCriteria emptyEqualStringCriteria(){
-            return new EqualStringCriteria();
         }
     }
 

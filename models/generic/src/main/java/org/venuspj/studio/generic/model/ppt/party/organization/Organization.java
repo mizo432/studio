@@ -6,6 +6,6 @@ public interface Organization extends Party {
 
     OrganizationInformation getOrganizationInformation();
 
-    OrganizationUnits getUnits();
+    OrganizationUnitIdentifiers getUnitIdentifiers();
 
 }

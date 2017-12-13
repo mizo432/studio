@@ -16,7 +16,7 @@ public class Descriptor {
 
     Descriptor() {
         name = Name.defaultName();
-        description = Description.emptyDescription();
+        description = Description.empty();
     }
 
     public static Descriptor defaultDescriptor() {
@@ -24,7 +24,7 @@ public class Descriptor {
     }
 
     public static Descriptor emptyDescriptor() {
-        return new Descriptor(Name.emptyName(), Description.emptyDescription());
+        return new Descriptor(Name.empty(), Description.empty());
     }
 
     public Name getName() {

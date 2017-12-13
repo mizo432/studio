@@ -1,6 +1,6 @@
 package org.venuspj.studio.generic.model.ppt.party.organization;
 
-import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
+import org.venuspj.studio.generic.model.ppt.party.PartyIdentifierMock;
 
 public class OrganizationMock {
     public static Organization create(MockType aMockType) {
@@ -12,55 +12,18 @@ public class OrganizationMock {
             @Override
             public Organization createMock() {
                 return new OrganizationImpl(
-                        new PartyIdentifier(1),
+                        PartyIdentifierMock.createDummy(PartyIdentifierMock.MockType.LHS),
                         OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.LHS),
-                        OrganizationUnits.empty()
+                        OrganizationUnitIdentifiers.empty()
                 );
             }
-        }, DEEJEY1 {
+        }, OUTER {
             @Override
             public Organization createMock() {
                 return new OrganizationImpl(
-                        new PartyIdentifier(1),
-                        OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.DEEJEY1),
-                        OrganizationUnits.empty()
-                );
-            }
-        }, DEEJEY2 {
-            @Override
-            public Organization createMock() {
-                return new OrganizationImpl(
-                        new PartyIdentifier(1),
-                        OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.DEEJEY2),
-                        OrganizationUnits.empty()
-                );
-
-            }
-        }, DEEJEY3 {
-            @Override
-            public Organization createMock() {
-                return new OrganizationImpl(
-                        new PartyIdentifier(1),
-                        OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.DEEJEY3),
-                        OrganizationUnits.empty()
-                );
-            }
-        }, SOUND1 {
-            @Override
-            public Organization createMock() {
-                return new OrganizationImpl(
-                        new PartyIdentifier(1),
-                        OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.SOUND1),
-                        OrganizationUnits.empty()
-                );
-            }
-        }, SOUND2 {
-            @Override
-            public Organization createMock() {
-                return new OrganizationImpl(
-                        new PartyIdentifier(1),
-                        OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.SOUND2),
-                        OrganizationUnits.empty()
+                        PartyIdentifierMock.createDummy(PartyIdentifierMock.MockType.OUTER),
+                        OrganizationInformationMock.createDummy(OrganizationInformationMock.MockType.OUTER),
+                        OrganizationUnitIdentifiers.empty()
                 );
             }
         };

@@ -16,7 +16,7 @@ public class PlaceInformation extends PptInformation {
     }
 
     public static PlaceInformation empty() {
-        return new PlaceInformation(Name.emptyName(), Address.nullAddress());
+        return new PlaceInformation(Name.empty(), Address.nullAddress());
     }
 
     public Name getName() {
