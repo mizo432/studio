@@ -25,4 +25,8 @@ public class PartyIdentifier extends AbstractEntityIdentifier<Party> {
     public boolean isEmpty() {
         return isNull(value);
     }
+
+    public boolean isSpecified() {
+        return nonNull(value);
+    }
 }
