@@ -47,6 +47,13 @@ public class TextCriteriaTest {
     }
 
     @Test
+    public void notIn() {
+        TextCriteria target = new TextCriteria();
+        target.notIn(newArrayList("ABC"));
+        LOGGER.debug("target:{}", toStringHelper(target).defaultConfig().toString());
+    }
+
+    @Test
     public void isNull() {
         TextCriteria target = new TextCriteria();
         target.isNull(true);

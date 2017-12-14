@@ -9,6 +9,7 @@ public abstract class AbstractConcreteCriteria<T> extends AbstractCriteria {
     private EqualCriteria<T> equalCriteria = EqualCriteria.create(this);
     private NotEqualCriteria<T> notEqualCriteria = NotEqualCriteria.create(this);
     private InCriteria<T> inCriteria = InCriteria.create(this);
+    private NotInCriteria<T> notInCriteria = NotInCriteria.create(this);
     private IsNullCriteria isNullCriteria = IsNullCriteria.create(this);
     private IsNotNullCriteria isNotNullCriteria = IsNotNullCriteria.create(this);
 
@@ -44,6 +45,14 @@ public abstract class AbstractConcreteCriteria<T> extends AbstractCriteria {
 
     public void in(Collection<T> anyCollection) {
         inCriteria.setValue(anyCollection);
+        present();
+    }
+    public NotInCriteria<T> getNotIn() {
+        return notInCriteria;
+    }
+
+    public void notIn(Collection<T> anyCollection) {
+        notInCriteria.setValue(anyCollection);
         present();
     }
 
