@@ -4,7 +4,7 @@ import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 
 public interface StudioRepository {
 
-    Studios resolve(PartyIdentifier partyIdentifier);
+    Studio resolve(PartyIdentifier partyIdentifier);
 
     Studios resolve(StudioCriteria StudioCriteria);
 

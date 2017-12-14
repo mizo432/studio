@@ -1,10 +1,10 @@
 package org.venuspj.studio.core.usecase.studio;
 
-import org.venuspj.ddd.model.entity.EntityIdentifier;
-import org.venuspj.studio.generic.model.ppt.party.Party;
+import org.venuspj.cleanArchitecture.useCase.Request;
+import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 
-public interface StudioQueryInputPort {
+public interface StudioQueryInputPort extends Request {
 
-    EntityIdentifier<Party> getStudioId();
+    PartyIdentifier getStudioIdentifier();
 
 }
