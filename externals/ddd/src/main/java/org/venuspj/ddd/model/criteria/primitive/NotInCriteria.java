@@ -34,6 +34,7 @@ public class NotInCriteria<T> extends AbstractCriteria {
         present();
     }
 
+    @SuppressWarnings("unchecked")
     public void setValue(T... anyArray) {
         list.addAll(newArrayList(anyArray));
         present();

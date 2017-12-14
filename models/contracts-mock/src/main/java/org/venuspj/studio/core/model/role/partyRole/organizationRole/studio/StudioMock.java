@@ -7,11 +7,11 @@ import org.venuspj.studio.generic.model.ppt.party.organization.Organization;
  */
 public class StudioMock {
 
-    public static Studio createDummy(StudioMockType aMockType) {
+    public static Studio createDummy(MockType aMockType) {
         return aMockType.create();
     }
 
-    public enum StudioMockType {
+    public enum MockType {
         EMPTY {
             @Override
             public Studio create() {

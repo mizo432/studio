@@ -2,12 +2,8 @@ package org.venuspj.studio.usecase.studio;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioCriteria;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioRepository;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studios;
+import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioRepositoryMock;
 import org.venuspj.studio.core.usecase.studio.StudioQueryUseCase;
-import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
 
 import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
@@ -19,22 +15,11 @@ public class StudioQueryTest {
 
     @Before
     public void setUp() throws Exception {
-        StudioRepository aStudioRepository = new StudioRepository() {
-            @Override
-            public Studio resolve(PartyIdentifier partyIdentifier) {
-                return null;
-            }
-
-            @Override
-            public Studios resolve(StudioCriteria StudioCriteria) {
-                return null;
-            }
-        };
-        studioQueryUseCase = new StudioQuery(aStudioRepository);
+        studioQueryUseCase = new StudioQuery(new StudioRepositoryMock());
     }
 
     @Test
-    public void start1() throws Exception {
+    public void execute() throws Exception {
 
         StudioQueryPortMock studioQueryPort = new StudioQueryPortMock("LHS");
         studioQueryUseCase.execute(studioQueryPort, studioQueryPort);

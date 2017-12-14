@@ -1,5 +1,6 @@
 package org.venuspj.studio.generic.model.ppt.party.organization;
 
+import org.venuspj.studio.generic.fundamentals.name.NameMock;
 import org.venuspj.studio.generic.model.ppt.party.AddressUseMock;
 
 public class OrganizationInformationMock {
@@ -13,6 +14,7 @@ public class OrganizationInformationMock {
             public OrganizationInformation create() {
                 return new OrganizationInformation
                         .Builder()
+                        .withName(NameMock.createDummy(NameMock.NameType.STUDIO_NAME))
                         .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.LHS))
                         .build();
             }
@@ -22,6 +24,7 @@ public class OrganizationInformationMock {
             public OrganizationInformation create() {
                 return new OrganizationInformation
                         .Builder()
+                        .withName(NameMock.createDummy(NameMock.NameType.PLAYER1))
                         .withAddressUse(AddressUseMock.createDummy(AddressUseMock.MockType.DEEJEY1))
                         .build();
             }
