@@ -3,7 +3,8 @@ package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 import org.venuspj.studio.generic.model.ppt.party.organization.Organization;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationImpl;
 import org.venuspj.studio.generic.model.role.partyRole.organizationRole.OrganizationRoleImpl;
-import org.venuspj.util.builder.ObjectBuilder;
+
+import static org.venuspj.util.objects2.Objects2.isNull;
 
 public class Studio extends OrganizationRoleImpl {
 
@@ -22,16 +23,27 @@ public class Studio extends OrganizationRoleImpl {
         return new Studio(OrganizationImpl.empty(), StudioInformation.empty());
     }
 
-    public static class Builder extends ObjectBuilder<Studio, Builder> {
+    public static class Builder extends OrganizationRoleImpl.Builder<Studio, Builder> {
+
+        StudioInformation studioInformation;
 
         @Override
         protected void apply(Studio vo, Builder builder) {
-
+            super.apply(vo, builder);
+            builder.withStudioInformation(vo.getStudioInformation());
         }
+
+
+        private Builder withStudioInformation(StudioInformation aStudioInformation) {
+            if (isNull(aStudioInformation)) return getThis();
+            addConfigurator(builder -> builder.studioInformation = aStudioInformation);
+            return getThis();
+        }
+
 
         @Override
         protected Studio createValueObject() {
-            return null;
+            return new Studio(organization, studioInformation);
         }
 
         @Override

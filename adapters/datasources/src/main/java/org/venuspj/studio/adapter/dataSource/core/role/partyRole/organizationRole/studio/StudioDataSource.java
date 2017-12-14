@@ -5,6 +5,7 @@ import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Stud
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.StudioRepository;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studios;
 import org.venuspj.studio.generic.model.ppt.party.PartyIdentifier;
+import org.venuspj.studio.generic.model.ppt.party.organization.Organization;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationRepository;
 
 public class StudioDataSource implements StudioRepository {
@@ -12,14 +13,18 @@ public class StudioDataSource implements StudioRepository {
 
     OrganizationRepository organizationRepository;
 
-    public StudioDataSource(StudioMapper aStudioMapper, OrganizationRepository anOrganizationRepository){
+    public StudioDataSource(StudioMapper aStudioMapper, OrganizationRepository anOrganizationRepository) {
         studioMapper = aStudioMapper;
         organizationRepository = anOrganizationRepository;
     }
+
     @Override
     public Studio resolve(PartyIdentifier aPartyIdentifier) {
         Studio studio = studioMapper.findOne(aPartyIdentifier);
-        return new Studio.Builder().apply(studio);
+        return new Studio
+                .Builder()
+                .withOrganization((Organization) organizationRepository.resolve(studio.getOrganization().identifier()))
+                .apply(studio);
     }
 
     @Override

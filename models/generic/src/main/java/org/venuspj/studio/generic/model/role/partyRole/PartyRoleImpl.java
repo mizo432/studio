@@ -2,6 +2,7 @@ package org.venuspj.studio.generic.model.role.partyRole;
 
 import org.venuspj.studio.generic.model.ppt.party.Party;
 import org.venuspj.studio.generic.model.role.RoleImpl;
+import org.venuspj.util.builder.ObjectBuilder;
 
 public abstract class PartyRoleImpl extends RoleImpl implements PartyRole {
 
@@ -25,5 +26,8 @@ public abstract class PartyRoleImpl extends RoleImpl implements PartyRole {
 
     protected PartyRoleInformation getPartyRoleInformation() {
         return (PartyRoleInformation) getRoleInformation();
+    }
+
+    public static abstract class Builder<P extends PartyRole , B extends Builder<P,B>> extends ObjectBuilder<P,B> {
     }
 }
