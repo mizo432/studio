@@ -1,15 +1,15 @@
 package org.venuspj.studio.core.model.momentInterval.momemt.event;
 
-import org.venuspj.ddd.model.entity.EntityIdentifier;
+import org.venuspj.studio.core.model.event.EventIdentifier;
 
 public class EventCredential {
-    private EntityIdentifier<Event> eventId = EventId.defaultEventId();
+    private EventIdentifier eventIdentifier = EventIdentifier.empty();
 
-    public EventCredential(EventId anEventId) {
-        eventId = anEventId;
+    public EventCredential(EventIdentifier anIdentifier) {
+        eventIdentifier = anIdentifier;
     }
 
-    public EntityIdentifier<Event> eventId() {
-        return eventId;
+    public EventIdentifier eventId() {
+        return eventIdentifier;
     }
 }

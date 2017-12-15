@@ -30,7 +30,7 @@ APP_BASE_NAME=`basename "$0"`
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS=""
 
-# Use the maximum available, org set MAX_FD != -1 to use that value.
+# Use the maximum available, or set MAX_FD != -1 to use that value.
 MAX_FD="maximum"
 
 warn ( ) {
@@ -44,7 +44,7 @@ die ( ) {
     exit 1
 }
 
-# OS specific support (must be 'true' org 'false').
+# OS specific support (must be 'true' or 'false').
 cygwin=false
 msys=false
 darwin=false

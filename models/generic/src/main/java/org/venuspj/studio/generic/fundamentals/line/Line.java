@@ -1,9 +1,7 @@
 package org.venuspj.studio.generic.fundamentals.line;
 
-import org.venuspj.util.objects2.Objects2;
-
 public class Line {
-    String value;
+    private String value;
 
     public Line(String aValue) {
         value = aValue;
@@ -13,15 +11,12 @@ public class Line {
 
     }
 
+    public String asText() {
+        return value;
+    }
+
     public static Line empty() {
         return new Line();
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .addValue(value)
-                .toString();
-    }
 }

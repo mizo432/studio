@@ -1,36 +1,35 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.studio;
 
-import org.venuspj.util.collect.Lists2;
-import org.venuspj.util.objects2.Objects2;
+import org.venuspj.ddd.model.value.ListValue;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-public class Studios implements Iterable<Studio> {
-    List<Studio> list = Lists2.newArrayList();
+import static org.venuspj.util.collect.Lists2.*;
 
-    Studios() {
+public class Studios implements ListValue<Studio> {
 
-    }
+    List<Studio> list = newArrayList();
 
-    public Studios(List<Studio> aList) {
-        list.addAll(aList);
-    }
 
-    public static Studios empty() {
-        return new Studios();
+    public Studios(Collection<Studio> studioCollection) {
+        list.addAll(studioCollection);
+
     }
 
     @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .addValue(list)
-                .toString();
+    public List<Studio> asList() {
+        return unmodifiableList(list);
     }
 
     @Override
     public Iterator<Studio> iterator() {
-        return list.iterator();
+        return asList().iterator();
+    }
+
+    public Studio first() {
+        if (list.isEmpty()) throw new IndexOutOfBoundsException();
+        return list.get(0);
     }
 }

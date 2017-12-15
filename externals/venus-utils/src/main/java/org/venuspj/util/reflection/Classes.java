@@ -1,12 +1,12 @@
 package org.venuspj.util.reflection;
 
-import com.google.common.collect.Maps;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Map;
+
+import static org.venuspj.util.collect.Maps2.*;
 
 
 /**
@@ -14,13 +14,14 @@ import java.util.Map;
  */
 public class Classes {
     private static final Map<Class<?>, Field[]> declaredFieldsCache =
-            Maps.newHashMap();
+            newHashMap();
     private static final Field[] NO_FIELDS = {};
 
     public static Field findField(Class<?> aClass, String aName) {
         return findField(aClass, aName, null);
 
     }
+
     public static Field findField(Class<?> clazz, String name, Class<?> type) {
         Class<?> searchType = clazz;
         while (Object.class != searchType && searchType != null) {
@@ -35,6 +36,7 @@ public class Classes {
         }
         return null;
     }
+
     private static Field[] getDeclaredFields(Class<?> clazz) {
         Field[] result = declaredFieldsCache.get(clazz);
         if (result == null) {
@@ -55,8 +57,7 @@ public class Classes {
     public static Object getField(Field field, Object target) {
         try {
             return field.get(target);
-        }
-        catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             handleReflectionException(ex);
             throw new IllegalStateException(
                     "Unexpected reflection exception - " + ex.getClass().getName() + ": " + ex.getMessage());

@@ -1,11 +1,14 @@
 package org.venuspj.studio.generic.fundamentals.quantity;
 
-import org.venuspj.util.objects2.Objects2;
-
 /**
  */
 public class Quantity {
     Integer value = 0;
+
+    public Unit getUnit() {
+        return unit;
+    }
+
     Unit unit = Unit.unknown();
 
     Quantity() {
@@ -16,13 +19,8 @@ public class Quantity {
         unit = anUnit;
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("value", value)
-                .add("unit", unit)
-                .omitNullValues()
-                .toString();
+    public Integer asInteger() {
+        return value;
     }
+
 }

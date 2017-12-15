@@ -1,6 +1,6 @@
 package org.venuspj.studio.generic.fundamentals.datetime;
 
-import org.venuspj.util.objects2.Objects2;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 public class Duration {
     protected RecordDateTime startDateTime;
@@ -24,11 +24,8 @@ public class Duration {
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("startDateTime", startDateTime)
-                .add("endDateTime", endDateTime)
-                .omitNullValues()
+        return toStringHelper(this)
+                .defaultConfig()
                 .toString();
     }
 }

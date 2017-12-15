@@ -4,6 +4,9 @@ import org.venuspj.ddd.model.value.DecidableSameValueAs;
 import org.venuspj.ddd.model.value.Value;
 import org.venuspj.util.objects2.Objects2;
 
+import static org.venuspj.util.objects2.Objects2.equal;
+import static org.venuspj.util.objects2.Objects2.hash;
+
 public class Caption implements Value, DecidableSameValueAs<Caption> {
     private String value;
 
@@ -19,7 +22,7 @@ public class Caption implements Value, DecidableSameValueAs<Caption> {
     }
 
     public boolean sameValueAs(Caption other) {
-        return this == other || (other != null && Objects2.equal(value, other.value));
+        return equals(other);
     }
 
     @Override
@@ -28,6 +31,19 @@ public class Caption implements Value, DecidableSameValueAs<Caption> {
                 .toStringHelper(this)
                 .addValue(value)
                 .toString();
+    }
+    @Override
+    public int hashCode() {
+        return hash(value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (this == obj) return true;
+        return obj instanceof Caption &&
+                equal(((Caption) obj).value, value);
+
     }
 
     public static Caption emptyCaption() {

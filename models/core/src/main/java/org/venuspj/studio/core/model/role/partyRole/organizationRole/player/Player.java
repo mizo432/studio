@@ -1,37 +1,33 @@
 package org.venuspj.studio.core.model.role.partyRole.organizationRole.player;
 
-import org.venuspj.ddd.model.entity.AbstractEntity;
-import org.venuspj.studio.generic.fundamentals.name.Name;
-import org.venuspj.util.objects2.Objects2;
+import org.venuspj.studio.generic.model.ppt.party.Party;
+import org.venuspj.studio.generic.model.role.partyRole.PartyRoleImpl;
 
-public class Player extends AbstractEntity<Player> {
+import static org.venuspj.util.objects2.Objects2.nonNull;
 
-    Name name = Name.defaultName();
-    PlayerId playerId = PlayerId.defaultId();
-    PlayerClassification playerClassification = PlayerClassification.OUTER_PLAYER;
+/**
+ * プレイヤー 組織の役割
+ */
+public class Player extends PartyRoleImpl {
 
-    Player() {
+    private final PlayerInformation playerInformation;
+
+    protected Player() {
+        super();
+        playerInformation = null;
 
     }
 
-    public Player(PlayerId aPlayerId, Name aName, PlayerClassification aPlayerClassification) {
-        super(aPlayerId);
-        name = aName;
-        playerClassification = aPlayerClassification;
-    }
-
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("identifier", identifier())
-                .add("name", name)
-                .add("playerClassification", playerClassification)
-                .omitNullValues()
-                .toString();
+    public <P extends Party, PI extends PlayerInformation> Player(P anParty, PI aPlayerInformation) {
+        super(anParty, aPlayerInformation);
+        playerInformation = aPlayerInformation;
     }
 
     public boolean isStudioPlayer() {
-        return playerClassification.isStudioPlayer();
+        return nonNull(playerInformation) && playerInformation.isStudioPlayer();
+    }
+
+    public static Player empty() {
+        return new Player();
     }
 }

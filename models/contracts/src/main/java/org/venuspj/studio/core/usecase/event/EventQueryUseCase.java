@@ -1,10 +1,7 @@
 package org.venuspj.studio.core.usecase.event;
 
-public interface EventQueryUseCase {
-    EventQueryUseCase withEventQueryInputPort(EventQueryInputPort inputPort);
+import org.venuspj.cleanArchitecture.useCase.UseCase;
 
-    EventQueryUseCase withEventQueryOutputPort(EventQueryOutputPort outputPort);
-
-    void start();
+public interface EventQueryUseCase extends UseCase<EventQueryInputPort, EventQueryOutputPort> {
 
 }

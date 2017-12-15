@@ -2,11 +2,11 @@ rootProject.name = 'studio'
 include ':venus-utils'
 project(':venus-utils').projectDir = file('./externals/venus-utils')
 
-include ':ddd'
-project(':ddd').projectDir = file('./externals/ddd')
-
 include ':clean-architecture'
 project(':clean-architecture').projectDir = file('./externals/clean-architecture')
+
+include ':ddd'
+project(':ddd').projectDir = file('./externals/ddd')
 
 include ':generic'
 project(':generic').projectDir = file('./models/generic')
@@ -20,8 +20,8 @@ project(':studio-manage-web').projectDir = file('./bootstraps/manage-web')
 include ':studio-presenters'
 project(':studio-presenters').projectDir = file('./adapters/presenters')
 
-include ':studio-datasources'
-project(':studio-datasources').projectDir = file('./adapters/datasources')
+include ':studio-dataSources'
+project(':studio-dataSources').projectDir = file('./adapters/datasources')
 
 include ':studio-use-cases'
 project(':studio-use-cases').projectDir = file('./applications/usecases')

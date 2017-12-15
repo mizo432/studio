@@ -28,11 +28,7 @@ public class Amount {
         return Objects2.isNull(value);
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .addValue(value)
-                .toString();
+    public Integer asInteger() {
+        return value;
     }
 }

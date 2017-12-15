@@ -1,16 +1,16 @@
 package org.venuspj.studio.generic.fundamentals.address.prefecture;
 
-import org.venuspj.ddd.model.entity.IntegerIdValue;
+import org.venuspj.ddd.model.value.StringValue;
 import org.venuspj.util.objects2.Objects2;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
-public class PrefectureCode implements IntegerIdValue<PrefectureCode> {
-    private Integer value;
+public class PrefectureCode implements StringValue {
+    private String value;
 
-    public PrefectureCode(Integer aValue) {
+    public PrefectureCode(String aValue) {
         value = aValue;
     }
 
@@ -20,16 +20,10 @@ public class PrefectureCode implements IntegerIdValue<PrefectureCode> {
 
 
     @Override
-    public Integer asInteger() {
+    public String asText() {
         return value;
     }
 
-    @Override
-    public String asText() {
-        return value.toString();
-    }
-
-    @Override
     public boolean sameValueAs(PrefectureCode other) {
         return equals(other);
     }

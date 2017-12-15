@@ -1,32 +1,35 @@
 package org.venuspj.studio.adapter.presenters.event;
 
-import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
+import org.venuspj.studio.core.model.event.Event;
 import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
-import org.venuspj.util.objects2.Objects2;
 
 public class EventPage implements EventQueryOutputPort {
     private Event event;
-    private Players players;
 
     @Override
-    public void withEvent(Event anEvent) {
+    public void setEvent(Event anEvent) {
         event = anEvent;
     }
 
-    @Override
-    public void withPlayers(Players anyPlayers) {
-        players = anyPlayers;
+    public EventPageView getDetail() {
+        EventPageView eventPageView = new EventPageView();
+        eventPageView.setEventName(event.getInfo().getDescriptor().getName().asText());
+        return eventPageView;
+    }
+
+    public static class EventPageView {
+
+        private String eventName;
+
+        public String getEventName() {
+            return eventName;
+        }
+
+        public void setEventName(String aValue) {
+            eventName = aValue;
+        }
 
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("event", event)
-                .add("players", players)
-                .omitNullValues()
-                .toString();
-    }
+
 }

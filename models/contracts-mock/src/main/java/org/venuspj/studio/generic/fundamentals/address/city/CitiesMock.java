@@ -7,7 +7,7 @@ import java.util.List;
 public class CitiesMock {
 
     public static Cities createDummy(CitiesType aCitiesType) {
-        List<City> cityList = Lists2.newArrayListWithExpectedSize(aCitiesType.cityCount());
+        List<City> cityList = Lists2.newArrayListWithCapacity(aCitiesType.cityCount());
         for (CityMock.CityType cityType : aCitiesType.cityTypes()) {
             cityList.add(CityMock.createDummy(cityType));
         }

@@ -1,11 +1,10 @@
 package org.venuspj.studio.usecase.event;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.venuspj.ddd.model.repository.CrudRepository;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.EventCredential;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Player;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
+import org.venuspj.studio.core.model.event.Event;
+import org.venuspj.studio.core.model.event.EventIdentifier;
+import org.venuspj.studio.core.model.event.EventRepository;
 import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
 import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
 import org.venuspj.studio.core.usecase.event.EventQueryUseCase;
@@ -16,36 +15,20 @@ import org.venuspj.studio.core.usecase.event.EventQueryUseCase;
 @Service
 public class EventQuery implements EventQueryUseCase {
 
-    EventQueryInputPort inputPort;
-    EventQueryOutputPort outputPort;
-    CrudRepository<Event> eventRepository;
-    CrudRepository<Player> playerRepository;
+    private EventRepository eventRepository;
 
-    public EventQuery(CrudRepository<Event> anEventRepository, CrudRepository<Player> aPlayerRepository) {
+    @Autowired
+    public EventQuery(EventRepository anEventRepository) {
         eventRepository = anEventRepository;
-        playerRepository = aPlayerRepository;
     }
 
     @Override
-    public EventQueryUseCase withEventQueryInputPort(EventQueryInputPort anInputPort) {
-        inputPort = anInputPort;
-        return this;
-    }
+    public void execute(EventQueryInputPort request, EventQueryOutputPort response) {
+        EventIdentifier eventIdentifier = request.getEventIdentifier();
 
-    @Override
-    public EventQueryUseCase withEventQueryOutputPort(EventQueryOutputPort anOutputPort) {
-        outputPort = anOutputPort;
-        return this;
-    }
+        Event event = eventRepository.resolve(eventIdentifier);
 
-    @Override
-    public void start() {
-        EventCredential credential = inputPort.toCredential();
-        Event event = eventRepository.resolve(credential.eventId());
-        Players players = new Players(playerRepository.resolve(event.outline().playerIds()));
-        outputPort.withEvent(event);
-        outputPort.withPlayers(players);
+        response.setEvent(event);
 
     }
-
 }

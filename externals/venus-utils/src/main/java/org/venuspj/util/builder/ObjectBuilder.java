@@ -1,9 +1,10 @@
 package org.venuspj.util.builder;
 
-import com.google.common.collect.Lists;
 import org.venuspj.util.assigner.Assigner;
 
 import java.util.List;
+
+import static org.venuspj.util.collect.Lists2.*;
 
 /**
  * ValueObjectのインスタンスを生成するビルダー。
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public abstract class ObjectBuilder<T, S extends ObjectBuilder<T, S>> {
 
-    protected List<BuilderConfigurator<S>> configurators = Lists.newArrayList();
+    protected List<BuilderConfigurator<S>> configurators = newArrayList();
 
     /**
      * ビルダの設定に基づき、引数のValueObjectの内容を変更した新しいインスタンスを生成する。
@@ -61,14 +62,14 @@ public abstract class ObjectBuilder<T, S extends ObjectBuilder<T, S>> {
     /**
      * 引数のビルダに対して、引数のValueObjectの内容を適用する。
      *
-     * @param vo 状態を引用するValueObject
+     * @param vo      状態を引用するValueObject
      * @param builder ビルダ
      */
     protected abstract void apply(T vo, S builder);
 
     /**
      * ビルダの設定に基づいてValueObjectの新しいインスタンスを生成する。
-     *
+     * <p>
      * <p>
      * {@link ObjectBuilder#build}内でこのビルダに追加された{@link BuilderConfigurator}を全て実行した後に、このメソッドが呼ばれる。<br>
      * その為、このビルダに対する変更を行うロジックはこのメソッド内に記述せず、目的となるValueObjectを生成し返すロジックを記述することが望まれる。
@@ -91,7 +92,6 @@ public abstract class ObjectBuilder<T, S extends ObjectBuilder<T, S>> {
      * @return このビルダークラスの新しいインスタンス。
      */
     protected abstract S newInstance();
-
 
 
     /**

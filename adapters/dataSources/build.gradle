@@ -1,0 +1,65 @@
+apply plugin: 'org.springframework.boot'
+
+description = "studio-dataSources"
+
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("org.ajoberstar:grgit:2.0.1")
+        classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.4"
+    }
+}
+
+apply plugin: "org.ajoberstar.grgit"
+apply plugin: "com.arenagod.gradle.MybatisGenerator"
+
+repositories {
+    mavenCentral()
+}
+
+//compileJava.dependsOn processResources
+
+configurations {
+    mybatisGenerator
+}
+
+mybatisGenerator {
+    verbose = true
+    configFile = "${projectDir}/src/main/resources/org/venuspj/studio/adapter/autogen/generatorConfig.xml"
+}
+
+bootRepackage {
+    enabled = false
+}
+
+dependencies {
+    def jdbcDriver = "mysql:mysql-connector-java:${mySqlConnectorVersion}"
+
+    compile project(":studio-core")
+    compile project(":studio-contracts")
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:${myBatisSpringBootVersion}")
+    compile("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypehandlersJsr310Version}")
+    compile("org.slf4j:slf4j-api:${slf4jVersion}")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile project(":studio-contracts-mock")
+    testRuntime("${jdbcDriver}")
+    testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
+    testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+
+}
+
+test {
+    jvmArgs = ['-Dspring.profiles.active=unit']
+}
+
+void clearDir(String dirPath) {
+    delete dirPath
+}
+

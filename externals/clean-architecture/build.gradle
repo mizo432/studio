@@ -1,6 +1,4 @@
-apply plugin: 'java'
-
-description = "clean-archtecture-framework"
+description = "clean-architecture"
 
 dependencies {
     compile project(":venus-utils")

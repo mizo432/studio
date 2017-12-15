@@ -1,10 +1,7 @@
 package org.venuspj.studio.core.usecase.studio;
 
-public interface StudioQueryUseCase {
-    StudioQueryUseCase withStudioQueryInputPort(StudioQueryInputPort inputPort);
+import org.venuspj.cleanArchitecture.useCase.UseCase;
 
-    StudioQueryUseCase withStudioQueryOutputPort(StudioQueryOutputPort outPort);
-
-    void start();
+public interface StudioQueryUseCase extends UseCase<StudioQueryInputPort, StudioQueryOutputPort> {
 
 }

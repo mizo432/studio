@@ -2,6 +2,8 @@ package org.venuspj.ddd.model.entity;
 
 import org.venuspj.util.objects2.Objects2;
 
+import static org.venuspj.util.objects2.Objects2.isNull;
+
 /**
  * エンティティの抽象クラス
  *
@@ -36,6 +38,7 @@ public abstract class AbstractEntity<T extends Entity<T>> implements Entity<T> {
 
     @Override
     public int hashCode() {
+        if (isNull(identifier)) return 0;
         return identifier.hashCode();
     }
 

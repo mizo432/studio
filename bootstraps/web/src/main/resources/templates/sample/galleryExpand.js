@@ -619,7 +619,7 @@
 
           setTimeout(function() {
 
-            // Off resize event.
+            // Off resize events.
             $(window).off('resize', modalResizer);
 
             // Fade out child elements

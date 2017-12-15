@@ -1,12 +1,11 @@
 package org.venuspj.studio.core.usecase.event;
 
-import org.venuspj.studio.core.model.momentInterval.momemt.event.Event;
-import org.venuspj.studio.core.model.role.partyRole.organizationRole.player.Players;
+import org.venuspj.cleanArchitecture.useCase.Response;
+import org.venuspj.studio.core.model.event.Event;
 
 /**
  */
-public interface EventQueryOutputPort {
-    void withEvent(Event event);
+public interface EventQueryOutputPort extends Response {
+    void setEvent(Event event);
 
-    void withPlayers(Players players);
 }

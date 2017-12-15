@@ -15,7 +15,7 @@ public class PrefectureTest {
 
     @Test
     public void testToString1() throws Exception {
-        Prefecture target = new Prefecture();
+        Prefecture target = Prefecture.unknown;
         String actual = target.toString();
         assertThat(actual)
                 .isNotNull();
@@ -26,14 +26,6 @@ public class PrefectureTest {
     public void testToString2() throws Exception {
         Prefecture target = createDummy();
         String actual = target.toString();
-        assertThat(actual)
-                .isNotNull();
-        System.out.println("actual:" + actual);
-    }
-    @Test
-    public void asText() throws Exception {
-        Prefecture target = createDummy();
-        String actual = target.asText();
         assertThat(actual)
                 .isNotNull();
         System.out.println("actual:" + actual);

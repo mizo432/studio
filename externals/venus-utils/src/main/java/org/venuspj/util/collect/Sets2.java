@@ -8,6 +8,15 @@ public final class Sets2 {
         return new HashSet<>();
     }
 
+    @SafeVarargs
+    public static <T> Set<T> newHashSet(T... objects) {
+        Set<T> result = newHashSet();
+        for (T object : objects) {
+            result.add(object);
+        }
+        return result;
+    }
+
     /**
      * 新しいhash setを返却する.
      * <pre>

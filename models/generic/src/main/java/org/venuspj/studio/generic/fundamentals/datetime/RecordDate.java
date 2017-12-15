@@ -5,7 +5,11 @@ import org.venuspj.ddd.model.value.Value;
 import org.venuspj.util.objects2.Objects2;
 
 import java.time.LocalDate;
+import java.util.function.Predicate;
 
+/**
+ * 日付：年月日を示す
+ */
 public class RecordDate implements Value, DecidableSameValueAs<RecordDate> {
     private LocalDate value;
 
@@ -15,6 +19,10 @@ public class RecordDate implements Value, DecidableSameValueAs<RecordDate> {
     public RecordDate(LocalDate aValue) {
         value = aValue;
 
+    }
+
+    public static RecordDate emptyRecordDate() {
+        return new RecordDate();
     }
 
     public LocalDate asDate() {
@@ -37,10 +45,6 @@ public class RecordDate implements Value, DecidableSameValueAs<RecordDate> {
         return Objects2.nonNull(value);
     }
 
-    public static RecordDate empty() {
-        return new RecordDate();
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -55,5 +59,41 @@ public class RecordDate implements Value, DecidableSameValueAs<RecordDate> {
     @Override
     public int hashCode() {
         return Objects2.hash(value);
+    }
+
+    public static class RecordDateCriteria implements Predicate<RecordDate> {
+        EqualRecordDateCriteria equalRecordDateCriteria = EqualRecordDateCriteria.emptyEqualRecordDateCriteria();
+
+        @Override
+        public boolean test(RecordDate recordDate) {
+            return equalRecordDateCriteria
+                    .test(recordDate);
+        }
+
+        RecordDateCriteria equal(RecordDate aRecordDate) {
+            equalRecordDateCriteria.setSourceRecordDate(aRecordDate);
+            return this;
+        }
+
+        public static class EqualRecordDateCriteria implements Predicate<RecordDate> {
+            private boolean isEmpty = true;
+            private RecordDate sourceRecordDate = null;
+
+            public static EqualRecordDateCriteria emptyEqualRecordDateCriteria() {
+                return new EqualRecordDateCriteria();
+            }
+
+
+            @Override
+            public boolean test(RecordDate recordDate) {
+                if (isEmpty) return true;
+                return sourceRecordDate.sameValueAs(recordDate);
+            }
+
+            public void setSourceRecordDate(RecordDate aRecordDate) {
+                sourceRecordDate = aRecordDate;
+                isEmpty = false;
+            }
+        }
     }
 }

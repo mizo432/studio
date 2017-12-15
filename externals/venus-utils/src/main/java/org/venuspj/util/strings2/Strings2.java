@@ -24,6 +24,7 @@ public final class Strings2 {
         }
 
         final char[] array = new char[size];
+        if (count == 0) return "";
         string.getChars(0, len, array, 0);
         int n;
         for (n = len; n < size - n; n <<= 1) {
@@ -141,4 +142,7 @@ public final class Strings2 {
         return !allowSigns && foundDigit;
     }
 
+    public static String surround(String aValue, String s) {
+        return new StringBuilder().append(s).append(aValue).append(s).toString();
+    }
 }

@@ -16,7 +16,19 @@ public class Descriptor {
 
     Descriptor() {
         name = Name.defaultName();
-        description = Description.emptyDescription();
+        description = Description.empty();
+    }
+
+    public static Descriptor defaultDescriptor() {
+        return new Descriptor();
+    }
+
+    public static Descriptor emptyDescriptor() {
+        return new Descriptor(Name.empty(), Description.empty());
+    }
+
+    public Name getName() {
+        return name;
     }
 
     @Override
@@ -28,9 +40,5 @@ public class Descriptor {
                 .omitNullValues()
                 .toString();
 
-    }
-
-    public static Descriptor defaultDescriptor() {
-        return new Descriptor();
     }
 }

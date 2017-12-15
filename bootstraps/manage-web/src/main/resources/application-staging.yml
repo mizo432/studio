@@ -1,0 +1,12 @@
+server:
+    port: 18092
+
+spring:
+  profiles.active: staging
+  datasource:
+    url:  jdbc:mysql://127.0.0.1:3306/studiotest
+    username: studio
+    password: Shishi1231
+    driverClassName: com.mysql.jdbc.Driver
+  session:
+    store-type: hash_map

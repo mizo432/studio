@@ -1,7 +1,6 @@
 package org.venuspj.studio.core.fundamentals.descriptor;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.momentInterval.momemt.event.DescriptorMock;
 
 public class DescriptorTest {
 

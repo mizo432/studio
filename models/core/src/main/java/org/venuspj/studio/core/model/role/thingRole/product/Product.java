@@ -1,31 +1,18 @@
 package org.venuspj.studio.core.model.role.thingRole.product;
 
-import org.venuspj.ddd.model.entity.AbstractEntity;
-import org.venuspj.studio.core.fundamentals.descriptor.Descriptor;
-import org.venuspj.util.objects2.Objects2;
+import org.venuspj.studio.generic.fundamentals.name.Name;
+import org.venuspj.studio.generic.model.ppt.thing.Thing;
+import org.venuspj.studio.generic.model.ppt.thing.ThingImpl;
+import org.venuspj.studio.generic.model.role.thigRole.ThingRoleImpl;
+import org.venuspj.studio.generic.model.role.thigRole.ThingRoleInformation;
 
-/**
- *
- */
-public class Product extends AbstractEntity<Product> {
-    Descriptor descriptor = Descriptor.defaultDescriptor();
-
-    Product() {
-
+public class Product extends ThingRoleImpl {
+    public Product(Thing aThing, ThingRoleInformation aThingRoleInformation) {
+        super(aThing,aThingRoleInformation);
     }
 
-    public Product(ProductId aProductId, Descriptor aDescriptor) {
-        super(aProductId);
-        descriptor = aDescriptor;
+    public static Product empty() {
+        return new Product(ThingImpl.empty(),ThingRoleInformation.empty(new Name("Product")));
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("identifier", identifier())
-                .add("descriptor", descriptor)
-                .omitNullValues()
-                .toString();
-    }
 }

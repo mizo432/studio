@@ -1,0 +1,7 @@
+server:
+    port: 18093
+
+spring:
+  profiles.active: production
+  session:
+    store-type: hash_map
