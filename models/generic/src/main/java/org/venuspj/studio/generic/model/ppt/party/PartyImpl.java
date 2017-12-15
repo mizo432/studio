@@ -24,6 +24,11 @@ public abstract class PartyImpl extends PartyPlaceThingImpl<Party> implements Pa
         return super.sameValueAs(that);
     }
 
+    public AddressUse getCurrentAddressUse() {
+        return getPartyInformation().getAddressUse();
+    }
+
+
     public abstract static class Builder<P extends PartyImpl, B extends Builder<P, B>> extends ObjectBuilder<P, B> {
         protected PartyIdentifier identifier;
 

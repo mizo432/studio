@@ -39,4 +39,15 @@ public class NameTest {
         assertThat(target.asText()).isNull();
     }
 
+    public static class NameCriteriaTest{
+        @Test
+        public void constructor() {
+            Name.NameCriteria target = new Name.NameCriteria();
+            assertThat(target.isEmpty())
+                    .isTrue();
+
+        }
+
+    }
+
 }

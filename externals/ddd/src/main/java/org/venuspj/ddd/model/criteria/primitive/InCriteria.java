@@ -40,4 +40,7 @@ public class InCriteria<T> extends AbstractCriteria {
         present();
     }
 
+    public boolean test(T aValue) {
+        return list.isEmpty() || list.contains(aValue);
+    }
 }

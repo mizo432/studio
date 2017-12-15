@@ -3,7 +3,7 @@ package org.venuspj.ddd.model.criteria;
 
 import org.venuspj.ddd.model.criteria.primitive.*;
 
-public class AbstractEnumerableCriteria<T> extends AbstractConcreteCriteria<T> {
+public class AbstractEnumerableCriteria<T extends Comparable<?>> extends AbstractConcreteCriteria<T> {
 
     private BetweenCriteria<T> betweenCriteria = BetweenCriteria.create(this);
     private GraterCriteria<T> graterCriteria = GraterCriteria.create(this);

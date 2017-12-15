@@ -10,7 +10,8 @@ import org.venuspj.util.builder.ObjectBuilder;
 import static org.venuspj.util.objects2.Objects2.*;
 
 /**
- * パーティーの所在の割り当て
+ * パーティーの所在の割り当て.
+ * MomentInterval
  */
 public class AddressUse extends AbstractEntity<AddressUse> {
     Period period = Period.emptyPeriod();

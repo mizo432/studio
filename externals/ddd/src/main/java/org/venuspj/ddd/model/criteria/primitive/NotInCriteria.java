@@ -5,11 +5,11 @@ import org.venuspj.ddd.model.criteria.Criteria;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static org.venuspj.util.collect.Lists2.*;
 
-public class NotInCriteria<T> extends AbstractCriteria {
-
+public class NotInCriteria<T> extends AbstractCriteria implements Predicate<T> {
 
     private List<T> list = newArrayList();
 
@@ -40,4 +40,7 @@ public class NotInCriteria<T> extends AbstractCriteria {
         present();
     }
 
+    public boolean test(T aValue) {
+        return list.isEmpty() || !list.contains(aValue);
+    }
 }

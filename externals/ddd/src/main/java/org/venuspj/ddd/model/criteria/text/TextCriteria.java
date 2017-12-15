@@ -4,7 +4,9 @@ import org.venuspj.ddd.model.criteria.AbstractConcreteCriteria;
 import org.venuspj.ddd.model.criteria.Criteria;
 import org.venuspj.ddd.model.criteria.primitive.LikeCriteria;
 
-public class TextCriteria extends AbstractConcreteCriteria<String> {
+import java.util.function.Predicate;
+
+public class TextCriteria extends AbstractConcreteCriteria<String> implements Predicate<String> {
 
     private LikeCriteria likeCriteria = LikeCriteria.create(this);
 
@@ -30,4 +32,8 @@ public class TextCriteria extends AbstractConcreteCriteria<String> {
         return likeCriteria;
     }
 
+    @Override
+    public boolean test(String aString) {
+        return isEmpty() || (super.test(aString) && likeCriteria.test(aString));
+    }
 }

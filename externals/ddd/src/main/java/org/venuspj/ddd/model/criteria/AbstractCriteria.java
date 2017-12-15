@@ -15,8 +15,12 @@ public abstract class AbstractCriteria implements Criteria {
         parentCriteria = null;
     }
 
-    public boolean isEmpty() {
+    public Boolean isEmpty() {
         return empty;
+    }
+
+    public Boolean isSpecified() {
+        return !empty;
     }
 
     @Override
@@ -24,4 +28,5 @@ public abstract class AbstractCriteria implements Criteria {
         if (nonNull(parentCriteria)) parentCriteria.present();
         empty = false;
     }
+
 }

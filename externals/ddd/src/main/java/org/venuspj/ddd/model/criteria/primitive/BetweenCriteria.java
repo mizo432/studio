@@ -3,7 +3,7 @@ package org.venuspj.ddd.model.criteria.primitive;
 import org.venuspj.ddd.model.criteria.AbstractCriteria;
 import org.venuspj.ddd.model.criteria.Criteria;
 
-public class BetweenCriteria<T> extends AbstractCriteria {
+public class BetweenCriteria<T extends Comparable<?>> extends AbstractCriteria {
     private T from;
     private T to;
 
@@ -15,7 +15,7 @@ public class BetweenCriteria<T> extends AbstractCriteria {
         super();
     }
 
-    public static <T> BetweenCriteria<T> create(Criteria aParentCriteria) {
+    public static <T extends Comparable<?>> BetweenCriteria<T> create(Criteria aParentCriteria) {
         return new BetweenCriteria<>(aParentCriteria);
     }
 

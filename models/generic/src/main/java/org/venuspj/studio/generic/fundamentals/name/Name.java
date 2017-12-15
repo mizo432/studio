@@ -1,11 +1,15 @@
 package org.venuspj.studio.generic.fundamentals.name;
 
+import org.venuspj.ddd.model.criteria.AbstractConcreteCriteria;
+import org.venuspj.ddd.model.criteria.Criteria;
+import org.venuspj.ddd.model.criteria.text.TextCriteria;
 import org.venuspj.ddd.model.value.StringValue;
 
 import java.util.function.Predicate;
 
-import static org.venuspj.util.objects2.Objects2.*;
-import static org.venuspj.util.strings2.Strings2.*;
+import static org.venuspj.util.objects2.Objects2.nonNull;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.venuspj.util.strings2.Strings2.isNotEmpty;
 
 public class Name implements StringValue {
     private String value;
@@ -43,40 +47,31 @@ public class Name implements StringValue {
         return nonNull(value) && isNotEmpty(value);
     }
 
-    public static class NameCriteria implements Predicate<Name> {
-        private EqualStringCriteria equalStringCriteria = EqualStringCriteria.emptyEqualStringCriteria();
+    public static class NameCriteria extends AbstractConcreteCriteria<Name> implements Predicate<Name> {
+        private TextCriteria textCriteria = TextCriteria.create(this);
+
+        public NameCriteria(Criteria aParentCriteria) {
+            super(aParentCriteria);
+        }
+
+        NameCriteria() {
+            super();
+        }
+
 
         @Override
         public boolean test(Name aName) {
-            return equalStringCriteria.test(aName);
+            return isEmpty() || textCriteria.test(aName.asText());
         }
 
-        NameCriteria equal(Name aName) {
-            equalStringCriteria.setSource(aName);
-            return this;
+        public void like(Name aName) {
+            textCriteria.like(aName.asText());
+            present();
         }
 
+        public static NameCriteria create(Criteria aParentCriteria) {
+            return new NameCriteria(aParentCriteria);
+        }
 
     }
-
-    private static class EqualStringCriteria implements Predicate<StringValue> {
-        private boolean isEmpty = true;
-        private StringValue source = null;
-
-        public static EqualStringCriteria emptyEqualStringCriteria() {
-            return new EqualStringCriteria();
-        }
-
-        @Override
-        public boolean test(StringValue aStringValue) {
-            if (isEmpty) return true;
-            return equal(source.asText(), aStringValue.asText());
-        }
-
-        public void setSource(StringValue aStringValue) {
-            source = aStringValue;
-            isEmpty = false;
-        }
-    }
-
 }

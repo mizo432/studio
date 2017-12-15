@@ -47,6 +47,7 @@ public abstract class AbstractConcreteCriteria<T> extends AbstractCriteria {
         inCriteria.setValue(anyCollection);
         present();
     }
+
     public NotInCriteria<T> getNotIn() {
         return notInCriteria;
     }
@@ -72,4 +73,15 @@ public abstract class AbstractConcreteCriteria<T> extends AbstractCriteria {
         return isNotNullCriteria;
     }
 
+    public boolean test(T aValue) {
+        return isSpecified() &&
+                equalCriteria.test(aValue) &&
+                notEqualCriteria.test(aValue) &&
+                inCriteria.test(aValue) &&
+                notInCriteria.test(aValue) &&
+                isNullCriteria.test(aValue) &&
+                isNotNullCriteria.test(aValue);
+
+
+    }
 }

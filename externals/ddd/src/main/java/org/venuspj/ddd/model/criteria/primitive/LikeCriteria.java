@@ -4,7 +4,9 @@ import org.venuspj.ddd.model.criteria.AbstractCriteria;
 import org.venuspj.ddd.model.criteria.Criteria;
 import org.venuspj.util.strings2.Strings2;
 
-public class LikeCriteria extends AbstractCriteria {
+import java.util.function.Predicate;
+
+public class LikeCriteria extends AbstractCriteria implements Predicate<String> {
 
     private String value;
 
@@ -19,5 +21,9 @@ public class LikeCriteria extends AbstractCriteria {
     public void setValue(String aValue) {
         value = aValue;
         present();
+    }
+
+    public boolean test(String aString) {
+        return isEmpty() || value.contains(aString);
     }
 }

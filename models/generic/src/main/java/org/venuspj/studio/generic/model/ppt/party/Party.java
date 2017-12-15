@@ -8,5 +8,6 @@ import org.venuspj.studio.generic.model.ppt.PartyPlaceThing;
  */
 public interface Party extends PartyPlaceThing<Party>, Entity<Party> {
 
+    AddressUse getCurrentAddressUse();
 
 }

@@ -3,7 +3,9 @@ package org.venuspj.ddd.model.criteria.primitive;
 import org.venuspj.ddd.model.criteria.AbstractCriteria;
 import org.venuspj.ddd.model.criteria.Criteria;
 
-public class EqualCriteria<T> extends AbstractCriteria {
+import java.util.function.Predicate;
+
+public class EqualCriteria<T> extends AbstractCriteria implements Predicate<T> {
     private T value;
 
     public EqualCriteria(Criteria aParentCriteria) {
@@ -21,5 +23,10 @@ public class EqualCriteria<T> extends AbstractCriteria {
     public void setValue(T aValue) {
         value = aValue;
         present();
+    }
+
+    public boolean test(T aValue) {
+        return isSpecified()
+                && value.equals(aValue);
     }
 }
