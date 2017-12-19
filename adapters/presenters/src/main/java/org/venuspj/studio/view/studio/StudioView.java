@@ -1,4 +1,4 @@
-package org.venuspj.studio.adapter.presenters.studio;
+package org.venuspj.studio.view.studio;
 
 import org.springframework.ui.Model;
 import org.venuspj.cleanArchitecture.presentation.View;

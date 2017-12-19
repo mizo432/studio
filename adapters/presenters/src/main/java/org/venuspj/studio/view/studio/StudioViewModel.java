@@ -1,4 +1,4 @@
-package org.venuspj.studio.adapter.presenters.studio;
+package org.venuspj.studio.view.studio;
 
 import org.venuspj.util.builder.ObjectBuilder;
 
