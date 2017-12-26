@@ -8,11 +8,14 @@ import org.venuspj.studio.generic.model.role.thigRole.ThingRoleInformation;
 
 public class Product extends ThingRoleImpl {
     public Product(Thing aThing, ThingRoleInformation aThingRoleInformation) {
-        super(aThing,aThingRoleInformation);
+        super(aThing, aThingRoleInformation);
     }
 
     public static Product empty() {
-        return new Product(ThingImpl.empty(),ThingRoleInformation.empty(new Name("Product")));
+        return new Product(ThingImpl.empty(), ThingRoleInformation.empty(new Name("Product")));
     }
 
+    public Name getThingName() {
+        return getThing().getThingInformaion().getName();
+    }
 }

@@ -5,9 +5,9 @@ import org.venuspj.ddd.model.entity.DefaultEntityIdentifier;
 import org.venuspj.ddd.model.entity.EntityIdentifier;
 import org.venuspj.studio.generic.model.ppt.party.Party;
 
-import static org.venuspj.util.objects2.Objects2.isNull;
+import static org.venuspj.util.objects2.Objects2.*;
 
-public class ThingIdentifier extends AbstractEntityIdentifier<Thing> {
+public class ThingIdentifier extends AbstractEntityIdentifier<Thing> implements Comparable<Object> {
     private final Integer value;
 
     ThingIdentifier() {

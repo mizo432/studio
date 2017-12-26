@@ -1,13 +1,13 @@
 package org.venuspj.studio.usecase.event;
 
 import org.venuspj.studio.core.model.event.Event;
-import org.venuspj.studio.core.usecase.event.EventQueryOutputPort;
+import org.venuspj.studio.core.usecase.event.FetchEventResponse;
 
 import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  */
-public class EventQueryOutputPortMock implements EventQueryOutputPort {
+public class EventQueryOutputPortMock implements FetchEventResponse {
     Event event;
 
     @Override

@@ -3,18 +3,21 @@ package org.venuspj.studio.usecase.event;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.venuspj.studio.core.model.event.*;
-import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
+import org.venuspj.studio.core.model.event.Event;
+import org.venuspj.studio.core.model.event.EventIdentifier;
+import org.venuspj.studio.core.model.event.EventMock;
+import org.venuspj.studio.core.model.event.EventRepositoryMock;
+import org.venuspj.studio.core.usecase.event.FetchEventRequest;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
+import static org.assertj.core.api.Java6Assertions.*;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class EventQueryTest {
-    EventQuery targetUseCase;
+    FetchEvent targetUseCase;
 
     @Before
     public void setUp() {
-        targetUseCase = new EventQuery(EventRepositoryMock.create());
+        targetUseCase = new FetchEvent(EventRepositoryMock.create());
     }
 
     @After
@@ -25,7 +28,7 @@ public class EventQueryTest {
     @Test
     public void start() throws Exception {
         EventIdentifier eventId = (EventIdentifier) EventMock.createDummy(EventMock.EventType.EVENT_ON_TODAY).identifier();
-        EventQueryInputPort in = new EventQueryInputPortMock(eventId);
+        FetchEventRequest in = new EventQueryInputPortMock(eventId);
         EventQueryOutputPortMock out = new EventQueryOutputPortMock();
         targetUseCase.execute(in, out);
         assertThat(out)

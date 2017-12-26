@@ -3,10 +3,12 @@ package org.venuspj.studio.web.controller.events;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.venuspj.studio.adapter.presenters.event.EventPage;
+import org.venuspj.studio.adapter.presenters.event.EventPagePresenter;
 import org.venuspj.studio.core.model.event.EventIdentifier;
-import org.venuspj.studio.core.usecase.event.EventQueryInputPort;
-import org.venuspj.studio.core.usecase.event.EventQueryUseCase;
+import org.venuspj.studio.core.usecase.event.FetchEventRequest;
+import org.venuspj.studio.core.usecase.event.FetchEventUseCase;
+import org.venuspj.studio.core.usecase.event.events.FetchEventsUseCase;
+import org.venuspj.studio.core.usecase.product.products.FetchProductsUseCase;
 
 import javax.websocket.server.PathParam;
 
@@ -15,25 +17,35 @@ import javax.websocket.server.PathParam;
  */
 @RequestMapping("events")
 public class EventController {
-    private EventQueryUseCase eventQueryUseCase;
+    private FetchEventUseCase fetchEventUseCase;
+    private FetchEventsUseCase fetchEventsUseCase;
+    private FetchProductsUseCase fetchProductsUseCase;
 
     @Autowired
-    public EventController(EventQueryUseCase aEventQueryUseCase) {
-        eventQueryUseCase = aEventQueryUseCase;
+    public EventController(FetchEventUseCase aFetchEventUseCase,
+                           FetchEventsUseCase aFetchEventsUseCase,
+                           FetchProductsUseCase aFetchProductsUseCase) {
+
+        fetchEventUseCase = aFetchEventUseCase;
+        fetchEventsUseCase = aFetchEventsUseCase;
+        fetchProductsUseCase = aFetchProductsUseCase;
     }
 
     @RequestMapping(path = "/{aEventId}")
     public String index(@PathParam("aEventId") Integer aEventId, Model model) {
-        EventPage eventPage = new EventPage();
+        EventPagePresenter eventPage = new EventPagePresenter();
         EventQueryCriteria eventQueryCriteria = new EventQueryCriteria(aEventId);
-        eventQueryUseCase.execute(eventQueryCriteria, eventPage);
-//        eventPage.createView().bind(model).getTemplate();
-        model.addAttribute("page", eventPage.getDetail());
+        fetchEventUseCase.execute(eventQueryCriteria, eventPage);
+//        fetchEventsUseCase.execute(eventQueryCriteria, eventPage);
+//        fetchProductsUseCase.execute(eventQueryCriteria, eventPage);
 
-        return "/events/detail";
+        return eventPage.createView()
+                .bind(model)
+                .getTemplatePath();
+
     }
 
-    static class EventQueryCriteria implements EventQueryInputPort {
+    static class EventQueryCriteria implements FetchEventRequest {
         EventIdentifier eventId = EventIdentifier.empty();
 
         public EventQueryCriteria(Integer aEventId) {

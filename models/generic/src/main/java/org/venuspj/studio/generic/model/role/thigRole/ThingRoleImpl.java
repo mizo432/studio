@@ -13,7 +13,7 @@ public class ThingRoleImpl extends RoleImpl implements ThingRole {
         super(aThing, aThingRoleInformation);
     }
 
-    protected Thing getThing() {
+    public Thing getThing() {
         return (Thing) super.getPartyPlaceThing();
     }
 

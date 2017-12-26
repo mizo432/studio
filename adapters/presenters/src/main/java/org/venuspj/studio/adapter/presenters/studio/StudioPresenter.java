@@ -4,16 +4,16 @@ import org.venuspj.cleanArchitecture.presentation.Presenter;
 import org.venuspj.studio.core.model.role.partyRole.organizationRole.studio.Studio;
 import org.venuspj.studio.core.usecase.studio.FetchStudioResponse;
 import org.venuspj.studio.generic.model.ppt.party.organization.OrganizationInformation;
-import org.venuspj.studio.view.studio.StudioView;
+import org.venuspj.studio.view.studio.StudioPage;
 import org.venuspj.studio.view.studio.StudioViewModel;
 
-public class StudioPresenter implements Presenter<StudioView>, FetchStudioResponse {
+public class StudioPresenter implements Presenter<StudioPage>, FetchStudioResponse {
 
     private StudioViewModel studioViewModel;
 
     @Override
-    public StudioView createView() {
-        StudioView view = new StudioView();
+    public StudioPage createView() {
+        StudioPage view = new StudioPage();
         view.setViewModel(studioViewModel);
         return view;
     }
