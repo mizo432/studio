@@ -23,7 +23,7 @@ public class EventIdentifierTest {
 
     @Test
     public void toString02() throws Exception {
-        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
         assertThat(target)
                 .isNotNull();
         assertThat(target.toString())
@@ -53,7 +53,7 @@ public class EventIdentifierTest {
 
     @Test
     public void equals1() throws Exception {
-        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
         boolean actual = target.equals(null);
         assertThat(actual)
                 .isFalse();
@@ -61,7 +61,7 @@ public class EventIdentifierTest {
 
     @Test
     public void equals2() throws Exception {
-        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
         boolean actual = target.equals(target);
         assertThat(actual)
                 .isTrue();
@@ -69,8 +69,8 @@ public class EventIdentifierTest {
 
     @Test
     public void equals3() throws Exception {
-        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
-        EventIdentifier other = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
+        EventIdentifier other = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
         boolean actual = target.equals(other);
         assertThat(actual)
                 .isTrue();
@@ -78,8 +78,8 @@ public class EventIdentifierTest {
 
     @Test
     public void equals4() throws Exception {
-        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
-        EventIdentifier other = EventIdMock.createDummy(EventIdMock.EventIDType.EVENT_ON_TOMORROW);
+        EventIdentifier target = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
+        EventIdentifier other = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.EVENT_ON_TOMORROW);
         boolean actual = target.equals(other);
         assertThat(actual)
                 .isFalse();
@@ -87,7 +87,7 @@ public class EventIdentifierTest {
 
     @Test
     public void equals5() throws Exception {
-        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
         boolean actual = target.equals(Integer.valueOf(1));
         assertThat(actual)
                 .isFalse();
@@ -95,7 +95,7 @@ public class EventIdentifierTest {
 
     @Test
     public void equals6() throws Exception {
-        EventIdentifier target = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier target = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
         DefaultEntityIdentifier<Event> other = new DefaultEntityIdentifier<>(Event.class, UUID.randomUUID());
         boolean actual = target.equals(other);
         assertThat(actual)

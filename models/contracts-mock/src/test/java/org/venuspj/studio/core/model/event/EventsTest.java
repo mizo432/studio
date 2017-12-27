@@ -12,9 +12,9 @@ public class EventsTest {
     public void eventRepository() throws Exception {
         EventRepositoryMock repository = new EventRepositoryMock(EventsMock.createDummy(EventsMock.MockType.DEFAULT).asList());
         System.out.println("repository.findAll()" + repository.asEntitiesList());
-        System.out.println("repository.findOne()" + repository.resolve(EventIdMock.createDummy(EventIdMock.EventIDType.EVENT_ON_TODAY)));
+        System.out.println("repository.findOne()" + repository.resolve(EventIdentifierMock.createDummy(EventIdentifierMock.MockType.EVENT_ON_TODAY)));
         try {
-            repository.resolve(EventIdMock.createDummy(EventIdMock.EventIDType.NOT_FOUND));
+            repository.resolve(EventIdentifierMock.createDummy(EventIdentifierMock.MockType.NOT_FOUND));
         } catch (EntityNotFoundRuntimeException e) {
             System.out.println("e:" + e);
 
@@ -23,7 +23,7 @@ public class EventsTest {
         repository.contains(otherEvent);
         System.out.println("repository.findOne()" + otherEvent);
         System.out.println("repository.findAll()" + repository.asEntitiesList());
-        repository.delete(EventIdMock.createDummy(EventIdMock.EventIDType.NOT_FOUND));
+        repository.delete(EventIdentifierMock.createDummy(EventIdentifierMock.MockType.NOT_FOUND));
         System.out.println("repository.findAll()" + repository.asEntitiesList());
 
     }

@@ -1,7 +1,7 @@
 package org.venuspj.studio.core.model.news;
 
 import org.junit.Test;
-import org.venuspj.studio.core.model.event.EventIdMock;
+import org.venuspj.studio.core.model.event.EventIdentifierMock;
 import org.venuspj.studio.core.model.event.EventIdentifier;
 
 import static org.assertj.core.api.Java6Assertions.*;
@@ -124,7 +124,7 @@ public class NewsIdentifierTest {
     @Test
     public void equals6() throws Exception {
         NewsIdentifier target = NewsIdentifierMock.createDummy(NewsMock.NewsType.NEWS1);
-        EventIdentifier other = EventIdMock.createDummy(EventIdMock.EventIDType.DEFAULT);
+        EventIdentifier other = EventIdentifierMock.createDummy(EventIdentifierMock.MockType.DEFAULT);
         boolean actual = target.equals(other);
         System.out.println("actual:" + actual);
         assertThat(actual)

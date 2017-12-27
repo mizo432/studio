@@ -28,6 +28,28 @@ public class ThingMock {
                 return new ThingImpl(getIdentifier(),
                         ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
             }
+        }, PRODUCT3 {
+            @Override
+            public ThingIdentifier getIdentifier() {
+                return new ThingIdentifier(3);
+            }
+
+            @Override
+            public Thing create() {
+                return new ThingImpl(getIdentifier(),
+                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
+            }
+        }, PRODUCT4 {
+            @Override
+            public ThingIdentifier getIdentifier() {
+                return new ThingIdentifier(4);
+            }
+
+            @Override
+            public Thing create() {
+                return new ThingImpl(getIdentifier(),
+                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
+            }
         };
 
         public abstract ThingIdentifier getIdentifier();

@@ -10,7 +10,7 @@ import org.venuspj.studio.core.model.role.partyRole.organizationRole.performer.P
 public class EventMock {
 
     public static Event createDummy(EventType anEventType) {
-        return new Event(EventIdMock.createDummy(anEventType.eventIdType()),
+        return new Event(EventIdentifierMock.createDummy(anEventType.eventIdType()),
                 anEventType.getEventInfo());
 //                OutlineMock.createDummy(anEventType.outlineType()),
 //                DescriptorMock.createDummy(anEventType.descriptorType()),
@@ -23,8 +23,8 @@ public class EventMock {
     public enum EventType {
         EVENT_ON_END_OF_LAST_MONTH {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_END_OF_LAST_MONTH;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_END_OF_LAST_MONTH;
             }
 
             @Override
@@ -38,8 +38,8 @@ public class EventMock {
             }
         }, EVENT_ON_START_OF_THIS_MONTH {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_START_OF_THIS_MONTH;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_START_OF_THIS_MONTH;
             }
 
             @Override
@@ -53,8 +53,8 @@ public class EventMock {
             }
         }, EVENT_ON_THREE_DAYS_BEFORE {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_THREE_DAYS_BEFORE;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_THREE_DAYS_BEFORE;
             }
 
             @Override
@@ -68,8 +68,8 @@ public class EventMock {
             }
         }, EVENT_ON_YESTERDAY {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_YESTERDAY;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_YESTERDAY;
             }
 
             @Override
@@ -83,8 +83,8 @@ public class EventMock {
             }
         }, EVENT_ON_TODAY {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_TODAY;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_TODAY;
             }
 
             @Override
@@ -98,8 +98,8 @@ public class EventMock {
             }
         }, EVENT_ON_TOMORROW {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_TOMORROW;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_TOMORROW;
             }
 
             @Override
@@ -113,8 +113,8 @@ public class EventMock {
             }
         }, EVENT_ON_THREE_DAYS_AFTER {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_THREE_DAYS_AFTER;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_THREE_DAYS_AFTER;
             }
 
             @Override
@@ -128,8 +128,8 @@ public class EventMock {
             }
         }, EVENT_ON_END_OF_THIS_MONTH {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_END_OF_THIS_MONTH;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_END_OF_THIS_MONTH;
             }
 
             @Override
@@ -143,8 +143,8 @@ public class EventMock {
             }
         }, EVENT_ON_START_OF_NEXT_MONTH {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EVENT_ON_START_OF_NEXT_MONTH;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EVENT_ON_START_OF_NEXT_MONTH;
             }
 
             @Override
@@ -158,8 +158,8 @@ public class EventMock {
             }
         }, NOT_FOUND {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.NOT_FOUND;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.NOT_FOUND;
             }
 
             @Override
@@ -173,8 +173,8 @@ public class EventMock {
             }
         }, EMPTY {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EMPTY;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EMPTY;
             }
 
             @Override
@@ -188,8 +188,8 @@ public class EventMock {
             }
         }, NOT_INSERTED_EVENT {
             @Override
-            public EventIdMock.EventIDType eventIdType() {
-                return EventIdMock.EventIDType.EMPTY;
+            public EventIdentifierMock.MockType eventIdType() {
+                return EventIdentifierMock.MockType.EMPTY;
             }
 
             @Override
@@ -203,7 +203,7 @@ public class EventMock {
             }
         };
 
-        public abstract EventIdMock.EventIDType eventIdType();
+        public abstract EventIdentifierMock.MockType eventIdType();
 
         public abstract OutlineMock.OutlineType outlineType();
 

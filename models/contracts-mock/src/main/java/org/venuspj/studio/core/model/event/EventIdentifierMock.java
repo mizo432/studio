@@ -3,13 +3,13 @@ package org.venuspj.studio.core.model.event;
 /**
  * Created by mizoguchi on 2017/07/16.
  */
-public class EventIdMock {
+public class EventIdentifierMock {
 
-    public static EventIdentifier createDummy(EventIDType anEventIDType) {
-        return new EventIdentifier(anEventIDType.eventIdValue());
+    public static EventIdentifier createDummy(MockType anMockType) {
+        return new EventIdentifier(anMockType.eventIdValue());
     }
 
-    public enum EventIDType {
+    public enum MockType {
         EVENT_ON_END_OF_LAST_MONTH {
             @Override
             public Integer eventIdValue() {
