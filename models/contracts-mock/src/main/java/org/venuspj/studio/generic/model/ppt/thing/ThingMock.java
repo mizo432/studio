@@ -15,7 +15,7 @@ public class ThingMock {
             @Override
             public Thing create() {
                 return new ThingImpl(getIdentifier(),
-                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
+                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.PRODUCT1));
             }
         }, PRODUCT2 {
             @Override
@@ -26,7 +26,7 @@ public class ThingMock {
             @Override
             public Thing create() {
                 return new ThingImpl(getIdentifier(),
-                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
+                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.PRODUCT2));
             }
         }, PRODUCT3 {
             @Override
@@ -37,7 +37,7 @@ public class ThingMock {
             @Override
             public Thing create() {
                 return new ThingImpl(getIdentifier(),
-                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
+                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.PRODUCT3));
             }
         }, PRODUCT4 {
             @Override
@@ -48,7 +48,7 @@ public class ThingMock {
             @Override
             public Thing create() {
                 return new ThingImpl(getIdentifier(),
-                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.EMPTY));
+                        ThingInfoMock.createDummy(ThingInfoMock.ThingInfoType.PRODUCT4));
             }
         };
 
