@@ -6,7 +6,7 @@ import org.venuspj.studio.core.model.role.thingRole.product.Product;
 import org.venuspj.studio.core.model.role.thingRole.product.ProductRepository;
 import org.venuspj.studio.core.usecase.product.FetchProductUseCase;
 import org.venuspj.studio.core.usecase.product.ProductQueryInputPort;
-import org.venuspj.studio.core.usecase.product.ProductQueryOutputPort;
+import org.venuspj.studio.core.usecase.product.FetchProductResponse;
 import org.venuspj.studio.generic.model.ppt.thing.ThingIdentifier;
 
 @Service
@@ -19,7 +19,7 @@ public class FetchProduct implements FetchProductUseCase {
     }
 
     @Override
-    public void execute(ProductQueryInputPort request, ProductQueryOutputPort response) {
+    public void execute(ProductQueryInputPort request, FetchProductResponse response) {
         ThingIdentifier productIdentifier = request.getProductIdentifier();
 
         Product product = productRepository.resolve(productIdentifier);
