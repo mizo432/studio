@@ -51,7 +51,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile group: "org.thymeleaf.extras", name: "thymeleaf-extras-java8time", version: "${thymeleafExtrasJava8timeVersion}"
     compile project(":studio-core")
-    compile project(":studio-presenters")
+    compile project(":screen-presenters")
+    compile project(":print-presenters")
     compile project(":studio-dataSources")
     compile project(":studio-use-cases")
 

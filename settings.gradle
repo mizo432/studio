@@ -17,8 +17,11 @@ project(':studio-web').projectDir = file('./bootstraps/web')
 include ':studio-manage-web'
 project(':studio-manage-web').projectDir = file('./bootstraps/manage-web')
 
-include ':studio-presenters'
-project(':studio-presenters').projectDir = file('./adapters/presenters')
+include ':screen-presenters'
+project(':screen-presenters').projectDir = file('./adapters/screen-presenters')
+
+include ':print-presenters'
+project(':print-presenters').projectDir = file('./adapters/print-presenters')
 
 include ':studio-dataSources'
 project(':studio-dataSources').projectDir = file('./adapters/datasources')

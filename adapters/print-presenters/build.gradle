@@ -1,10 +1,7 @@
 apply plugin: 'org.springframework.boot'
 
-description = "studio-presenters"
+description = "print-presenters"
 
-repositories {
-    mavenCentral()
-}
 
 bootRepackage {
     enabled = false
@@ -20,4 +17,5 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"
+    compile group: 'net.sf.jasperreports', name: 'jasperreports', version: "${jasperVersion}"
 }
