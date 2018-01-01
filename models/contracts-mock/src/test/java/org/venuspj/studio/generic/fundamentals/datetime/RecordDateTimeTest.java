@@ -53,7 +53,7 @@ public class RecordDateTimeTest {
 
     @Test
     public void empty() {
-        RecordDateTime target = RecordDateTime.empty();
+        RecordDateTime target = RecordDateTime.create();
         assertThat(target.isPresent())
                 .isTrue();
     }
@@ -68,7 +68,7 @@ public class RecordDateTimeTest {
     @Test
     public void sameValueAs1() {
         RecordDateTime target = createDummyData(TestDateKind.BASE_DATE);
-        RecordDateTime other = RecordDateTime.empty();
+        RecordDateTime other = RecordDateTime.create();
         assertThat(target.sameValueAs(other))
                 .isFalse();
     }

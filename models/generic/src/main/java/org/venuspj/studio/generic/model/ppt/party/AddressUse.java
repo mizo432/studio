@@ -16,14 +16,14 @@ import static org.venuspj.util.objects2.Objects2.*;
 public class AddressUse extends AbstractEntity<AddressUse> {
     Period period = Period.emptyPeriod();
     Place place = PlaceImpl.emptyPlace();
-    PartyIds partyIds = PartyIds.emptyPartyIds();
+    PartyIdentifiers partyIdentifiers = PartyIdentifiers.create();
     Address address = Address.defaultAddress();
 
-    public AddressUse(AddressUseIdentifier anAddressUseIdentifier, Period aPeriod, Place aPlace, PartyIds anyPartyIds, Address anAddress) {
+    public AddressUse(AddressUseIdentifier anAddressUseIdentifier, Period aPeriod, Place aPlace, PartyIdentifiers anyPartyIdentifiers, Address anAddress) {
         super(anAddressUseIdentifier);
         period = aPeriod;
         place = aPlace;
-        partyIds = anyPartyIds;
+        partyIdentifiers = anyPartyIdentifiers;
         address = anAddress;
 
     }
@@ -32,8 +32,8 @@ public class AddressUse extends AbstractEntity<AddressUse> {
         return period;
     }
 
-    public PartyIds getPartyIds() {
-        return partyIds;
+    public PartyIdentifiers getPartyIdentifiers() {
+        return partyIdentifiers;
     }
 
     public Address getAddress() {
@@ -52,7 +52,7 @@ public class AddressUse extends AbstractEntity<AddressUse> {
         AddressUseIdentifier addressUseIdentifier;
         Period period;
         Place place;
-        PartyIds partyIds;
+        PartyIdentifiers partyIdentifiers;
         Address address;
 
         @Override
@@ -60,7 +60,7 @@ public class AddressUse extends AbstractEntity<AddressUse> {
             builder.withAddressUseIdentifier(vo.getAddressUseIdentifier());
             builder.withPeriod(vo.getPeriod());
             builder.withPlace(vo.getPlace());
-            builder.withPartyIds(vo.getPartyIds());
+            builder.withPartyIds(vo.getPartyIdentifiers());
             builder.withAddress(vo.getAddress());
 
         }
@@ -77,9 +77,9 @@ public class AddressUse extends AbstractEntity<AddressUse> {
             return getThis();
         }
 
-        public Builder withPartyIds(PartyIds aPartyIds) {
-            if (isNull(aPartyIds)) return getThis();
-            addConfigurator(builder -> builder.partyIds = aPartyIds);
+        public Builder withPartyIds(PartyIdentifiers aPartyIdentifiers) {
+            if (isNull(aPartyIdentifiers)) return getThis();
+            addConfigurator(builder -> builder.partyIdentifiers = aPartyIdentifiers);
             return getThis();
 
         }
@@ -99,7 +99,7 @@ public class AddressUse extends AbstractEntity<AddressUse> {
 
         @Override
         protected AddressUse createValueObject() {
-            return new AddressUse(addressUseIdentifier, period, place, partyIds, address);
+            return new AddressUse(addressUseIdentifier, period, place, partyIdentifiers, address);
         }
 
         @Override

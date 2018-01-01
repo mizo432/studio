@@ -5,7 +5,10 @@ import org.venuspj.ddd.model.value.Value;
 import org.venuspj.util.objects2.Objects2;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.function.Predicate;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 /**
  * 日付：年月日を示す
@@ -31,14 +34,14 @@ public class RecordDate implements Value, DecidableSameValueAs<RecordDate> {
 
     @Override
     public String toString() {
-        return Objects2.toStringHelper(this)
+        return toStringHelper(this)
                 .addValue(value)
                 .toString();
     }
 
     @Override
     public boolean sameValueAs(RecordDate other) {
-        return Objects2.nonNull(other) && Objects2.equal(value, other.value);
+        return Objects2.nonNull(other) && equal(value, other.value);
     }
 
     public boolean isPresent() {
@@ -51,7 +54,7 @@ public class RecordDate implements Value, DecidableSameValueAs<RecordDate> {
         RecordDate that;
         if (obj instanceof RecordDate) {
             that = (RecordDate) obj;
-            if (Objects2.equal(value, that.value)) return true;
+            if (equal(value, that.value)) return true;
         }
         return false;
     }
@@ -59,6 +62,10 @@ public class RecordDate implements Value, DecidableSameValueAs<RecordDate> {
     @Override
     public int hashCode() {
         return Objects2.hash(value);
+    }
+
+    public String getDisplayShortDate() {
+        return value.format(DateTimeFormatter.ofPattern("uuuu-MM-dd"));
     }
 
     public static class RecordDateCriteria implements Predicate<RecordDate> {

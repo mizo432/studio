@@ -3,9 +3,10 @@ package org.venuspj.studio.generic.fundamentals.datetime;
 import org.venuspj.ddd.model.value.DecidableSameValueAs;
 import org.venuspj.ddd.model.value.Value;
 import org.venuspj.util.dateProvider.DateProvider;
-import org.venuspj.util.objects2.Objects2;
 
 import java.time.LocalDateTime;
+
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTime> {
     private LocalDateTime value;
@@ -23,7 +24,7 @@ public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTim
         return new RecordDateTime(DateProvider.currentDateTime());
     }
 
-    public static RecordDateTime empty() {
+    public static RecordDateTime create() {
         return new RecordDateTime(DateProvider.currentDateTime());
     }
 
@@ -33,20 +34,19 @@ public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTim
 
     @Override
     public String toString() {
-        return Objects2
-                .toStringHelper(this)
+        return toStringHelper(this)
                 .addValue(value)
                 .toString();
     }
 
     @Override
     public boolean sameValueAs(RecordDateTime other) {
-        return Objects2.nonNull(other) &&
-                Objects2.equal(value, other.value);
+        return nonNull(other) &&
+                equal(value, other.value);
     }
 
     public boolean isPresent() {
-        return Objects2.nonNull(value);
+        return nonNull(value);
     }
 
     public RecordDate asDate() {
@@ -69,6 +69,6 @@ public class RecordDateTime implements Value, DecidableSameValueAs<RecordDateTim
 
     @Override
     public int hashCode() {
-        return Objects2.hash(value);
+        return hash(value);
     }
 }

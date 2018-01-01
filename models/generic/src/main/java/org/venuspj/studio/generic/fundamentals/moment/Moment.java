@@ -26,6 +26,6 @@ public class Moment {
     }
 
     public static Moment empty() {
-        return new Moment(RecordDateTime.empty(), null);
+        return new Moment(RecordDateTime.create(), null);
     }
 }

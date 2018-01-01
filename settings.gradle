@@ -11,29 +11,29 @@ project(':ddd').projectDir = file('./externals/ddd')
 include ':generic'
 project(':generic').projectDir = file('./models/generic')
 
-include ':studio-web'
-project(':studio-web').projectDir = file('./bootstraps/web')
-
-include ':studio-manage-web'
-project(':studio-manage-web').projectDir = file('./bootstraps/manage-web')
-
 include ':screen-presenters'
 project(':screen-presenters').projectDir = file('./adapters/screen-presenters')
 
 include ':print-presenters'
 project(':print-presenters').projectDir = file('./adapters/print-presenters')
 
-include ':studio-dataSources'
-project(':studio-dataSources').projectDir = file('./adapters/datasources')
+include ':dataSources'
+project(':dataSources').projectDir = file('./adapters/datasources')
 
-include ':studio-use-cases'
-project(':studio-use-cases').projectDir = file('./applications/usecases')
+include ':use-cases'
+project(':use-cases').projectDir = file('./applications/usecases')
 
 include ':studio-core'
 project(':studio-core').projectDir = file('./models/core')
 
-include ':studio-contracts'
-project(':studio-contracts').projectDir = file('./models/contracts')
+include ':contracts'
+project(':contracts').projectDir = file('./models/contracts')
 
-include ':studio-contracts-mock'
-project(':studio-contracts-mock').projectDir = file('./models/contracts-mock')
+include ':contracts-mock'
+project(':contracts-mock').projectDir = file('./models/contracts-mock')
+
+include ':studio-web'
+project(':studio-web').projectDir = file('./bootstraps/web')
+
+include ':studio-manage-web'
+project(':studio-manage-web').projectDir = file('./bootstraps/manage-web')

@@ -58,5 +58,6 @@ public class ProductSummaryViewModel {
         protected Builder newInstance() {
             return new Builder();
         }
+
     }
 }

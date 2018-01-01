@@ -1,7 +1,7 @@
 package org.venuspj.studio.web.controller.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.venuspj.studio.adapter.presenters.product.FetchProductPresenter;
+import org.venuspj.studio.adapter.presenters.product.ProductPagePresenter;
 import org.venuspj.studio.core.usecase.product.FetchProductUseCase;
 import org.venuspj.studio.core.usecase.product.ProductQueryInputPort;
 import org.venuspj.studio.generic.model.ppt.thing.ThingIdentifier;
@@ -26,7 +26,7 @@ public class ProductController {
         };
 //        ProductId(new StudioCode("LHS"), aProductId));
 
-        FetchProductPresenter outputPort = new FetchProductPresenter();
+        ProductPagePresenter outputPort = new ProductPagePresenter();
         productQuery.execute(inputPort, outputPort);
 
         return "";

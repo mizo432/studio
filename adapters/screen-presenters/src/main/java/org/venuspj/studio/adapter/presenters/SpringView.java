@@ -6,5 +6,5 @@ import org.venuspj.cleanArchitecture.presentation.View;
 public interface SpringView<D> extends View<D> {
     String getTemplatePath();
 
-    SpringView<D> bind(Model model);
+    SpringView<D> bind(Model aModel);
 }

@@ -53,8 +53,8 @@ dependencies {
     compile project(":studio-core")
     compile project(":screen-presenters")
     compile project(":print-presenters")
-    compile project(":studio-dataSources")
-    compile project(":studio-use-cases")
+    compile project(":dataSources")
+    compile project(":use-cases")
 
     runtime("org.mybatis.spring.boot:mybatis-spring-boot-starter:${myBatisSpringBootVersion}")
     runtime("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypehandlersJsr310Version}")

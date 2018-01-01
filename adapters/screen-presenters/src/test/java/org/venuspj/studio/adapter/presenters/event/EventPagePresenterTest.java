@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.venuspj.studio.core.model.event.EventMock;
 import org.venuspj.studio.core.model.event.EventsMock;
 import org.venuspj.studio.core.model.role.thingRole.ProductsMock;
-import org.venuspj.studio.view.event.EventPage;
 
 import static org.venuspj.util.logger.LoggerFactory.*;
 import static org.venuspj.util.objects2.Objects2.*;

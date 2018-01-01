@@ -58,8 +58,8 @@ dependencies {
     compile project(":studio-core")
     compile project(":screen-presenters")
     compile project(":print-presenters")
-    compile project(":studio-dataSources")
-    compile project(":studio-use-cases")
+    compile project(":dataSources")
+    compile project(":use-cases")
 
 //    compile group: "org.springframework.security.oauth", name: "spring-security-oauth2", version: "${springSecurityOauth2Version}"
     runtime('org.springframework.boot:spring-boot-devtools')

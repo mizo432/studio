@@ -12,8 +12,8 @@ bootRepackage {
 dependencies {
     compile project(":studio-core")
     compile project(":clean-architecture")
-    compile project(":studio-contracts")
-    testCompile project(":studio-contracts-mock")
+    compile project(":contracts")
+    testCompile project(":contracts-mock")
     compile("org.springframework.boot:spring-boot-starter")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"

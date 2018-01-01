@@ -18,6 +18,14 @@ public class ProductsViewModel extends AbstractListValue<ProductSummaryViewModel
         super(anyProducts);
     }
 
+    ProductsViewModel() {
+
+    }
+
+    public static ProductsViewModel create() {
+        return new ProductsViewModel();
+    }
+
     public static class Builder extends ObjectBuilder<ProductsViewModel, Builder> {
         private List<ProductSummaryViewModel> list = newArrayList();
 

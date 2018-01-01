@@ -41,14 +41,14 @@ dependencies {
     def jdbcDriver = "mysql:mysql-connector-java:${mySqlConnectorVersion}"
 
     compile project(":studio-core")
-    compile project(":studio-contracts")
+    compile project(":contracts")
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:${myBatisSpringBootVersion}")
     compile("org.mybatis:mybatis-typehandlers-jsr310:${mybatisTypehandlersJsr310Version}")
     compile("org.slf4j:slf4j-api:${slf4jVersion}")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile project(":studio-contracts-mock")
+    testCompile project(":contracts-mock")
     testRuntime("${jdbcDriver}")
     testRuntime group: 'ch.qos.logback', name: 'logback-core', version: "${logbackVersion}"
     testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: "${logbackVersion}"

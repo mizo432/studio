@@ -3,7 +3,7 @@ package org.venuspj.studio.web.controller.role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.venuspj.studio.adapter.presenters.studio.StudioPresenter;
+import org.venuspj.studio.adapter.presenters.studio.StudioPagePresenter;
 import org.venuspj.studio.core.usecase.studio.FetchStudioRequest;
 import org.venuspj.studio.core.usecase.studio.FetchStudioUseCase;
 
@@ -22,8 +22,8 @@ public class StudioController {
                       @PathVariable("studioCode") String studioCode) {
 
         FetchStudioRequest request = new FetchStudioRequest(studioCode);
-        StudioPresenter response = new StudioPresenter();
-        fetchStudioUseCase.execute(request,response);
+        StudioPagePresenter response = new StudioPagePresenter();
+        fetchStudioUseCase.execute(request, response);
 
         return response
                 .createView()

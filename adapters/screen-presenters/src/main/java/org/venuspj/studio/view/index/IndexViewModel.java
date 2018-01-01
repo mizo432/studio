@@ -1,24 +1,24 @@
 package org.venuspj.studio.view.index;
 
 import org.venuspj.studio.view.event.events.EventsViewModel;
-import org.venuspj.studio.view.topic.news.NewsViewModel;
-import org.venuspj.studio.view.player.players.PlayersViewModel;
+import org.venuspj.studio.view.product.products.ProductsViewModel;
+import org.venuspj.studio.view.topic.topics.TopicsViewModel;
 import org.venuspj.util.builder.ObjectBuilder;
 
-import static org.venuspj.util.objects2.Objects2.isNull;
+import static org.venuspj.util.objects2.Objects2.*;
 
 public class IndexViewModel {
-    private PlayersViewModel players;
-    private EventsViewModel events;
-    private NewsViewModel news;
+    private final ProductsViewModel products;
+    private final EventsViewModel events;
+    private final TopicsViewModel news;
 
-    public IndexViewModel(PlayersViewModel anyPlayers, EventsViewModel anyEvents, NewsViewModel anyNews) {
-        players = anyPlayers;
+    public IndexViewModel(ProductsViewModel anyProducts, EventsViewModel anyEvents, TopicsViewModel anyNews) {
+        products = anyProducts;
         events = anyEvents;
         news = anyNews;
     }
 
-    public NewsViewModel getNews() {
+    public TopicsViewModel getNews() {
         return news;
     }
 
@@ -26,28 +26,29 @@ public class IndexViewModel {
         return events;
     }
 
-    public PlayersViewModel getPlayers() {
-        return players;
+    public ProductsViewModel getProducts() {
+        return products;
     }
 
     public static class Builder extends ObjectBuilder<IndexViewModel, Builder> {
-        private PlayersViewModel players = PlayersViewModel.create();
+        private ProductsViewModel products = ProductsViewModel.create();
         private EventsViewModel events = EventsViewModel.create();
-        private NewsViewModel news = NewsViewModel.create();
+        private TopicsViewModel news = TopicsViewModel.create();
 
         @Override
         protected void apply(IndexViewModel vo, Builder builder) {
-            builder.withPlayers(vo.getPlayers());
+            builder.withProducts(vo.getProducts());
             builder.withEvents(vo.getEvents());
             builder.withNews(vo.getNews());
 
         }
 
-        public Builder withPlayers(PlayersViewModel anyPlayers) {
-            if (isNull(anyPlayers)) return getThis();
-            addConfigurator(builder -> builder.players = anyPlayers);
+        private Builder withProducts(ProductsViewModel anyProducts) {
+            if (isNull(anyProducts)) return getThis();
+            addConfigurator(builder -> builder.products = anyProducts);
             return getThis();
         }
+
 
         public Builder withEvents(EventsViewModel anyEvents) {
             if (isNull(anyEvents)) return getThis();
@@ -55,7 +56,7 @@ public class IndexViewModel {
             return getThis();
         }
 
-        public Builder withNews(NewsViewModel anyNews) {
+        public Builder withNews(TopicsViewModel anyNews) {
             if (isNull(anyNews)) return getThis();
             addConfigurator(builder -> builder.news = anyNews);
             return getThis();
@@ -63,7 +64,7 @@ public class IndexViewModel {
 
         @Override
         protected IndexViewModel createValueObject() {
-            return new IndexViewModel(players, events, news);
+            return new IndexViewModel(products, events, news);
         }
 
         @Override
