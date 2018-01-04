@@ -17,7 +17,7 @@ public class TopicIdentifierTest {
         System.out.println("actual:" + actual);
         assertThat(actual)
                 .isNotNull()
-                .isEqualTo(1654085297);
+                .isEqualTo(1742520655);
 
     }
 
@@ -28,7 +28,7 @@ public class TopicIdentifierTest {
         System.out.println("actual:" + actual);
         assertThat(actual)
                 .isNotNull()
-                .isEqualTo(1654085296);
+                .isEqualTo(1742520654);
 
     }
 
@@ -39,7 +39,7 @@ public class TopicIdentifierTest {
         System.out.println("actual:" + actual);
         assertThat(actual)
                 .isNotNull()
-                .isEqualTo(1654085296);
+                .isEqualTo(1742520654);
 
     }
 
