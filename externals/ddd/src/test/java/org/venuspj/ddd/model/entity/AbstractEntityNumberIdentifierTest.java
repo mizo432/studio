@@ -43,6 +43,13 @@ public class AbstractEntityNumberIdentifierTest {
                 .isEqualTo(-2066598499);
     }
 
+    @Test
+    public void isEmpty1() {
+        ConcreteNumberIdentifier target = new ConcreteNumberIdentifier();
+        assertThat(target.isEmpty())
+                .isTrue();
+    }
+
     private static class ConcreteNumberIdentifier extends AbstractEntityNumberIdentifier<ConcreteEntity> {
         ConcreteNumberIdentifier(){
            super(ConcreteEntity.class);
