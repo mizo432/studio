@@ -1,13 +1,14 @@
 package org.venuspj.studio.core.model.topic;
 
 
+import org.venuspj.studio.core.model.topic.infomation.TopicInformation;
 import org.venuspj.studio.generic.fundamentals.note.NoteMock;
 
 /**
  */
 public class TopicMock {
     public static Topic createDummy(MockType aMockType) {
-        return new Topic(TopicIdentifierMock.createDummy(aMockType), TitleMock.createDummy(aMockType), NoteMock.createDummy(aMockType.noteType()));
+        return aMockType.create();
     }
 
     public enum MockType {
@@ -21,6 +22,12 @@ public class TopicMock {
             public NoteMock.NoteType noteType() {
                 return NoteMock.NoteType.NEWS1_NOTE;
             }
+
+
+            @Override
+            public TopicInformation createTopicInformation(MockType aMockType) {
+                return TopicInformation.create();
+            }
         }, NEWS1 {
             @Override
             public Integer idValue() {
@@ -31,6 +38,12 @@ public class TopicMock {
             public NoteMock.NoteType noteType() {
                 return NoteMock.NoteType.NEWS1_NOTE;
             }
+
+            @Override
+            public Topic create() {
+                return null;
+            }
+
         }, NEWS2 {
             @Override
             public Integer idValue() {
@@ -131,5 +144,17 @@ public class TopicMock {
         }
 
         public abstract NoteMock.NoteType noteType();
+
+        public Topic create() {
+            return new Topic(TopicIdentifierMock.createDummy(this)
+                    , TopicInformationMock.create(this)
+            );
+        }
+
+        public TopicInformation createTopicInformation(MockType aMockType) {
+            return new TopicInformation.Builder()
+                    .withNote(NoteMock.createDummy(noteType()))
+                    .build();
+        }
     }
 }

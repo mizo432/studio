@@ -23,4 +23,8 @@ public class Title implements StringValue {
     public String asText() {
         return value;
     }
+
+    public static Title create() {
+        return new Title();
+    }
 }

@@ -3,12 +3,11 @@ package org.venuspj.studio.generic.fundamentals.note;
 import org.venuspj.studio.generic.fundamentals.datetime.RecordDateTime;
 import org.venuspj.studio.generic.fundamentals.description.Description;
 import org.venuspj.util.dateProvider.DateProvider;
-import org.venuspj.util.objects2.Objects2;
 
 public class Note {
-    protected Description description;
-    protected RecordDateTime dateTimeOfRecord;
-    protected NoteWriter writer;
+    protected Description description = Description.empty();
+    protected RecordDateTime dateTimeOfRecord = new RecordDateTime(DateProvider.currentDateTime());
+    protected NoteWriter writer = new EmptyNoteWriter();
 
     Note() {
     }
@@ -25,14 +24,8 @@ public class Note {
                 new EmptyNoteWriter());
     }
 
-    @Override
-    public String toString() {
-        return Objects2
-                .toStringHelper(this)
-                .add("description", description)
-                .add("dateTimeOfRecord", dateTimeOfRecord)
-                .add("writer", writer)
-                .omitNullValues()
-                .toString();
+
+    public static Note create() {
+        return new Note();
     }
 }
