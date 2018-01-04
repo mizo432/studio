@@ -7,16 +7,35 @@ import static org.venuspj.util.objects2.Objects2.*;
 
 public class PlayerSummaryViewModel {
 
+    private String playerName;
+
+    PlayerSummaryViewModel(String aPlayerName) {
+        playerName = aPlayerName;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
     public static class Builder extends ObjectBuilder<PlayerSummaryViewModel, Builder> {
+        private String playerName;
 
         @Override
         protected void apply(PlayerSummaryViewModel vo, Builder aBuilder) {
+            aBuilder.withPlayerName(vo.getPlayerName());
+
+        }
+
+        public Builder withPlayerName(String aPlayerName) {
+            if (isNull(aPlayerName)) return getThis();
+            addConfigurator(builder -> builder.playerName = aPlayerName);
+            return getThis();
 
         }
 
         @Override
         protected PlayerSummaryViewModel createValueObject() {
-            return new PlayerSummaryViewModel();
+            return new PlayerSummaryViewModel(playerName);
         }
 
         @Override

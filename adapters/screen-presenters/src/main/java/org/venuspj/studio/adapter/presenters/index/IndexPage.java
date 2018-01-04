@@ -14,12 +14,12 @@ import static org.venuspj.util.objects2.Objects2.*;
 public class IndexPage implements SpringView<IndexViewModel> {
 
     private static final String INDEX_PAGE_TEMPLATE = "/index";
-    private TopicsViewModel news;
+    private TopicsViewModel topics;
     private EventsViewModel events;
     private ProductsViewModel products;
 
     public IndexPage(TopicsViewModel anyNews, EventsViewModel anyEvents, ProductsViewModel anyProducts) {
-        news = anyNews;
+        topics = anyNews;
         events = anyEvents;
         products = anyProducts;
     }
@@ -31,7 +31,7 @@ public class IndexPage implements SpringView<IndexViewModel> {
 
     @Override
     public SpringView<IndexViewModel> bind(Model model) {
-        model.addAttribute("news", news);
+        model.addAttribute("topics", topics);
         model.addAttribute("events", events);
         model.addAttribute("products", products);
         return this;
@@ -39,14 +39,14 @@ public class IndexPage implements SpringView<IndexViewModel> {
 
     @Override
     public View<IndexViewModel> setViewModel(IndexViewModel aViewModel) {
-        news = aViewModel.getNews();
+        topics = aViewModel.getNews();
         events = aViewModel.getEvents();
         products = aViewModel.getProducts();
         return this;
     }
 
     public static class Builder extends ObjectBuilder<IndexPage, Builder> {
-        private TopicsViewModel news;
+        private TopicsViewModel topics;
         private EventsViewModel events;
         private ProductsViewModel products;
 
@@ -57,7 +57,7 @@ public class IndexPage implements SpringView<IndexViewModel> {
 
         @Override
         protected IndexPage createValueObject() {
-            return new IndexPage(news, events, products);
+            return new IndexPage(topics, events, products);
         }
 
         @Override
@@ -83,9 +83,9 @@ public class IndexPage implements SpringView<IndexViewModel> {
 
         }
 
-        public Builder withNews(TopicsViewModel anyNews) {
-            if (isNull(anyNews)) return getThis();
-            addConfigurator(builder -> builder.news = anyNews);
+        public Builder withTopics(TopicsViewModel anyTopics) {
+            if (isNull(anyTopics)) return getThis();
+            addConfigurator(builder -> builder.topics = anyTopics);
             return getThis();
         }
     }
