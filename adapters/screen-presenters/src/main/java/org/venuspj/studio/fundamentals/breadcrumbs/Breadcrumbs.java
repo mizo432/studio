@@ -1,23 +1,22 @@
 package org.venuspj.studio.fundamentals.breadcrumbs;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import static org.venuspj.util.collect.Lists2.addAll;
 import static org.venuspj.util.collect.Lists2.newArrayList;
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
-public class Breadcrumbs {
+public class Breadcrumbs implements Iterable<Breadcrumb> {
 
-    List<Breadcrumb> list = newArrayList();
+    private List<Breadcrumb> list = newArrayList();
 
-    public Breadcrumbs(Iterable<Breadcrumb> iterable) {
-        addAll(list, iterable);
+    public Breadcrumbs(Collection<Breadcrumb> anyCollection) {
+        addAll(list, anyCollection);
     }
 
     @Override
-    public String toString() {
-        return toStringHelper(this)
-                .addValue(list)
-                .toString();
+    public Iterator<Breadcrumb> iterator() {
+        return list.iterator();
     }
 }

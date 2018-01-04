@@ -1,34 +1,33 @@
 package org.venuspj.studio.web.controller.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.venuspj.studio.adapter.presenters.product.ProductPagePresenter;
 import org.venuspj.studio.core.usecase.product.FetchProductUseCase;
-import org.venuspj.studio.core.usecase.product.ProductQueryInputPort;
-import org.venuspj.studio.generic.model.ppt.thing.ThingIdentifier;
+import org.venuspj.studio.web.controller.product.requests.ProductPageRequest;
 
 public class ProductController {
 
-    FetchProductUseCase productQuery;
+    FetchProductUseCase fetchProductUseCase;
 
     @Autowired
-    public ProductController(FetchProductUseCase aProductQuery) {
-        productQuery = aProductQuery;
+    public ProductController(FetchProductUseCase aFetchProductUseCase) {
+        fetchProductUseCase = aFetchProductUseCase;
 
     }
 
-    public String get(Integer aProductId) {
+    public String get(Integer aProductId, Model model) {
 
-        ProductQueryInputPort inputPort = new ProductQueryInputPort() {
-            @Override
-            public ThingIdentifier getProductIdentifier() {
-                return ThingIdentifier.empty();
-            }
-        };
-//        ProductId(new StudioCode("LHS"), aProductId));
+        ProductPageRequest request = new ProductPageRequest(aProductId);
 
         ProductPagePresenter outputPort = new ProductPagePresenter();
-        productQuery.execute(inputPort, outputPort);
 
-        return "";
+        fetchProductUseCase.execute(request, outputPort);
+
+        return outputPort
+                .createView()
+                .bind(model)
+                .getTemplatePath();
+
     }
 }

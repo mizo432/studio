@@ -6,6 +6,8 @@ import org.venuspj.studio.adapter.presenters.SpringView;
 import org.venuspj.studio.view.player.PlayerViewModel;
 import org.venuspj.studio.view.product.ProductViewModel;
 
+import static org.venuspj.util.objects2.Objects2.nonNull;
+
 public class ProductPage implements SpringView<ProductViewModel> {
     private static final String PRODUCT_PAGE_TEMPLATE = "/product";
     ProductViewModel productViewModel;
@@ -13,14 +15,23 @@ public class ProductPage implements SpringView<ProductViewModel> {
 
     @Override
     public String getTemplatePath() {
-        return PRODUCT_PAGE_TEMPLATE;
+        if (existsProduct())
+            return PRODUCT_PAGE_TEMPLATE;
+
+        return "/404";
     }
 
     @Override
     public SpringView<ProductViewModel> bind(Model model) {
-        model.addAttribute("product", productViewModel);
-        model.addAttribute("player", playerViewModel);
+        if (existsProduct()) {
+            model.addAttribute("product", productViewModel);
+            model.addAttribute("player", playerViewModel);
+        }
         return this;
+    }
+
+    private boolean existsProduct() {
+        return nonNull(productViewModel.getProductCode());
     }
 
     @Override

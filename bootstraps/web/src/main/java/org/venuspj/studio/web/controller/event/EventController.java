@@ -1,4 +1,4 @@
-package org.venuspj.studio.web.controller.events;
+package org.venuspj.studio.web.controller.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;

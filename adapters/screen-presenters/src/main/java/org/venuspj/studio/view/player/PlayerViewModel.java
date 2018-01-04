@@ -7,12 +7,15 @@ import static org.venuspj.util.objects2.Objects2.*;
 
 public class PlayerViewModel {
 
+
     public static class Builder extends ObjectBuilder<PlayerViewModel, Builder> {
 
         @Override
         protected void apply(PlayerViewModel vo, Builder aBuilder) {
+//            aBuilder.withProductCode(vo.productCode);
 
         }
+
 
         @Override
         protected PlayerViewModel createValueObject() {

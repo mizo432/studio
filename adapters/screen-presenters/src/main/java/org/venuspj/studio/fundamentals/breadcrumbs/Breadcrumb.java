@@ -5,24 +5,22 @@ import org.venuspj.studio.generic.fundamentals.url.Uri;
 
 import static org.venuspj.util.objects2.Objects2.equal;
 import static org.venuspj.util.objects2.Objects2.hash;
-import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 public class Breadcrumb {
-    Caption text;
-    Uri path;
+    private Caption text;
+    private Uri path;
 
     public Breadcrumb(Caption aText, Uri aPath) {
         text = aText;
         path = aPath;
     }
 
-    @Override
-    public String toString() {
-        return toStringHelper(this)
-                .add("text", text)
-                .add("path", path)
-                .omitNullValues()
-                .toString();
+    public Caption getText() {
+        return text;
+    }
+
+    public Uri getPath() {
+        return path;
     }
 
     @Override
