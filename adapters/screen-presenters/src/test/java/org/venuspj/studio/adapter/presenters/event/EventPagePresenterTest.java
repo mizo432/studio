@@ -5,11 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.venuspj.studio.core.model.event.EventMock;
-import org.venuspj.studio.core.model.event.EventsMock;
-import org.venuspj.studio.core.model.role.thingRole.ProductsMock;
+import org.venuspj.studio.view.event.EventViewModel;
+import org.venuspj.studio.view.player.players.PlayersViewModel;
 
-import static org.venuspj.util.logger.LoggerFactory.*;
-import static org.venuspj.util.objects2.Objects2.*;
+import static org.venuspj.util.logger.LoggerFactory.getLogger;
+import static org.venuspj.util.objects2.Objects2.toStringHelper;
 
 public class EventPagePresenterTest {
     private static final Logger LOGGER = getLogger();
@@ -30,8 +30,9 @@ public class EventPagePresenterTest {
     @Test
     public void createView() throws Exception {
         eventPagePresenter.setEvent(EventMock.createDummy(EventMock.EventType.EVENT_ON_END_OF_LAST_MONTH));
-        eventPagePresenter.setProducts(ProductsMock.createDummy(ProductsMock.MockType.ALL));
         EventPage actual = eventPagePresenter.createView();
+        actual.setViewModel(new EventViewModel.Builder().build());
+        actual.setViewModel(PlayersViewModel.create());
         LOGGER.debug("actual:{}", toStringHelper(actual).defaultConfig().toString());
     }
 }
