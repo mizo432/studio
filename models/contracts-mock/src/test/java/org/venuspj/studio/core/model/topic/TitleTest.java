@@ -20,7 +20,7 @@ public class TitleTest {
 
     @Test
     public void asText2() throws Exception {
-        Title target = new Title();
+        Title target = Title.create();
         String actual = target.asText();
         System.out.println("actual:" + actual);
         assertThat(actual)

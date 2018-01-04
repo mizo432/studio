@@ -43,7 +43,8 @@ public class EventPagePresenter implements Presenter<EventPage>, FetchEventRespo
     }
 
     private EventViewModel createEventViewModel() {
-        return new EventViewModel.Builder()
+        return new EventViewModel
+                .Builder()
                 .withEventName(event.getInfo().getDescriptor().getName().asText())
                 .build();
     }

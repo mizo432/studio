@@ -30,7 +30,6 @@ public class EventPagePresenterTest {
     @Test
     public void createView() throws Exception {
         eventPagePresenter.setEvent(EventMock.createDummy(EventMock.EventType.EVENT_ON_END_OF_LAST_MONTH));
-        eventPagePresenter.setEvents(EventsMock.createDummy(EventsMock.MockType.DEFAULT));
         eventPagePresenter.setProducts(ProductsMock.createDummy(ProductsMock.MockType.ALL));
         EventPage actual = eventPagePresenter.createView();
         LOGGER.debug("actual:{}", toStringHelper(actual).defaultConfig().toString());
